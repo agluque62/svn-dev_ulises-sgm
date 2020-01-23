@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BtnExcelResource1.AlternateText" xml:space="preserve">
+    <value>Exportar a Excel</value>
+  </data>
+  <data name="BtnExcelResource1.ToolTip" xml:space="preserve">
+    <value>Exportar a Excel</value>
+    <comment>Tooltip de la imagen de exporta a Excel</comment>
+  </data>
+  <data name="BtnPdfResource1.AlternateText" xml:space="preserve">
+    <value>Exportar a PDF</value>
+  </data>
+  <data name="BtnPdfResource1.ToolTip" xml:space="preserve">
+    <value>Imprimir en PDF</value>
+    <comment>Tooltip de la imagen de exporta a PDF</comment>
+  </data>
+  <data name="LB_APLICACION_RES.Text" xml:space="preserve">
+    <value>INFORMES DE CONFIGURACIÓN ULISES-5000</value>
+  </data>
+  <data name="LB_SISTEMA" xml:space="preserve">
+    <value>Sistema:</value>
+    <comment>Report: Sistema</comment>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>Informe de Configuración de Hardware</value>
+  </data>
+  <data name="PAGINA" xml:space="preserve">
+    <value>Página</value>
+    <comment>Report: página N/M</comment>
+  </data>
+  <data name="LB_INFORME_ELEMENTOS_FISICOS" xml:space="preserve">
+    <value>Informe de Elementos Físicos</value>
+    <comment>Informe configuración de elementos físicos: titulo del informe</comment>
+  </data>
+  <data name="SUBINF_TO_LC_DIRECCION_IP" xml:space="preserve">
+    <value>DIRECCIÓN IP</value>
+    <comment>Sub Informe Terminal de operador: título de la columna DIRECCIONES IP</comment>
+  </data>
+  <data name="SUBINF_TO_LC_GRABADORES" xml:space="preserve">
+    <value>GRABADORES</value>
+    <comment>SubInforme Terminal de operador: título de la columna GRABADORES</comment>
+  </data>
+  <data name="SUBINF_TO_LC_IDTOP" xml:space="preserve">
+    <value>IDENTIFICADOR</value>
+    <comment>SubInforme Terminal de operador: título de la columna IDENTIFICADOR</comment>
+  </data>
+  <data name="SUBINF_TO_LC_POSICION_SAFTA" xml:space="preserve">
+    <value>POSICIÓN SACTA</value>
+    <comment>SubInforme Terminal de operador: título de la columna POSICION SACTA</comment>
+  </data>
+  <data name="LB_SUBINFORME_TERMINAL_OPERADOR" xml:space="preserve">
+    <value>TERMINALES DE OPERADOR</value>
+    <comment>Sub Informe Terminal de operador: Título del subinforme de Terminales de Operador</comment>
+  </data>
+  <data name="LB_SUBINFORME_PASARELAS" xml:space="preserve">
+    <value>PASARELAS</value>
+    <comment>SubInforme Pasarelas: Título</comment>
+  </data>
+  <data name="PASARELA_INTERFAZ_1" xml:space="preserve">
+    <value>LCEN</value>
+    <comment>SubInforme Pasarelas: interfaz con valor 1 (LCEN)</comment>
+  </data>
+  <data name="PASARELA_INTERFAZ_13" xml:space="preserve">
+    <value>E&amp;M PP</value>
+    <comment>SubInforme Pasarelas: interfaz con valor 13 (E&amp;M PP)</comment>
+  </data>
+  <data name="PASARELA_INTERFAZ_14" xml:space="preserve">
+    <value>E&amp;M Marcación</value>
+    <comment>SubInforme Pasarelas: interfaz con valor 14 (E&amp;M Marcación)</comment>
+  </data>
+  <data name="PASARELA_INTERFAZ_2" xml:space="preserve">
+    <value>BC</value>
+    <comment>SubInforme Pasarelas: interfaz con valor 2 (BC)</comment>
+  </data>
+  <data name="PASARELA_INTERFAZ_3" xml:space="preserve">
+    <value>BL</value>
+    <comment>SubInforme Pasarelas: interfaz con valor 3 (BL)</comment>
+  </data>
+  <data name="PASARELA_INTERFAZ_4" xml:space="preserve">
+    <value>AB</value>
+    <comment>SubInforme Pasarelas: interfaz con valor 4 (AB)</comment>
+  </data>
+  <data name="PASARELA_INTERFAZ_5" xml:space="preserve">
+    <value>ATS-R2</value>
+    <comment>SubInforme Pasarelas: interfaz con valor 5 (ATS-R2)</comment>
+  </data>
+  <data name="PASARELA_INTERFAZ_6" xml:space="preserve">
+    <value>ATS-N5</value>
+    <comment>SubInforme Pasarelas: interfaz con valor 6 (ATS-N5)</comment>
+  </data>
+  <data name="PASARELA_INTERFAZ_7" xml:space="preserve">
+    <value>ATS-QSIG</value>
+    <comment>SubInforme Pasarelas: interfaz con valor 7 (ATS-QSIG)</comment>
+  </data>
+  <data name="PASARELA_INTERFAZ_8" xml:space="preserve">
+    <value>ISDN 2B+D</value>
+    <comment>SubInforme Pasarelas: interfaz con valor 8 (ISDN 2B+D)</comment>
+  </data>
+  <data name="PASARELA_INTERFAZ_9" xml:space="preserve">
+    <value>ISDN 30B+D</value>
+    <comment>SubInforme Pasarelas: interfaz con valor 9 (ISDN 30B+D)</comment>
+  </data>
+  <data name="PASARELA_MOD_SINCRO_0" xml:space="preserve">
+    <value>Ninguno</value>
+    <comment>SubInforme Pasarelas: modo de sincronización con valor 0 (Ninguno)</comment>
+  </data>
+  <data name="PASARELA_MOD_SINCRO_1" xml:space="preserve">
+    <value>IEE1588</value>
+    <comment>SubInforme Pasarelas: modo de sincronización con valor 1 (IEE1588)</comment>
+  </data>
+  <data name="PASARELA_MOD_SINCRO_2" xml:space="preserve">
+    <value>NTP</value>
+    <comment>SubInforme Pasarelas: modo de sincronización con valor 2 (NTP)</comment>
+  </data>
+  <data name="PASARELA_MOD_SINCRO_3" xml:space="preserve">
+    <value>Protocolo NUCLEO</value>
+    <comment>SubInforme Pasarelas: modo de sincronización con valor 3 (Protocolo NUCLEO)</comment>
+  </data>
+  <data name="PASARELA_RES_TIPO_HF_TX" xml:space="preserve">
+    <value>Audio HF-TX</value>
+    <comment>SubInforme Pasarelas: recurso radio Audio HF-TX</comment>
+  </data>
+  <data name="PASARELA_RES_TIPO_MN_RX" xml:space="preserve">
+    <value>Audio M+N RX</value>
+    <comment>SubInforme Pasarelas: recurso radio Audio M+N RX</comment>
+  </data>
+  <data name="PASARELA_RES_TIPO_MN_RXTX" xml:space="preserve">
+    <value>Audio M+N RX TX</value>
+    <comment>SubInforme Pasarelas: recurso radio Audio M+N RX TX</comment>
+  </data>
+  <data name="PASARELA_RES_TIPO_MN_TX" xml:space="preserve">
+    <value>Audio M+N TX</value>
+    <comment>SubInforme Pasarelas: recurso radio Audio M+N TX</comment>
+  </data>
+  <data name="PASARELA_RES_TIPO_RX" xml:space="preserve">
+    <value>Audio RX</value>
+    <comment>SubInforme Pasarelas: recurso radio Audio RX</comment>
+  </data>
+  <data name="PASARELA_RES_TIPO_RXTX" xml:space="preserve">
+    <value>Audio RX TX</value>
+    <comment>SubInforme Pasarelas: recurso radio Audio RX TX</comment>
+  </data>
+  <data name="PASARELA_RES_TIPO_TX" xml:space="preserve">
+    <value>Audio TX</value>
+    <comment>SubInforme Pasarelas: recurso radio Audio TX</comment>
+  </data>
+  <data name="PASARELA_TIPO_RECURSO_LCEN" xml:space="preserve">
+    <value>Acceso Instantáneo</value>
+    <comment>SubInforme Pasarelas:  recurso LCEN</comment>
+  </data>
+  <data name="PASARELA_TIPO_RECURSO_RADIO" xml:space="preserve">
+    <value>Radio</value>
+    <comment>SubInforme Pasarelas:   recurso radio</comment>
+  </data>
+  <data name="PASARELA_TIPO_RECURSO_TLF" xml:space="preserve">
+    <value>Telefonía</value>
+    <comment>SubInforme Pasarelas:  recurso Telefonía</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_CONFIGURACION" xml:space="preserve">
+    <value>Configuración</value>
+    <comment>SubInforme Pasarelas: Título sección de configuración</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_GRABADORES" xml:space="preserve">
+    <value>Grabadores:</value>
+    <comment>SubInforme Pasarelas:  etiqueta grabadores</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_LC_IDENTIFICADOR" xml:space="preserve">
+    <value>ID. PASARELA</value>
+    <comment>SubInforme Pasarelas: Título de la columna ID.PASARELA</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_LC_IP_COM" xml:space="preserve">
+    <value>IP DE COMUNICACIONES</value>
+    <comment>SubInforme Pasarelas: Título de la columna IP de comunicaciones</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_LC_IP_CPU0" xml:space="preserve">
+    <value>DIRECCIÓN IP CPU - 0</value>
+    <comment>SubInforme Pasarelas: Título de la columna IP CPU 0</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_LC_IP_CPU1" xml:space="preserve">
+    <value>DIRECCIÓN IP CPU - 1</value>
+    <comment>SubInforme Pasarelas: Título de la columna IP CPU 1</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_NTP" xml:space="preserve">
+    <value>Servidor NTP:</value>
+    <comment>SubInforme Pasarelas: etiqueta Servidor NTP</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_PUERTO_SIP" xml:space="preserve">
+    <value>Puerto local SIP:</value>
+    <comment>SubInforme Pasarelas: etiqueta puerto local SIP</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_PUERTO_SNMPL" xml:space="preserve">
+    <value>Puerto local SNMP:</value>
+    <comment>SubInforme Pasarelas: etiqueta Puerto local SNMP</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_PUERTO_SNMPR" xml:space="preserve">
+    <value>Puerto remoto SNMP:</value>
+    <comment>SubInforme Pasarelas: etiqueta Puerto remoto SNMP</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_PUERTO_SNMPT" xml:space="preserve">
+    <value>Puerto SNMP Traps:</value>
+    <comment>SubInforme Pasarelas: etiqueta Puerto SNMP Traps</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_RECURSOS" xml:space="preserve">
+    <value>Recursos</value>
+    <comment>SubInforme Pasarelas: Título de la sección Recursos</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_REC_INTERFAZ" xml:space="preserve">
+    <value>Interfaz</value>
+    <comment>SubInforme Pasarelas: etiqueta del encabezado de la columna interfaz</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_REC_POSICION" xml:space="preserve">
+    <value>Posición</value>
+    <comment>SubInforme Pasarelas: etiqueta del encabezado de la columna posición</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_REC_RECURSO" xml:space="preserve">
+    <value>Recurso</value>
+    <comment>SubInforme Pasarelas: etiqueta del encabezado de la columna recurso</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_REC_SLOT" xml:space="preserve">
+    <value>Slot</value>
+    <comment>SubInforme Pasarelas: etiqueta del encabezado de la columna Slot</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_REC_TIPO" xml:space="preserve">
+    <value>Tipo de Recurso</value>
+    <comment>SubInforme Pasarelas: etiqueta del encabezado de la columna tipo Recurso</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_SINCRO" xml:space="preserve">
+    <value>Modo de Sincronización:</value>
+    <comment>SubInforme Pasarelas: etiqueta modo de sincronización</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_SUPERV" xml:space="preserve">
+    <value>Tiempo de Supervisión (s):</value>
+    <comment>SubInforme Pasarelas: etiqueta Tiempo de Supervisión en segundos</comment>
+  </data>
+  <data name="EE_PUERTO_RTSP" xml:space="preserve">
+    <value>Puerto RTSP</value>
+    <comment>SubInforme Equipos Externos: Puerto RTSP</comment>
+  </data>
+  <data name="EE_PUERTO_SIP" xml:space="preserve">
+    <value>Puerto SIP</value>
+    <comment>SubInforme Equipos Externos: Puerto SIP</comment>
+  </data>
+  <data name="EE_TIPO_DEFECTO" xml:space="preserve">
+    <value>EQUIPOS EXTERNOS</value>
+    <comment>SubInforme Equipos Externos: tipo equipo EQUIPOS EXTERNOS</comment>
+  </data>
+  <data name="EE_TIPO_GRABADOR" xml:space="preserve">
+    <value>EQUIPOS DE GRABACIÓN</value>
+    <comment>SubInforme Equipos Externos: tipo de equipo EQUIPOS GRABADORES</comment>
+  </data>
+  <data name="EE_TIPO_RADIO" xml:space="preserve">
+    <value>EQUIPOS DE RADIO</value>
+    <comment>SubInforme Equipos Externos: tipo de equipo EQUIPOS RADIO</comment>
+  </data>
+  <data name="EE_TIPO_TLF" xml:space="preserve">
+    <value>EQUIPOS DE TELEFONÍA</value>
+    <comment>SubInforme Equipos Externos: tipo de equipo EQUIPOS DE TELEFONÍA</comment>
+  </data>
+  <data name="LB_INFORME_ELEMENTOS_FISICOS_SUMMARY" xml:space="preserve">
+    <value>Informe de Configuración de Elementos Físicos</value>
+    <comment>Informe configuración de elementos físicos: Resúmen</comment>
+  </data>
+  <data name="LB_SUBINFORME_EQEXT" xml:space="preserve">
+    <value>EQUIPOS EXTERNOS</value>
+    <comment>SubInforme Equipos Externos: Título</comment>
+  </data>
+  <data name="SUBINF_EQEXT_REC_DIRS_IP" xml:space="preserve">
+    <value>Direcciones IP</value>
+    <comment>SubInforme Equipos Externos: título columna Direcciones IP</comment>
+  </data>
+  <data name="SUBINF_EQEXT_REC_IDEQUIPO" xml:space="preserve">
+    <value>Equipo</value>
+    <comment>SubInforme Equipos Externos: título columna Equipo</comment>
+  </data>
+  <data name="REP_NOMBRE_FICHERO" xml:space="preserve">
+    <value>InfCnfElementosFisicos</value>
+    <comment>Nombre del fichero de impresión del fichero</comment>
+  </data>
+  <data name="LB_SUBINF_PANEL_LC" xml:space="preserve">
+    <value>Panel Línea Caliente</value>
+  </data>
+  <data name="LB_SUBINF_PANEL_RADIO" xml:space="preserve">
+    <value>Panel de Radio</value>
+  </data>
+  <data name="LB_SUBINF_PANEL_TLF" xml:space="preserve">
+    <value>Panel de Telefonía</value>
+  </data>
+  <data name="SUBINF_PASARELAS_SUPERV_LAN" xml:space="preserve">
+    <value>Supervisión LAN GW:</value>
+    <comment>SubInforme CnfElementosHw. Configuración pasarela</comment>
+  </data>
+  <data name="SUBINF_PASARELAS_SUPERV_LAN_TMAX" xml:space="preserve">
+    <value>Tiempo Máx. Supervisión LAN GW:</value>
+    <comment>SubInforme CnfElementosHw. Configuración pasarela</comment>
+  </data>
+  <data name="PASARELA_SUPV_LAN_NO" xml:space="preserve">
+    <value>No</value>
+    <comment>SubInforme Pasarelas: No</comment>
+  </data>
+  <data name="PASARELA_SUPV_LAN_SI" xml:space="preserve">
+    <value>Si</value>
+    <comment>SubInforme Pasarelas: Si</comment>
+  </data>
+</root>

@@ -1,0 +1,792 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BoundFieldResource1.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource1.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource1.HeaderText" xml:space="preserve">
+    <value>Initial</value>
+  </data>
+  <data name="BoundFieldResource2.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource2.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource2.HeaderText" xml:space="preserve">
+    <value>Final</value>
+  </data>
+  <data name="BoundFieldResource3.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource3.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource3.HeaderText" xml:space="preserve">
+    <value>Abonné</value>
+  </data>
+  <data name="BoundFieldResource4.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource4.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource4.HeaderText" xml:space="preserve">
+    <value>Réseau</value>
+  </data>
+  <data name="BoundFieldResource5.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource5.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource5.HeaderText" xml:space="preserve">
+    <value>Préfixe de réseau</value>
+  </data>
+  <data name="BtAceptarResource1.Text" xml:space="preserve">
+    <value>Accepter</value>
+  </data>
+  <data name="BtAceptarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtCancelarResource1.Text" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="BtCancelarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtEliminarResource1.Text" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="BtEliminarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtModificarResource1.Text" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="BtModificarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnAceptarRangoResource1.Text" xml:space="preserve">
+    <value>Accepter</value>
+  </data>
+  <data name="BtnAceptarRangoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnAceptarRutaResource1.Text" xml:space="preserve">
+    <value>Accepter</value>
+  </data>
+  <data name="BtnAceptarRutaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnCancelarRangoResource1.Text" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="BtnCancelarRangoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnCancelarRutaResource1.Text" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="BtnCancelarRutaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnEliminarRutaResource1.Text" xml:space="preserve">
+    <value>Supprimer l'itinéraire</value>
+  </data>
+  <data name="BtnEliminarRutaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnNuevaRutaResource1.Text" xml:space="preserve">
+    <value>Nouvel itinéraire</value>
+  </data>
+  <data name="BtnNuevaRutaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtNuevoResource1.Text" xml:space="preserve">
+    <value>Nouveau</value>
+  </data>
+  <data name="BtNuevoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Button1Resource1.Text" xml:space="preserve">
+    <value>Nouvelle gamme</value>
+  </data>
+  <data name="Button1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CentralPropiaResource1.Text" xml:space="preserve">
+    <value>Propres Données</value>
+  </data>
+  <data name="CentralPropiaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CommandFieldResource1.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CommandFieldResource1.CancelText" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="CommandFieldResource1.DeleteText" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="CommandFieldResource1.EditText" xml:space="preserve">
+    <value>Editer</value>
+  </data>
+  <data name="CommandFieldResource1.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CommandFieldResource1.HeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CommandFieldResource1.InsertText" xml:space="preserve">
+    <value>Insérer</value>
+  </data>
+  <data name="CommandFieldResource1.NewText" xml:space="preserve">
+    <value>Nouveau</value>
+  </data>
+  <data name="CommandFieldResource1.SelectText" xml:space="preserve">
+    <value>Sélectionner</value>
+  </data>
+  <data name="CommandFieldResource1.UpdateText" xml:space="preserve">
+    <value>Mettre à jour</value>
+  </data>
+  <data name="CompareValidator1Resource1.ErrorMessage" xml:space="preserve">
+    <value>La valeur Initiale doit être inférieure à la Finale</value>
+  </data>
+  <data name="CompareValidator1Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="CompareValidator1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DDLRutasResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DListPrefijoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DListTipoRangoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DListTipoRangoResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DListTipoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GViewRangosResource1.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GViewRangosResource1.EmptyDataText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GViewRangosResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IBRangosResource1.ImageUrl" xml:space="preserve">
+    <value>~/Configuracion/Images/fr/MenuEncaminamientosRangosUnSelected.JPG</value>
+  </data>
+  <data name="IBRangosResource1.ToolTip" xml:space="preserve">
+    <value>Plan de numérotation ATS supportés</value>
+  </data>
+  <data name="IBRutaAbajoResource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IBRutaAbajoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IBRutaArribaResource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IBRutaArribaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IBRutasResource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IBRutasResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButAsignarResource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButAsignarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButQuitarResource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButQuitarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label1Resource1.Text" xml:space="preserve">
+    <value>Identif. de SCV :</value>
+  </data>
+  <data name="Label1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label2Resource1.Text" xml:space="preserve">
+    <value>GESTION DES ROUTAGES</value>
+  </data>
+  <data name="Label2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label4Resource1.Text" xml:space="preserve">
+    <value>Type de Gamme :</value>
+  </data>
+  <data name="Label4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label5Resource1.Text" xml:space="preserve">
+    <value>Initia l:</value>
+  </data>
+  <data name="Label5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label6Resource1.Text" xml:space="preserve">
+    <value>Abonné :</value>
+  </data>
+  <data name="Label6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label7Resource1.Text" xml:space="preserve">
+    <value>Réseau :</value>
+  </data>
+  <data name="Label7Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label8Resource1.Text" xml:space="preserve">
+    <value>Final:</value>
+  </data>
+  <data name="Label8Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelRutasResource1.Text" xml:space="preserve">
+    <value>Itinéraires</value>
+  </data>
+  <data name="LabelRutasResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelTipoResource1.Text" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="LabelTipoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LBImprimirResource1.Text" xml:space="preserve">
+    <value>Imprimer</value>
+  </data>
+  <data name="LBImprimirResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblIdentificadorResource1.Text" xml:space="preserve">
+    <value>Identificateur</value>
+  </data>
+  <data name="LblIdentificadorResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblNumTestFueraRangoResource1.Text" xml:space="preserve">
+    <value>Le numéro de test doit être dans la gamme {0} - {1}</value>
+  </data>
+  <data name="LblNumTestFueraRangoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblNumTestResource1.Text" xml:space="preserve">
+    <value>Numéro de test :</value>
+  </data>
+  <data name="LblNumTestResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblRutasResource1.Text" xml:space="preserve">
+    <value>Itinéraires</value>
+  </data>
+  <data name="LblRutasResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblTroncalesAsignadosResource1.Text" xml:space="preserve">
+    <value>Lignes principales affectées</value>
+  </data>
+  <data name="LblTroncalesAsignadosResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblTroncalesLibresResource1.Text" xml:space="preserve">
+    <value>Lignes principales libres</value>
+  </data>
+  <data name="LblTroncalesLibresResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LBMiCentralResource1.Text" xml:space="preserve">
+    <value>Aller à la SCV propre </value>
+  </data>
+  <data name="LBMiCentralResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LBRutasResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListBox1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListItemResource1.Text" xml:space="preserve">
+    <value>Opérateur</value>
+  </data>
+  <data name="ListItemResource1.Value" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="ListItemResource2.Text" xml:space="preserve">
+    <value>Privilégié</value>
+  </data>
+  <data name="ListItemResource2.Value" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="ListItemResource3.Text" xml:space="preserve">
+    <value>Opérateur</value>
+  </data>
+  <data name="ListItemResource3.Value" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="ListItemResource4.Text" xml:space="preserve">
+    <value>Privilégié</value>
+  </data>
+  <data name="ListItemResource4.Value" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="ListItemResource5.Text" xml:space="preserve">
+    <value>Direct</value>
+  </data>
+  <data name="ListItemResource5.Value" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="ListItemResource6.Text" xml:space="preserve">
+    <value>Alternatif</value>
+  </data>
+  <data name="ListItemResource6.Value" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="ListTroncalesLibresResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListTroncalesResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>Gestion des routages</value>
+  </data>
+  <data name="Panel1Resource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Panel1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelRangosResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelRangosResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelRutasResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelRutasResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelTipoRutaResource1.GroupingText" xml:space="preserve">
+    <value>Type d'itinéraire</value>
+  </data>
+  <data name="PanelTipoRutaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RBAlternativaResource1.Text" xml:space="preserve">
+    <value>Alternatif</value>
+  </data>
+  <data name="RBAlternativaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RBDirectaResource1.Text" xml:space="preserve">
+    <value>Direct</value>
+  </data>
+  <data name="RBDirectaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RequiredFieldIdentificadorResource1.ErrorMessage" xml:space="preserve">
+    <value>L'identificateur de l'itinéraire doit être renseigné.</value>
+  </data>
+  <data name="RequiredFieldIdentificadorResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredFieldIdentificadorResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RequiredFieldValidator1Resource1.ErrorMessage" xml:space="preserve">
+    <value>L'identificateur de la station ne peut pas être vide.</value>
+  </data>
+  <data name="RequiredFieldValidator1Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredFieldValidator1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RequiredFieldValidator2Resource1.ErrorMessage" xml:space="preserve">
+    <value>La valeur initiale est obligatoire</value>
+  </data>
+  <data name="RequiredFieldValidator2Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredFieldValidator2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RequiredFieldValidator3Resource1.ErrorMessage" xml:space="preserve">
+    <value>La valeur finale est obligatoire.</value>
+  </data>
+  <data name="RequiredFieldValidator3Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredFieldValidator3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RequiredFieldValidator4Resource1.ErrorMessage" xml:space="preserve">
+    <value>Il est obligatoire de choisir un itinéraire</value>
+  </data>
+  <data name="RequiredFieldValidator4Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredFieldValidator4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBNumTestResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBNumTestResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TemplateFieldResource1.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TemplateFieldResource1.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TemplateFieldResource1.HeaderText" xml:space="preserve">
+    <value>Type de gamme</value>
+  </data>
+  <data name="ThrowswitchingResource1.Text" xml:space="preserve">
+    <value>Throughswitching</value>
+  </data>
+  <data name="ThrowswitchingResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TreeNodeResource1.ImageToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TreeNodeResource1.Text" xml:space="preserve">
+    <value>Itinéraires</value>
+  </data>
+  <data name="TreeNodeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TreeNodeResource1.Value" xml:space="preserve">
+    <value>Itinéraires</value>
+  </data>
+  <data name="TreeView1Resource1.CollapseImageToolTip" xml:space="preserve">
+    <value>Contracter {0}</value>
+  </data>
+  <data name="TreeView1Resource1.ExpandImageToolTip" xml:space="preserve">
+    <value>Étendre {0}</value>
+  </data>
+  <data name="TreeView1Resource1.SkipLinkText" xml:space="preserve">
+    <value>Ignorer les liens de navigation.</value>
+  </data>
+  <data name="TreeView1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtAbonadoResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtAbonadoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtBFinalResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtBFinalResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtBInicialResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtBInicialResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtCentralResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtCentralResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtIdRutaResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtIdRutaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ValidationSummary1Resource1.HeaderText" xml:space="preserve">
+    <value>Résumé des erreurs:</value>
+  </data>
+  <data name="ValidationSummary1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IBRangosResource1.ImageUrlSelected" xml:space="preserve">
+    <value>~/Configuracion/Images/fr/MenuEncaminamientosRangosSelected.JPG</value>
+  </data>
+  <data name="IBCentralATSResource1.ImageUrl" xml:space="preserve">
+    <value>~/Configuracion/Images/fr/MenuEncaminamientosCentralATSUnSelected.JPG</value>
+  </data>
+  <data name="IBCentralATSResource1.ImageUrlSelected" xml:space="preserve">
+    <value>~/Configuracion/Images/fr/MenuEncaminamientosCentralATSSelected.JPG</value>
+  </data>
+  <data name="IBRutasResource1.ImageUrl" xml:space="preserve">
+    <value>~/Configuracion/Images/fr/MenuEncaminamientosRutasUnSelected.JPG</value>
+  </data>
+  <data name="IBRutasResource1.ImageUrlSelected" xml:space="preserve">
+    <value>~/Configuracion/Images/fr/MenuEncaminamientosRutasSelected.JPG</value>
+  </data>
+  <data name="IBCentralATSResource1.Text" xml:space="preserve">
+    <value>Réseau SCV ATS</value>
+  </data>
+  <data name="IBCentralATSResource1.Tooltip" xml:space="preserve">
+    <value>Réseau SCV ATS</value>
+  </data>
+  <data name="IBRangosResource1.Text" xml:space="preserve">
+    <value>Gammes</value>
+  </data>
+  <data name="IBRutasResource1.Text" xml:space="preserve">
+    <value>Itinéraires</value>
+  </data>
+  <data name="LblSipPortResource.Text" xml:space="preserve">
+    <value>Port SIP</value>
+  </data>
+  <data name="CentralIPResource1.Text" xml:space="preserve">
+    <value>SCV IP</value>
+  </data>
+  <data name="ButtonEditarResource1.Text" xml:space="preserve">
+    <value>Editer</value>
+  </data>
+  <data name="LblIp1Resource.Text" xml:space="preserve">
+    <value>Principal</value>
+  </data>
+  <data name="LblIp2Resource.Text" xml:space="preserve">
+    <value>Alternativo 1</value>
+  </data>
+  <data name="LblIp3Resource.Text" xml:space="preserve">
+    <value>Alternativo 2</value>
+  </data>
+  <data name="TbIp1Resource.Tooltip" xml:space="preserve">
+    <value>Dirección IP del servidor Proxy Principal</value>
+  </data>
+  <data name="TbIp2Resource.Tooltip" xml:space="preserve">
+    <value>Dirección IP del primer servidor Proxy Alternativo </value>
+  </data>
+  <data name="TbIp3Resource.Tooltip" xml:space="preserve">
+    <value>Dirección IP del segundo servidor Proxy Alternativo</value>
+  </data>
+  <data name="TbSrvPresIp1Resource.Tooltip" xml:space="preserve">
+    <value>Dirección IP del servidor de Presencia principal</value>
+  </data>
+  <data name="TbSrvPresIp2Resource.Tooltip" xml:space="preserve">
+    <value>Dirección IP del primer servidor alternativo de Presencia</value>
+  </data>
+  <data name="TbSrvPresIp3Resource.Tooltip" xml:space="preserve">
+    <value>Dirección IP del segundo servidor alternativo de Presencia</value>
+  </data>
+  <data name="LbProxyResource.Text" xml:space="preserve">
+    <value>Servidores Proxy</value>
+  </data>
+  <data name="LbSrvPresenciaResource.Text" xml:space="preserve">
+    <value>Servidores de Presencia</value>
+  </data>
+  <data name="REV_TbProxyIpFormatoPrincipal" xml:space="preserve">
+    <value>Formato incorrecto de la dirección IP del Proxy principal.</value>
+  </data>
+  <data name="REV_TbProxyIpFormatoAlternativo" xml:space="preserve">
+    <value>Formato incorrecto de la dirección IP del Proxy alternativo {0}.</value>
+  </data>
+  <data name="REV_TbSrvPresIpFormatoPrincipal" xml:space="preserve">
+    <value>Formato incorrecto de la dirección IP del Servidor de Presencia principal.</value>
+  </data>
+  <data name="REV_TbSrvPresIpFormatoAlternativo" xml:space="preserve">
+    <value>Formato incorrecto de la dirección IP del Servidor de Presencia alternativo {0}.</value>
+  </data>
+  <data name="REV_TbIp1Requerido" xml:space="preserve">
+    <value>La dirección IP del proxy principal no puede estar vacía.</value>
+  </data>
+  <data name="REV_TbSrvPresIpAlternativoProxy" xml:space="preserve">
+    <value>Para configurar el sevidor de presencia alternativo {0}, se debe indicar el Proxy alternativo {0}.</value>
+  </data>
+  <data name="ErrorEncaminamientoIdCentralPropiaConRecursosTf" xml:space="preserve">
+    <value>En el sistema, existen recursos de telefonía que tienen asignado el SCV IP {0} como equipo externo. Antes de quitar el indicador de Datos propios, debe liberar el SCV en los recursos.</value>
+  </data>
+  <data name="ErrorBorrarIdCentralPropiaConRecursosTf" xml:space="preserve">
+    <value>En el sistema, existen recursos de telefonía que tienen asignado el SCV IP {0} como equipo externo. Antes eliminar el SCV debe liberarlo.</value>
+  </data>
+  <data name="LblRangoSCVPropioNoDefinido" xml:space="preserve">
+    <value>Debe configurar algún rango de números pertenecientes al plan de numeración ATS.</value>
+  </data>
+  <data name="LblNumTextNoOk" xml:space="preserve">
+    <value>El número de test no puede estar vacío.</value>
+  </data>
+  <data name="REV_TbSrvIpProxyAlternativo" xml:space="preserve">
+    <value>Si desea configurar varios servidores proxy alternativos, debe configurar primero el servidor alternativo 1</value>
+  </data>
+  <data name="REV_SrvIpPresenciaPrincipal" xml:space="preserve">
+    <value>Si desea configurar sólo un servidor de presencia, se debe configurar el servidor de presencia principal</value>
+  </data>
+  <data name="REV_ipSrvExistenteEnOtraCentral" xml:space="preserve">
+    <value>La dirección IP {0} ya se encuentra configurada en el SCV IP {1}. Por favor, revise la configuración.</value>
+  </data>
+  <data name="REV_IpSrvPresenciaAltEnOtraCentral" xml:space="preserve">
+    <value>La dirección IP del servidor de Presencia Alternativo {0} ya está configurada. Revise la configuración.</value>
+  </data>
+  <data name="REV_IpSrvProxyAltEnOtraCentral" xml:space="preserve">
+    <value>La dirección IP del servidor Proxy Alternativo {0} ya está configurada. Revise la configuración.</value>
+  </data>
+  <data name="REV_IpSrvPresenciaPrincipalEnOtraCentral" xml:space="preserve">
+    <value>La dirección IP del servidor de Presencia principal ya está configurada en otro servidor.</value>
+  </data>
+  <data name="REV_RangoCentral" xml:space="preserve">
+    <value>La central debe tener configurado al menos un rango de abonados.</value>
+  </data>
+  <data name="REV_RutaCentral" xml:space="preserve">
+    <value>El SCV debe tener configurada al menos una ruta.</value>
+  </data>
+  <data name="REV_CentralExiste" xml:space="preserve">
+    <value>En el sistema, ya existe un SCV con el mismo identificador.</value>
+  </data>
+  <data name="REV_CentralPropiaConRutas" xml:space="preserve">
+    <value>El SCV propio no puede tener rutas configuradas. Por favor, elimine las rutas.</value>
+  </data>
+  <data name="REV_RangoExistente" xml:space="preserve">
+    <value>El rango {0}-{1} está incluido dentro del rango {2}-{3} configurado en el SCV {4}. Por favor, configure un rango que sea válido.</value>
+  </data>
+  <data name="REV_RangoIncluido" xml:space="preserve">
+    <value>El rango {0}-{1} tiene números de abonado que están definidos dentro del rango {2}-{3} del SCV {4}. Por favor, configure un rango que sea válido.</value>
+  </data>
+</root>

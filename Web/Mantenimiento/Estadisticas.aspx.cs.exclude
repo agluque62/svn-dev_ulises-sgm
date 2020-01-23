@@ -1,0 +1,250 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Collections.Generic;
+using ServiciosMantenimiento;
+using System.Timers;
+using log4net;
+using log4net.Config;
+using Utilities;
+using ClusterLib;
+
+public partial class Estadisticas : PageBaseManttoCD40.PageBaseMantto 
+{
+//	static DataSet DSEventos;
+	private static GestorMantenimiento ServicioMantenimiento;
+    private Mensajes.msgBox cMsg;
+
+    private string Filtro;
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private static ILog _logDebugView;
+    public static ILog logDebugView
+    {
+        get
+        {
+            if (_logDebugView == null)
+            {
+                log4net.Config.XmlConfigurator.Configure();
+                _logDebugView = LogManager.GetLogger("MANTENIMIENTO");
+            }
+            return _logDebugView;
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        cMsg = (Mensajes.msgBox)this.Master.FindControl("MsgBox1");
+
+        if (ServicioMantenimiento == null)
+            ServicioMantenimiento = new GestorMantenimiento();
+
+		if (!IsPostBack)
+        {
+			//System.Configuration.Configuration config = System.Web.Configuration.WebConfigurationManager.AppSettings.Get( .OpenWebConfiguration("~");
+			//System.Configuration.KeyValueConfigurationElement s = config.AppSettings.Settings["Sistema"];
+
+			//System.Collections.Specialized.NameValueCollection appSettings = System.Web.Configuration.WebConfigurationManager.AppSettings;
+        }
+
+        if (Request.Params["Filtro"] != null)
+        {
+            Filtro = Request.Params["Filtro"];
+            FiltroFecha.Style.Add("display","block");
+
+            switch (Filtro)
+            {
+                case "Fechas":
+                    AddFilterDateEstadisticas.Style.Add("display", "block");
+                    AddFilterComponentEstadisticas.Style.Add("display","none");
+                    AddFilterCodeEstadisticas.Style.Add("display", "none");
+                    break;
+                case "Componente":
+                    AddFilterDateEstadisticas.Style.Add("display", "none");
+                    AddFilterComponentEstadisticas.Style.Add("display","block");
+                    AddFilterCodeEstadisticas.Style.Add("display", "none");
+                    break;
+                case "Evento":
+                    AddFilterDateEstadisticas.Style.Add("display", "none");
+                    AddFilterComponentEstadisticas.Style.Add("display","none");
+                    AddFilterCodeEstadisticas.Style.Add("display", "block");
+
+                    if (!IsPostBack)
+                        AddEvents();
+                    break;
+            }
+        }
+    }
+
+    private void AddEvents()
+    {
+        DateTime desde = new DateTime(Calendar3.SelectedDate.Year, Calendar3.SelectedDate.Month, Calendar1.SelectedDate.Day, 0, 0, 0);
+        DateTime hasta = DateTime.Now; // (Calendar4.SelectedDate.Year, Calendar4.SelectedDate.Month,Calendar2.SelectedDate.Day, 0, 0, 0);
+        
+        System.Data.DataSet ds = ServicioMantenimiento.GetEvents(desde, hasta);
+        //SCodeStatistics.Items.Clear();
+   		SCodeStatistics.DataSource = ds;
+        SCodeStatistics.DataTextField = "Incidencia";
+        SCodeStatistics.DataValueField = "IdIncidencia";
+        SCodeStatistics.DataBind();
+        /*
+        if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+        {
+            SCodeStatistics.Items.Clear();
+            ListItem cbi = new ListItem();
+            cbi.Text = "< Selecciona evento >";
+            cbi.Attributes.Add("IdIncidencia", "-1");
+            SCodeStatistics.Items.Add(cbi);
+
+            foreach (System.Data.DataRow c in ds.Tables[0].Rows)
+            {
+                ListItem cb = new ListItem();
+                cb.Text = (string)c["Incidencia"];
+                cb.Value =  c["IdIncidencia"].ToString();
+                SCodeStatistics.Items.Add(cb); 
+            }
+        }*/
+    }
+
+    private void AddComponents()
+    {
+   		Configuration config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
+		KeyValueConfigurationElement sist = config.AppSettings.Settings["Sistema"];
+
+        DateTime desde = new DateTime(Calendar3.SelectedDate.Year, Calendar3.SelectedDate.Month, Calendar3.SelectedDate.Day, 0, 0, 0);
+        DateTime hasta = DateTime.Now; // (Calendar4.SelectedDate.Year, Calendar4.SelectedDate.Month,Calendar2.SelectedDate.Day, 0, 0, 0);
+
+        System.Data.DataSet ds = ServicioMantenimiento.GetComponents(sist.Value, desde, hasta);
+
+        if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+        {
+            SComponentStatistics.Items.Clear();
+
+            foreach (System.Data.DataRow c in ds.Tables[0].Rows)
+            {
+                if (DDLTipoHw.SelectedValue == c["TipoHw"].ToString())
+                {
+                    ListItem cb = new ListItem();
+                    cb.Text = (string)c["idHw"];
+                    cb.Attributes.Add("TipoHw", c["TipoHw"].ToString());
+                    SComponentStatistics.Items.Add(cb); //SComponentStatistics.Controls.Add(new LiteralControl("<br />"));
+                }
+            }
+        }
+    }
+
+    protected void CalendarStart_SelectionChanged(object sender, EventArgs e)
+    {
+        LblCalendar5.InnerText = LblCalendar1.InnerText = LblCalendar3.InnerText = ((Calendar)sender).SelectedDate.ToShortDateString();
+    }
+
+    protected void CalendarEnd_SelectionChanged(object sender, EventArgs e)
+    {
+        LblCalendar6.InnerText = LblCalendar2.InnerText = LblCalendar4.InnerText = ((Calendar)sender).SelectedDate.ToShortDateString();
+        BtnTargetDate.Visible = Filtro == "Fechas" && LblCalendar1.InnerText.Length > 0 && LblCalendar2.InnerText.Length > 0;
+        BtnTargetComponent.Visible = Filtro == "Componente" && LblCalendar3.InnerText.Length > 0 && LblCalendar4.InnerText.Length > 0;
+        BtnTargetCode.Visible = Filtro == "Evento" && LblCalendar5.InnerText.Length > 0 && LblCalendar6.InnerText.Length > 0;
+    }
+
+    protected void FilteringByDateStatistics(object sender, EventArgs e)
+    {
+   		Configuration config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
+		KeyValueConfigurationElement sist = config.AppSettings.Settings["Sistema"];
+
+        DateTime desde = new DateTime(Calendar1.SelectedDate.Year, Calendar1.SelectedDate.Month,Calendar1.SelectedDate.Day, 0, 0, 0);
+        DateTime hasta = new DateTime(Calendar2.SelectedDate.Year, Calendar2.SelectedDate.Month,Calendar2.SelectedDate.Day, 0, 0, 0);
+
+        if (desde >= hasta)
+        {
+            cMsg.alert((string)GetGlobalResourceObject("Espaniol", "ErrorRangoFechas"));
+            return;
+        }
+
+        string rate = ServicioMantenimiento.GetRate(sist.Value, desde, hasta);
+        tasa.Value = rate;
+        string mtbfValue = ServicioMantenimiento.GetMtbf(sist.Value, desde, hasta);
+        mtbf.Value = mtbfValue;
+
+        AddFormStatistics.Style.Add("display", "block");
+    }
+
+    protected void FilteringByComponentStatistics(object sender, EventArgs e)
+    {
+        Configuration config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
+        KeyValueConfigurationElement sist = config.AppSettings.Settings["Sistema"];
+
+        DateTime desde = new DateTime(Calendar3.SelectedDate.Year, Calendar3.SelectedDate.Month, Calendar3.SelectedDate.Day, 0, 0, 0);
+        DateTime hasta = new DateTime(Calendar4.SelectedDate.Year, Calendar4.SelectedDate.Month, Calendar4.SelectedDate.Day, 0, 0, 0);
+
+        if (desde >= hasta)
+        {
+            cMsg.alert((string)GetGlobalResourceObject("Espaniol", "ErrorRangoFechas"));
+            return;
+        }
+
+        System.Text.StringBuilder s = new System.Text.StringBuilder();
+
+        foreach (ListItem i in SComponentStatistics.Items)
+        {
+            if (i.Selected)
+                s.Append(i.Text + ",");
+        }
+
+        if (s.Length > 0)
+        {
+            s.Remove(s.Length - 1, 1);
+            //s.Replace(',','"',s.Length - 1, 1);
+        }
+
+        string rate = ServicioMantenimiento.GetRateComponents(sist.Value, s.ToString(), desde, hasta);
+        tasa.Value = rate;
+        string mtbfValue = ServicioMantenimiento.GetMtbfComponent(sist.Value, s.ToString(), desde, hasta);
+        mtbf.Value = mtbfValue;
+
+        AddFormStatistics.Style.Add("display", "block");
+    }
+
+    protected void FilteringByCodeStatistics (object sender, EventArgs e)
+    {
+        Configuration config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
+        KeyValueConfigurationElement sist = config.AppSettings.Settings["Sistema"];
+
+        DateTime desde = new DateTime(Calendar5.SelectedDate.Year, Calendar5.SelectedDate.Month, Calendar5.SelectedDate.Day, 0, 0, 0);
+        DateTime hasta = new DateTime(Calendar6.SelectedDate.Year, Calendar6.SelectedDate.Month, Calendar6.SelectedDate.Day, 0, 0, 0);
+
+        if (desde >= hasta)
+        {
+            cMsg.alert((string)GetGlobalResourceObject("Espaniol", "ErrorRangoFechas"));
+            return;
+        }
+
+        string rate = ServicioMantenimiento.GetRateEvent(sist.Value, Convert.ToInt32(SCodeStatistics.SelectedValue), desde, hasta);
+        tasa.Value = rate;
+        string mtbfValue = ServicioMantenimiento.GetMtbfEvent(sist.Value, Convert.ToInt32(SCodeStatistics.SelectedValue), desde, hasta);
+        mtbf.Value = mtbfValue;
+
+        AddFormStatistics.Style.Add("display", "block");
+    }
+
+    protected void DDLTipoHw_SelectedIndexChanged (object sender, EventArgs e)
+    {
+        AddComponents();
+    }
+    protected void SCodeStatistics_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+}

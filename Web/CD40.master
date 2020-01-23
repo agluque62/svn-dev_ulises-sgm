@@ -1,0 +1,425 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="CD40.master.cs" Inherits="CD40" %>
+<%@ Register Assembly="Mensajes" Namespace="Mensajes" TagPrefix="cc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>CD40</title>
+<%--	 <style type="text/css">
+		 .blue
+		 {
+			 width: 100px;
+		 }
+	</style>
+--%>
+    <style type="text/css">
+        .accordion
+        {
+            /*width: 100px;*/
+        }
+
+        .accordionHeader
+        {
+            border: 1px solid #2F4F4F;
+            color: #616365;
+            background-color: #e5a19e;
+            font-family: Verdana;
+            font-size: 14px;
+            font-weight: normal;
+            padding: 5px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+        .accordionHeaderSelected
+        {
+            border: 1px solid #2F4F4F;
+            color: white;
+            background-color: #e00034;
+            font-family: Verdana;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 5px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+        .accordionContent
+        {
+            background-color: transparent;
+            border: 1px dashed #2F4F4F;
+            border-top: none;
+            padding: 5px;
+            padding-top: 10px;
+        }
+        .auto-style1
+        {
+            text-align: left;
+        }
+    </style>  
+</head>
+
+    <script src="../Javascript/jquery-3.3.1.js"></script>
+    <script src="../Javascript/jquery.animate-colors-min.js"></script>
+    <!--<script src="../Javascript/Utils.js" language="javascript" type="text/javascript"></script>-->
+
+    <script src="../Javascript/alertify.min.js"></script>
+    <!-- include the style -->
+    <link rel="stylesheet" href="../css/alertify.min.css" />
+    <!-- include a theme -->
+    <link rel="stylesheet" href="../css/themes/default.min.css" />
+
+    <link rel="stylesheet" href="../css/nucleo.css" />
+
+<%--<link href="~/App_Themes/TemaPaginasConfiguracion/StyleSheet.css" rel="stylesheet" type="text/css" />--%>
+<%--<body class="estiloDiv gradwhite red" style="height:842px; width: 1264px;">--%>
+<body class="estiloDiv gradpositivo white" style="height:842px; width: 1264px;">
+    <form id="form1" runat="server" style="height:831px">    
+ 		<ajaxToolKit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" 
+			CombineScripts="True" >
+		</ajaxToolKit:ToolkitScriptManager>
+
+<%-- 		<asp:ScriptManager ID="ToolkitScriptManager2" runat="server">
+		</asp:ScriptManager>
+--%>
+        <div  id="DivCabecera" runat="server" style="z-index: 102; left: 8px; top: 8px;  width: 1264px; position: absolute; height: 105px; overflow: hidden; background-color:transparent" class="auto-style1">
+            <asp:Image runat="server" ImageUrl="~/Images/LogoNucleo20x190.png" Style="z-index: 109; left: 21px; width: 190px; position: absolute; top: 25px; height: 50px; 
+                border-right-color: black; background-image: none; background-color: transparent;" />
+            <asp:Label ID="Label1" runat="server" SkinID="LabelCabecera" 
+                Font-Strikeout="False" Font-Underline="False" Style="z-index: 100; left: 245px; position: absolute; top: 17px; height: 28px; width: 368px; right: 392px;"
+                meta:resourcekey="Label1Resource1"></asp:Label>
+            <asp:LinkButton ID="BtCluster" runat="server" OnClick="BtCluster_Click"
+                Style="position: absolute; top: 65px; z-index: 101; left: 477px; height: 25px; text-align:center; width:116px"
+                Text="Cluster" CausesValidation="False" SkinID="LinkButtonCabecera"
+                meta:resourcekey="BtClusterResource1" UseSubmitBehavior="false" />
+            <asp:LinkButton ID="BtMantenimiento" runat="server" OnClick="BtMantenimiento_Click"
+                Style="left: 361px; position: absolute; top: 65px; z-index: 102; height: 25px; text-align:center; width:116px"
+                Text="Mantenimiento" CausesValidation="False" SkinID="LinkButtonCabecera"
+                meta:resourcekey="BtMantenimientoResource1" UseSubmitBehavior="false" />
+            <asp:LinkButton ID="BtInicio" runat="server" OnClick="BtInicio_Click"
+                Style="left: 245px; position: absolute; top: 65px; z-index: 103; text-align:center; width:116px"
+                Text="Inicio" CausesValidation="False" SkinID="LinkButtonCabecera"
+                meta:resourcekey="BtInicioResource1" UseSubmitBehavior="false" />
+<%--            <asp:Image ID="Image1" runat="server" Height="96px" ImageUrl="~/Images/Cabecera_08.gif"
+                Style="z-index: 104; left: 915px; position: absolute; top: 0px; width: 89px;"
+                meta:resourcekey="Image1Resource1" />
+            <asp:Image ID="Image2" runat="server" Height="96px" ImageUrl="~/Images/Cabecera_07.gif"
+                Style="z-index: 105; left: 838px; position: absolute; top: 0px; height: 96px; width: 77px;"
+                meta:resourcekey="Image2Resource1" />
+            <asp:Image ID="Image3" runat="server" Height="96px" ImageUrl="~/Images/Cabecera_06.gif"
+                Style="z-index: 106; left: 759px; position: absolute; top: 0px; height: 96px; width: 79px;"
+                meta:resourcekey="Image3Resource1" />
+            <asp:Image ID="Image4" runat="server" Height="96px" ImageUrl="~/Images/Cabecera_05.gif"
+                Style="z-index: 107; left: 618px; position: absolute; top: 0px; height: 96px; width: 141px;"
+                meta:resourcekey="Image4Resource1" />--%>
+            <%--<asp:Image ID="Image5" runat="server" ImageUrl="~/Images/Cabecera_04.gif"
+					
+					Style="z-index: 99; left: 4px; position: absolute; top: 0px; height: 96px; width: 623px;" 
+					meta:resourcekey="Image5Resource1" />--%>
+            <%--<asp:Image ID="Image6" runat="server" Height="113px" ImageUrl="~/Images/Cabecera_04.gif"
+                
+					Style="z-index: 99; left: 1003px; position: absolute; top: 0px; height: 96px; width: 274px;" 
+					meta:resourcekey="Image6Resource1" />--%>
+            <asp:Label ID="Label2" runat="server" Style="z-index: 110; left: 730px; position: absolute; top: 9px"
+                Text="Usuario:" meta:resourcekey="Label2Resource1"></asp:Label>
+            <asp:Label ID="LabelUsuario" runat="server" Style="z-index: 111; left: 730px; position: absolute; top: 29px"
+                ForeColor="#00C000" meta:resourcekey="LabelUsuarioResource1"></asp:Label>
+            <asp:Label ID="Label3" runat="server" Style="z-index: 112; left: 730px; position: absolute; top: 57px"
+                Text="Perfil:" meta:resourcekey="Label3Resource1"></asp:Label>
+            <asp:Label ID="LabelPerfil" runat="server" Style="z-index: 113; left: 730px; position: absolute; top: 79px"
+                ForeColor="#00C000" Width="91px" meta:resourcekey="LabelPerfilResource1"></asp:Label>
+            <asp:LinkButton ID="LinkButton1" runat="server" Style="z-index: 114; left: 916px; position: absolute; top: 79px"
+                OnClick="LinkButton1_Click" SkinID="LinkButtonCabecera" CausesValidation="False"
+                meta:resourcekey="LinkButton1Resource1">Cerrar sesión</asp:LinkButton>
+            &nbsp; &nbsp;
+        </div>
+        <div id="DivContenido" style="z-index: 100; left: 252px; width: 1020px; position: absolute; top: 114px;height: 736px; background-color:transparent;" 
+                class="estiloDiv">
+            <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+
+				</asp:contentplaceholder>
+            <%--<cc1:msgBox ID="MsgBox1" runat="server" 
+					Style="z-index: 180; left: 0px; position: absolute;top: 100px" 
+					meta:resourcekey="MsgBox1Resource1" />--%>
+        			<asp:UpdatePanel ID="UpdatePanelMessageBox" runat="server" 
+					UpdateMode="Conditional" ChildrenAsTriggers="False">
+						<ContentTemplate>
+							<ajaxToolKit:ModalPopupExtender ID="ModalPopupExtenderMessageBox" runat="server" 
+									TargetControlId="BtnOculto" PopupControlID="PnlMessageBox" 
+									BackgroundCssClass="modalBackground" DropShadow="True" 
+									PopupDragHandleControlID="PnlMessageBoxCaption"
+								Enabled="True">
+							</ajaxToolKit:ModalPopupExtender>
+						
+							<asp:Panel ID="PnlMessageBox" runat="server" CssClass="modalBox" Width="550px" Height="178px" 
+										 Style="cursor: default; display:none" meta:resourcekey="PnlMessageBoxResource1" >
+								<asp:Panel ID="PnlMessageBoxCaption" runat="server" CssClass="caption" 
+									Style="margin-bottom: 5px; cursor: default;" 
+									meta:resourcekey="PnlMessageBoxCaptionResource1">
+											Modificaciones en configuración pendientes</asp:Panel>
+<%--								<asp:Panel ID="UPMessageBox" runat="server" 
+									meta:resourcekey="UPMessageBoxResource1">
+									<asp:Label ID="Lbl1" runat="server" 
+										Text="Aceptar: Confirma las modificaciones y activa la configuración en el SCV." 
+										Style="position:absolute; left:15px;top:55px" 
+										meta:resourcekey="Lbl1Resource1" />
+									<asp:Label ID="Label4" runat="server" 
+										Text="Continuar: Seguir modificando la configuración." 
+										Style="position:absolute; left:15px;top:75px" 
+										meta:resourcekey="Label4Resource1" />
+									<asp:Label ID="Label5" runat="server" 
+										Text="Cancelar: Deshace las últimas modificaciones desde la última confirmación." 
+										Style="position:absolute; left:15px;top:95px" 
+										meta:resourcekey="Label5Resource1" />
+									<asp:Button ID="Btn1" runat="server" Text="Aceptar" 
+										Style="position:absolute; left:100px; top:135px" 
+										OnClick="BtnConfirmarMessageBox_OnClick" meta:resourcekey="Btn1Resource1"/>
+									<asp:Button ID="Button1" runat="server" Text="Continuar" 
+										Style="position:absolute; left:230px; top:135px" 
+										OnClick="BtnContinuarMessageBox_OnClick" meta:resourcekey="Button1Resource2" />
+									<asp:Button ID="Button2" runat="server" Text="Cancelar" 
+										Style="position:absolute; left:375px; top:135px" 
+										OnClick="BtnCancelarMessageBox_OnClick" meta:resourcekey="Button2Resource1" />
+								</asp:Panel>
+--%>							</asp:Panel>
+						<asp:Button ID="BtnOculto" runat="server" Text="Button" Style="display:none;" 
+								meta:resourcekey="BtnOcultoResource1" />
+						</ContentTemplate>
+					</asp:UpdatePanel>
+        </div>
+        <div runat="server" id="DivArbol" class="estiloDiv"
+            style="z-index: 101; left: 8px; width: 243px; position: absolute; top: 114px; height: 736px; background-color:transparent">
+            <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1" Style="z-index: 200;
+                left: 4px; position: absolute; top: 44px" Width="215px" Height="442px" 
+					ImageSet="Arrows" ontreenodedatabound="TreeView1_TreeNodeDataBound" meta:resourcekey="TreeView1Resource1" >
+					<ParentNodeStyle Font-Bold="False" />
+					<HoverNodeStyle Font-Underline="True" ForeColor="#e00034" />
+					<SelectedNodeStyle Font-Underline="True" ForeColor="#e00034" 
+						HorizontalPadding="0px" VerticalPadding="0px" />
+					<NodeStyle Font-Names="Verdana" Font-Size="Small" ForeColor="black" 
+						HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />
+            </asp:TreeView>
+			  &nbsp;&nbsp;
+            <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server"  />
+			  &nbsp; &nbsp;
+           <cc1:msgBox ID="MsgBox1" runat="server" Style="z-index: 180; left: 0px; position: absolute;top: 100px" />
+	    </div>
+<%--        <div id="DivCabeceraWizard" runat="server" style="z-index: 102; left: 0px; width: 1278px; position: absolute; top: 0px;background-color:transparent;
+            height: 105px; overflow:inherit" class="estiloDiv red" visible="false">
+            <asp:Image runat="server" ImageUrl="~/Images/Logotipo_Duro_Nucleo.gif" style="z-index: 109; left: 21px; width: 191px; position: absolute;top: 11px; 
+            												height: 78px; border-right-color: black; background-image: none; 
+            												background-color: transparent;" />     
+		    
+<%--                <asp:LinkButton ID="LBFinWizard" runat="server" 
+			    style="height: 26px; width: 289px;left:300px;top:20px" Visible="true" SkinID="LinkButtonCabecera"
+			    OnClick="LBFinWizard_OnCLick"  meta:resourcekey="BtInicioResource1"/>					      
+                  
+        </div>--%>
+
+        <div id="DivWizard" runat="server" style="z-index: 101; width: 219px; position: absolute; top: 106px;height: 741px; left: 10px;" 
+			 visible="false">
+            <%--
+					<asp:Label ID="BtnSistema" runat="server" BorderStyle="Inset" 
+						BackColor="Transparent" Text="Sistema" Height="20px" ForeColor="#CC3300" 
+						Style="position:absolute; top: 14px; left: 5px; width:200px; text-align:center" 
+						meta:resourcekey="BtnSistemaResource1"/> --%>
+
+                <asp:Table id="TabBotDivWizard"  runat="server" Style="left: 5px; position: absolute; top: 43px; ">
+                  <asp:TableRow  >
+                      <asp:TableCell >
+                        <asp:Label ID="BtnOperadores" runat="server" BorderStyle="Inset"
+                          BackColor="Transparent" Text="Operadores"  ForeColor="#CC3300"
+                          Style="width:200px; text-align:center" height="20px"
+                          meta:resourcekey="BtnOperadoresResource1"/>
+                      </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow>
+                    <asp:TableCell >
+                      <asp:label ID="BtnTifx" runat="server" BorderStyle="Inset"
+                          BackColor="Transparent" Text="Pasarelas"  ForeColor="#CC3300"
+                          Style="left: 5px; width:200px; text-align:center" height="20px"
+                          meta:resourcekey="BtnTifxResource1"/>
+                      </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow >
+                    <asp:TableCell >
+                    <asp:label ID="BtnEqEx" runat="server" BorderStyle="Inset"
+                          BackColor="Transparent" Text="Equipos Externos"  ForeColor="#CC3300"
+                          Style="left: 5px; width:200px; height: 20px; text-align:center"
+                          meta:resourcekey="BtnEqExResource1"/>
+                    </asp:TableCell>
+                  </asp:TableRow>
+                 <asp:TableRow >
+                  <asp:TableCell >
+                    <asp:label ID="BtnTops" runat="server" BorderStyle="Inset"
+                      ForeColor="#CC3300"
+                      BackColor="Transparent" Text="Terminales de Operador" Style=" left: 5px; width:200px; text-align:center"
+                      height="20px" meta:resourcekey="BtnTopsResource1"/>
+                  </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow >
+                    <asp:TableCell >
+                        <asp:label ID="BtnRedes" runat="server" BorderStyle="Inset"
+                        ForeColor="#CC3300"
+                        BackColor="Transparent" Text="Redes" Style=" left: 5px; width:200px; text-align:center"
+                        height="20px" meta:resourcekey="BtnRedesResource1"/>
+                    </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow >
+                    <asp:TableCell >
+                      <asp:label ID="BtnTroncales" runat="server" BorderStyle="Inset"
+                        BackColor="Transparent" Text="Troncales"  ForeColor="#CC3300"
+                        Style=" left: 5px; width:200px; text-align:center" height="20px"
+                        meta:resourcekey="BtnTroncalesResource1"/>
+                    </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow >
+                    <asp:TableCell >
+                      <asp:label ID="BtnEncaminamientos" runat="server" BorderStyle="Inset"
+                        BackColor="Transparent" Text="Encaminamientos"  ForeColor="#CC3300"
+                        Style=" left: 5px; width:200px; text-align:center" height="20px"
+                        meta:resourcekey="BtnEncaminamientosResource1"/>
+                    </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow >
+                    <asp:TableCell >
+                      <asp:label ID="BtnRecursosTf" runat="server" BorderStyle="Inset"
+                        BackColor="Transparent" Text="Recursos Telefonía"  ForeColor="#CC3300"
+                        Style="left: 5px; width:200px;height: 20px; text-align:center"
+                        meta:resourcekey="BtnRecursosTfResource1"/>
+                    </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow >
+                    <asp:TableCell >
+                                <asp:label ID="BtnGrupos" runat="server" BorderStyle="Inset"
+                        BackColor="Transparent" Text="Grupos"  ForeColor="#CC3300"
+                        Style="left: 5px; width:200px; height: 20px; text-align:center"
+                        meta:resourcekey="BtnGruposResource1"/>
+                    </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow >
+                    <asp:TableCell >
+                      <asp:label ID="BtnDestinosTf" runat="server" BorderStyle="Inset"
+                        BackColor="Transparent" Text="Destinos Telefonía"  ForeColor="#CC3300"
+                        Style=" left: 5px; width:200px; text-align:center"
+                        height="20px" meta:resourcekey="BtnDestinosTfResource1"/>
+                    </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow >
+                    <asp:TableCell >
+                      <asp:label ID="BtnEmplazamientos" runat="server" BorderStyle="Inset"
+                        BackColor="Transparent" Text="Emplazamientos"  ForeColor="#CC3300"
+                        Style="left: 5px; width:200px; text-align:center" height="20px"
+                        meta:resourcekey="BtnEmplazamientosResource1"/>
+                    </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow >
+                    <asp:TableCell >
+                      <asp:label ID="BtnZonas" runat="server" BorderStyle="Inset"
+                        BackColor="Transparent" Text="Zonas Radio"  ForeColor="#CC3300"
+                        Style="top: 386px; left: 5px; width:200px; text-align:center"
+                        height="20px" meta:resourcekey="BtnZonasResource1"/>
+                    </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow >
+                    <asp:TableCell >
+                      <asp:label ID="BtnTabCalidad" runat="server" BorderStyle="Inset"
+                        BackColor="Transparent" Text="Conversion RSSI"  ForeColor="#CC3300"
+                        Style=" left: 5px; width:200px; text-align:center"
+                        height="20px" meta:resourcekey="BtnTabCalidadResource1"/>
+                    </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow >
+                    <asp:TableCell >
+                      <asp:label ID="BtnRecursosRd" runat="server" BorderStyle="Inset"
+                        BackColor="Transparent" Text="Recursos Radio"  ForeColor="#CC3300"
+                        Style="top: 448px; left: 5px; width:200px; text-align:center"
+                        height="20px" meta:resourcekey="BtnRecursosRdResource1"/>
+                    </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow >
+                    <asp:TableCell >
+                      <asp:label ID="BtnDestinosRadio" runat="server" BorderStyle="Inset"
+                        BackColor="Transparent" Text="Destinos Radio"  ForeColor="#CC3300"
+                        Style="left: 5px; width:200px; text-align:center" height="20px"
+                        meta:resourcekey="BtnDestinosRadioResource1"/>
+                    </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow >
+                    <asp:TableCell >
+                      <asp:label ID="BtnNucleos" runat="server" BorderStyle="Inset"
+                        ForeColor="#CC3300"
+                        BackColor="Transparent" Text="Núcleos" Style=" left: 5px; width:200px; text-align:center"
+                        height="20px" meta:resourcekey="BtnNucleosResource1"/>
+                    </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow >
+                    <asp:TableCell >
+                      <asp:label ID="BtnSectores" runat="server" BorderStyle="Inset"
+                        BackColor="Transparent" Text="Sectores"  ForeColor="#CC3300"
+                        Style=" left: 5px; width:200px;height: 20px; text-align:center"
+                        meta:resourcekey="BtnSectoresResource1"/>
+                    </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow >
+                    <asp:TableCell >
+                      <asp:label ID="BtnAgrupaciones" runat="server" BorderStyle="Inset"
+                        BackColor="Transparent" Text="Agrupaciones"  ForeColor="#CC3300"
+                        Style=" left: 5px; width:200px; text-align:center" height="20px"
+                        onclick="BtnAgrupaciones_Click" meta:resourcekey="BtnAgrupacionesResource1"/>
+                    </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow >
+                    <asp:TableCell >
+                      <asp:label ID="BtnSectorizaciones" runat="server" BorderStyle="Inset"
+                        BackColor="Transparent" Text="Sectorizaciones" ForeColor="#CC3300"
+                        Style="left: 5px; width:200px;text-align:center" height="20px"
+                        meta:resourcekey="BtnSectorizacionesResource1"/>
+                    </asp:TableCell>
+                  </asp:TableRow>
+                </asp:Table>
+        </div>
+        
+		<asp:Panel ID="Panel1" runat="server" Visible="False" 
+			 BackColor="#F7F6F3" BorderColor="#e00034"
+			 style="position: relative; top: 241px; left: 310px; width: 700px; height: 171px; z-index: 103;" 
+			BorderStyle="Solid" meta:resourcekey="Panel1Resource1" >
+			<asp:Panel ID="PnlCabecera" runat="server" 
+				 style="position: relative; top: 4px; left: 7px; width: 688px; height: 29px" 
+				 BackColor="#e00034" BorderColor="#0033CC" meta:resourcekey="PnlCabeceraResource1">
+				 <asp:Label ID="Label6" runat="server" SkinID="LabelPanel"
+					style="z-index: 1; left: 5px; top: 5px; position: absolute; height: 22px; width: 680px; text-align:center" 
+					 Text="Las últimas modificaciones no fueron activadas en el sistema. ¿Qué desea hacer?" 
+					 meta:resourcekey="Label6Resource1"></asp:Label>
+			</asp:Panel>
+    		<asp:Panel ID="PanelContenido" runat="server" 
+				 
+				style="position: relative; top: 5px; left: 5px; width: 687px; height: 94px; z-index: -1;" 
+				meta:resourcekey="PanelContenidoResource1">
+				 <asp:RadioButton ID="RBContinuarModificada" runat="server" 
+					style="position: absolute; z-index: 2; left: 168px; top: 38px; height: 29px; width: auto;" 
+					Text="Cancelar las modificaciones y salir de configuración" GroupName="Modo" 
+					 meta:resourcekey="RBContinuarModificadaResource1" />
+				 <asp:RadioButton ID="RBContinuarActiva" runat="server" 
+					style="position: absolute; z-index: 1; left: 168px; top: 8px; width:auto" 
+					Text="Activar una sectorización con las últimas modificaciones" Checked="True" 
+					 GroupName="Modo" meta:resourcekey="RBContinuarActivaResource1" />
+				 <asp:RadioButton ID="RBSalir" runat="server" style="position: absolute; z-index: 1; left: 168px; top: 68px; width:auto" 
+					Text="Salir y mantener las últimas modificaciones" 
+					 GroupName="Modo" meta:resourcekey="RBSalirResource1" />
+
+				 <asp:Button ID="BtnAceptarModoContinuar" runat="server" CssClass="botonCD40" 
+					style="z-index: 2; left: 315px; top: 100px; position: absolute" Text="Aceptar" 
+					 onclick="OnBtnAceptarModoContinuar" CausesValidation="False"
+					 meta:resourcekey="BtnAceptarModoContinuarResource1" />
+			</asp:Panel>
+		</asp:Panel>
+
+        <div style="z-index: 301; left: 8px; width: 1264px; position: absolute; top: 855px; height: 37px; text-align:center; color: red; font-family:Verdana; font-size:small" >
+            <br\ />
+            &#169 Núcleo. 2019. v2.5.9#7. All rights reserved.
+        </div>
+    </form>
+</body>
+</html>

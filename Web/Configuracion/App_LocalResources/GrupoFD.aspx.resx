@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BtAceptarResource1.Text" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="BtAceptarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtCancelarResource1.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="BtCancelarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtEliminarResource1.Text" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="BtEliminarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtModificarResource1.Text" xml:space="preserve">
+    <value>Modificar</value>
+  </data>
+  <data name="BtModificarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtNuevoResource1.Text" xml:space="preserve">
+    <value>Nuevo</value>
+  </data>
+  <data name="BtNuevoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckExclusividadResource1.Text" xml:space="preserve">
+    <value>Exclusividad TX-RX</value>
+  </data>
+  <data name="CheckExclusividadResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DListModoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="erroresResource1.HeaderText" xml:space="preserve">
+    <value>Resumen de errores:</value>
+  </data>
+  <data name="erroresResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButAsignarResource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButAsignarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButQuitarResource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButQuitarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label1Resource1.Text" xml:space="preserve">
+    <value>GESTIÓN DESTINOS RADIO</value>
+  </data>
+  <data name="Label1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label2Resource1.Text" xml:space="preserve">
+    <value>Tipo:</value>
+  </data>
+  <data name="Label2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label3Resource1.Text" xml:space="preserve">
+    <value>Rec. Asignados</value>
+  </data>
+  <data name="Label3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label4Resource1.Text" xml:space="preserve">
+    <value>Rec. Libres</value>
+  </data>
+  <data name="Label4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label5Resource1.Text" xml:space="preserve">
+    <value>Id. Destino:</value>
+  </data>
+  <data name="Label5Resource1.ToolTip" xml:space="preserve">
+    <value>Identificador Destino</value>
+  </data>
+  <data name="ListBox1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListItemResource1.Text" xml:space="preserve">
+    <value>VHF</value>
+  </data>
+  <data name="ListItemResource1.Value" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ListItemResource2.Text" xml:space="preserve">
+    <value>UHF</value>
+  </data>
+  <data name="ListItemResource2.Value" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ListItemResource3.Text" xml:space="preserve">
+    <value>HF</value>
+  </data>
+  <data name="ListItemResource3.Value" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ListRecursosLibresResource1.ToolTip" xml:space="preserve">
+    <value>Seleccionar recursos para asignar al destino</value>
+  </data>
+  <data name="ListRecursosResource1.ToolTip" xml:space="preserve">
+    <value>Seleccionar recursos a desasignar del destino</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>Gestión de Destinos Radio</value>
+  </data>
+  <data name="RequiredFieldIdentificadorResource1.ErrorMessage" xml:space="preserve">
+    <value>Rellene el campo Identificador</value>
+  </data>
+  <data name="RequiredFieldIdentificadorResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredFieldIdentificadorResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RequiredFieldValidator1Resource1.ErrorMessage" xml:space="preserve">
+    <value>El Destino debe estar asignado al menos a un recurso radio.</value>
+  </data>
+  <data name="RequiredFieldValidator1Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredFieldValidator1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtIdDestino.ToolTip" xml:space="preserve">
+    <value>Identificador Destino</value>
+  </data>
+  <data name="LErrorResource.Text" xml:space="preserve">
+    <value>El Destino debe estar asignado al menos a un recurso radio.</value>
+  </data>
+  <data name="LblTunedFreqResource1.Text" xml:space="preserve">
+    <value>Frec. Sintonizada:</value>
+  </data>
+  <data name="RangeMessageResource1.InvalidValueMessage" xml:space="preserve">
+    <value>Valor fuera de rango. El valor debe estar entre 1.600.000 y 30.000.000 Hz.</value>
+  </data>
+  <data name="RangeMessageResource1.MaximumValueMessage" xml:space="preserve">
+    <value>Valor fuera de rango. El valor debe ser menor de 30.000.000 Hz.</value>
+  </data>
+  <data name="RangeMessageResource1.MinimumValueMessage" xml:space="preserve">
+    <value>Valor fuera de rango. El valor debe ser mayor de 1.600.000 Hz.</value>
+  </data>
+  <data name="Label8Resource1.Text" xml:space="preserve">
+    <value>Tipos</value>
+  </data>
+  <data name="Label7Emplazamiento.Text" xml:space="preserve">
+    <value>Emplazamiento</value>
+  </data>
+  <data name="ListEmplazamientoResource.Text" xml:space="preserve">
+    <value>Todos </value>
+  </data>
+  <data name="Label6Resource1.Text" xml:space="preserve">
+    <value>Emplazamientos</value>
+  </data>
+  <data name="ListTipo_Audio_RXTX.Text" xml:space="preserve">
+    <value>Audio RX TX</value>
+  </data>
+  <data name="ListTipo_Audio_RXTX.Value" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ListTipo_Audio_HF.Text" xml:space="preserve">
+    <value>Audio HF-TX</value>
+  </data>
+  <data name="ListTipo_Audio_HF.Value" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ListTipo_Audio_NM.Text" xml:space="preserve">
+    <value>Audio M+N</value>
+  </data>
+  <data name="ListTipo_Audio_NM.Value" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Label9Resource1.Text" xml:space="preserve">
+    <value>Modo:</value>
+  </data>
+  <data name="LabelZonasResource1.Text" xml:space="preserve">
+    <value>Zonas:</value>
+  </data>
+  <data name="ListItemResource8.Text" xml:space="preserve">
+    <value>&lt;Selecciona zona&gt;</value>
+  </data>
+  <data name="CompareValidator2Resource1.ErrorMessage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label10Resource.Text" xml:space="preserve">
+    <value>Método Climax:</value>
+  </data>
+  <data name="Label11Resource1.Text" xml:space="preserve">
+    <value>Ventana BSS (mseg):</value>
+  </data>
+  <data name="Label41Resource1.Text" xml:space="preserve">
+    <value>Modo Destino:</value>
+  </data>
+  <data name="DListModoDestinoItemRes1.Text" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="DListModoDestinoItemRes1.Value" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DListModoDestinoItemRes2.Text" xml:space="preserve">
+    <value>FD</value>
+  </data>
+  <data name="DListModoDestinoItemRes2.Value" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Label7Resource1.Text" xml:space="preserve">
+    <value>Prioridad sesión SIP:</value>
+  </data>
+  <data name="DListPrioridadSIPItemRes1.Text" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="DListPrioridadSIPItemRes1.Value" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="DListPrioridadSIPItemRes2.Text" xml:space="preserve">
+    <value>Emergencia</value>
+  </data>
+  <data name="DListPrioridadSIPItemRes2.Value" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="RequiredFieldValidator4Resource1.ErrorMessage" xml:space="preserve">
+    <value>La ventana de selección BSS debe estar comprendida entre 50 y 2000 ms.</value>
+  </data>
+  <data name="RVTxtVentanaBSS.ErrorMessage" xml:space="preserve">
+    <value>La ventana de selección BSS debe estar comprendida entre 50 y 2000 ms.</value>
+  </data>
+  <data name="RVTxtVentanaBSS.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="TxtVentanaBSS.ToolTip" xml:space="preserve">
+    <value>Ventana de selección BSS</value>
+  </data>
+  <data name="RequiredFieldValidator2Resource1.ErrorMessage" xml:space="preserve">
+    <value>El identificador del destino radio no tiene un formato correcto.</value>
+  </data>
+  <data name="RequiredFieldValidator2Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="CheckFrecNoDesasignableResource1.Text" xml:space="preserve">
+    <value>Frec. no desasignable</value>
+  </data>
+  <data name="FiltrarPorEmplazamientoResource.Text" xml:space="preserve">
+    <value>Filtrar por emplazamiento</value>
+  </data>
+  <data name="Label12Resource.Text" xml:space="preserve">
+    <value>Métodos BSS:</value>
+  </data>
+  <data name="DDLMetodosBsssResource1.ToolTip" xml:space="preserve">
+    <value>Métodos BSS ofrecidos</value>
+  </data>
+  <data name="Label44Resource1.Text" xml:space="preserve">
+    <value>Periodo Cálc. CLD (s):</value>
+  </data>
+  <data name="DListMetodoClimaxItemRes1.Text" xml:space="preserve">
+    <value>Relativo</value>
+  </data>
+  <data name="DListMetodoClimaxItemRes1.Value" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DListMetodoClimaxItemRes2.Text" xml:space="preserve">
+    <value>Absoluto</value>
+  </data>
+  <data name="DListMetodoClimaxItemRes2.Value" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="DListMetodoClimaxResource1.Tooltip" xml:space="preserve">
+    <value>Relativo, Absoluto</value>
+  </data>
+  <data name="DListGrupoResource1.Tooltip" xml:space="preserve">
+    <value>Normal, Emergencia</value>
+  </data>
+  <data name="DListModoDestinoResource1.Tooltip" xml:space="preserve">
+    <value>Normal, FD</value>
+  </data>
+  <data name="CheckedSincroResource1.Text" xml:space="preserve">
+    <value>Sinc. Recepción en Grupo</value>
+  </data>
+  <data name="CheckBox1SquelchResource1.Text" xml:space="preserve">
+    <value>Audio en Primer Squelch</value>
+  </data>
+  <data name="DDLMetodosBssItemRes1.Value" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DDLMetodosBssItemRes1.Text" xml:space="preserve">
+    <value>Ninguno</value>
+  </data>
+  <data name="DDLMetodosBssItemRes2.Value" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="DDLMetodosBssItemRes2.Text" xml:space="preserve">
+    <value>RSSI</value>
+  </data>
+  <data name="DDLMetodosBssItemRes3.Value" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="DDLMetodosBssItemRes3.Text" xml:space="preserve">
+    <value>RSSI y NUCLEO</value>
+  </data>
+  <data name="CompareValidator15Resource1.ErrorMessage" xml:space="preserve">
+    <value>El campo GRS Delay debe ser numérico.</value>
+  </data>
+  <data name="CompareValidator15Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredFieldValidator18Resource1.ErrorMessage" xml:space="preserve">
+    <value>El periodo de cálculo CLD debe estar comprendido entre 0 y 60 segundos.</value>
+  </data>
+  <data name="RequiredFieldValidator18Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RVTxtCLDResource1.ErrorMessage" xml:space="preserve">
+    <value>El periodo de cálculo CLD debe estar comprendido entre 0 y 60 segundos.</value>
+  </data>
+  <data name="RVTxtCLDResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LblMismatchFrequency.Text" xml:space="preserve">
+    <value>Los recursos asignados tienen configurada distinta frecuencia</value>
+  </data>
+  <data name="DropDownFiltroItemResource1.Text" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="DropDownFiltroItemResource1.Value" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DropDownFiltroItemResource2.Text" xml:space="preserve">
+    <value>Emplazamiento</value>
+  </data>
+  <data name="DropDownFiltroItemResource2.Value" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="FrecuenciaSintonizadaIncorrecta.Text" xml:space="preserve">
+    <value>La frecuencia sintonizada no es correcta.</value>
+  </data>
+  <data name="RFV_TBTunedFrequencyResource1.ErrorMessage" xml:space="preserve">
+    <value>Rellene el campo frecuencia sintonizada.</value>
+  </data>
+  <data name="DListModoTransmisionRes.ToolTip" xml:space="preserve">
+    <value>Climax, Última Recepción</value>
+  </data>
+  <data name="LbModoTransmisionResource.Text" xml:space="preserve">
+    <value>Modo de Transmisión:</value>
+    <comment>Modo de transmisión para el modo FD</comment>
+  </data>
+  <data name="LbEmplazamientoDefectoResource.Text" xml:space="preserve">
+    <value>Emplazamiento por Defecto</value>
+  </data>
+  <data name="LbTiempoVueltaADefectoResource.Text" xml:space="preserve">
+    <value>Tiempo Vuelta a Defecto (s)</value>
+  </data>
+  <data name="ListItemModoTransmisionClimaxRes.Text" xml:space="preserve">
+    <value>Climax</value>
+    <comment>Modo de transmisión Climax</comment>
+  </data>
+  <data name="ListItemModoTransmisionManualRes.Text" xml:space="preserve">
+    <value>Manual</value>
+    <comment>Modo de transmisión Manual</comment>
+  </data>
+  <data name="ListItemModoTransmisionUltRecepcionRes.Text" xml:space="preserve">
+    <value>Última Recepción</value>
+    <comment>Modo de transmisión Última recepción</comment>
+  </data>
+  <data name="TxtTiempoCLDResource1.ToolTip" xml:space="preserve">
+    <value>Periodo de Cálculo CLD en segundos</value>
+  </data>
+  <data name="DestinoExiste.Text" xml:space="preserve">
+    <value>El identificador del destino ya existe.</value>
+  </data>
+  <data name="ListItemEmplDefNinguno.Text" xml:space="preserve">
+    <value>Ninguno</value>
+  </data>
+</root>

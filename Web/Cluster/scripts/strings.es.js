@@ -1,0 +1,22 @@
+﻿Strings = {
+"Nodo1_A_Nodo2_NA": "Nodo 1 ACTIVO, Nodo 2 NO ACTIVO",
+"Nodo1_A_Nodo2_NA_Click": "Nodo 1 ACTIVO, Nodo 2 NO ACTIVO. Click para conmutar",
+"Nodo1_NA_Nodo2_A_Click": "Nodo1 NO ACTIVO, Nodo2 ACTIVO. Click para conmutar",
+"Nodo1_NA_Nodo2_A": "Nodo1 NO ACTIVO, Nodo2 ACTIVO",
+"Nodo1_A_Nodo2_P": "Nodo1 ACTIVO, Nodo2 PARADO. No es posible conmutar",
+"Nodo1_P_Nodo2_A": "Nodo1 PARADO, Nodo2 ACTIVO. No es posible conmutar",
+"Nodo1_P_Nodo2_P": "Nodo1 PARADO, Nodo2 PARADO. No es posible conmutar",
+"Error_Nodo_1": "ERROR EN EL CLUSTER. REINICIAR NODO 1",
+"Error_Nodo_2": "ERROR EN EL CLUSTER. REINICIAR NODO 2",
+"Error_Cluster": "ERROR EN EL CLUSTER. Si persiste reiniciar los nodos",
+"Adaptador": "Adaptador",
+"Desde": "Desde",
+"Seguro_Conmutar": "¿Esta seguro que quiere conmutar de nodo Activo?",
+"Estado": "Estado",
+"Nodo": "Nodo",
+"No_Funcional": "No funcional",
+"Activando_Nodo": "Activando nodo",
+"Activo": "Activo",
+"No_Activo": "No activo",
+"No_Operativo": "No operacional"
+};

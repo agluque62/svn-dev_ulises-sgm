@@ -1,0 +1,2119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="AltaOperador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idOperador" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nivelAcceso" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apellidos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telefono" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaOperadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AltaOperadorResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaOperador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idOperador" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaOperadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BajaOperadorResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificaOperador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idOperador" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nivelAcceso" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apellidos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telefono" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificaOperadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificaOperadorResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AsignarSectoresUCS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idSectorizacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sectores" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="posDest" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AsignarSectoresUCSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AsignarSectoresUCSResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IntercambiarUCS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idSectorizacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="origen" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="topOrigen" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="destino" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="topDestino" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IntercambiarUCSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IntercambiarUCSResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LiberarUCS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idSectorizacion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pos" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LiberarUCSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LiberarUCSResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LiberarSectorUCS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idSectorizacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sector" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LiberarSectorUCSResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="MoverSectores">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idSectorizacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sectoresOrigen" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="posOrigen" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sectoresDestino" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="posDest" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MoverSectoresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MoverSectoresResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaAgrupacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idAgrupacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sectores" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaAgrupacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AltaAgrupacionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaAgrupacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idAgrupacion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaAgrupacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BajaAgrupacionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idNucleo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idSector" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipoSector" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numSacta" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="prioR2" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="numPub" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="numATS" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AltaUsuarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificacionUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idNucleo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idSector" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipoSector" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numSacta" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="prioR2" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="numPub" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="numATS" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificacionUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificacionUsuarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idNucleo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idSector" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BajaUsuarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaEmplazamiento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaEmplazamientoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AltaEmplazamientoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaEmplazamiento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaEmplazamientoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BajaEmplazamientoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaNucleo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idNucleo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaNucleoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AltaNucleoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaNucleo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idNucleo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaNucleoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BajaNucleoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaSectorizacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idSect" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaSectorizacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AltaSectorizacionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaSectorizacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idSect" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaSectorizacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BajaSectorizacionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaTroncal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numTest" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaTroncalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AltaTroncalResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaTroncal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaTroncalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BajaTroncalResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificacionTroncal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numTest" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificacionTroncalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificacionTroncalResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaRed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="prefijo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaRedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AltaRedResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaRed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="prefijo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaRedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BajaRedResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaCanalRadio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="exclusividad" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="modo" type="s1:char" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoPTT" type="s1:char" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoSquelch" type="s1:char" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxPTT" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaCanalRadioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AltaCanalRadioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificacionCanalRadio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="exclusividad" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="modo" type="s1:char" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoPTT" type="s1:char" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoSquelch" type="s1:char" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxPTT" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificacionCanalRadioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificacionCanalRadioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaCanalRadio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaCanalRadioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BajaCanalRadioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaFrecuencia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="emplazamiento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idFrecuencia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GrupoBSS" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="idCanalRad" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaFrecuenciaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AltaFrecuenciaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificacionFrecuencia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idFrecuencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idEmplazamiento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idCanal" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GrupoBSS" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificacionFrecuenciaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificacionFrecuenciaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaFrecuencia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idFrecuencia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="eliminarColateralesRD" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaFrecuenciaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BajaFrecuenciaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaLineaTelefonia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tipoRecurso" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoLinTroncal" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="lado" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="acceso" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="idTroncal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaLineaTelefoniaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AltaLineaTelefoniaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificacionLineaTelefonia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tipoRecurso" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoLinTroncal" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="lado" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="acceso" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="idTroncal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificacionLineaTelefoniaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificacionLineaTelefoniaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaLineaTelefonia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoLinTroncal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="idTroncal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaLineaTelefoniaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BajaLineaTelefoniaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaDestino">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idDestino" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="prefijoRed" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="idRecurso" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="grupo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="numero" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaDestinoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AltaDestinoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificacionDestino">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idDestino" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="prefijoRed" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="idRecurso" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="grupo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="numero" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificacionDestinoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificacionDestinoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaDestino">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idDestino" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="prefijoRed" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaDestinoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BajaDestinoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaCentralPropia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idEncaminamiento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numTest" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ts" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaCentralPropiaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AltaCentralPropiaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaRangoR2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tipo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="desde" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hasta" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaRangoR2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AltaRangoR2Result" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaDestinoR2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idDestinoR2" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="desde" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hasta" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaDestinoR2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AltaDestinoR2Result" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaRuta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idRuta" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="directa" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="numero" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="idRecurso" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaRutaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AltaRutaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaEncaminamiento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaEncaminamientoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BajaEncaminamientoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaColateralRadio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idNucleo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idSector" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="posHMI" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="literal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idDestino" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idEmplazamiento" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaColateralRadioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AltaColateralRadioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificaColateralRadio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idNucleo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idSector" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="posHMI" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="idDestino" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idEmplazamiento" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificaColateralRadioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificaColateralRadioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaColateralRadio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idNucleo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="posHMI" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="idSector" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaColateralRadioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BajaColateralRadioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaColateralTelefonia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idNucleo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idSector" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="posHMI" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="literal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idDestino" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idPrefijo" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="origenR2" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="prioridad" type="s:unsignedInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaColateralTelefoniaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AltaColateralTelefoniaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificaColateralTelefonia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idNucleo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idSector" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="posHMI" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="literal" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="prioridad" type="s:unsignedInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificaColateralTelefoniaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificaColateralTelefoniaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaColateralTelefonia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idNucleo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idSector" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="posHMI" type="s:unsignedInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajaColateralTelefoniaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BajaColateralTelefoniaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AltaOperadorSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaOperador" />
+  </wsdl:message>
+  <wsdl:message name="AltaOperadorSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaOperadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="BajaOperadorSoapIn">
+    <wsdl:part name="parameters" element="tns:BajaOperador" />
+  </wsdl:message>
+  <wsdl:message name="BajaOperadorSoapOut">
+    <wsdl:part name="parameters" element="tns:BajaOperadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificaOperadorSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificaOperador" />
+  </wsdl:message>
+  <wsdl:message name="ModificaOperadorSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificaOperadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="AsignarSectoresUCSSoapIn">
+    <wsdl:part name="parameters" element="tns:AsignarSectoresUCS" />
+  </wsdl:message>
+  <wsdl:message name="AsignarSectoresUCSSoapOut">
+    <wsdl:part name="parameters" element="tns:AsignarSectoresUCSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IntercambiarUCSSoapIn">
+    <wsdl:part name="parameters" element="tns:IntercambiarUCS" />
+  </wsdl:message>
+  <wsdl:message name="IntercambiarUCSSoapOut">
+    <wsdl:part name="parameters" element="tns:IntercambiarUCSResponse" />
+  </wsdl:message>
+  <wsdl:message name="LiberarUCSSoapIn">
+    <wsdl:part name="parameters" element="tns:LiberarUCS" />
+  </wsdl:message>
+  <wsdl:message name="LiberarUCSSoapOut">
+    <wsdl:part name="parameters" element="tns:LiberarUCSResponse" />
+  </wsdl:message>
+  <wsdl:message name="LiberarSectorUCSSoapIn">
+    <wsdl:part name="parameters" element="tns:LiberarSectorUCS" />
+  </wsdl:message>
+  <wsdl:message name="LiberarSectorUCSSoapOut">
+    <wsdl:part name="parameters" element="tns:LiberarSectorUCSResponse" />
+  </wsdl:message>
+  <wsdl:message name="MoverSectoresSoapIn">
+    <wsdl:part name="parameters" element="tns:MoverSectores" />
+  </wsdl:message>
+  <wsdl:message name="MoverSectoresSoapOut">
+    <wsdl:part name="parameters" element="tns:MoverSectoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltaAgrupacionSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaAgrupacion" />
+  </wsdl:message>
+  <wsdl:message name="AltaAgrupacionSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaAgrupacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="BajaAgrupacionSoapIn">
+    <wsdl:part name="parameters" element="tns:BajaAgrupacion" />
+  </wsdl:message>
+  <wsdl:message name="BajaAgrupacionSoapOut">
+    <wsdl:part name="parameters" element="tns:BajaAgrupacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltaUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaUsuario" />
+  </wsdl:message>
+  <wsdl:message name="AltaUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificacionUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificacionUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ModificacionUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificacionUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="BajaUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:BajaUsuario" />
+  </wsdl:message>
+  <wsdl:message name="BajaUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:BajaUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltaEmplazamientoSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaEmplazamiento" />
+  </wsdl:message>
+  <wsdl:message name="AltaEmplazamientoSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaEmplazamientoResponse" />
+  </wsdl:message>
+  <wsdl:message name="BajaEmplazamientoSoapIn">
+    <wsdl:part name="parameters" element="tns:BajaEmplazamiento" />
+  </wsdl:message>
+  <wsdl:message name="BajaEmplazamientoSoapOut">
+    <wsdl:part name="parameters" element="tns:BajaEmplazamientoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltaNucleoSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaNucleo" />
+  </wsdl:message>
+  <wsdl:message name="AltaNucleoSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaNucleoResponse" />
+  </wsdl:message>
+  <wsdl:message name="BajaNucleoSoapIn">
+    <wsdl:part name="parameters" element="tns:BajaNucleo" />
+  </wsdl:message>
+  <wsdl:message name="BajaNucleoSoapOut">
+    <wsdl:part name="parameters" element="tns:BajaNucleoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltaSectorizacionSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaSectorizacion" />
+  </wsdl:message>
+  <wsdl:message name="AltaSectorizacionSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaSectorizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="BajaSectorizacionSoapIn">
+    <wsdl:part name="parameters" element="tns:BajaSectorizacion" />
+  </wsdl:message>
+  <wsdl:message name="BajaSectorizacionSoapOut">
+    <wsdl:part name="parameters" element="tns:BajaSectorizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltaTroncalSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaTroncal" />
+  </wsdl:message>
+  <wsdl:message name="AltaTroncalSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaTroncalResponse" />
+  </wsdl:message>
+  <wsdl:message name="BajaTroncalSoapIn">
+    <wsdl:part name="parameters" element="tns:BajaTroncal" />
+  </wsdl:message>
+  <wsdl:message name="BajaTroncalSoapOut">
+    <wsdl:part name="parameters" element="tns:BajaTroncalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificacionTroncalSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificacionTroncal" />
+  </wsdl:message>
+  <wsdl:message name="ModificacionTroncalSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificacionTroncalResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltaRedSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaRed" />
+  </wsdl:message>
+  <wsdl:message name="AltaRedSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaRedResponse" />
+  </wsdl:message>
+  <wsdl:message name="BajaRedSoapIn">
+    <wsdl:part name="parameters" element="tns:BajaRed" />
+  </wsdl:message>
+  <wsdl:message name="BajaRedSoapOut">
+    <wsdl:part name="parameters" element="tns:BajaRedResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltaCanalRadioSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaCanalRadio" />
+  </wsdl:message>
+  <wsdl:message name="AltaCanalRadioSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaCanalRadioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificacionCanalRadioSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificacionCanalRadio" />
+  </wsdl:message>
+  <wsdl:message name="ModificacionCanalRadioSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificacionCanalRadioResponse" />
+  </wsdl:message>
+  <wsdl:message name="BajaCanalRadioSoapIn">
+    <wsdl:part name="parameters" element="tns:BajaCanalRadio" />
+  </wsdl:message>
+  <wsdl:message name="BajaCanalRadioSoapOut">
+    <wsdl:part name="parameters" element="tns:BajaCanalRadioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltaFrecuenciaSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaFrecuencia" />
+  </wsdl:message>
+  <wsdl:message name="AltaFrecuenciaSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaFrecuenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificacionFrecuenciaSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificacionFrecuencia" />
+  </wsdl:message>
+  <wsdl:message name="ModificacionFrecuenciaSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificacionFrecuenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="BajaFrecuenciaSoapIn">
+    <wsdl:part name="parameters" element="tns:BajaFrecuencia" />
+  </wsdl:message>
+  <wsdl:message name="BajaFrecuenciaSoapOut">
+    <wsdl:part name="parameters" element="tns:BajaFrecuenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltaLineaTelefoniaSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaLineaTelefonia" />
+  </wsdl:message>
+  <wsdl:message name="AltaLineaTelefoniaSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaLineaTelefoniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificacionLineaTelefoniaSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificacionLineaTelefonia" />
+  </wsdl:message>
+  <wsdl:message name="ModificacionLineaTelefoniaSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificacionLineaTelefoniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="BajaLineaTelefoniaSoapIn">
+    <wsdl:part name="parameters" element="tns:BajaLineaTelefonia" />
+  </wsdl:message>
+  <wsdl:message name="BajaLineaTelefoniaSoapOut">
+    <wsdl:part name="parameters" element="tns:BajaLineaTelefoniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltaDestinoSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaDestino" />
+  </wsdl:message>
+  <wsdl:message name="AltaDestinoSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaDestinoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificacionDestinoSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificacionDestino" />
+  </wsdl:message>
+  <wsdl:message name="ModificacionDestinoSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificacionDestinoResponse" />
+  </wsdl:message>
+  <wsdl:message name="BajaDestinoSoapIn">
+    <wsdl:part name="parameters" element="tns:BajaDestino" />
+  </wsdl:message>
+  <wsdl:message name="BajaDestinoSoapOut">
+    <wsdl:part name="parameters" element="tns:BajaDestinoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltaCentralPropiaSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaCentralPropia" />
+  </wsdl:message>
+  <wsdl:message name="AltaCentralPropiaSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaCentralPropiaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltaRangoR2SoapIn">
+    <wsdl:part name="parameters" element="tns:AltaRangoR2" />
+  </wsdl:message>
+  <wsdl:message name="AltaRangoR2SoapOut">
+    <wsdl:part name="parameters" element="tns:AltaRangoR2Response" />
+  </wsdl:message>
+  <wsdl:message name="AltaDestinoR2SoapIn">
+    <wsdl:part name="parameters" element="tns:AltaDestinoR2" />
+  </wsdl:message>
+  <wsdl:message name="AltaDestinoR2SoapOut">
+    <wsdl:part name="parameters" element="tns:AltaDestinoR2Response" />
+  </wsdl:message>
+  <wsdl:message name="AltaRutaSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaRuta" />
+  </wsdl:message>
+  <wsdl:message name="AltaRutaSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaRutaResponse" />
+  </wsdl:message>
+  <wsdl:message name="BajaEncaminamientoSoapIn">
+    <wsdl:part name="parameters" element="tns:BajaEncaminamiento" />
+  </wsdl:message>
+  <wsdl:message name="BajaEncaminamientoSoapOut">
+    <wsdl:part name="parameters" element="tns:BajaEncaminamientoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltaColateralRadioSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaColateralRadio" />
+  </wsdl:message>
+  <wsdl:message name="AltaColateralRadioSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaColateralRadioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificaColateralRadioSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificaColateralRadio" />
+  </wsdl:message>
+  <wsdl:message name="ModificaColateralRadioSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificaColateralRadioResponse" />
+  </wsdl:message>
+  <wsdl:message name="BajaColateralRadioSoapIn">
+    <wsdl:part name="parameters" element="tns:BajaColateralRadio" />
+  </wsdl:message>
+  <wsdl:message name="BajaColateralRadioSoapOut">
+    <wsdl:part name="parameters" element="tns:BajaColateralRadioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltaColateralTelefoniaSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaColateralTelefonia" />
+  </wsdl:message>
+  <wsdl:message name="AltaColateralTelefoniaSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaColateralTelefoniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificaColateralTelefoniaSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificaColateralTelefonia" />
+  </wsdl:message>
+  <wsdl:message name="ModificaColateralTelefoniaSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificaColateralTelefoniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="BajaColateralTelefoniaSoapIn">
+    <wsdl:part name="parameters" element="tns:BajaColateralTelefonia" />
+  </wsdl:message>
+  <wsdl:message name="BajaColateralTelefoniaSoapOut">
+    <wsdl:part name="parameters" element="tns:BajaColateralTelefoniaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SincronizaCD30Soap">
+    <wsdl:operation name="AltaOperador">
+      <wsdl:input message="tns:AltaOperadorSoapIn" />
+      <wsdl:output message="tns:AltaOperadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BajaOperador">
+      <wsdl:input message="tns:BajaOperadorSoapIn" />
+      <wsdl:output message="tns:BajaOperadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificaOperador">
+      <wsdl:input message="tns:ModificaOperadorSoapIn" />
+      <wsdl:output message="tns:ModificaOperadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AsignarSectoresUCS">
+      <wsdl:input message="tns:AsignarSectoresUCSSoapIn" />
+      <wsdl:output message="tns:AsignarSectoresUCSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IntercambiarUCS">
+      <wsdl:input message="tns:IntercambiarUCSSoapIn" />
+      <wsdl:output message="tns:IntercambiarUCSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LiberarUCS">
+      <wsdl:input message="tns:LiberarUCSSoapIn" />
+      <wsdl:output message="tns:LiberarUCSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LiberarSectorUCS">
+      <wsdl:input message="tns:LiberarSectorUCSSoapIn" />
+      <wsdl:output message="tns:LiberarSectorUCSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MoverSectores">
+      <wsdl:input message="tns:MoverSectoresSoapIn" />
+      <wsdl:output message="tns:MoverSectoresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaAgrupacion">
+      <wsdl:input message="tns:AltaAgrupacionSoapIn" />
+      <wsdl:output message="tns:AltaAgrupacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BajaAgrupacion">
+      <wsdl:input message="tns:BajaAgrupacionSoapIn" />
+      <wsdl:output message="tns:BajaAgrupacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaUsuario">
+      <wsdl:input message="tns:AltaUsuarioSoapIn" />
+      <wsdl:output message="tns:AltaUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionUsuario">
+      <wsdl:input message="tns:ModificacionUsuarioSoapIn" />
+      <wsdl:output message="tns:ModificacionUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BajaUsuario">
+      <wsdl:input message="tns:BajaUsuarioSoapIn" />
+      <wsdl:output message="tns:BajaUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaEmplazamiento">
+      <wsdl:input message="tns:AltaEmplazamientoSoapIn" />
+      <wsdl:output message="tns:AltaEmplazamientoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BajaEmplazamiento">
+      <wsdl:input message="tns:BajaEmplazamientoSoapIn" />
+      <wsdl:output message="tns:BajaEmplazamientoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaNucleo">
+      <wsdl:input message="tns:AltaNucleoSoapIn" />
+      <wsdl:output message="tns:AltaNucleoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BajaNucleo">
+      <wsdl:input message="tns:BajaNucleoSoapIn" />
+      <wsdl:output message="tns:BajaNucleoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaSectorizacion">
+      <wsdl:input message="tns:AltaSectorizacionSoapIn" />
+      <wsdl:output message="tns:AltaSectorizacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BajaSectorizacion">
+      <wsdl:input message="tns:BajaSectorizacionSoapIn" />
+      <wsdl:output message="tns:BajaSectorizacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaTroncal">
+      <wsdl:input message="tns:AltaTroncalSoapIn" />
+      <wsdl:output message="tns:AltaTroncalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BajaTroncal">
+      <wsdl:input message="tns:BajaTroncalSoapIn" />
+      <wsdl:output message="tns:BajaTroncalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionTroncal">
+      <wsdl:input message="tns:ModificacionTroncalSoapIn" />
+      <wsdl:output message="tns:ModificacionTroncalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaRed">
+      <wsdl:input message="tns:AltaRedSoapIn" />
+      <wsdl:output message="tns:AltaRedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BajaRed">
+      <wsdl:input message="tns:BajaRedSoapIn" />
+      <wsdl:output message="tns:BajaRedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaCanalRadio">
+      <wsdl:input message="tns:AltaCanalRadioSoapIn" />
+      <wsdl:output message="tns:AltaCanalRadioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionCanalRadio">
+      <wsdl:input message="tns:ModificacionCanalRadioSoapIn" />
+      <wsdl:output message="tns:ModificacionCanalRadioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BajaCanalRadio">
+      <wsdl:input message="tns:BajaCanalRadioSoapIn" />
+      <wsdl:output message="tns:BajaCanalRadioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaFrecuencia">
+      <wsdl:input message="tns:AltaFrecuenciaSoapIn" />
+      <wsdl:output message="tns:AltaFrecuenciaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionFrecuencia">
+      <wsdl:input message="tns:ModificacionFrecuenciaSoapIn" />
+      <wsdl:output message="tns:ModificacionFrecuenciaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BajaFrecuencia">
+      <wsdl:input message="tns:BajaFrecuenciaSoapIn" />
+      <wsdl:output message="tns:BajaFrecuenciaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaLineaTelefonia">
+      <wsdl:input message="tns:AltaLineaTelefoniaSoapIn" />
+      <wsdl:output message="tns:AltaLineaTelefoniaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionLineaTelefonia">
+      <wsdl:input message="tns:ModificacionLineaTelefoniaSoapIn" />
+      <wsdl:output message="tns:ModificacionLineaTelefoniaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BajaLineaTelefonia">
+      <wsdl:input message="tns:BajaLineaTelefoniaSoapIn" />
+      <wsdl:output message="tns:BajaLineaTelefoniaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaDestino">
+      <wsdl:input message="tns:AltaDestinoSoapIn" />
+      <wsdl:output message="tns:AltaDestinoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionDestino">
+      <wsdl:input message="tns:ModificacionDestinoSoapIn" />
+      <wsdl:output message="tns:ModificacionDestinoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BajaDestino">
+      <wsdl:input message="tns:BajaDestinoSoapIn" />
+      <wsdl:output message="tns:BajaDestinoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaCentralPropia">
+      <wsdl:input message="tns:AltaCentralPropiaSoapIn" />
+      <wsdl:output message="tns:AltaCentralPropiaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaRangoR2">
+      <wsdl:input message="tns:AltaRangoR2SoapIn" />
+      <wsdl:output message="tns:AltaRangoR2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaDestinoR2">
+      <wsdl:input message="tns:AltaDestinoR2SoapIn" />
+      <wsdl:output message="tns:AltaDestinoR2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaRuta">
+      <wsdl:input message="tns:AltaRutaSoapIn" />
+      <wsdl:output message="tns:AltaRutaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BajaEncaminamiento">
+      <wsdl:input message="tns:BajaEncaminamientoSoapIn" />
+      <wsdl:output message="tns:BajaEncaminamientoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaColateralRadio">
+      <wsdl:input message="tns:AltaColateralRadioSoapIn" />
+      <wsdl:output message="tns:AltaColateralRadioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificaColateralRadio">
+      <wsdl:input message="tns:ModificaColateralRadioSoapIn" />
+      <wsdl:output message="tns:ModificaColateralRadioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BajaColateralRadio">
+      <wsdl:input message="tns:BajaColateralRadioSoapIn" />
+      <wsdl:output message="tns:BajaColateralRadioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaColateralTelefonia">
+      <wsdl:input message="tns:AltaColateralTelefoniaSoapIn" />
+      <wsdl:output message="tns:AltaColateralTelefoniaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificaColateralTelefonia">
+      <wsdl:input message="tns:ModificaColateralTelefoniaSoapIn" />
+      <wsdl:output message="tns:ModificaColateralTelefoniaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BajaColateralTelefonia">
+      <wsdl:input message="tns:BajaColateralTelefoniaSoapIn" />
+      <wsdl:output message="tns:BajaColateralTelefoniaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SincronizaCD30Soap" type="tns:SincronizaCD30Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AltaOperador">
+      <soap:operation soapAction="http://tempuri.org/AltaOperador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaOperador">
+      <soap:operation soapAction="http://tempuri.org/BajaOperador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificaOperador">
+      <soap:operation soapAction="http://tempuri.org/ModificaOperador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AsignarSectoresUCS">
+      <soap:operation soapAction="http://tempuri.org/AsignarSectoresUCS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IntercambiarUCS">
+      <soap:operation soapAction="http://tempuri.org/IntercambiarUCS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LiberarUCS">
+      <soap:operation soapAction="http://tempuri.org/LiberarUCS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LiberarSectorUCS">
+      <soap:operation soapAction="http://tempuri.org/LiberarSectorUCS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoverSectores">
+      <soap:operation soapAction="http://tempuri.org/MoverSectores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaAgrupacion">
+      <soap:operation soapAction="http://tempuri.org/AltaAgrupacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaAgrupacion">
+      <soap:operation soapAction="http://tempuri.org/BajaAgrupacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaUsuario">
+      <soap:operation soapAction="http://tempuri.org/AltaUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionUsuario">
+      <soap:operation soapAction="http://tempuri.org/ModificacionUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaUsuario">
+      <soap:operation soapAction="http://tempuri.org/BajaUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaEmplazamiento">
+      <soap:operation soapAction="http://tempuri.org/AltaEmplazamiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaEmplazamiento">
+      <soap:operation soapAction="http://tempuri.org/BajaEmplazamiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaNucleo">
+      <soap:operation soapAction="http://tempuri.org/AltaNucleo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaNucleo">
+      <soap:operation soapAction="http://tempuri.org/BajaNucleo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaSectorizacion">
+      <soap:operation soapAction="http://tempuri.org/AltaSectorizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaSectorizacion">
+      <soap:operation soapAction="http://tempuri.org/BajaSectorizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaTroncal">
+      <soap:operation soapAction="http://tempuri.org/AltaTroncal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaTroncal">
+      <soap:operation soapAction="http://tempuri.org/BajaTroncal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionTroncal">
+      <soap:operation soapAction="http://tempuri.org/ModificacionTroncal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaRed">
+      <soap:operation soapAction="http://tempuri.org/AltaRed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaRed">
+      <soap:operation soapAction="http://tempuri.org/BajaRed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaCanalRadio">
+      <soap:operation soapAction="http://tempuri.org/AltaCanalRadio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionCanalRadio">
+      <soap:operation soapAction="http://tempuri.org/ModificacionCanalRadio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaCanalRadio">
+      <soap:operation soapAction="http://tempuri.org/BajaCanalRadio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaFrecuencia">
+      <soap:operation soapAction="http://tempuri.org/AltaFrecuencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionFrecuencia">
+      <soap:operation soapAction="http://tempuri.org/ModificacionFrecuencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaFrecuencia">
+      <soap:operation soapAction="http://tempuri.org/BajaFrecuencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaLineaTelefonia">
+      <soap:operation soapAction="http://tempuri.org/AltaLineaTelefonia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionLineaTelefonia">
+      <soap:operation soapAction="http://tempuri.org/ModificacionLineaTelefonia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaLineaTelefonia">
+      <soap:operation soapAction="http://tempuri.org/BajaLineaTelefonia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaDestino">
+      <soap:operation soapAction="http://tempuri.org/AltaDestino" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionDestino">
+      <soap:operation soapAction="http://tempuri.org/ModificacionDestino" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaDestino">
+      <soap:operation soapAction="http://tempuri.org/BajaDestino" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaCentralPropia">
+      <soap:operation soapAction="http://tempuri.org/AltaCentralPropia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaRangoR2">
+      <soap:operation soapAction="http://tempuri.org/AltaRangoR2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaDestinoR2">
+      <soap:operation soapAction="http://tempuri.org/AltaDestinoR2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaRuta">
+      <soap:operation soapAction="http://tempuri.org/AltaRuta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaEncaminamiento">
+      <soap:operation soapAction="http://tempuri.org/BajaEncaminamiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaColateralRadio">
+      <soap:operation soapAction="http://tempuri.org/AltaColateralRadio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificaColateralRadio">
+      <soap:operation soapAction="http://tempuri.org/ModificaColateralRadio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaColateralRadio">
+      <soap:operation soapAction="http://tempuri.org/BajaColateralRadio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaColateralTelefonia">
+      <soap:operation soapAction="http://tempuri.org/AltaColateralTelefonia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificaColateralTelefonia">
+      <soap:operation soapAction="http://tempuri.org/ModificaColateralTelefonia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaColateralTelefonia">
+      <soap:operation soapAction="http://tempuri.org/BajaColateralTelefonia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SincronizaCD30Soap12" type="tns:SincronizaCD30Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AltaOperador">
+      <soap12:operation soapAction="http://tempuri.org/AltaOperador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaOperador">
+      <soap12:operation soapAction="http://tempuri.org/BajaOperador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificaOperador">
+      <soap12:operation soapAction="http://tempuri.org/ModificaOperador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AsignarSectoresUCS">
+      <soap12:operation soapAction="http://tempuri.org/AsignarSectoresUCS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IntercambiarUCS">
+      <soap12:operation soapAction="http://tempuri.org/IntercambiarUCS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LiberarUCS">
+      <soap12:operation soapAction="http://tempuri.org/LiberarUCS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LiberarSectorUCS">
+      <soap12:operation soapAction="http://tempuri.org/LiberarSectorUCS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoverSectores">
+      <soap12:operation soapAction="http://tempuri.org/MoverSectores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaAgrupacion">
+      <soap12:operation soapAction="http://tempuri.org/AltaAgrupacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaAgrupacion">
+      <soap12:operation soapAction="http://tempuri.org/BajaAgrupacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaUsuario">
+      <soap12:operation soapAction="http://tempuri.org/AltaUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionUsuario">
+      <soap12:operation soapAction="http://tempuri.org/ModificacionUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaUsuario">
+      <soap12:operation soapAction="http://tempuri.org/BajaUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaEmplazamiento">
+      <soap12:operation soapAction="http://tempuri.org/AltaEmplazamiento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaEmplazamiento">
+      <soap12:operation soapAction="http://tempuri.org/BajaEmplazamiento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaNucleo">
+      <soap12:operation soapAction="http://tempuri.org/AltaNucleo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaNucleo">
+      <soap12:operation soapAction="http://tempuri.org/BajaNucleo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaSectorizacion">
+      <soap12:operation soapAction="http://tempuri.org/AltaSectorizacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaSectorizacion">
+      <soap12:operation soapAction="http://tempuri.org/BajaSectorizacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaTroncal">
+      <soap12:operation soapAction="http://tempuri.org/AltaTroncal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaTroncal">
+      <soap12:operation soapAction="http://tempuri.org/BajaTroncal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionTroncal">
+      <soap12:operation soapAction="http://tempuri.org/ModificacionTroncal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaRed">
+      <soap12:operation soapAction="http://tempuri.org/AltaRed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaRed">
+      <soap12:operation soapAction="http://tempuri.org/BajaRed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaCanalRadio">
+      <soap12:operation soapAction="http://tempuri.org/AltaCanalRadio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionCanalRadio">
+      <soap12:operation soapAction="http://tempuri.org/ModificacionCanalRadio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaCanalRadio">
+      <soap12:operation soapAction="http://tempuri.org/BajaCanalRadio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaFrecuencia">
+      <soap12:operation soapAction="http://tempuri.org/AltaFrecuencia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionFrecuencia">
+      <soap12:operation soapAction="http://tempuri.org/ModificacionFrecuencia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaFrecuencia">
+      <soap12:operation soapAction="http://tempuri.org/BajaFrecuencia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaLineaTelefonia">
+      <soap12:operation soapAction="http://tempuri.org/AltaLineaTelefonia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionLineaTelefonia">
+      <soap12:operation soapAction="http://tempuri.org/ModificacionLineaTelefonia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaLineaTelefonia">
+      <soap12:operation soapAction="http://tempuri.org/BajaLineaTelefonia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaDestino">
+      <soap12:operation soapAction="http://tempuri.org/AltaDestino" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionDestino">
+      <soap12:operation soapAction="http://tempuri.org/ModificacionDestino" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaDestino">
+      <soap12:operation soapAction="http://tempuri.org/BajaDestino" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaCentralPropia">
+      <soap12:operation soapAction="http://tempuri.org/AltaCentralPropia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaRangoR2">
+      <soap12:operation soapAction="http://tempuri.org/AltaRangoR2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaDestinoR2">
+      <soap12:operation soapAction="http://tempuri.org/AltaDestinoR2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaRuta">
+      <soap12:operation soapAction="http://tempuri.org/AltaRuta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaEncaminamiento">
+      <soap12:operation soapAction="http://tempuri.org/BajaEncaminamiento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaColateralRadio">
+      <soap12:operation soapAction="http://tempuri.org/AltaColateralRadio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificaColateralRadio">
+      <soap12:operation soapAction="http://tempuri.org/ModificaColateralRadio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaColateralRadio">
+      <soap12:operation soapAction="http://tempuri.org/BajaColateralRadio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaColateralTelefonia">
+      <soap12:operation soapAction="http://tempuri.org/AltaColateralTelefonia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificaColateralTelefonia">
+      <soap12:operation soapAction="http://tempuri.org/ModificaColateralTelefonia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaColateralTelefonia">
+      <soap12:operation soapAction="http://tempuri.org/BajaColateralTelefonia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SincronizaCD30">
+    <wsdl:port name="SincronizaCD30Soap" binding="tns:SincronizaCD30Soap">
+      <soap:address location="http://localhost:51281/SincronizaCD30/SincronizaCD30.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SincronizaCD30Soap12" binding="tns:SincronizaCD30Soap12">
+      <soap12:address location="http://localhost:51281/SincronizaCD30/SincronizaCD30.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

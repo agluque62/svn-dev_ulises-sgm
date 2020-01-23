@@ -1,0 +1,513 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet_Frecuencias" targetNamespace="http://tempuri.org/DataSet_Frecuencias.xsd" xmlns:mstns="http://tempuri.org/DataSet_Frecuencias.xsd" xmlns="http://tempuri.org/DataSet_Frecuencias.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="new_cd40_transConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="new_cd40_transConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.new_cd40_transConnectionString.ConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DestinosRadioTableAdapter" GeneratorDataComponentClassName="DestinosRadioTableAdapter" Name="DestinosRadio" UserDataComponentName="DestinosRadioTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="new_cd40_transConnectionString (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="false" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        DR.IdDestino, DR.CnfModoDestino, DR.CnfTipoFrecuencia, DR.PrioridadSesionSip, DR.MetodoCalculoClimax, DR.CldSupervisionTime, DR.VentanaSeleccionBss, 
+                         DR.ModoTransmision, mb.name AS NameBss, DR.IdSistema, DR.TipoDestino, DR.EmplazamientoDefecto, DR.TiempoVueltaADefecto
+FROM            destinosradio DR LEFT OUTER JOIN
+                         metodos_bss mb ON mb.idmetodos_bss = DR.MetodosBssOfrecidos
+ORDER BY DR.CnfTipoFrecuencia, DR.IdDestino</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdDestino" DataSetColumn="IdDestino" />
+              <Mapping SourceColumn="CnfModoDestino" DataSetColumn="CnfModoDestino" />
+              <Mapping SourceColumn="CnfTipoFrecuencia" DataSetColumn="CnfTipoFrecuencia" />
+              <Mapping SourceColumn="PrioridadSesionSip" DataSetColumn="PrioridadSesionSip" />
+              <Mapping SourceColumn="MetodoCalculoClimax" DataSetColumn="MetodoCalculoClimax" />
+              <Mapping SourceColumn="CldSupervisionTime" DataSetColumn="CldSupervisionTime" />
+              <Mapping SourceColumn="VentanaSeleccionBss" DataSetColumn="VentanaSeleccionBss" />
+              <Mapping SourceColumn="ModoTransmision" DataSetColumn="ModoTransmision" />
+              <Mapping SourceColumn="NameBss" DataSetColumn="NameBss" />
+              <Mapping SourceColumn="IdSistema" DataSetColumn="IdSistema" />
+              <Mapping SourceColumn="TipoDestino" DataSetColumn="TipoDestino" />
+              <Mapping SourceColumn="EmplazamientoDefecto" DataSetColumn="EmplazamientoDefecto" />
+              <Mapping SourceColumn="TiempoVueltaADefecto" DataSetColumn="TiempoVueltaADefecto" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RecursosRadioTableAdapter" GeneratorDataComponentClassName="RecursosRadioTableAdapter" Name="RecursosRadio" UserDataComponentName="RecursosRadioTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="new_cd40_transConnectionString (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        r.IdRecurso, r.TipoRecurso, r.IdEmplazamiento, rp.idradio_param, rp.GrsDelay, rp.OffSetFrequency, rp.EnableEventPttSq, rp.metodos_bss_idmetodos_bss, 
+                         pr.GananciaAGCTX, pr.GananciaAGCTXdBm, pr.GananciaAGCRX, pr.GananciaAGCRXdBm, pr.TamRTP, pr.TipoEM, pr.GrabacionEd137, z.Nombre AS NameZona, 
+                         rec.Tipo, tb.name AS TablaBSS, mb.name AS NameBss, rec.IdTIFX AS rec_idTIFX, rec.idEquipos, rec.SlotPasarela, rec.NumDispositivoSlot, pr.Codec, 
+                         pr.SupresionSilencio, r.IdDestino, r.TipoDestino, r.IdSistema, r.zonas_idZonas, r.tabla_bss_idtabla_bss, r.SQ, r.PTT, r.TiempoPTT, r.UmbralVAD, r.BSS, 
+                         hfp.IpGestor AS hfp_IpGestor, hfp.Oid AS hfp_oid, hfp.Frecuencia AS hfp_frecuencia, hfp.TipoEquipo AS hfp_TipoEquipo, hfp.TipoCanal AS hfp_TipoCanal, 
+                         hfp.TipoFrecuencia AS hfp_tipoFrecuencia, hfp.TipoModo AS hfp_tipomodo, hfp.PrioridadEquipo AS hfp_prioridadEquipo, hfp.Puerto AS hfp_puerto, 
+                         hfp.Offset AS hfp_offset, hfp.Canalizacion AS hfp_canalizacion, hfp.Modulacion AS hfp_modulacion, hfp.Potencia AS hfp_potencia, 
+                         hfp.FormatoFrecuenciaPrincipal AS hfp_FormatoFrecuenciaPrincipal, hfp.ModeloEquipo AS hfp_ModeloEquipo
+FROM            recursosradio r LEFT OUTER JOIN
+                         zonas z ON z.idZonas = r.zonas_idZonas LEFT OUTER JOIN
+                         tabla_bss tb ON tb.idtabla_bss = r.tabla_bss_idtabla_bss LEFT OUTER JOIN
+                         radio_param rp ON rp.idradio_param = r.radio_param_idradio_param LEFT OUTER JOIN
+                         metodos_bss mb ON mb.idmetodos_bss = rp.metodos_bss_idmetodos_bss LEFT OUTER JOIN
+                         hfparams hfp ON hfp.IdSistema = r.IdSistema AND hfp.IdRecurso = r.IdRecurso INNER JOIN
+                         parametrosrecurso pr ON pr.IdSistema = r.IdSistema AND pr.IdRecurso = r.IdRecurso AND pr.TipoRecurso = r.TipoRecurso INNER JOIN
+                         recursos rec ON rec.IdSistema = r.IdSistema AND rec.IdRecurso = r.IdRecurso AND rec.TipoRecurso = r.TipoRecurso
+ORDER BY r.IdDestino, r.IdRecurso</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdRecurso" DataSetColumn="IdRecurso" />
+              <Mapping SourceColumn="TipoRecurso" DataSetColumn="TipoRecurso" />
+              <Mapping SourceColumn="IdEmplazamiento" DataSetColumn="IdEmplazamiento" />
+              <Mapping SourceColumn="idradio_param" DataSetColumn="idradio_param" />
+              <Mapping SourceColumn="GrsDelay" DataSetColumn="GrsDelay" />
+              <Mapping SourceColumn="OffSetFrequency" DataSetColumn="OffSetFrequency" />
+              <Mapping SourceColumn="EnableEventPttSq" DataSetColumn="EnableEventPttSq" />
+              <Mapping SourceColumn="metodos_bss_idmetodos_bss" DataSetColumn="metodos_bss_idmetodos_bss" />
+              <Mapping SourceColumn="GananciaAGCTX" DataSetColumn="GananciaAGCTX" />
+              <Mapping SourceColumn="GananciaAGCTXdBm" DataSetColumn="GananciaAGCTXdBm" />
+              <Mapping SourceColumn="GananciaAGCRX" DataSetColumn="GananciaAGCRX" />
+              <Mapping SourceColumn="GananciaAGCRXdBm" DataSetColumn="GananciaAGCRXdBm" />
+              <Mapping SourceColumn="TamRTP" DataSetColumn="TamRTP" />
+              <Mapping SourceColumn="TipoEM" DataSetColumn="TipoEM" />
+              <Mapping SourceColumn="GrabacionEd137" DataSetColumn="GrabacionEd137" />
+              <Mapping SourceColumn="NameZona" DataSetColumn="NameZona" />
+              <Mapping SourceColumn="Tipo" DataSetColumn="Tipo" />
+              <Mapping SourceColumn="TablaBSS" DataSetColumn="TablaBSS" />
+              <Mapping SourceColumn="NameBss" DataSetColumn="NameBss" />
+              <Mapping SourceColumn="rec_idTIFX" DataSetColumn="rec_idTIFX" />
+              <Mapping SourceColumn="idEquipos" DataSetColumn="idEquipos" />
+              <Mapping SourceColumn="SlotPasarela" DataSetColumn="SlotPasarela" />
+              <Mapping SourceColumn="NumDispositivoSlot" DataSetColumn="NumDispositivoSlot" />
+              <Mapping SourceColumn="Codec" DataSetColumn="Codec" />
+              <Mapping SourceColumn="SupresionSilencio" DataSetColumn="SupresionSilencio" />
+              <Mapping SourceColumn="IdDestino" DataSetColumn="IdDestino" />
+              <Mapping SourceColumn="TipoDestino" DataSetColumn="TipoDestino" />
+              <Mapping SourceColumn="IdSistema" DataSetColumn="IdSistema" />
+              <Mapping SourceColumn="zonas_idZonas" DataSetColumn="zonas_idZonas" />
+              <Mapping SourceColumn="tabla_bss_idtabla_bss" DataSetColumn="tabla_bss_idtabla_bss" />
+              <Mapping SourceColumn="SQ" DataSetColumn="SQ" />
+              <Mapping SourceColumn="PTT" DataSetColumn="PTT" />
+              <Mapping SourceColumn="TiempoPTT" DataSetColumn="TiempoPTT" />
+              <Mapping SourceColumn="UmbralVAD" DataSetColumn="UmbralVAD" />
+              <Mapping SourceColumn="BSS" DataSetColumn="BSS" />
+              <Mapping SourceColumn="hfp_IpGestor" DataSetColumn="hfp_IpGestor" />
+              <Mapping SourceColumn="hfp_oid" DataSetColumn="hfp_oid" />
+              <Mapping SourceColumn="hfp_frecuencia" DataSetColumn="hfp_frecuencia" />
+              <Mapping SourceColumn="hfp_TipoEquipo" DataSetColumn="hfp_TipoEquipo" />
+              <Mapping SourceColumn="hfp_TipoCanal" DataSetColumn="hfp_TipoCanal" />
+              <Mapping SourceColumn="hfp_tipoFrecuencia" DataSetColumn="hfp_tipoFrecuencia" />
+              <Mapping SourceColumn="hfp_tipomodo" DataSetColumn="hfp_tipomodo" />
+              <Mapping SourceColumn="hfp_prioridadEquipo" DataSetColumn="hfp_prioridadEquipo" />
+              <Mapping SourceColumn="hfp_puerto" DataSetColumn="hfp_puerto" />
+              <Mapping SourceColumn="hfp_offset" DataSetColumn="hfp_offset" />
+              <Mapping SourceColumn="hfp_canalizacion" DataSetColumn="hfp_canalizacion" />
+              <Mapping SourceColumn="hfp_modulacion" DataSetColumn="hfp_modulacion" />
+              <Mapping SourceColumn="hfp_potencia" DataSetColumn="hfp_potencia" />
+              <Mapping SourceColumn="hfp_FormatoFrecuenciaPrincipal" DataSetColumn="hfp_FormatoFrecuenciaPrincipal" />
+              <Mapping SourceColumn="hfp_ModeloEquipo" DataSetColumn="hfp_ModeloEquipo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="valores_tabla_bssTableAdapter" GeneratorDataComponentClassName="tabla_bssTableAdapter" Name="valores_tabla_bss" UserDataComponentName="tabla_bssTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="new_cd40_transConnectionString (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="false" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        tb.idtabla_bss, tb.name AS nombre, vt.idvalores_tabla, vt.valor_prop, vt.valor_rssi
+FROM            valores_tabla vt INNER JOIN
+                         tabla_bss tb ON tb.idtabla_bss = vt.tabla_bss_idtabla_bss
+ORDER BY nombre, vt.valor_prop</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="idvalores_tabla" DataSetColumn="idvalores_tabla" />
+              <Mapping SourceColumn="valor_prop" DataSetColumn="valor_prop" />
+              <Mapping SourceColumn="valor_rssi" DataSetColumn="valor_rssi" />
+              <Mapping SourceColumn="idtabla_bss" DataSetColumn="idtabla_bss" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RecursosRadioTablaBSSTableAdapter" GeneratorDataComponentClassName="RecursosRadioTablaBSSTableAdapter" Name="RecursosRadioTablaBSS" UserDataComponentName="RecursosRadioTablaBSSTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="new_cd40_transConnectionString (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="false" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        RD.IdSistema, RD.IdRecurso, RD.TipoRecurso, RD.IdDestino, RD.tabla_bss_idtabla_bss, R.idEquipos, B.name, R.IdTIFX, R.SlotPasarela, R.NumDispositivoSlot, 
+                         RD.BSS
+FROM            recursosradio RD INNER JOIN
+                         recursos R ON R.IdSistema = RD.IdSistema AND R.IdRecurso = RD.IdRecurso AND R.TipoRecurso = RD.TipoRecurso INNER JOIN
+                         tabla_bss B ON B.idtabla_bss = RD.tabla_bss_idtabla_bss</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdSistema" DataSetColumn="IdSistema" />
+              <Mapping SourceColumn="IdRecurso" DataSetColumn="IdRecurso" />
+              <Mapping SourceColumn="TipoRecurso" DataSetColumn="TipoRecurso" />
+              <Mapping SourceColumn="IdDestino" DataSetColumn="IdDestino" />
+              <Mapping SourceColumn="idEquipos" DataSetColumn="idEquipos" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="IdTIFX" DataSetColumn="IdTIFX" />
+              <Mapping SourceColumn="SlotPasarela" DataSetColumn="SlotPasarela" />
+              <Mapping SourceColumn="NumDispositivoSlot" DataSetColumn="NumDispositivoSlot" />
+              <Mapping SourceColumn="tabla_bss_idtabla_bss" DataSetColumn="tabla_bss_idtabla_bss" />
+              <Mapping SourceColumn="BSS" DataSetColumn="BSS" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tabla_bssTableAdapter" Name="tabla_bss">
+            <MainSource>
+              <DbSource ConnectionRef="new_cd40_transConnectionString (Web.config)" DbObjectName="new_cd40_trans.tabla_bss" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        idtabla_bss, name
+FROM            tabla_bss</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idtabla_bss" DataSetColumn="idtabla_bss" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet_Frecuencias" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSet_Frecuencias" msprop:Generator_DataSetName="DataSet_Frecuencias">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DestinosRadio" msprop:Generator_TableClassName="DestinosRadioDataTable" msprop:Generator_TableVarName="tableDestinosRadio" msprop:Generator_RowChangedName="DestinosRadioRowChanged" msprop:Generator_TablePropName="DestinosRadio" msprop:Generator_RowDeletingName="DestinosRadioRowDeleting" msprop:Generator_RowChangingName="DestinosRadioRowChanging" msprop:Generator_RowEvHandlerName="DestinosRadioRowChangeEventHandler" msprop:Generator_RowDeletedName="DestinosRadioRowDeleted" msprop:Generator_RowClassName="DestinosRadioRow" msprop:Generator_UserTableName="DestinosRadio" msprop:Generator_RowEvArgName="DestinosRadioRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdDestino" msprop:Generator_ColumnVarNameInTable="columnIdDestino" msprop:Generator_ColumnPropNameInRow="IdDestino" msprop:Generator_ColumnPropNameInTable="IdDestinoColumn" msprop:Generator_UserColumnName="IdDestino">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CnfModoDestino" msprop:Generator_ColumnVarNameInTable="columnCnfModoDestino" msprop:Generator_ColumnPropNameInRow="CnfModoDestino" msprop:Generator_ColumnPropNameInTable="CnfModoDestinoColumn" msprop:Generator_UserColumnName="CnfModoDestino" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CnfTipoFrecuencia" msprop:Generator_ColumnVarNameInTable="columnCnfTipoFrecuencia" msprop:Generator_ColumnPropNameInRow="CnfTipoFrecuencia" msprop:Generator_ColumnPropNameInTable="CnfTipoFrecuenciaColumn" msprop:Generator_UserColumnName="CnfTipoFrecuencia" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PrioridadSesionSip" msprop:Generator_ColumnVarNameInTable="columnPrioridadSesionSip" msprop:Generator_ColumnPropNameInRow="PrioridadSesionSip" msprop:Generator_ColumnPropNameInTable="PrioridadSesionSipColumn" msprop:Generator_UserColumnName="PrioridadSesionSip" type="xs:int" minOccurs="0" />
+              <xs:element name="MetodoCalculoClimax" msprop:Generator_ColumnVarNameInTable="columnMetodoCalculoClimax" msprop:Generator_ColumnPropNameInRow="MetodoCalculoClimax" msprop:Generator_ColumnPropNameInTable="MetodoCalculoClimaxColumn" msprop:Generator_UserColumnName="MetodoCalculoClimax" type="xs:int" minOccurs="0" />
+              <xs:element name="CldSupervisionTime" msprop:Generator_ColumnVarNameInTable="columnCldSupervisionTime" msprop:Generator_ColumnPropNameInRow="CldSupervisionTime" msprop:Generator_ColumnPropNameInTable="CldSupervisionTimeColumn" msprop:Generator_UserColumnName="CldSupervisionTime" type="xs:int" minOccurs="0" />
+              <xs:element name="VentanaSeleccionBss" msprop:Generator_ColumnVarNameInTable="columnVentanaSeleccionBss" msprop:Generator_ColumnPropNameInRow="VentanaSeleccionBss" msprop:Generator_ColumnPropNameInTable="VentanaSeleccionBssColumn" msprop:Generator_UserColumnName="VentanaSeleccionBss" type="xs:int" minOccurs="0" />
+              <xs:element name="ModoTransmision" msprop:Generator_ColumnVarNameInTable="columnModoTransmision" msprop:Generator_ColumnPropNameInRow="ModoTransmision" msprop:Generator_ColumnPropNameInTable="ModoTransmisionColumn" msprop:Generator_UserColumnName="ModoTransmision" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NameBss" msprop:Generator_ColumnVarNameInTable="columnNameBss" msprop:Generator_ColumnPropNameInRow="NameBss" msprop:Generator_ColumnPropNameInTable="NameBssColumn" msprop:Generator_UserColumnName="NameBss" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdSistema" msprop:Generator_ColumnVarNameInTable="columnIdSistema" msprop:Generator_ColumnPropNameInRow="IdSistema" msprop:Generator_ColumnPropNameInTable="IdSistemaColumn" msprop:Generator_UserColumnName="IdSistema">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TipoDestino" msprop:Generator_ColumnVarNameInTable="columnTipoDestino" msprop:Generator_ColumnPropNameInRow="TipoDestino" msprop:Generator_ColumnPropNameInTable="TipoDestinoColumn" msprop:Generator_UserColumnName="TipoDestino" type="xs:unsignedInt" />
+              <xs:element name="EmplazamientoDefecto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TiempoVueltaADefecto" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RecursosRadio" msprop:Generator_TableClassName="RecursosRadioDataTable" msprop:Generator_TableVarName="tableRecursosRadio" msprop:Generator_RowChangedName="RecursosRadioRowChanged" msprop:Generator_TablePropName="RecursosRadio" msprop:Generator_RowDeletingName="RecursosRadioRowDeleting" msprop:Generator_RowChangingName="RecursosRadioRowChanging" msprop:Generator_RowEvHandlerName="RecursosRadioRowChangeEventHandler" msprop:Generator_RowDeletedName="RecursosRadioRowDeleted" msprop:Generator_RowClassName="RecursosRadioRow" msprop:Generator_UserTableName="RecursosRadio" msprop:Generator_RowEvArgName="RecursosRadioRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdRecurso" msprop:Generator_ColumnVarNameInTable="columnIdRecurso" msprop:Generator_ColumnPropNameInRow="IdRecurso" msprop:Generator_ColumnPropNameInTable="IdRecursoColumn" msprop:Generator_UserColumnName="IdRecurso">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TipoRecurso" msprop:Generator_ColumnVarNameInTable="columnTipoRecurso" msprop:Generator_ColumnPropNameInRow="TipoRecurso" msprop:Generator_ColumnPropNameInTable="TipoRecursoColumn" msprop:Generator_UserColumnName="TipoRecurso" type="xs:unsignedInt" />
+              <xs:element name="IdEmplazamiento" msprop:Generator_ColumnVarNameInTable="columnIdEmplazamiento" msprop:Generator_ColumnPropNameInRow="IdEmplazamiento" msprop:Generator_ColumnPropNameInTable="IdEmplazamientoColumn" msprop:Generator_UserColumnName="IdEmplazamiento">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idradio_param" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidradio_param" msprop:Generator_ColumnPropNameInRow="idradio_param" msprop:Generator_ColumnPropNameInTable="idradio_paramColumn" msprop:Generator_UserColumnName="idradio_param" type="xs:int" minOccurs="0" />
+              <xs:element name="GrsDelay" msprop:Generator_ColumnVarNameInTable="columnGrsDelay" msprop:Generator_ColumnPropNameInRow="GrsDelay" msprop:Generator_ColumnPropNameInTable="GrsDelayColumn" msprop:Generator_UserColumnName="GrsDelay" type="xs:int" minOccurs="0" />
+              <xs:element name="OffSetFrequency" msprop:Generator_ColumnVarNameInTable="columnOffSetFrequency" msprop:Generator_ColumnPropNameInRow="OffSetFrequency" msprop:Generator_ColumnPropNameInTable="OffSetFrequencyColumn" msprop:Generator_UserColumnName="OffSetFrequency" type="xs:int" minOccurs="0" />
+              <xs:element name="EnableEventPttSq" msprop:Generator_ColumnVarNameInTable="columnEnableEventPttSq" msprop:Generator_ColumnPropNameInRow="EnableEventPttSq" msprop:Generator_ColumnPropNameInTable="EnableEventPttSqColumn" msprop:Generator_UserColumnName="EnableEventPttSq" type="xs:boolean" minOccurs="0" />
+              <xs:element name="metodos_bss_idmetodos_bss" msprop:Generator_ColumnVarNameInTable="columnmetodos_bss_idmetodos_bss" msprop:Generator_ColumnPropNameInRow="metodos_bss_idmetodos_bss" msprop:Generator_ColumnPropNameInTable="metodos_bss_idmetodos_bssColumn" msprop:Generator_UserColumnName="metodos_bss_idmetodos_bss" type="xs:int" minOccurs="0" />
+              <xs:element name="GananciaAGCTX" msprop:Generator_ColumnVarNameInTable="columnGananciaAGCTX" msprop:Generator_ColumnPropNameInRow="GananciaAGCTX" msprop:Generator_ColumnPropNameInTable="GananciaAGCTXColumn" msprop:Generator_UserColumnName="GananciaAGCTX" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="GananciaAGCTXdBm" msprop:Generator_ColumnVarNameInTable="columnGananciaAGCTXdBm" msprop:Generator_ColumnPropNameInRow="GananciaAGCTXdBm" msprop:Generator_ColumnPropNameInTable="GananciaAGCTXdBmColumn" msprop:Generator_UserColumnName="GananciaAGCTXdBm" type="xs:float" minOccurs="0" />
+              <xs:element name="GananciaAGCRX" msprop:Generator_ColumnVarNameInTable="columnGananciaAGCRX" msprop:Generator_ColumnPropNameInRow="GananciaAGCRX" msprop:Generator_ColumnPropNameInTable="GananciaAGCRXColumn" msprop:Generator_UserColumnName="GananciaAGCRX" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="GananciaAGCRXdBm" msprop:Generator_ColumnVarNameInTable="columnGananciaAGCRXdBm" msprop:Generator_ColumnPropNameInRow="GananciaAGCRXdBm" msprop:Generator_ColumnPropNameInTable="GananciaAGCRXdBmColumn" msprop:Generator_UserColumnName="GananciaAGCRXdBm" type="xs:float" minOccurs="0" />
+              <xs:element name="TamRTP" msprop:Generator_ColumnVarNameInTable="columnTamRTP" msprop:Generator_ColumnPropNameInRow="TamRTP" msprop:Generator_ColumnPropNameInTable="TamRTPColumn" msprop:Generator_UserColumnName="TamRTP" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="TipoEM" msprop:Generator_ColumnVarNameInTable="columnTipoEM" msprop:Generator_ColumnPropNameInRow="TipoEM" msprop:Generator_ColumnPropNameInTable="TipoEMColumn" msprop:Generator_UserColumnName="TipoEM" type="xs:int" minOccurs="0" />
+              <xs:element name="GrabacionEd137" msprop:Generator_ColumnVarNameInTable="columnGrabacionEd137" msprop:Generator_ColumnPropNameInRow="GrabacionEd137" msprop:Generator_ColumnPropNameInTable="GrabacionEd137Column" msprop:Generator_UserColumnName="GrabacionEd137" type="xs:boolean" minOccurs="0" />
+              <xs:element name="NameZona" msprop:Generator_ColumnVarNameInTable="columnNameZona" msprop:Generator_ColumnPropNameInRow="NameZona" msprop:Generator_ColumnPropNameInTable="NameZonaColumn" msprop:Generator_UserColumnName="NameZona" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tipo" msprop:Generator_ColumnVarNameInTable="columnTipo" msprop:Generator_ColumnPropNameInRow="Tipo" msprop:Generator_ColumnPropNameInTable="TipoColumn" msprop:Generator_UserColumnName="Tipo" type="xs:unsignedInt" />
+              <xs:element name="TablaBSS" msprop:Generator_ColumnVarNameInTable="columnTablaBSS" msprop:Generator_ColumnPropNameInRow="TablaBSS" msprop:Generator_ColumnPropNameInTable="TablaBSSColumn" msprop:Generator_UserColumnName="TablaBSS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NameBss" msprop:Generator_ColumnVarNameInTable="columnNameBss" msprop:Generator_ColumnPropNameInRow="NameBss" msprop:Generator_ColumnPropNameInTable="NameBssColumn" msprop:Generator_UserColumnName="NameBss" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rec_idTIFX" msprop:Generator_ColumnVarNameInTable="columnrec_idTIFX" msprop:Generator_ColumnPropNameInRow="rec_idTIFX" msprop:Generator_ColumnPropNameInTable="rec_idTIFXColumn" msprop:Generator_UserColumnName="rec_idTIFX" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idEquipos" msprop:Generator_ColumnVarNameInTable="columnidEquipos" msprop:Generator_ColumnPropNameInRow="idEquipos" msprop:Generator_ColumnPropNameInTable="idEquiposColumn" msprop:Generator_UserColumnName="idEquipos" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SlotPasarela" msprop:Generator_ColumnVarNameInTable="columnSlotPasarela" msprop:Generator_ColumnPropNameInRow="SlotPasarela" msprop:Generator_ColumnPropNameInTable="SlotPasarelaColumn" msprop:Generator_UserColumnName="SlotPasarela" type="xs:int" minOccurs="0" />
+              <xs:element name="NumDispositivoSlot" msprop:Generator_ColumnVarNameInTable="columnNumDispositivoSlot" msprop:Generator_ColumnPropNameInRow="NumDispositivoSlot" msprop:Generator_ColumnPropNameInTable="NumDispositivoSlotColumn" msprop:Generator_UserColumnName="NumDispositivoSlot" type="xs:int" minOccurs="0" />
+              <xs:element name="Codec" msprop:Generator_ColumnVarNameInTable="columnCodec" msprop:Generator_ColumnPropNameInRow="Codec" msprop:Generator_ColumnPropNameInTable="CodecColumn" msprop:Generator_UserColumnName="Codec" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="SupresionSilencio" msprop:Generator_ColumnVarNameInTable="columnSupresionSilencio" msprop:Generator_ColumnPropNameInRow="SupresionSilencio" msprop:Generator_ColumnPropNameInTable="SupresionSilencioColumn" msprop:Generator_UserColumnName="SupresionSilencio" type="xs:boolean" minOccurs="0" />
+              <xs:element name="IdDestino" msprop:Generator_ColumnVarNameInTable="columnIdDestino" msprop:Generator_ColumnPropNameInRow="IdDestino" msprop:Generator_ColumnPropNameInTable="IdDestinoColumn" msprop:Generator_UserColumnName="IdDestino" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TipoDestino" msprop:Generator_ColumnVarNameInTable="columnTipoDestino" msprop:Generator_ColumnPropNameInRow="TipoDestino" msprop:Generator_ColumnPropNameInTable="TipoDestinoColumn" msprop:Generator_UserColumnName="TipoDestino" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="IdSistema" msprop:Generator_ColumnVarNameInTable="columnIdSistema" msprop:Generator_ColumnPropNameInRow="IdSistema" msprop:Generator_ColumnPropNameInTable="IdSistemaColumn" msprop:Generator_UserColumnName="IdSistema">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="zonas_idZonas" msprop:Generator_ColumnVarNameInTable="columnzonas_idZonas" msprop:Generator_ColumnPropNameInRow="zonas_idZonas" msprop:Generator_ColumnPropNameInTable="zonas_idZonasColumn" msprop:Generator_UserColumnName="zonas_idZonas" type="xs:int" />
+              <xs:element name="tabla_bss_idtabla_bss" msprop:Generator_ColumnVarNameInTable="columntabla_bss_idtabla_bss" msprop:Generator_ColumnPropNameInRow="tabla_bss_idtabla_bss" msprop:Generator_ColumnPropNameInTable="tabla_bss_idtabla_bssColumn" msprop:Generator_UserColumnName="tabla_bss_idtabla_bss" type="xs:int" minOccurs="0" />
+              <xs:element name="SQ" msprop:Generator_ColumnVarNameInTable="columnSQ" msprop:Generator_ColumnPropNameInRow="SQ" msprop:Generator_ColumnPropNameInTable="SQColumn" msprop:Generator_UserColumnName="SQ" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PTT" msprop:Generator_ColumnVarNameInTable="columnPTT" msprop:Generator_ColumnPropNameInRow="PTT" msprop:Generator_ColumnPropNameInTable="PTTColumn" msprop:Generator_UserColumnName="PTT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TiempoPTT" msprop:Generator_ColumnVarNameInTable="columnTiempoPTT" msprop:Generator_ColumnPropNameInRow="TiempoPTT" msprop:Generator_ColumnPropNameInTable="TiempoPTTColumn" msprop:Generator_UserColumnName="TiempoPTT" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="UmbralVAD" msprop:Generator_ColumnVarNameInTable="columnUmbralVAD" msprop:Generator_ColumnPropNameInRow="UmbralVAD" msprop:Generator_ColumnPropNameInTable="UmbralVADColumn" msprop:Generator_UserColumnName="UmbralVAD" type="xs:int" minOccurs="0" />
+              <xs:element name="BSS" msprop:Generator_ColumnVarNameInTable="columnBSS" msprop:Generator_ColumnPropNameInRow="BSS" msprop:Generator_ColumnPropNameInTable="BSSColumn" msprop:Generator_UserColumnName="BSS" type="xs:boolean" minOccurs="0" />
+              <xs:element name="hfp_IpGestor" msprop:Generator_ColumnVarNameInTable="columnhfp_IpGestor" msprop:Generator_ColumnPropNameInRow="hfp_IpGestor" msprop:Generator_ColumnPropNameInTable="hfp_IpGestorColumn" msprop:Generator_UserColumnName="hfp_IpGestor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="hfp_oid" msprop:Generator_ColumnVarNameInTable="columnhfp_oid" msprop:Generator_ColumnPropNameInRow="hfp_oid" msprop:Generator_ColumnPropNameInTable="hfp_oidColumn" msprop:Generator_UserColumnName="hfp_oid" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="hfp_frecuencia" msprop:Generator_ColumnVarNameInTable="columnhfp_frecuencia" msprop:Generator_ColumnPropNameInRow="hfp_frecuencia" msprop:Generator_ColumnPropNameInTable="hfp_frecuenciaColumn" msprop:Generator_UserColumnName="hfp_frecuencia" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="hfp_TipoEquipo" msprop:Generator_ColumnVarNameInTable="columnhfp_TipoEquipo" msprop:Generator_ColumnPropNameInRow="hfp_TipoEquipo" msprop:Generator_ColumnPropNameInTable="hfp_TipoEquipoColumn" msprop:Generator_UserColumnName="hfp_TipoEquipo" type="xs:int" minOccurs="0" />
+              <xs:element name="hfp_TipoCanal" msprop:Generator_ColumnVarNameInTable="columnhfp_TipoCanal" msprop:Generator_ColumnPropNameInRow="hfp_TipoCanal" msprop:Generator_ColumnPropNameInTable="hfp_TipoCanalColumn" msprop:Generator_UserColumnName="hfp_TipoCanal" type="xs:int" minOccurs="0" />
+              <xs:element name="hfp_tipoFrecuencia" msprop:Generator_ColumnVarNameInTable="columnhfp_tipoFrecuencia" msprop:Generator_ColumnPropNameInRow="hfp_tipoFrecuencia" msprop:Generator_ColumnPropNameInTable="hfp_tipoFrecuenciaColumn" msprop:Generator_UserColumnName="hfp_tipoFrecuencia" type="xs:int" minOccurs="0" />
+              <xs:element name="hfp_tipomodo" msprop:Generator_ColumnVarNameInTable="columnhfp_tipomodo" msprop:Generator_ColumnPropNameInRow="hfp_tipomodo" msprop:Generator_ColumnPropNameInTable="hfp_tipomodoColumn" msprop:Generator_UserColumnName="hfp_tipomodo" type="xs:int" minOccurs="0" />
+              <xs:element name="hfp_prioridadEquipo" msprop:Generator_ColumnVarNameInTable="columnhfp_prioridadEquipo" msprop:Generator_ColumnPropNameInRow="hfp_prioridadEquipo" msprop:Generator_ColumnPropNameInTable="hfp_prioridadEquipoColumn" msprop:Generator_UserColumnName="hfp_prioridadEquipo" type="xs:int" minOccurs="0" />
+              <xs:element name="hfp_puerto" msprop:Generator_ColumnVarNameInTable="columnhfp_puerto" msprop:Generator_ColumnPropNameInRow="hfp_puerto" msprop:Generator_ColumnPropNameInTable="hfp_puertoColumn" msprop:Generator_UserColumnName="hfp_puerto" type="xs:int" minOccurs="0" />
+              <xs:element name="hfp_offset" msprop:Generator_ColumnVarNameInTable="columnhfp_offset" msprop:Generator_ColumnPropNameInRow="hfp_offset" msprop:Generator_ColumnPropNameInTable="hfp_offsetColumn" msprop:Generator_UserColumnName="hfp_offset" type="xs:int" minOccurs="0" />
+              <xs:element name="hfp_canalizacion" msprop:Generator_ColumnVarNameInTable="columnhfp_canalizacion" msprop:Generator_ColumnPropNameInRow="hfp_canalizacion" msprop:Generator_ColumnPropNameInTable="hfp_canalizacionColumn" msprop:Generator_UserColumnName="hfp_canalizacion" type="xs:int" minOccurs="0" />
+              <xs:element name="hfp_modulacion" msprop:Generator_ColumnVarNameInTable="columnhfp_modulacion" msprop:Generator_ColumnPropNameInRow="hfp_modulacion" msprop:Generator_ColumnPropNameInTable="hfp_modulacionColumn" msprop:Generator_UserColumnName="hfp_modulacion" type="xs:int" minOccurs="0" />
+              <xs:element name="hfp_potencia" msprop:Generator_ColumnVarNameInTable="columnhfp_potencia" msprop:Generator_ColumnPropNameInRow="hfp_potencia" msprop:Generator_ColumnPropNameInTable="hfp_potenciaColumn" msprop:Generator_UserColumnName="hfp_potencia" type="xs:int" minOccurs="0" />
+              <xs:element name="hfp_FormatoFrecuenciaPrincipal" msprop:Generator_ColumnVarNameInTable="columnhfp_FormatoFrecuenciaPrincipal" msprop:Generator_ColumnPropNameInRow="hfp_FormatoFrecuenciaPrincipal" msprop:Generator_ColumnPropNameInTable="hfp_FormatoFrecuenciaPrincipalColumn" msprop:Generator_UserColumnName="hfp_FormatoFrecuenciaPrincipal" type="xs:int" minOccurs="0" />
+              <xs:element name="hfp_ModeloEquipo" msprop:Generator_ColumnVarNameInTable="columnhfp_ModeloEquipo" msprop:Generator_ColumnPropNameInRow="hfp_ModeloEquipo" msprop:Generator_ColumnPropNameInTable="hfp_ModeloEquipoColumn" msprop:Generator_UserColumnName="hfp_ModeloEquipo" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="valores_tabla_bss" msprop:Generator_TableClassName="tabla_bssDataTable" msprop:Generator_TableVarName="tabletabla_bss" msprop:Generator_RowChangedName="tabla_bssRowChanged" msprop:Generator_TablePropName="tabla_bss" msprop:Generator_RowDeletingName="tabla_bssRowDeleting" msprop:Generator_RowChangingName="tabla_bssRowChanging" msprop:Generator_RowEvHandlerName="tabla_bssRowChangeEventHandler" msprop:Generator_RowDeletedName="tabla_bssRowDeleted" msprop:Generator_RowClassName="tabla_bssRow" msprop:Generator_UserTableName="tabla_bss" msprop:Generator_RowEvArgName="tabla_bssRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idvalores_tabla" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidvalores_tabla" msprop:Generator_ColumnPropNameInRow="idvalores_tabla" msprop:Generator_ColumnPropNameInTable="idvalores_tablaColumn" msprop:Generator_UserColumnName="idvalores_tabla" type="xs:int" />
+              <xs:element name="valor_prop" msprop:Generator_ColumnVarNameInTable="columnvalor_prop" msprop:Generator_ColumnPropNameInRow="valor_prop" msprop:Generator_ColumnPropNameInTable="valor_propColumn" msprop:Generator_UserColumnName="valor_prop" type="xs:int" />
+              <xs:element name="valor_rssi" msprop:Generator_ColumnVarNameInTable="columnvalor_rssi" msprop:Generator_ColumnPropNameInRow="valor_rssi" msprop:Generator_ColumnPropNameInTable="valor_rssiColumn" msprop:Generator_UserColumnName="valor_rssi" type="xs:int" />
+              <xs:element name="idtabla_bss" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RecursosRadioTablaBSS" msprop:Generator_TableClassName="RecursosRadioTablaBSSDataTable" msprop:Generator_TableVarName="tableRecursosRadioTablaBSS" msprop:Generator_RowChangedName="RecursosRadioTablaBSSRowChanged" msprop:Generator_TablePropName="RecursosRadioTablaBSS" msprop:Generator_RowDeletingName="RecursosRadioTablaBSSRowDeleting" msprop:Generator_RowChangingName="RecursosRadioTablaBSSRowChanging" msprop:Generator_RowEvHandlerName="RecursosRadioTablaBSSRowChangeEventHandler" msprop:Generator_RowDeletedName="RecursosRadioTablaBSSRowDeleted" msprop:Generator_RowClassName="RecursosRadioTablaBSSRow" msprop:Generator_UserTableName="RecursosRadioTablaBSS" msprop:Generator_RowEvArgName="RecursosRadioTablaBSSRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdSistema" msprop:Generator_ColumnVarNameInTable="columnIdSistema" msprop:Generator_ColumnPropNameInRow="IdSistema" msprop:Generator_ColumnPropNameInTable="IdSistemaColumn" msprop:Generator_UserColumnName="IdSistema">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdRecurso" msprop:Generator_ColumnVarNameInTable="columnIdRecurso" msprop:Generator_ColumnPropNameInRow="IdRecurso" msprop:Generator_ColumnPropNameInTable="IdRecursoColumn" msprop:Generator_UserColumnName="IdRecurso">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TipoRecurso" msprop:Generator_ColumnVarNameInTable="columnTipoRecurso" msprop:Generator_ColumnPropNameInRow="TipoRecurso" msprop:Generator_ColumnPropNameInTable="TipoRecursoColumn" msprop:Generator_UserColumnName="TipoRecurso" type="xs:unsignedInt" />
+              <xs:element name="IdDestino" msprop:Generator_ColumnVarNameInTable="columnIdDestino" msprop:Generator_ColumnPropNameInRow="IdDestino" msprop:Generator_ColumnPropNameInTable="IdDestinoColumn" msprop:Generator_UserColumnName="IdDestino" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idEquipos" msprop:Generator_ColumnVarNameInTable="columnidEquipos" msprop:Generator_ColumnPropNameInRow="idEquipos" msprop:Generator_ColumnPropNameInTable="idEquiposColumn" msprop:Generator_UserColumnName="idEquipos" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdTIFX" msprop:Generator_ColumnVarNameInTable="columnIdTIFX" msprop:Generator_ColumnPropNameInRow="IdTIFX" msprop:Generator_ColumnPropNameInTable="IdTIFXColumn" msprop:Generator_UserColumnName="IdTIFX" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SlotPasarela" msprop:Generator_ColumnVarNameInTable="columnSlotPasarela" msprop:Generator_ColumnPropNameInRow="SlotPasarela" msprop:Generator_ColumnPropNameInTable="SlotPasarelaColumn" msprop:Generator_UserColumnName="SlotPasarela" type="xs:int" minOccurs="0" />
+              <xs:element name="NumDispositivoSlot" msprop:Generator_ColumnVarNameInTable="columnNumDispositivoSlot" msprop:Generator_ColumnPropNameInRow="NumDispositivoSlot" msprop:Generator_ColumnPropNameInTable="NumDispositivoSlotColumn" msprop:Generator_UserColumnName="NumDispositivoSlot" type="xs:int" minOccurs="0" />
+              <xs:element name="tabla_bss_idtabla_bss" type="xs:int" minOccurs="0" />
+              <xs:element name="BSS" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tabla_bss">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idtabla_bss" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" type="xs:int" />
+              <xs:element name="name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DestinosRadio" />
+      <xs:field xpath="mstns:IdDestino" />
+    </xs:unique>
+    <xs:unique name="valores_tabla_bss_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:valores_tabla_bss" />
+      <xs:field xpath="mstns:idvalores_tabla" />
+    </xs:unique>
+    <xs:unique name="RecursosRadioTablaBSS_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:RecursosRadioTablaBSS" />
+      <xs:field xpath="mstns:IdSistema" />
+      <xs:field xpath="mstns:IdRecurso" />
+      <xs:field xpath="mstns:TipoRecurso" />
+    </xs:unique>
+    <xs:unique name="tabla_bss_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tabla_bss" />
+      <xs:field xpath="mstns:idtabla_bss" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="DestinosRadio_RecursosRadio" msdata:parent="DestinosRadio" msdata:child="RecursosRadio" msdata:parentkey="IdDestino IdSistema TipoDestino" msdata:childkey="IdDestino IdSistema TipoDestino" msprop:Generator_UserChildTable="RecursosRadio" msprop:Generator_ChildPropName="GetRecursosRadioRows" msprop:Generator_UserRelationName="DestinosRadio_RecursosRadio" msprop:Generator_RelationVarName="relationDestinosRadio_RecursosRadio" msprop:Generator_UserParentTable="DestinosRadio" msprop:Generator_ParentPropName="DestinosRadioRowParent" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

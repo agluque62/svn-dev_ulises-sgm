@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet_EquiposExternos" targetNamespace="http://tempuri.org/DataSet_EquiposExternos.xsd" xmlns:mstns="http://tempuri.org/DataSet_EquiposExternos.xsd" xmlns="http://tempuri.org/DataSet_EquiposExternos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="new_cd40_transConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="new_cd40_transConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.new_cd40_transConnectionString.ConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="equiposeuTableAdapter" Name="equiposeu">
+            <MainSource>
+              <DbSource ConnectionRef="new_cd40_transConnectionString (Web.config)" DbObjectName="new_cd40_trans.equiposeu" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        IdSistema, idEquipos, IpRed1, IpRed2, TipoEquipo, Interno, `Min`, `Max`, SipPort, IpRed3, SrvPresenciaIpRed1, SrvPresenciaIpRed2, SrvPresenciaIpRed3
+FROM            equiposeu</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdSistema" DataSetColumn="IdSistema" />
+              <Mapping SourceColumn="idEquipos" DataSetColumn="idEquipos" />
+              <Mapping SourceColumn="IpRed1" DataSetColumn="IpRed1" />
+              <Mapping SourceColumn="IpRed2" DataSetColumn="IpRed2" />
+              <Mapping SourceColumn="TipoEquipo" DataSetColumn="TipoEquipo" />
+              <Mapping SourceColumn="Interno" DataSetColumn="Interno" />
+              <Mapping SourceColumn="Min" DataSetColumn="Min" />
+              <Mapping SourceColumn="Max" DataSetColumn="Max" />
+              <Mapping SourceColumn="SipPort" DataSetColumn="SipPort" />
+              <Mapping SourceColumn="IpRed3" DataSetColumn="IpRed3" />
+              <Mapping SourceColumn="SrvPresenciaIpRed1" DataSetColumn="SrvPresenciaIpRed1" />
+              <Mapping SourceColumn="SrvPresenciaIpRed2" DataSetColumn="SrvPresenciaIpRed2" />
+              <Mapping SourceColumn="SrvPresenciaIpRed3" DataSetColumn="SrvPresenciaIpRed3" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet_EquiposExternos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="equiposeu">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdSistema">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idEquipos">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IpRed1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IpRed2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TipoEquipo" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="Interno" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Min" type="xs:int" minOccurs="0" />
+              <xs:element name="Max" type="xs:int" minOccurs="0" />
+              <xs:element name="SipPort" type="xs:int" minOccurs="0" />
+              <xs:element name="IpRed3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SrvPresenciaIpRed1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SrvPresenciaIpRed2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SrvPresenciaIpRed3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:equiposeu" />
+      <xs:field xpath="mstns:IdSistema" />
+      <xs:field xpath="mstns:idEquipos" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

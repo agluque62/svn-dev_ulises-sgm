@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BtnExcelResource1.AlternateText" xml:space="preserve">
+    <value>Exportar a Excel</value>
+  </data>
+  <data name="BtnExcelResource1.ToolTip" xml:space="preserve">
+    <value>Exportar a Excel</value>
+    <comment>Tooltip de la imagen de exporta a Excel</comment>
+  </data>
+  <data name="BtnPdfResource1.AlternateText" xml:space="preserve">
+    <value>Exportar a PDF</value>
+  </data>
+  <data name="BtnPdfResource1.ToolTip" xml:space="preserve">
+    <value>Exportar a PDF</value>
+    <comment>Tooltip de la imagen de exporta a PDF</comment>
+  </data>
+  <data name="CRViewerInfResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LB_APLICACION_RES.Text" xml:space="preserve">
+    <value>INFORMES DE CONFIGURACIÓN ULISES-5000</value>
+  </data>
+  <data name="LB_APLICACION_RES.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>Informe de configuración de destinos de Telefonía</value>
+  </data>
+  <data name="PAGINA" xml:space="preserve">
+    <value>Página</value>
+    <comment>Report: página N/M</comment>
+  </data>
+  <data name="LB_INFORME_EL_TLF" xml:space="preserve">
+    <value>Informe de Destinos de Telefonía</value>
+    <comment>Informe configuración de Telefonía: título del informe</comment>
+  </data>
+  <data name="LB_SUBINFORME_DESTINOS_TLF" xml:space="preserve">
+    <value>Destinos de Telefonía</value>
+    <comment>SubInforme  frecuencias radio: Título sección de configuración</comment>
+  </data>
+  <data name="LB_INFORME_ELEMENTOS_LOG_TLF_SUMMARY" xml:space="preserve">
+    <value>Informe de Configuración de Destinos de Telefonía</value>
+    <comment>Informe de Configuración de  destinos y recursos de telefonía: Resúmen</comment>
+  </data>
+  <data name="REP_NOMBRE_FICHERO" xml:space="preserve">
+    <value>InfCnfTelefonia</value>
+    <comment>Nombre del fichero de impresión del fichero</comment>
+  </data>
+  <data name="LB_SUBINFORME_RECTLF_NOASIGNADOS" xml:space="preserve">
+    <value>Recursos de Telefonía No Asignados</value>
+  </data>
+  <data name="CARAC_4_HILOS" xml:space="preserve">
+    <value>4 Hilos</value>
+  </data>
+  <data name="CARAC_BCABPP" xml:space="preserve">
+    <value>BC-AB PP</value>
+  </data>
+  <data name="PREF_LCEN" xml:space="preserve">
+    <value>Línea Caliente Externa</value>
+  </data>
+  <data name="PREF_PP" xml:space="preserve">
+    <value>Punto a punto</value>
+  </data>
+  <data name="REC_TLF_VALOR_1" xml:space="preserve">
+    <value>LCEN</value>
+  </data>
+  <data name="REC_TLF_VALOR_13" xml:space="preserve">
+    <value>E&amp;M PP</value>
+  </data>
+  <data name="REC_TLF_VALOR_14" xml:space="preserve">
+    <value>E&amp;M Marcación</value>
+  </data>
+  <data name="REC_TLF_VALOR_2" xml:space="preserve">
+    <value>BC</value>
+  </data>
+  <data name="REC_TLF_VALOR_3" xml:space="preserve">
+    <value>BL</value>
+  </data>
+  <data name="REC_TLF_VALOR_4" xml:space="preserve">
+    <value>AB</value>
+  </data>
+  <data name="REC_TLF_VALOR_5" xml:space="preserve">
+    <value>ATS-R2</value>
+  </data>
+  <data name="REC_TLF_VALOR_6" xml:space="preserve">
+    <value>ATS-N5</value>
+  </data>
+  <data name="REC_TLF_VALOR_7" xml:space="preserve">
+    <value>ATS-QSIG</value>
+  </data>
+  <data name="REC_TLF_VALOR_8" xml:space="preserve">
+    <value>ISDN 2B+D</value>
+  </data>
+  <data name="REC_TLF_VALOR_9" xml:space="preserve">
+    <value>ISDN 30B+D</value>
+  </data>
+  <data name="SUBINF_TLF_ASIGNACIONHW" xml:space="preserve">
+    <value>Asignación HW</value>
+  </data>
+  <data name="SUBINF_TLF_DESTINO" xml:space="preserve">
+    <value>DESTINO</value>
+  </data>
+  <data name="SUBINF_TLF_GRUPO" xml:space="preserve">
+    <value>GRUPO</value>
+  </data>
+  <data name="SUBINF_TLF_INTERFAZ" xml:space="preserve">
+    <value>Interfaz</value>
+  </data>
+  <data name="SUBINF_TLF_NUMERO" xml:space="preserve">
+    <value>Nº DESTINO</value>
+  </data>
+  <data name="SUBINF_TLF_RECURSO" xml:space="preserve">
+    <value>Recurso</value>
+  </data>
+  <data name="SUBINF_TLF_REC_LADO" xml:space="preserve">
+    <value>Lado:</value>
+  </data>
+  <data name="SUBINF_TLF_REC_MODO" xml:space="preserve">
+    <value>Modo:</value>
+  </data>
+  <data name="SUBINF_TLF_REC_PAUDIO" xml:space="preserve">
+    <value>Parámetros Audio:</value>
+  </data>
+  <data name="SUBINF_TLF_REC_POSICION" xml:space="preserve">
+    <value>Posición</value>
+  </data>
+  <data name="SUBINF_TLF_REC_PVOIP" xml:space="preserve">
+    <value>Parámetros VoIP:</value>
+  </data>
+  <data name="SUBINF_TLF_REC_RED" xml:space="preserve">
+    <value>Red:</value>
+  </data>
+  <data name="SUBINF_TLF_REC_RTP" xml:space="preserve">
+    <value>Tamaño paquete RTP (ms):</value>
+  </data>
+  <data name="SUBINF_TLF_REC_SLOT" xml:space="preserve">
+    <value>Slot</value>
+  </data>
+  <data name="SUBINF_TLF_REC_TIPOEM" xml:space="preserve">
+    <value>Tipo E&amp;M:</value>
+  </data>
+  <data name="SUBINF_TLF_REC_TRONCAL" xml:space="preserve">
+    <value>Troncal:</value>
+  </data>
+  <data name="SUBINF_TLF_RED" xml:space="preserve">
+    <value>RED</value>
+  </data>
+  <data name="SUBINF_TLF_RX" xml:space="preserve">
+    <value>Rx:</value>
+  </data>
+  <data name="SUBINF_TLF_TX" xml:space="preserve">
+    <value>Tx:</value>
+  </data>
+  <data name="TIPO_EQ_EEXT" xml:space="preserve">
+    <value>Equipo Externo</value>
+  </data>
+  <data name="TIPO_EQ_PASARELA" xml:space="preserve">
+    <value>Pasarela</value>
+  </data>
+  <data name="SUBINF_TLFNOASIG_ASIGNACIONHW" xml:space="preserve">
+    <value>ASIGNACIÓN HW</value>
+  </data>
+  <data name="SUBINF_TLFNOASIG_INTERFAZ" xml:space="preserve">
+    <value>INTERFAZ</value>
+  </data>
+  <data name="SUBINF_TLFNOASIG_POSICION" xml:space="preserve">
+    <value>POSICIÓN</value>
+  </data>
+  <data name="SUBINF_TLFNOASIG_RECURSO" xml:space="preserve">
+    <value>RECURSO</value>
+  </data>
+  <data name="SUBINF_TLFNOASIG_SLOT" xml:space="preserve">
+    <value>SLOT</value>
+  </data>
+  <data name="GANANCIA_AD" xml:space="preserve">
+    <value>Ganancia AD(dB):</value>
+  </data>
+  <data name="GANANCIA_AUT" xml:space="preserve">
+    <value>AGC</value>
+  </data>
+  <data name="GANANCIA_DA" xml:space="preserve">
+    <value>Ganancia DA(dB):</value>
+  </data>
+  <data name="LB_SISTEMA" xml:space="preserve">
+    <value>Sistema:</value>
+  </data>
+  <data name="REP_NOMBRE_FICHERO1" xml:space="preserve">
+    <value>InfCnfTelefonia</value>
+    <comment>Nombre del fichero de impresión del fichero</comment>
+  </data>
+  <data name="TIPO_EM_0" xml:space="preserve">
+    <value>TYPE I</value>
+  </data>
+  <data name="TIPO_EM_1" xml:space="preserve">
+    <value>TYPE II</value>
+  </data>
+  <data name="TIPO_EM_2" xml:space="preserve">
+    <value>TYPE III</value>
+  </data>
+  <data name="TIPO_EM_3" xml:space="preserve">
+    <value>TYPE IV</value>
+  </data>
+  <data name="TIPO_EM_4" xml:space="preserve">
+    <value>TYPE V</value>
+  </data>
+  <data name="LB_SUBINFORME_DESTINOS_TLF_LCEN" xml:space="preserve">
+    <value>Destinos de Telefonía ATS con Destinos LCEN</value>
+  </data>
+  <data name="DESTINO_LCEN" xml:space="preserve">
+    <value>Destino LCEN</value>
+  </data>
+  <data name="LB_SECTOR" xml:space="preserve">
+    <value>Sector</value>
+  </data>
+  <data name="SUPERV_COLL_IP" xml:space="preserve">
+    <value>Supervisa Colateral IP:</value>
+    <comment>SubInforme ElTlfDestinos. LCEN</comment>
+  </data>
+  <data name="TOPTIONS_SUPERV_COLL_IP" xml:space="preserve">
+    <value>Tiempo entre Options 
+en Superv. Colateral:</value>
+    <comment>SubInforme ElTlfDestinos. LCEN</comment>
+  </data>
+  <data name="T_MAX_LLAM_ENTRAN" xml:space="preserve">
+    <value>Tiempo Máx. Llamada Entrante:</value>
+  </data>
+  <data name="DETEC_DTMF_" xml:space="preserve">
+    <value>Detección DTMF:</value>
+  </data>
+  <data name="PERIODO_SUPERV_RING" xml:space="preserve">
+    <value>Periodo (ms) Supervisión Ring:</value>
+  </data>
+  <data name="FILTRO_SUPERV_RING" xml:space="preserve">
+    <value>Filtro Supervisión Ring:</value>
+  </data>
+</root>

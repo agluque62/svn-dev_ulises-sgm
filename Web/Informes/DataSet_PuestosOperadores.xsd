@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet_PuestosOperadores" targetNamespace="http://tempuri.org/DataSet_PuestosOperadores.xsd" xmlns:mstns="http://tempuri.org/DataSet_PuestosOperadores.xsd" xmlns="http://tempuri.org/DataSet_PuestosOperadores.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="new_cd40_transConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="new_cd40_transConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.new_cd40_transConnectionString.ConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PuestosOperadoresDSTableAdapter" Name="PuestosOperadoresDS">
+            <MainSource>
+              <DbSource ConnectionRef="new_cd40_transConnectionString (Web.config)" DbObjectName="new_cd40_trans.top" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        IdSistema, IdTOP, PosicionSacta, ModoArranque, IpRed1, IpRed2, Grabador1, Grabador2, ConexionJacksEjecutivo, ConexionJacksAyudante, NumAltavoces
+FROM            top</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdSistema" DataSetColumn="IdSistema" />
+              <Mapping SourceColumn="IdTOP" DataSetColumn="IdTOP" />
+              <Mapping SourceColumn="PosicionSacta" DataSetColumn="PosicionSacta" />
+              <Mapping SourceColumn="ModoArranque" DataSetColumn="ModoArranque" />
+              <Mapping SourceColumn="IpRed1" DataSetColumn="IpRed1" />
+              <Mapping SourceColumn="IpRed2" DataSetColumn="IpRed2" />
+              <Mapping SourceColumn="Grabador1" DataSetColumn="Grabador1" />
+              <Mapping SourceColumn="Grabador2" DataSetColumn="Grabador2" />
+              <Mapping SourceColumn="ConexionJacksEjecutivo" DataSetColumn="ConexionJacksEjecutivo" />
+              <Mapping SourceColumn="ConexionJacksAyudante" DataSetColumn="ConexionJacksAyudante" />
+              <Mapping SourceColumn="NumAltavoces" DataSetColumn="NumAltavoces" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet_PuestosOperadores" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PuestosOperadoresDS">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdSistema">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdTOP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PosicionSacta" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="ModoArranque" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IpRed1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IpRed2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Grabador1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Grabador2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ConexionJacksEjecutivo" type="xs:boolean" minOccurs="0" />
+              <xs:element name="ConexionJacksAyudante" type="xs:boolean" minOccurs="0" />
+              <xs:element name="NumAltavoces" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PuestosOperadoresDS" />
+      <xs:field xpath="mstns:IdSistema" />
+      <xs:field xpath="mstns:IdTOP" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

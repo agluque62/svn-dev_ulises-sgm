@@ -1,0 +1,204 @@
+<%@ Page Language="C#" AutoEventWireup="true"  CodeFile="Estadisticas.aspx.cs" Inherits="Estadisticas" 
+        CodeFileBaseClass="PageBaseManttoCD40.PageBaseMantto"	
+		MasterPageFile="~/Mantenimiento.master" StylesheetTheme="TemaPaginasConfiguracion" meta:resourcekey="PageResource1" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
+
+        <div ID = "FiltroFecha" style="padding-left:15px; display:none" runat="server">
+            <div id="DivStatistics" style="position: absolute; width: 725px;" class="menu">
+                <h3><%=GetLocalResourceObject("Estadisticas.Text").ToString()%></h3>
+                <table style="table-layout: fixed">
+                    <tbody>
+                        <tr>
+                            <td id="tdFilter" style="vertical-align: top; width: 250px">
+                                <div ID="AddFilterDateEstadisticas" style="width: 100%; padding: 5px; display:none" class="content" runat="server">
+                                    <label style="color: black"><%=GetLocalResourceObject("FiltroFecha.Text").ToString()%></label>
+                                    <div id="FilterDate" style="border-top: 1px solid black; padding-top: 10px; padding-left: 5px;">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <label><%=GetLocalResourceObject("FechaInicio.Text").ToString()%>:</label>
+                                                    </td>
+                                                    <td>
+                                                        <label ID="LblCalendar1" runat="server" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <asp:Calendar ID="Calendar1" runat="server" SelectionMode="Day" onselectionchanged="CalendarStart_SelectionChanged"></asp:Calendar>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label><%=GetLocalResourceObject("FechaFinal.Text").ToString()%>:</label>
+                                                     </td>
+                                                    <td>
+                                                        <label ID="LblCalendar2" runat="server" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <asp:Calendar ID="Calendar2" runat="server" SelectionMode="Day" onselectionchanged="CalendarEnd_SelectionChanged"></asp:Calendar>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="padding-top: 10px; width: 100%">
+                                            <tbody>
+                                                <tr align="center">
+                                                    <td>
+                                                        <a id="BtnTargetDate" onserverclick="FilteringByDateStatistics" class="ButtonNucleo" runat="server"><%=GetLocalResourceObject("Buscar.Text").ToString()%></a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div ID="AddFilterComponentEstadisticas" style="display: none; width: 100%; padding: 5px" class="content" runat="server">
+                                    <label style="color: black" ><%=GetLocalResourceObject("FiltroComponent.Text").ToString()%></label>
+                                    <div id="FilterComponent" style="border-top: 1px solid black; padding-top: 10px; padding-left: 5px;">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <label><%=GetLocalResourceObject("FechaInicio.Text").ToString()%>:</label>
+                                                    </td>
+                                                    <td>
+                                                        <label ID="LblCalendar3" runat="server" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <asp:Calendar ID="Calendar3" runat="server" SelectionMode="Day" onselectionchanged="CalendarStart_SelectionChanged"></asp:Calendar>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label><%=GetLocalResourceObject("FechaFinal.Text").ToString()%>:</label>
+                                                    </td>
+                                                    <td>
+                                                        <label ID="LblCalendar4" runat="server" />
+                                                     </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <asp:Calendar ID="Calendar4" runat="server" SelectionMode="Day" onselectionchanged="CalendarEnd_SelectionChanged"></asp:Calendar>
+                                                     </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label><%=GetLocalResourceObject("Tipo.Text").ToString()%>:</label>
+                                                    </td>
+                                                    <td>
+                                                        <asp:DropDownList ID="DDLTipoHw" runat="server" style="width:140px" OnTextChanged="DDLTipoHw_SelectedIndexChanged" AutoPostBack="true" class="select">
+                                                            <asp:ListItem Text=" <Select type> " Value="-1" />
+                                                            <asp:ListItem Text="Puestos operador" Value="0"/>
+                                                            <asp:ListItem Text="Pasarelas" Value="1"/>
+                                                            <asp:ListItem Text="Equipos radio" Value="2"/>
+                                                            <asp:ListItem Text="Equipo telefonía" Value="3"/>
+                                                            <asp:ListItem Text="Sistema" Value="4"/>
+                                                        </asp:DropDownList>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <label><%=GetLocalResourceObject("Componente.Text").ToString()%></label>
+                                        <asp:CheckBoxList ID="SComponentStatistics" runat="server" style="max-height: 120px; width: 140px; overflow-y:auto; border: 2px solid #ccc" Height="120px" class='select' ></asp:CheckBoxList>
+                                        <table style="padding-top: 10px; width: 100%">
+                                            <tbody>
+                                                <tr align="center">
+                                                    <td><a id="BtnTargetComponent" runat="server"  onserverclick="FilteringByComponentStatistics" class="ButtonNucleo"><%=GetLocalResourceObject("Buscar.Text").ToString()%></a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div ID="AddFilterCodeEstadisticas" style="display: none; width: 100%; padding: 5px" class="content" runat="server">
+                                    <label style="color: black" ><%=GetLocalResourceObject("FiltroEvent.Text").ToString()%></label>
+                                    <div id="FilterCode" style="border-top: 1px solid black; padding-top: 10px; padding-left: 5px;">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <label><%=GetLocalResourceObject("FechaInicio.Text").ToString()%>:</label>
+                                                    </td>
+                                                    <td>
+                                                        <label ID="LblCalendar5" runat="server" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <asp:Calendar ID="Calendar5" runat="server" SelectionMode="Day" onselectionchanged="CalendarStart_SelectionChanged"></asp:Calendar>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label><%=GetLocalResourceObject("FechaFinal.Text").ToString()%>:</label>
+                                                    </td>
+                                                    <td>
+                                                        <label ID="LblCalendar6" runat="server" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <asp:Calendar ID="Calendar6" runat="server" SelectionMode="Day" onselectionchanged="CalendarEnd_SelectionChanged"></asp:Calendar>
+                                                     </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label><%=GetLocalResourceObject("Evento.Text").ToString()%>:</label>
+                                                    </td>
+                                                    <td>
+                                                        <asp:DropDownList ID="SCodeStatistics" style="width:140px" AutoPostBack="false"  OnTextChanged="SCodeStatistics_SelectedIndexChanged"
+                                                            AppendDataBoundItems="false" runat="server" class='select' >
+                                                        </asp:DropDownList>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="padding-top: 20px; width: 100%">
+                                            <tbody>
+                                                <tr align="center">
+                                                    <td><a id="BtnTargetCode" runat="server" onserverclick="FilteringByCodeStatistics" class="ButtonNucleo"><%=GetLocalResourceObject("Buscar.Text").ToString()%></a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="vertical-align: top; padding-left: 50px; width: 320px">
+                                <div ID="AddFormStatistics" runat="server" style="height: 181px; width: 350px; display:none" class="content">
+                                    <table width="100%" height="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td style="width: 250px">
+                                                    <label><%=GetLocalResourceObject("Tasa.Text").ToString()%></label></td>
+                                                <td>
+                                                    <input ID="tasa" runat="server" type="text" style="width: 65px; text-align: right" readonly="" class="textbox"/></td>
+                                                <td>
+                                                    <label>%</label></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 250px">
+                                                    <label><%=GetLocalResourceObject("TiempoMedio.Text").ToString()%></label></td>
+                                                <td>
+                                                    <input ID="mtbf" runat="server" type="text" style="width: 65px; text-align: right" readonly="" class="textbox"/></td>
+                                                <td>
+                                                    <label><%=GetLocalResourceObject("Dias.Text").ToString()%></label></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a id="BtnToPdf" onclick="ExportHistoricsToPdf(dataToPrint,filterReport)" style="display: none" class="ButtonNucleo">PDF</a></td>
+                            <td><a id="BtnToExcel" onclick="tableToExcel('TableToExcel','U5K-G-Historics.xls')" style="display: none" class="ButtonNucleo">Excel</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+	&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+</asp:Content>

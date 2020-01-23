@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BtClusterResource1.Text" xml:space="preserve">
+    <value>Cluster</value>
+  </data>
+  <data name="BtClusterResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtInicioResource1.Text" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="BtInicioResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtMantenimientoResource1.Text" xml:space="preserve">
+    <value>Maintenance</value>
+  </data>
+  <data name="BtMantenimientoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Btn1Resource1.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Btn1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnAceptarModoContinuarResource1.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="BtnAceptarModoContinuarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnAgrupacionesResource1.Text" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="BtnAgrupacionesResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnDestinosRadioResource1.Text" xml:space="preserve">
+    <value>Radio Destinations</value>
+  </data>
+  <data name="BtnDestinosRadioResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnDestinosTfResource1.Text" xml:space="preserve">
+    <value>Telephony Destinations</value>
+  </data>
+  <data name="BtnDestinosTfResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnEmplazamientosResource1.Text" xml:space="preserve">
+    <value>Sites</value>
+  </data>
+  <data name="BtnEmplazamientosResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnEncaminamientosResource1.Text" xml:space="preserve">
+    <value>Routing</value>
+  </data>
+  <data name="BtnEncaminamientosResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnEqExResource1.Text" xml:space="preserve">
+    <value>External Units</value>
+  </data>
+  <data name="BtnEqExResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnGruposResource1.Text" xml:space="preserve">
+    <value>Telephony's Groups</value>
+  </data>
+  <data name="BtnGruposResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnNucleosResource1.Text" xml:space="preserve">
+    <value>Cores</value>
+  </data>
+  <data name="BtnNucleosResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnOcultoResource1.Text" xml:space="preserve">
+    <value>Button</value>
+  </data>
+  <data name="BtnOcultoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnOperadoresResource1.Text" xml:space="preserve">
+    <value>Operators</value>
+  </data>
+  <data name="BtnOperadoresResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnRecursosLCResource1.Text" xml:space="preserve">
+    <value>Instant Access Resources</value>
+  </data>
+  <data name="BtnRecursosLCResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnRecursosRdResource1.Text" xml:space="preserve">
+    <value>Radio Resources</value>
+  </data>
+  <data name="BtnRecursosRdResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnRecursosTfResource1.Text" xml:space="preserve">
+    <value>Telephony Resources</value>
+  </data>
+  <data name="BtnRecursosTfResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnRedesResource1.Text" xml:space="preserve">
+    <value>Networks</value>
+  </data>
+  <data name="BtnRedesResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnSectoresResource1.Text" xml:space="preserve">
+    <value>Sectors</value>
+  </data>
+  <data name="BtnSectoresResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnSectorizacionesResource1.Text" xml:space="preserve">
+    <value>Sectorizations</value>
+  </data>
+  <data name="BtnSectorizacionesResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnSistemaResource1.Text" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="BtnSistemaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnTifxResource1.Text" xml:space="preserve">
+    <value>Gateways</value>
+  </data>
+  <data name="BtnTifxResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnTopsResource1.Text" xml:space="preserve">
+    <value>Operator Terminals</value>
+  </data>
+  <data name="BtnTopsResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnTroncalesResource1.Text" xml:space="preserve">
+    <value>Trunks</value>
+  </data>
+  <data name="BtnTroncalesResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Button1Resource2.Text" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="Button1Resource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Button2Resource1.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Button2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Image1Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Image1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Image2Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Image2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Image3Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Image3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Image4Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Image4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Image5Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Image5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Image6Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Image6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label1Resource1.Text" xml:space="preserve">
+    <value>ULISES-5000 CONFIGURATION</value>
+  </data>
+  <data name="Label1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label2Resource1.Text" xml:space="preserve">
+    <value>User:</value>
+  </data>
+  <data name="Label2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label3Resource1.Text" xml:space="preserve">
+    <value>Profile:</value>
+  </data>
+  <data name="Label3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label4Resource1.Text" xml:space="preserve">
+    <value>Continue: Continue changing the settings.</value>
+  </data>
+  <data name="Label4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label5Resource1.Text" xml:space="preserve">
+    <value>Cancel: Undo the latest changes since the last commit.</value>
+  </data>
+  <data name="Label5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label6Resource1.Text" xml:space="preserve">
+    <value>The latest changes were not activated in the system. What do you want to do?</value>
+  </data>
+  <data name="Label6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelPerfilResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelPerfilResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelUsuarioResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelUsuarioResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Lbl1Resource1.Text" xml:space="preserve">
+    <value>OK: Confirm the changes and activate the settings in the VCS</value>
+  </data>
+  <data name="Lbl1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LinkButton1Resource1.Text" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="LinkButton1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MsgBox1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Panel1Resource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Panel1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelContenidoResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelContenidoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PnlCabeceraResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PnlCabeceraResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PnlMessageBoxCaptionResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PnlMessageBoxCaptionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PnlMessageBoxResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PnlMessageBoxResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RBContinuarActivaResource1.Text" xml:space="preserve">
+    <value>Activate a sectorization with the latest changes</value>
+  </data>
+  <data name="RBContinuarActivaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RBContinuarModificadaResource1.Text" xml:space="preserve">
+    <value>Cancel configuration changes and exit</value>
+  </data>
+  <data name="RBContinuarModificadaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RBSalirResource1.Text" xml:space="preserve">
+    <value>Exit and keep the latest changes</value>
+  </data>
+  <data name="RBSalirResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TreeView1Resource1.CollapseImageToolTip" xml:space="preserve">
+    <value>Contract {0}</value>
+  </data>
+  <data name="TreeView1Resource1.ExpandImageToolTip" xml:space="preserve">
+    <value>Expand {0}</value>
+  </data>
+  <data name="TreeView1Resource1.SkipLinkText" xml:space="preserve">
+    <value>Skip Navigation Links.</value>
+  </data>
+  <data name="TreeView1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UPMessageBoxResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UPMessageBoxResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnZonasResource1.Text" xml:space="preserve">
+    <value>Radio Zones</value>
+  </data>
+  <data name="BtnTabCalidadResource1.Text" xml:space="preserve">
+    <value>RSSI Conversion</value>
+  </data>
+</root>

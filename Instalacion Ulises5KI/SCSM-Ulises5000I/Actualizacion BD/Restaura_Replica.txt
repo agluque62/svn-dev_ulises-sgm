@@ -1,0 +1,16 @@
+EJECUTAR CADA UNO DE ESTOS PASOS, PRIMERO EN UN SERVIDOR Y LUEGO EN EL OTRO.
+
+- En ambos servidores (primero en uno y luego en el otro), descomprimir Restaura_Replicacion.zip.
+- En ambos servidores (primero en uno y luego en el otro), editar el archivo 'replication_server_step_2.sql' y cambiar la dirección IP de la primera línea por la dirección IP privada del servidor contrario.
+- En ambos servidores (primero en uno y luego en el otro), ejecutar 'restaura_replica.bat' hasta el mensaje:
+**************************************************
+*******      RESTAURAR REPLICACION         *******
+***** FIN REPLICACION SERVIDOR FASE 1      *******
+*********************************************************************
+*********************************************************************
+*****  CAMBIA DE SERVIDOR Y EJECUTA restaura_replica.bat      *******
+***** NO PULSES UNA TECLA HASTA QUE NO FINALICE LA FASE 1     *******
+***** 		DE REPLICACION EN DICHO SERVIDOR            *******
+*********************************************************************
+- En ambos servidores (primero en uno y luego en el otro), contestar 'S' a la pregunta: ¿Finalizo la FASE 1 de la replicacion en el otro servidor?
+- En ambos servidores (primero en uno y luego en el otro), pulsar una tecla.

@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://CD40.es/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://CD40.es/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://CD40.es/">
+      <s:element name="RevisarTareasPendientes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idSistema" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevisarTareasPendientesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RevisarTareasPendientesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LeeTareas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idSistema" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LeeTareasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LeeTareasResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CrearTarea">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="t" type="tns:Tareas" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Tareas">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Tablas">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="IdSistema" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="IdTarea" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Programa" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Argumentos" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Hora" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Periodicidad" type="tns:_Enum_Periodicidad" />
+              <s:element minOccurs="0" maxOccurs="1" name="Comentario" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Tablas" abstract="true" />
+      <s:simpleType name="_Enum_Periodicidad">
+        <s:restriction base="s:string">
+          <s:enumeration value="D" />
+          <s:enumeration value="M" />
+          <s:enumeration value="S" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="CrearTareaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CrearTareaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarTarea">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="t" type="tns:Tareas" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarTareaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarTareaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaTareasProgramadas">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaTareasProgramadasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaTareasProgramadasResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NumeroTotalIndicador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sistema" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="familia" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="indicador" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="elemento" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dia" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="hasta" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="elementoFisico" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NumeroTotalIndicadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NumeroTotalIndicadorResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MaximoIndicador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sistema" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="familia" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="indicador" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="elemento" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dia" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="hasta" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="elementoFisico" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MaximoIndicadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MaximoIndicadorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MinimoIndicador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sistema" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="familia" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="indicador" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="elemento" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dia" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="hasta" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="elementoFisico" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MinimoIndicadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MinimoIndicadorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MediaIndicador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sistema" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="familia" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="indicador" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="elemento" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dia" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="hasta" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="elementoFisico" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MediaIndicadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MediaIndicadorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DesviacionTipicaIndicador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sistema" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="familia" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="indicador" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="elemento" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dia" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="hasta" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="elementoFisico" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DesviacionTipicaIndicadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DesviacionTipicaIndicadorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DistribucionPorDiasIndicador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sistema" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="familia" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="indicador" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="elemento" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dia" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="hasta" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="elementoFisico" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DistribucionPorDiasIndicadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DistribucionPorDiasIndicadorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DistribucionPorHorasIndicador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sistema" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="familia" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="indicador" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="elemento" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dia" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="hasta" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="elementoFisico" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DistribucionPorHorasIndicadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DistribucionPorHorasIndicadorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RevisarTareasPendientesSoapIn">
+    <wsdl:part name="parameters" element="tns:RevisarTareasPendientes" />
+  </wsdl:message>
+  <wsdl:message name="RevisarTareasPendientesSoapOut">
+    <wsdl:part name="parameters" element="tns:RevisarTareasPendientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="LeeTareasSoapIn">
+    <wsdl:part name="parameters" element="tns:LeeTareas" />
+  </wsdl:message>
+  <wsdl:message name="LeeTareasSoapOut">
+    <wsdl:part name="parameters" element="tns:LeeTareasResponse" />
+  </wsdl:message>
+  <wsdl:message name="CrearTareaSoapIn">
+    <wsdl:part name="parameters" element="tns:CrearTarea" />
+  </wsdl:message>
+  <wsdl:message name="CrearTareaSoapOut">
+    <wsdl:part name="parameters" element="tns:CrearTareaResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarTareaSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarTarea" />
+  </wsdl:message>
+  <wsdl:message name="EliminarTareaSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarTareaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaTareasProgramadasSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaTareasProgramadas" />
+  </wsdl:message>
+  <wsdl:message name="ListaTareasProgramadasSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaTareasProgramadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="NumeroTotalIndicadorSoapIn">
+    <wsdl:part name="parameters" element="tns:NumeroTotalIndicador" />
+  </wsdl:message>
+  <wsdl:message name="NumeroTotalIndicadorSoapOut">
+    <wsdl:part name="parameters" element="tns:NumeroTotalIndicadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaximoIndicadorSoapIn">
+    <wsdl:part name="parameters" element="tns:MaximoIndicador" />
+  </wsdl:message>
+  <wsdl:message name="MaximoIndicadorSoapOut">
+    <wsdl:part name="parameters" element="tns:MaximoIndicadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="MinimoIndicadorSoapIn">
+    <wsdl:part name="parameters" element="tns:MinimoIndicador" />
+  </wsdl:message>
+  <wsdl:message name="MinimoIndicadorSoapOut">
+    <wsdl:part name="parameters" element="tns:MinimoIndicadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="MediaIndicadorSoapIn">
+    <wsdl:part name="parameters" element="tns:MediaIndicador" />
+  </wsdl:message>
+  <wsdl:message name="MediaIndicadorSoapOut">
+    <wsdl:part name="parameters" element="tns:MediaIndicadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="DesviacionTipicaIndicadorSoapIn">
+    <wsdl:part name="parameters" element="tns:DesviacionTipicaIndicador" />
+  </wsdl:message>
+  <wsdl:message name="DesviacionTipicaIndicadorSoapOut">
+    <wsdl:part name="parameters" element="tns:DesviacionTipicaIndicadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistribucionPorDiasIndicadorSoapIn">
+    <wsdl:part name="parameters" element="tns:DistribucionPorDiasIndicador" />
+  </wsdl:message>
+  <wsdl:message name="DistribucionPorDiasIndicadorSoapOut">
+    <wsdl:part name="parameters" element="tns:DistribucionPorDiasIndicadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistribucionPorHorasIndicadorSoapIn">
+    <wsdl:part name="parameters" element="tns:DistribucionPorHorasIndicador" />
+  </wsdl:message>
+  <wsdl:message name="DistribucionPorHorasIndicadorSoapOut">
+    <wsdl:part name="parameters" element="tns:DistribucionPorHorasIndicadorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EstadisticasSoap">
+    <wsdl:operation name="RevisarTareasPendientes">
+      <wsdl:input message="tns:RevisarTareasPendientesSoapIn" />
+      <wsdl:output message="tns:RevisarTareasPendientesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LeeTareas">
+      <wsdl:input message="tns:LeeTareasSoapIn" />
+      <wsdl:output message="tns:LeeTareasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearTarea">
+      <wsdl:input message="tns:CrearTareaSoapIn" />
+      <wsdl:output message="tns:CrearTareaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTarea">
+      <wsdl:input message="tns:EliminarTareaSoapIn" />
+      <wsdl:output message="tns:EliminarTareaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaTareasProgramadas">
+      <wsdl:input message="tns:ListaTareasProgramadasSoapIn" />
+      <wsdl:output message="tns:ListaTareasProgramadasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NumeroTotalIndicador">
+      <wsdl:input message="tns:NumeroTotalIndicadorSoapIn" />
+      <wsdl:output message="tns:NumeroTotalIndicadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MaximoIndicador">
+      <wsdl:input message="tns:MaximoIndicadorSoapIn" />
+      <wsdl:output message="tns:MaximoIndicadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MinimoIndicador">
+      <wsdl:input message="tns:MinimoIndicadorSoapIn" />
+      <wsdl:output message="tns:MinimoIndicadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MediaIndicador">
+      <wsdl:input message="tns:MediaIndicadorSoapIn" />
+      <wsdl:output message="tns:MediaIndicadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DesviacionTipicaIndicador">
+      <wsdl:input message="tns:DesviacionTipicaIndicadorSoapIn" />
+      <wsdl:output message="tns:DesviacionTipicaIndicadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DistribucionPorDiasIndicador">
+      <wsdl:input message="tns:DistribucionPorDiasIndicadorSoapIn" />
+      <wsdl:output message="tns:DistribucionPorDiasIndicadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DistribucionPorHorasIndicador">
+      <wsdl:input message="tns:DistribucionPorHorasIndicadorSoapIn" />
+      <wsdl:output message="tns:DistribucionPorHorasIndicadorSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EstadisticasSoap" type="tns:EstadisticasSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RevisarTareasPendientes">
+      <soap:operation soapAction="http://CD40.es/RevisarTareasPendientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeeTareas">
+      <soap:operation soapAction="http://CD40.es/LeeTareas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearTarea">
+      <soap:operation soapAction="http://CD40.es/CrearTarea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTarea">
+      <soap:operation soapAction="http://CD40.es/EliminarTarea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaTareasProgramadas">
+      <soap:operation soapAction="http://CD40.es/ListaTareasProgramadas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NumeroTotalIndicador">
+      <soap:operation soapAction="http://CD40.es/NumeroTotalIndicador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaximoIndicador">
+      <soap:operation soapAction="http://CD40.es/MaximoIndicador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MinimoIndicador">
+      <soap:operation soapAction="http://CD40.es/MinimoIndicador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaIndicador">
+      <soap:operation soapAction="http://CD40.es/MediaIndicador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DesviacionTipicaIndicador">
+      <soap:operation soapAction="http://CD40.es/DesviacionTipicaIndicador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DistribucionPorDiasIndicador">
+      <soap:operation soapAction="http://CD40.es/DistribucionPorDiasIndicador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DistribucionPorHorasIndicador">
+      <soap:operation soapAction="http://CD40.es/DistribucionPorHorasIndicador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EstadisticasSoap12" type="tns:EstadisticasSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RevisarTareasPendientes">
+      <soap12:operation soapAction="http://CD40.es/RevisarTareasPendientes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeeTareas">
+      <soap12:operation soapAction="http://CD40.es/LeeTareas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearTarea">
+      <soap12:operation soapAction="http://CD40.es/CrearTarea" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTarea">
+      <soap12:operation soapAction="http://CD40.es/EliminarTarea" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaTareasProgramadas">
+      <soap12:operation soapAction="http://CD40.es/ListaTareasProgramadas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NumeroTotalIndicador">
+      <soap12:operation soapAction="http://CD40.es/NumeroTotalIndicador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaximoIndicador">
+      <soap12:operation soapAction="http://CD40.es/MaximoIndicador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MinimoIndicador">
+      <soap12:operation soapAction="http://CD40.es/MinimoIndicador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaIndicador">
+      <soap12:operation soapAction="http://CD40.es/MediaIndicador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DesviacionTipicaIndicador">
+      <soap12:operation soapAction="http://CD40.es/DesviacionTipicaIndicador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DistribucionPorDiasIndicador">
+      <soap12:operation soapAction="http://CD40.es/DistribucionPorDiasIndicador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DistribucionPorHorasIndicador">
+      <soap12:operation soapAction="http://CD40.es/DistribucionPorHorasIndicador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Estadisticas">
+    <wsdl:port name="EstadisticasSoap" binding="tns:EstadisticasSoap">
+      <soap:address location="http://localhost:1885/Estadisticas/Estadisticas.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EstadisticasSoap12" binding="tns:EstadisticasSoap12">
+      <soap12:address location="http://localhost:1885/Estadisticas/Estadisticas.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

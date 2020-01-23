@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BDesdeResource1.Text" xml:space="preserve">
+    <value>Desde</value>
+  </data>
+  <data name="BDesdeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BHastaResource1.Text" xml:space="preserve">
+    <value>Hasta</value>
+  </data>
+  <data name="BHastaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnCalcularResource1.Text" xml:space="preserve">
+    <value>Calcular</value>
+  </data>
+  <data name="BtnCalcularResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ClndrDesdeResource1.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ClndrDesdeResource1.NextMonthText" xml:space="preserve">
+    <value>&amp;gt;</value>
+  </data>
+  <data name="ClndrDesdeResource1.PrevMonthText" xml:space="preserve">
+    <value>&amp;lt;</value>
+  </data>
+  <data name="ClndrDesdeResource1.SelectMonthText" xml:space="preserve">
+    <value>&amp;gt;&amp;gt;</value>
+  </data>
+  <data name="ClndrDesdeResource1.SelectWeekText" xml:space="preserve">
+    <value>&amp;gt;</value>
+  </data>
+  <data name="ClndrDesdeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ClndrHastaResource1.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ClndrHastaResource1.NextMonthText" xml:space="preserve">
+    <value>&amp;gt;</value>
+  </data>
+  <data name="ClndrHastaResource1.PrevMonthText" xml:space="preserve">
+    <value>&amp;lt;</value>
+  </data>
+  <data name="ClndrHastaResource1.SelectMonthText" xml:space="preserve">
+    <value>&amp;gt;&amp;gt;</value>
+  </data>
+  <data name="ClndrHastaResource1.SelectWeekText" xml:space="preserve">
+    <value>&amp;gt;</value>
+  </data>
+  <data name="ClndrHastaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DDLElementoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DDLFamiliaIndicadoresResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DDLIdHwResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label1Resource1.Text" xml:space="preserve">
+    <value>Id. elemento</value>
+  </data>
+  <data name="Label1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LBIndicadoresResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblDesdeResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblDesdeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblElementoResource1.Text" xml:space="preserve">
+    <value>Elemento</value>
+  </data>
+  <data name="LblElementoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblErrorFechasResource1.Text" xml:space="preserve">
+    <value>La fecha Desde debe ser menor que la fecha Hasta</value>
+  </data>
+  <data name="LblErrorFechasResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblFamiliaResource1.Text" xml:space="preserve">
+    <value>Familia de indicadores</value>
+  </data>
+  <data name="LblFamiliaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblHastaResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblHastaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblIndicadorResource1.Text" xml:space="preserve">
+    <value>Indicador</value>
+  </data>
+  <data name="LblIndicadorResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListItemResource1.Text" xml:space="preserve">
+    <value>Hardware</value>
+  </data>
+  <data name="ListItemResource1.Value" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ListItemResource2.Text" xml:space="preserve">
+    <value>Comunicaciones radio</value>
+  </data>
+  <data name="ListItemResource2.Value" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ListItemResource3.Text" xml:space="preserve">
+    <value>Comunicaciones telefonía</value>
+  </data>
+  <data name="ListItemResource3.Value" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ListItemResource4.Text" xml:space="preserve">
+    <value>Gestión</value>
+  </data>
+  <data name="ListItemResource4.Value" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>Estadísticas</value>
+  </data>
+  <data name="TableRowResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRowResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRowResource3.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TblResultadosResource1.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TblResultadosResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Canales" xml:space="preserve">
+    <value>Canales</value>
+  </data>
+  <data name="Configuraciones" xml:space="preserve">
+    <value>Configuraciones</value>
+  </data>
+  <data name="Destino" xml:space="preserve">
+    <value>Destino</value>
+  </data>
+  <data name="DistribucionDia" xml:space="preserve">
+    <value>Distribución comunicaciones por día</value>
+  </data>
+  <data name="DistribucionFallosDia" xml:space="preserve">
+    <value>Distribución fallos por día</value>
+  </data>
+  <data name="DistribucionFallosHora" xml:space="preserve">
+    <value>Distribución fallos por hora</value>
+  </data>
+  <data name="DistribucionHoras" xml:space="preserve">
+    <value>Distribución comunicaciones por hora</value>
+  </data>
+  <data name="DuracionAD" xml:space="preserve">
+    <value>Duración de los accesos directos</value>
+  </data>
+  <data name="DuracionAI" xml:space="preserve">
+    <value>Duración de los accesos indirectos</value>
+  </data>
+  <data name="DuracionAIN" xml:space="preserve">
+    <value>Duración de los accesos instantáneos</value>
+  </data>
+  <data name="DuracionComunicaciones" xml:space="preserve">
+    <value>Duración de las comunicaciones</value>
+  </data>
+  <data name="DuracionFallos" xml:space="preserve">
+    <value>Duración de los fallos</value>
+  </data>
+  <data name="DuracionTransitos" xml:space="preserve">
+    <value>Duración de los tránsitos</value>
+  </data>
+  <data name="Frecuencias" xml:space="preserve">
+    <value>Frecuencias</value>
+  </data>
+  <data name="Implantadas" xml:space="preserve">
+    <value>Implantadas</value>
+  </data>
+  <data name="NumLlamadas" xml:space="preserve">
+    <value>Número llamadas</value>
+  </data>
+  <data name="OcupacionTroncal" xml:space="preserve">
+    <value>% ocupación líneas troncal</value>
+  </data>
+  <data name="Posiciones" xml:space="preserve">
+    <value>Posiciones</value>
+  </data>
+  <data name="Prioridad" xml:space="preserve">
+    <value>Prioridad</value>
+  </data>
+  <data name="Rechazadas" xml:space="preserve">
+    <value>Rechazadas</value>
+  </data>
+  <data name="RecursoAIN" xml:space="preserve">
+    <value>Recurso acceso instantáneo</value>
+  </data>
+  <data name="RecursoTelefonia" xml:space="preserve">
+    <value>Recurso telefonía</value>
+  </data>
+  <data name="Red" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="Ruta" xml:space="preserve">
+    <value>Ruta</value>
+  </data>
+  <data name="Sectorizaciones" xml:space="preserve">
+    <value>Sectorizaciones</value>
+  </data>
+  <data name="TipoInterfaz" xml:space="preserve">
+    <value>TipoInterfaz</value>
+  </data>
+  <data name="Totales" xml:space="preserve">
+    <value>Totales</value>
+  </data>
+  <data name="Troncal" xml:space="preserve">
+    <value>Troncal</value>
+  </data>
+  <data name="UsosFacilidades" xml:space="preserve">
+    <value>Número de usos facilidades</value>
+  </data>
+  <data name="Usuarios" xml:space="preserve">
+    <value>Usuarios</value>
+  </data>
+</root>

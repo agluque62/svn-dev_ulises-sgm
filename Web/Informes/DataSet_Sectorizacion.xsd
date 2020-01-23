@@ -1,0 +1,714 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet_Sectorizacion" targetNamespace="http://tempuri.org/DataSet_Sectorizacion.xsd" xmlns:mstns="http://tempuri.org/DataSet_Sectorizacion.xsd" xmlns="http://tempuri.org/DataSet_Sectorizacion.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="new_cd40_transConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="new_cd40_transConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.new_cd40_transConnectionString.ConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SectoresTableAdapter" GeneratorDataComponentClassName="SectoresSectorizacionTableAdapter" Name="Sectores" UserDataComponentName="SectoresSectorizacionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="new_cd40_transConnectionString (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="false" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        sectoressectorizacion.IdSistema, sectoressectorizacion.IdSectorizacion, sectoressectorizacion.IdNucleo, sectoressectorizacion.IdSector, 
+                         sectoressectorizacion.IdTOP, sectores.Tipo, sectores.TipoPosicion, sectores.PrioridadR2, sectores.TipoHMI, parametrossector.NumLlamadasEntrantesIDA, 
+                         parametrossector.NumFreqPagina, parametrossector.NumLlamadasEnIDA, parametrossector.NumPagFreq, parametrossector.NumDestinosInternosPag, 
+                         parametrossector.NumPagDestinosInt, parametrossector.Intrusion, parametrossector.Intruido, parametrossector.KeepAlivePeriod, 
+                         parametrossector.KeepAliveMultiplier, parametrossector.NumEnlacesAI, parametrossector.GrabacionEd137, teclassector.TransConConsultaPrev, 
+                         teclassector.TransDirecta, teclassector.Conferencia, teclassector.Escucha, teclassector.Retener, teclassector.Captura, teclassector.Redireccion, 
+                         teclassector.RepeticionUltLlamada, teclassector.RellamadaAut, teclassector.TeclaPrioridad, teclassector.Tecla55mas1, teclassector.Monitoring, 
+                         teclassector.CoordinadorTF, teclassector.CoordinadorRD, teclassector.IntegracionRDTF, teclassector.LlamadaSelectiva, teclassector.GrupoBSS, teclassector.LTT, 
+                         teclassector.InhabilitacionRedirec, teclassector.SayAgain, teclassector.Glp
+FROM            sectoressectorizacion INNER JOIN
+                         sectores ON sectoressectorizacion.IdSistema = sectores.IdSistema AND sectoressectorizacion.IdNucleo = sectores.IdNucleo AND 
+                         sectoressectorizacion.IdSector = sectores.IdSector INNER JOIN
+                         parametrossector ON sectores.IdSistema = parametrossector.IdSistema AND sectores.IdNucleo = parametrossector.IdNucleo AND 
+                         sectores.IdSector = parametrossector.IdSector INNER JOIN
+                         teclassector ON sectores.IdSistema = teclassector.IdSistema AND sectores.IdNucleo = teclassector.IdNucleo AND sectores.IdSector = teclassector.IdSector</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdSectorizacion" DataSetColumn="IdSectorizacion" />
+              <Mapping SourceColumn="IdTOP" DataSetColumn="IdTOP" />
+              <Mapping SourceColumn="Tipo" DataSetColumn="Tipo" />
+              <Mapping SourceColumn="TipoPosicion" DataSetColumn="TipoPosicion" />
+              <Mapping SourceColumn="PrioridadR2" DataSetColumn="PrioridadR2" />
+              <Mapping SourceColumn="TipoHMI" DataSetColumn="TipoHMI" />
+              <Mapping SourceColumn="NumLlamadasEntrantesIDA" DataSetColumn="NumLlamadasEntrantesIDA" />
+              <Mapping SourceColumn="NumFreqPagina" DataSetColumn="NumFreqPagina" />
+              <Mapping SourceColumn="NumLlamadasEnIDA" DataSetColumn="NumLlamadasEnIDA" />
+              <Mapping SourceColumn="NumPagFreq" DataSetColumn="NumPagFreq" />
+              <Mapping SourceColumn="NumDestinosInternosPag" DataSetColumn="NumDestinosInternosPag" />
+              <Mapping SourceColumn="NumPagDestinosInt" DataSetColumn="NumPagDestinosInt" />
+              <Mapping SourceColumn="Intrusion" DataSetColumn="Intrusion" />
+              <Mapping SourceColumn="Intruido" DataSetColumn="Intruido" />
+              <Mapping SourceColumn="KeepAlivePeriod" DataSetColumn="KeepAlivePeriod" />
+              <Mapping SourceColumn="KeepAliveMultiplier" DataSetColumn="KeepAliveMultiplier" />
+              <Mapping SourceColumn="NumEnlacesAI" DataSetColumn="NumEnlacesAI" />
+              <Mapping SourceColumn="GrabacionEd137" DataSetColumn="GrabacionEd137" />
+              <Mapping SourceColumn="TransConConsultaPrev" DataSetColumn="TransConConsultaPrev" />
+              <Mapping SourceColumn="TransDirecta" DataSetColumn="TransDirecta" />
+              <Mapping SourceColumn="Conferencia" DataSetColumn="Conferencia" />
+              <Mapping SourceColumn="Escucha" DataSetColumn="Escucha" />
+              <Mapping SourceColumn="Retener" DataSetColumn="Retener" />
+              <Mapping SourceColumn="Captura" DataSetColumn="Captura" />
+              <Mapping SourceColumn="Redireccion" DataSetColumn="Redireccion" />
+              <Mapping SourceColumn="RepeticionUltLlamada" DataSetColumn="RepeticionUltLlamada" />
+              <Mapping SourceColumn="RellamadaAut" DataSetColumn="RellamadaAut" />
+              <Mapping SourceColumn="TeclaPrioridad" DataSetColumn="TeclaPrioridad" />
+              <Mapping SourceColumn="Tecla55mas1" DataSetColumn="Tecla55mas1" />
+              <Mapping SourceColumn="Monitoring" DataSetColumn="Monitoring" />
+              <Mapping SourceColumn="CoordinadorTF" DataSetColumn="CoordinadorTF" />
+              <Mapping SourceColumn="CoordinadorRD" DataSetColumn="CoordinadorRD" />
+              <Mapping SourceColumn="IntegracionRDTF" DataSetColumn="IntegracionRDTF" />
+              <Mapping SourceColumn="LlamadaSelectiva" DataSetColumn="LlamadaSelectiva" />
+              <Mapping SourceColumn="GrupoBSS" DataSetColumn="GrupoBSS" />
+              <Mapping SourceColumn="LTT" DataSetColumn="LTT" />
+              <Mapping SourceColumn="InhabilitacionRedirec" DataSetColumn="InhabilitacionRedirec" />
+              <Mapping SourceColumn="SayAgain" DataSetColumn="SayAgain" />
+              <Mapping SourceColumn="Glp" DataSetColumn="Glp" />
+              <Mapping SourceColumn="IdSistema" DataSetColumn="IdSistema" />
+              <Mapping SourceColumn="IdNucleo" DataSetColumn="IdNucleo" />
+              <Mapping SourceColumn="IdSector" DataSetColumn="IdSector" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UsuariosAbonadosTableAdapter" GeneratorDataComponentClassName="UsuariosAbonadosTableAdapter" Name="UsuariosAbonados" UserDataComponentName="UsuariosAbonadosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="new_cd40_transConnectionString (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        usuariosabonados.IdSistema, usuariosabonados.IdPrefijo, usuariosabonados.IdNucleo, usuariosabonados.IdSector, usuariosabonados.IdAbonado, 
+                         redes.IdRed
+FROM            usuariosabonados INNER JOIN
+                         redes ON usuariosabonados.IdSistema = redes.IdSistema AND usuariosabonados.IdPrefijo = redes.IdPrefijo</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdSistema" DataSetColumn="IdSistema" />
+              <Mapping SourceColumn="IdPrefijo" DataSetColumn="IdPrefijo" />
+              <Mapping SourceColumn="IdNucleo" DataSetColumn="IdNucleo" />
+              <Mapping SourceColumn="IdSector" DataSetColumn="IdSector" />
+              <Mapping SourceColumn="IdAbonado" DataSetColumn="IdAbonado" />
+              <Mapping SourceColumn="IdRed" DataSetColumn="IdRed" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="permisosredesTableAdapter" GeneratorDataComponentClassName="permisosredesTableAdapter" Name="permisosredes" UserDataComponentName="permisosredesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="new_cd40_transConnectionString (Web.config)" DbObjectName="new_cd40_trans.permisosredes" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        IdSistema, IdRed, IdSector, IdNucleo, Llamar, Recibir
+FROM            permisosredes</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdSistema" DataSetColumn="IdSistema" />
+              <Mapping SourceColumn="IdRed" DataSetColumn="IdRed" />
+              <Mapping SourceColumn="IdSector" DataSetColumn="IdSector" />
+              <Mapping SourceColumn="IdNucleo" DataSetColumn="IdNucleo" />
+              <Mapping SourceColumn="Llamar" DataSetColumn="Llamar" />
+              <Mapping SourceColumn="Recibir" DataSetColumn="Recibir" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DestinosTelefoniaSectorTableAdapter" GeneratorDataComponentClassName="DestinosTelefoniaSectorTableAdapter" Name="DestinosTelefoniaSector" UserDataComponentName="DestinosTelefoniaSectorTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="new_cd40_transConnectionString (Web.config)" DbObjectName="new_cd40_trans.internos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        IdSectorizacion, IdSistema, IdNucleo, IdSector, IdDestino, IdPrefijo, PosHMI, Prioridad, OrigenR2, PrioridadSIP, TipoAcceso, Literal, NULL AS grupo
+FROM            internos
+UNION
+SELECT        IdSectorizacion, IdSistema, IdNucleo, IdSector, IdDestino, IdPrefijo, PosHMI, Prioridad, OrigenR2, PrioridadSIP, TipoAcceso, Literal, Grupo
+FROM            externos</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdSectorizacion" DataSetColumn="IdSectorizacion" />
+              <Mapping SourceColumn="IdSistema" DataSetColumn="IdSistema" />
+              <Mapping SourceColumn="IdNucleo" DataSetColumn="IdNucleo" />
+              <Mapping SourceColumn="IdSector" DataSetColumn="IdSector" />
+              <Mapping SourceColumn="IdDestino" DataSetColumn="IdDestino" />
+              <Mapping SourceColumn="IdPrefijo" DataSetColumn="IdPrefijo" />
+              <Mapping SourceColumn="PosHMI" DataSetColumn="PosHMI" />
+              <Mapping SourceColumn="Prioridad" DataSetColumn="Prioridad" />
+              <Mapping SourceColumn="OrigenR2" DataSetColumn="OrigenR2" />
+              <Mapping SourceColumn="PrioridadSIP" DataSetColumn="PrioridadSIP" />
+              <Mapping SourceColumn="TipoAcceso" DataSetColumn="TipoAcceso" />
+              <Mapping SourceColumn="Literal" DataSetColumn="Literal" />
+              <Mapping SourceColumn="grupo" DataSetColumn="grupo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="radioTableAdapter" GeneratorDataComponentClassName="radioTableAdapter" Name="radio" UserDataComponentName="radioTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="new_cd40_transConnectionString (Web.config)" DbObjectName="new_cd40_trans.radio" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        IdSistema, IdDestino, IdNucleo, IdSector, PosHMI, Prioridad, PrioridadSIP, ModoOperacion, Cascos, Literal, SupervisionPortadora, IdSectorizacion
+FROM            radio</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdSistema" DataSetColumn="IdSistema" />
+              <Mapping SourceColumn="IdDestino" DataSetColumn="IdDestino" />
+              <Mapping SourceColumn="IdNucleo" DataSetColumn="IdNucleo" />
+              <Mapping SourceColumn="IdSector" DataSetColumn="IdSector" />
+              <Mapping SourceColumn="PosHMI" DataSetColumn="PosHMI" />
+              <Mapping SourceColumn="Prioridad" DataSetColumn="Prioridad" />
+              <Mapping SourceColumn="PrioridadSIP" DataSetColumn="PrioridadSIP" />
+              <Mapping SourceColumn="ModoOperacion" DataSetColumn="ModoOperacion" />
+              <Mapping SourceColumn="Cascos" DataSetColumn="Cascos" />
+              <Mapping SourceColumn="Literal" DataSetColumn="Literal" />
+              <Mapping SourceColumn="SupervisionPortadora" DataSetColumn="SupervisionPortadora" />
+              <Mapping SourceColumn="IdSectorizacion" DataSetColumn="IdSectorizacion" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SectoresSectorTableAdapter" Name="SectoresSector">
+            <MainSource>
+              <DbSource ConnectionRef="new_cd40_transConnectionString (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="false" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        sectoressectorizacion.IdSistema, sectoressectorizacion.IdSectorizacion, sectoressectorizacion.IdNucleo, sectoressectorizacion.IdSector, 
+                         sectoressectorizacion.IdTOP, sectoressector.IdSectorOriginal, sectoressector.EsDominante, sectores.NumSacta
+FROM            sectoressectorizacion INNER JOIN
+                         sectoressector ON sectoressectorizacion.IdSistema = sectoressector.IdSistema AND sectoressectorizacion.IdNucleo = sectoressector.IdNucleo AND 
+                         sectoressectorizacion.IdSector = sectoressector.IdSector INNER JOIN
+                         sectores ON sectoressector.IdSistema = sectores.IdSistema AND sectoressector.IdNucleo = sectores.IdNucleo AND 
+                         sectoressector.IdSectorOriginal = sectores.IdSector
+ORDER BY sectoressectorizacion.IdSectorizacion, sectoressectorizacion.IdSector, sectoressector.EsDominante DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdSistema" DataSetColumn="IdSistema" />
+              <Mapping SourceColumn="IdSectorizacion" DataSetColumn="IdSectorizacion" />
+              <Mapping SourceColumn="IdNucleo" DataSetColumn="IdNucleo" />
+              <Mapping SourceColumn="IdSector" DataSetColumn="IdSector" />
+              <Mapping SourceColumn="IdTOP" DataSetColumn="IdTOP" />
+              <Mapping SourceColumn="IdSectorOriginal" DataSetColumn="IdSectorOriginal" />
+              <Mapping SourceColumn="EsDominante" DataSetColumn="EsDominante" />
+              <Mapping SourceColumn="NumSacta" DataSetColumn="NumSacta" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sectoressectorizacionTableAdapter" Name="sectoressectorizacion">
+            <MainSource>
+              <DbSource ConnectionRef="new_cd40_transConnectionString (Web.config)" DbObjectName="new_cd40_trans.sectoressectorizacion" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="false" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        IdSistema, IdSectorizacion, IdNucleo, IdTOP, IdSector
+FROM            sectoressectorizacion</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdSistema" DataSetColumn="IdSistema" />
+              <Mapping SourceColumn="IdSectorizacion" DataSetColumn="IdSectorizacion" />
+              <Mapping SourceColumn="IdNucleo" DataSetColumn="IdNucleo" />
+              <Mapping SourceColumn="IdTOP" DataSetColumn="IdTOP" />
+              <Mapping SourceColumn="IdSector" DataSetColumn="IdSector" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet_Sectorizacion" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="DataSet_Sectorizacion" msprop:Generator_UserDSName="DataSet_Sectorizacion">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Sectores" msprop:Generator_TableClassName="SectoresSectorizacionDataTable" msprop:Generator_TableVarName="tableSectoresSectorizacion" msprop:Generator_TablePropName="SectoresSectorizacion" msprop:Generator_RowDeletingName="SectoresSectorizacionRowDeleting" msprop:Generator_RowChangingName="SectoresSectorizacionRowChanging" msprop:Generator_RowEvHandlerName="SectoresSectorizacionRowChangeEventHandler" msprop:Generator_RowDeletedName="SectoresSectorizacionRowDeleted" msprop:Generator_UserTableName="SectoresSectorizacion" msprop:Generator_RowChangedName="SectoresSectorizacionRowChanged" msprop:Generator_RowEvArgName="SectoresSectorizacionRowChangeEvent" msprop:Generator_RowClassName="SectoresSectorizacionRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdSectorizacion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdTOP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tipo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TipoPosicion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PrioridadR2" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="TipoHMI" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="NumLlamadasEntrantesIDA" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="NumFreqPagina" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="NumLlamadasEnIDA" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="NumPagFreq" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="NumDestinosInternosPag" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="NumPagDestinosInt" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="Intrusion" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Intruido" type="xs:boolean" minOccurs="0" />
+              <xs:element name="KeepAlivePeriod" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="KeepAliveMultiplier" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="NumEnlacesAI" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="GrabacionEd137" type="xs:boolean" minOccurs="0" />
+              <xs:element name="TransConConsultaPrev" type="xs:boolean" minOccurs="0" />
+              <xs:element name="TransDirecta" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Conferencia" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Escucha" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Retener" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Captura" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Redireccion" type="xs:boolean" minOccurs="0" />
+              <xs:element name="RepeticionUltLlamada" type="xs:boolean" minOccurs="0" />
+              <xs:element name="RellamadaAut" type="xs:boolean" minOccurs="0" />
+              <xs:element name="TeclaPrioridad" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Tecla55mas1" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Monitoring" type="xs:boolean" minOccurs="0" />
+              <xs:element name="CoordinadorTF" type="xs:boolean" minOccurs="0" />
+              <xs:element name="CoordinadorRD" type="xs:boolean" minOccurs="0" />
+              <xs:element name="IntegracionRDTF" type="xs:boolean" minOccurs="0" />
+              <xs:element name="LlamadaSelectiva" type="xs:boolean" minOccurs="0" />
+              <xs:element name="GrupoBSS" type="xs:boolean" minOccurs="0" />
+              <xs:element name="LTT" type="xs:boolean" minOccurs="0" />
+              <xs:element name="InhabilitacionRedirec" type="xs:boolean" minOccurs="0" />
+              <xs:element name="SayAgain" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Glp" type="xs:boolean" minOccurs="0" />
+              <xs:element name="IdSistema">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdNucleo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdSector">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="UsuariosAbonados" msprop:Generator_TableClassName="UsuariosAbonadosDataTable" msprop:Generator_TableVarName="tableUsuariosAbonados" msprop:Generator_TablePropName="UsuariosAbonados" msprop:Generator_RowDeletingName="UsuariosAbonadosRowDeleting" msprop:Generator_RowChangingName="UsuariosAbonadosRowChanging" msprop:Generator_RowEvHandlerName="UsuariosAbonadosRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuariosAbonadosRowDeleted" msprop:Generator_UserTableName="UsuariosAbonados" msprop:Generator_RowChangedName="UsuariosAbonadosRowChanged" msprop:Generator_RowEvArgName="UsuariosAbonadosRowChangeEvent" msprop:Generator_RowClassName="UsuariosAbonadosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdSistema" msprop:Generator_ColumnVarNameInTable="columnIdSistema" msprop:Generator_ColumnPropNameInRow="IdSistema" msprop:Generator_ColumnPropNameInTable="IdSistemaColumn" msprop:Generator_UserColumnName="IdSistema">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdPrefijo" msprop:Generator_ColumnVarNameInTable="columnIdPrefijo" msprop:Generator_ColumnPropNameInRow="IdPrefijo" msprop:Generator_ColumnPropNameInTable="IdPrefijoColumn" msprop:Generator_UserColumnName="IdPrefijo" type="xs:unsignedInt" />
+              <xs:element name="IdNucleo" msprop:Generator_ColumnVarNameInTable="columnIdNucleo" msprop:Generator_ColumnPropNameInRow="IdNucleo" msprop:Generator_ColumnPropNameInTable="IdNucleoColumn" msprop:Generator_UserColumnName="IdNucleo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdSector" msprop:Generator_ColumnVarNameInTable="columnIdSector" msprop:Generator_ColumnPropNameInRow="IdSector" msprop:Generator_ColumnPropNameInTable="IdSectorColumn" msprop:Generator_UserColumnName="IdSector">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdAbonado" msprop:Generator_ColumnVarNameInTable="columnIdAbonado" msprop:Generator_ColumnPropNameInRow="IdAbonado" msprop:Generator_ColumnPropNameInTable="IdAbonadoColumn" msprop:Generator_UserColumnName="IdAbonado">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdRed" msprop:Generator_ColumnVarNameInTable="columnIdRed" msprop:Generator_ColumnPropNameInRow="IdRed" msprop:Generator_ColumnPropNameInTable="IdRedColumn" msprop:Generator_UserColumnName="IdRed">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="permisosredes" msprop:Generator_TableClassName="permisosredesDataTable" msprop:Generator_TableVarName="tablepermisosredes" msprop:Generator_TablePropName="permisosredes" msprop:Generator_RowDeletingName="permisosredesRowDeleting" msprop:Generator_RowChangingName="permisosredesRowChanging" msprop:Generator_RowEvHandlerName="permisosredesRowChangeEventHandler" msprop:Generator_RowDeletedName="permisosredesRowDeleted" msprop:Generator_UserTableName="permisosredes" msprop:Generator_RowChangedName="permisosredesRowChanged" msprop:Generator_RowEvArgName="permisosredesRowChangeEvent" msprop:Generator_RowClassName="permisosredesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdSistema" msprop:Generator_ColumnVarNameInTable="columnIdSistema" msprop:Generator_ColumnPropNameInRow="IdSistema" msprop:Generator_ColumnPropNameInTable="IdSistemaColumn" msprop:Generator_UserColumnName="IdSistema">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdRed" msprop:Generator_ColumnVarNameInTable="columnIdRed" msprop:Generator_ColumnPropNameInRow="IdRed" msprop:Generator_ColumnPropNameInTable="IdRedColumn" msprop:Generator_UserColumnName="IdRed">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdSector" msprop:Generator_ColumnVarNameInTable="columnIdSector" msprop:Generator_ColumnPropNameInRow="IdSector" msprop:Generator_ColumnPropNameInTable="IdSectorColumn" msprop:Generator_UserColumnName="IdSector">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdNucleo" msprop:Generator_ColumnVarNameInTable="columnIdNucleo" msprop:Generator_ColumnPropNameInRow="IdNucleo" msprop:Generator_ColumnPropNameInTable="IdNucleoColumn" msprop:Generator_UserColumnName="IdNucleo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Llamar" msprop:Generator_ColumnVarNameInTable="columnLlamar" msprop:Generator_ColumnPropNameInRow="Llamar" msprop:Generator_ColumnPropNameInTable="LlamarColumn" msprop:Generator_UserColumnName="Llamar" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Recibir" msprop:Generator_ColumnVarNameInTable="columnRecibir" msprop:Generator_ColumnPropNameInRow="Recibir" msprop:Generator_ColumnPropNameInTable="RecibirColumn" msprop:Generator_UserColumnName="Recibir" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DestinosTelefoniaSector" msprop:Generator_TableClassName="DestinosTelefoniaSectorDataTable" msprop:Generator_TableVarName="tableDestinosTelefoniaSector" msprop:Generator_TablePropName="DestinosTelefoniaSector" msprop:Generator_RowDeletingName="DestinosTelefoniaSectorRowDeleting" msprop:Generator_RowChangingName="DestinosTelefoniaSectorRowChanging" msprop:Generator_RowEvHandlerName="DestinosTelefoniaSectorRowChangeEventHandler" msprop:Generator_RowDeletedName="DestinosTelefoniaSectorRowDeleted" msprop:Generator_UserTableName="DestinosTelefoniaSector" msprop:Generator_RowChangedName="DestinosTelefoniaSectorRowChanged" msprop:Generator_RowEvArgName="DestinosTelefoniaSectorRowChangeEvent" msprop:Generator_RowClassName="DestinosTelefoniaSectorRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdSectorizacion" msprop:Generator_ColumnVarNameInTable="columnIdSectorizacion" msprop:Generator_ColumnPropNameInRow="IdSectorizacion" msprop:Generator_ColumnPropNameInTable="IdSectorizacionColumn" msprop:Generator_UserColumnName="IdSectorizacion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdSistema" msprop:Generator_ColumnVarNameInTable="columnIdSistema" msprop:Generator_ColumnPropNameInRow="IdSistema" msprop:Generator_ColumnPropNameInTable="IdSistemaColumn" msprop:Generator_UserColumnName="IdSistema">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdNucleo" msprop:Generator_ColumnVarNameInTable="columnIdNucleo" msprop:Generator_ColumnPropNameInRow="IdNucleo" msprop:Generator_ColumnPropNameInTable="IdNucleoColumn" msprop:Generator_UserColumnName="IdNucleo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdSector" msprop:Generator_ColumnVarNameInTable="columnIdSector" msprop:Generator_ColumnPropNameInRow="IdSector" msprop:Generator_ColumnPropNameInTable="IdSectorColumn" msprop:Generator_UserColumnName="IdSector">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdDestino" msprop:Generator_ColumnVarNameInTable="columnIdDestino" msprop:Generator_ColumnPropNameInRow="IdDestino" msprop:Generator_ColumnPropNameInTable="IdDestinoColumn" msprop:Generator_UserColumnName="IdDestino">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdPrefijo" msprop:Generator_ColumnVarNameInTable="columnIdPrefijo" msprop:Generator_ColumnPropNameInRow="IdPrefijo" msprop:Generator_ColumnPropNameInTable="IdPrefijoColumn" msprop:Generator_UserColumnName="IdPrefijo" type="xs:unsignedInt" />
+              <xs:element name="PosHMI" msprop:Generator_ColumnVarNameInTable="columnPosHMI" msprop:Generator_ColumnPropNameInRow="PosHMI" msprop:Generator_ColumnPropNameInTable="PosHMIColumn" msprop:Generator_UserColumnName="PosHMI" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="Prioridad" msprop:Generator_ColumnVarNameInTable="columnPrioridad" msprop:Generator_ColumnPropNameInRow="Prioridad" msprop:Generator_ColumnPropNameInTable="PrioridadColumn" msprop:Generator_UserColumnName="Prioridad" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="OrigenR2" msprop:Generator_ColumnVarNameInTable="columnOrigenR2" msprop:Generator_ColumnPropNameInRow="OrigenR2" msprop:Generator_ColumnPropNameInTable="OrigenR2Column" msprop:Generator_UserColumnName="OrigenR2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PrioridadSIP" msprop:Generator_ColumnVarNameInTable="columnPrioridadSIP" msprop:Generator_ColumnPropNameInRow="PrioridadSIP" msprop:Generator_ColumnPropNameInTable="PrioridadSIPColumn" msprop:Generator_UserColumnName="PrioridadSIP" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="TipoAcceso" msprop:Generator_ColumnVarNameInTable="columnTipoAcceso" msprop:Generator_ColumnPropNameInRow="TipoAcceso" msprop:Generator_ColumnPropNameInTable="TipoAccesoColumn" msprop:Generator_UserColumnName="TipoAcceso">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Literal" msprop:Generator_ColumnVarNameInTable="columnLiteral" msprop:Generator_ColumnPropNameInRow="Literal" msprop:Generator_ColumnPropNameInTable="LiteralColumn" msprop:Generator_UserColumnName="Literal" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="grupo" msprop:Generator_ColumnVarNameInTable="columngrupo" msprop:Generator_ColumnPropNameInRow="grupo" msprop:Generator_ColumnPropNameInTable="grupoColumn" msprop:Generator_UserColumnName="grupo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="radio" msprop:Generator_TableClassName="radioDataTable" msprop:Generator_TableVarName="tableradio" msprop:Generator_TablePropName="radio" msprop:Generator_RowDeletingName="radioRowDeleting" msprop:Generator_RowChangingName="radioRowChanging" msprop:Generator_RowEvHandlerName="radioRowChangeEventHandler" msprop:Generator_RowDeletedName="radioRowDeleted" msprop:Generator_UserTableName="radio" msprop:Generator_RowChangedName="radioRowChanged" msprop:Generator_RowEvArgName="radioRowChangeEvent" msprop:Generator_RowClassName="radioRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdSistema" msprop:Generator_ColumnVarNameInTable="columnIdSistema" msprop:Generator_ColumnPropNameInRow="IdSistema" msprop:Generator_ColumnPropNameInTable="IdSistemaColumn" msprop:Generator_UserColumnName="IdSistema">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdDestino" msprop:Generator_ColumnVarNameInTable="columnIdDestino" msprop:Generator_ColumnPropNameInRow="IdDestino" msprop:Generator_ColumnPropNameInTable="IdDestinoColumn" msprop:Generator_UserColumnName="IdDestino">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdNucleo" msprop:Generator_ColumnVarNameInTable="columnIdNucleo" msprop:Generator_ColumnPropNameInRow="IdNucleo" msprop:Generator_ColumnPropNameInTable="IdNucleoColumn" msprop:Generator_UserColumnName="IdNucleo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdSector" msprop:Generator_ColumnVarNameInTable="columnIdSector" msprop:Generator_ColumnPropNameInRow="IdSector" msprop:Generator_ColumnPropNameInTable="IdSectorColumn" msprop:Generator_UserColumnName="IdSector">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PosHMI" msprop:Generator_ColumnVarNameInTable="columnPosHMI" msprop:Generator_ColumnPropNameInRow="PosHMI" msprop:Generator_ColumnPropNameInTable="PosHMIColumn" msprop:Generator_UserColumnName="PosHMI" type="xs:unsignedInt" />
+              <xs:element name="Prioridad" msprop:Generator_ColumnVarNameInTable="columnPrioridad" msprop:Generator_ColumnPropNameInRow="Prioridad" msprop:Generator_ColumnPropNameInTable="PrioridadColumn" msprop:Generator_UserColumnName="Prioridad" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="PrioridadSIP" msprop:Generator_ColumnVarNameInTable="columnPrioridadSIP" msprop:Generator_ColumnPropNameInRow="PrioridadSIP" msprop:Generator_ColumnPropNameInTable="PrioridadSIPColumn" msprop:Generator_UserColumnName="PrioridadSIP" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="ModoOperacion" msprop:Generator_ColumnVarNameInTable="columnModoOperacion" msprop:Generator_ColumnPropNameInRow="ModoOperacion" msprop:Generator_ColumnPropNameInTable="ModoOperacionColumn" msprop:Generator_UserColumnName="ModoOperacion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cascos" msprop:Generator_ColumnVarNameInTable="columnCascos" msprop:Generator_ColumnPropNameInRow="Cascos" msprop:Generator_ColumnPropNameInTable="CascosColumn" msprop:Generator_UserColumnName="Cascos" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Literal" msprop:Generator_ColumnVarNameInTable="columnLiteral" msprop:Generator_ColumnPropNameInRow="Literal" msprop:Generator_ColumnPropNameInTable="LiteralColumn" msprop:Generator_UserColumnName="Literal" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SupervisionPortadora" msprop:Generator_ColumnVarNameInTable="columnSupervisionPortadora" msprop:Generator_ColumnPropNameInRow="SupervisionPortadora" msprop:Generator_ColumnPropNameInTable="SupervisionPortadoraColumn" msprop:Generator_UserColumnName="SupervisionPortadora" type="xs:boolean" />
+              <xs:element name="IdSectorizacion" msprop:Generator_ColumnVarNameInTable="columnIdSectorizacion" msprop:Generator_ColumnPropNameInRow="IdSectorizacion" msprop:Generator_ColumnPropNameInTable="IdSectorizacionColumn" msprop:Generator_UserColumnName="IdSectorizacion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SectoresSector">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdSistema">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdSectorizacion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdNucleo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdSector">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdTOP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdSectorOriginal">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EsDominante" type="xs:boolean" minOccurs="0" />
+              <xs:element name="NumSacta" type="xs:unsignedInt" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="sectoressectorizacion">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdSistema">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdSectorizacion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdNucleo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdTOP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdSector">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Sectores" />
+      <xs:field xpath="mstns:IdSistema" />
+      <xs:field xpath="mstns:IdSectorizacion" />
+      <xs:field xpath="mstns:IdNucleo" />
+      <xs:field xpath="mstns:IdSector" />
+      <xs:field xpath="mstns:IdTOP" />
+    </xs:unique>
+    <xs:unique name="UsuariosAbonados_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:UsuariosAbonados" />
+      <xs:field xpath="mstns:IdSistema" />
+      <xs:field xpath="mstns:IdPrefijo" />
+      <xs:field xpath="mstns:IdNucleo" />
+      <xs:field xpath="mstns:IdSector" />
+      <xs:field xpath="mstns:IdAbonado" />
+      <xs:field xpath="mstns:IdRed" />
+    </xs:unique>
+    <xs:unique name="permisosredes_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:permisosredes" />
+      <xs:field xpath="mstns:IdSistema" />
+      <xs:field xpath="mstns:IdRed" />
+      <xs:field xpath="mstns:IdSector" />
+      <xs:field xpath="mstns:IdNucleo" />
+    </xs:unique>
+    <xs:unique name="radio_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:radio" />
+      <xs:field xpath="mstns:IdSistema" />
+      <xs:field xpath="mstns:IdDestino" />
+      <xs:field xpath="mstns:IdNucleo" />
+      <xs:field xpath="mstns:IdSector" />
+      <xs:field xpath="mstns:PosHMI" />
+      <xs:field xpath="mstns:IdSectorizacion" />
+    </xs:unique>
+    <xs:unique name="SectoresSector_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SectoresSector" />
+      <xs:field xpath="mstns:IdSistema" />
+      <xs:field xpath="mstns:IdSectorizacion" />
+      <xs:field xpath="mstns:IdNucleo" />
+      <xs:field xpath="mstns:IdSector" />
+      <xs:field xpath="mstns:IdTOP" />
+      <xs:field xpath="mstns:IdSectorOriginal" />
+    </xs:unique>
+    <xs:unique name="sectoressectorizacion_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:sectoressectorizacion" />
+      <xs:field xpath="mstns:IdSistema" />
+      <xs:field xpath="mstns:IdSectorizacion" />
+      <xs:field xpath="mstns:IdNucleo" />
+      <xs:field xpath="mstns:IdTOP" />
+      <xs:field xpath="mstns:IdSector" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="permisosredes_ibfk_2" msdata:parent="SectoresSector" msdata:child="permisosredes" msdata:parentkey="IdSistema IdNucleo IdSector" msdata:childkey="IdSistema IdNucleo IdSector" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

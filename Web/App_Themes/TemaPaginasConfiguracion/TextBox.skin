@@ -1,0 +1,31 @@
+<%--
+Plantilla de máscara predeterminada. Las siguientes máscaras se proporcionan sólo como ejemplos.
+
+1. Máscara de control con nombre. SkinId debería definirse de forma única porque
+no se permite que haya varios SkinId por tipo de control en el mismo tema.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Máscara predeterminada. Skinid no está definido Sólo se permite 
+   una máscara de control por tipo de control en el mismo tema.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+<asp:TextBox runat="server" BackColor="#FFCC99" ForeColor="Black" CssClass="textbox"></asp:TextBox>
+
+<asp:TextBox runat="server" CssClass="TxtPanelRadio"
+	        Style="position: absolute; font-size: 10px; font-family: Verdana; height: 30px; width: 103px; text-align: center; vertical-align:middle;" 
+            SkinId="LiteralTeclaPanelRadio"></asp:TextBox>
+
+<asp:TextBox runat="server" BackColor="Transparent" BorderStyle="None" 
+                    style="overflow:hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 15px; width: 80px;
+									text-align: center; vertical-align:middle; position: absolute"  
+                    SkinId="LiteralTeclaPanelLC"></asp:TextBox>
+
+<asp:TextBox runat="server" BackColor="Transparent" BorderStyle="None" Width="78px"
+                    style="overflow:hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; 
+									text-align: center; vertical-align:middle; position: absolute"  
+                    SkinId="LiteralTeclaPanelTelefonia"></asp:TextBox>
+

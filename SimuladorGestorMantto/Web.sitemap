@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+	<siteMapNode url="" title="Elementos Físicos"  description="Gestión de Elementos Hardware">
+		<siteMapNode url="~\ManttoTop.aspx" title="Terminales de Operador"  description="Gestión de Terminales de Operador" />
+		<siteMapNode url="~\ManttoGw.aspx" title="Pasarelas"  description="Gestión de Pasarelas" />
+	</siteMapNode>
+</siteMap>

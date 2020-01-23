@@ -1,0 +1,1 @@
+"c:\program files\ndoc 1.3\bin\net\1.1\ndocconsole" debugmemlib\snmpcomp.dll,snmpcomp.xml ..\tablereader\bin\debug\tablereader.dll,..\tablereader\tablereader.xml -documenter=MSDN -Title="SNMP++.NET Class Library" -OutputDirectory="..\..\doc"

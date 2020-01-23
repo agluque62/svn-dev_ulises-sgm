@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Configuracion/ParamGenerales.aspx" title="Sistema ULISES-5000"  description="Sistema CD40">
+    <siteMapNode url="" title="Informes"  description="Informes de Configuración">
+      <!--<siteMapNode url="~/Informes/InformeOperadores.aspx" title="Operadores"  description="Informe de Operadores"/> -->
+      <siteMapNode url="javascript:window.open('../Informes/InformeOperadores.aspx');" title="Operadores"  description="Informe de Operadores"  identificador="InfOperadores"/>
+      <siteMapNode url="" title="Elementos Lógicos"  description="Informe de Configuración de Elementos Lógicos">
+        <siteMapNode url="javascript:window.open('../Informes/InformeEltosLogRadio.aspx');" title="Radio"  description="Informe de Radio">
+          <siteMapNode url="javascript:window.open('../Informes/InformeTablasConversionRadio.aspx');" title="Conversión RSSI"  description="Tablas de Conversión a Índices RSSI"/>
+        </siteMapNode>
+        <siteMapNode url="javascript:window.open('../Informes/InformeEltosLogTlf.aspx');" title="Telefonía"  description="Informe de Destinos y Recursos Telefónicos"/>
+        <siteMapNode url="javascript:window.open('../Informes/InformeEltosLogEncamina.aspx');" title="Encaminamientos"  description="Informe de Encaminamientos"/>
+      </siteMapNode>
+      <siteMapNode url="javascript:window.open('../Informes/InformeEltosFisicos.aspx');" title="Elementos Físicos"  description="Informe de Configuración de Elementos Físicos"/>
+      <siteMapNode url="~/Informes/InformeSectorizaciones.aspx" title="Sectorizaciones"  description="Informes de Sectorizaciones">
+        <siteMapNode url="javascript:window.open('../Informes/InformeSectores.aspx');" title="Sectores"  description="Informe de Sectores"/>
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode url="~/Configuracion/Operadores.aspx" title="Operadores"  description="Gestión de Operadores"/>
+    <siteMapNode url="" title="Elementos Lógicos"  description="Gestión de Elementos Lógicos">
+      <siteMapNode url="~/Configuracion/Nucleos.aspx" title="Núcleos"  description="Gestión de Núcleos" />
+      <siteMapNode url="~/Configuracion/Troncales.aspx" title="Troncales"  description="Gestión de Troncales" identificador="Troncales" />
+      <siteMapNode url="~/Configuracion/Redes.aspx" title="Redes"  description="Gestión de Redes" />
+      <siteMapNode url="~/Configuracion/Zonas.aspx" title="Zonas Radio"  description="Gestión de Zonas" />
+      <siteMapNode url="~/Configuracion/Emplazamientos.aspx" title="Emplazamientos Radio"  description="Gestión de Emplazamientos Radio" />
+      <siteMapNode url="~/Configuracion/Encaminamientos.aspx" title="Encaminamientos"  description="Gestión de Encaminamientos" identificador="Encaminamientos"/>
+      <siteMapNode url="" title="Destinos"  description="Gestión de Destinos">
+        <siteMapNode url="~/Configuracion/DestinosTelefonia.aspx" title="Telefonía"  description="Gestión de Destinos de Telefonía" />
+        <!--<siteMapNode url="~/Configuracion/DestinosRadio.aspx" title="Radio"  description="Gestión de Destinos de Radio" />-->
+        <siteMapNode url="~/Configuracion/GrupoFD.aspx" title="Radio"  description="Gestión de Destinos de Radio" />
+        <siteMapNode url="~/Configuracion/Grupos.aspx" title="Grupos"  description="Gestión de Grupos de Telefonía" />
+        <!--<siteMapNode url="~/Configuracion/MultiDestino.aspx" title="Multi Destino"  description="Gestión de Multi Destinos de Telefonía" />-->
+      </siteMapNode>
+      <siteMapNode url="" title="Recursos"  description="Gestión de Recursos">
+        <siteMapNode url="~/Configuracion/RecursosTelefonia.aspx" title="Telefonía"  description="Gestión de Recursos de Telefonía" />
+        <siteMapNode url="" title="Radio"  description="Gestión Recursos Radio">
+          <siteMapNode url="~/Configuracion/RecursosRadio.aspx" title="Configuración"  description="Configuracion de Recursos Radio" />
+          <siteMapNode url="~/Configuracion/TablasCalidad.aspx" title="Conversión RSSI"  description="Configuracion de Tablas de Conversión a Índices RSSI" />
+        </siteMapNode>
+        <!--<siteMapNode url="~/Configuracion/RecursosLCEN.aspx" title="Acceso Instantáneo"  description="Gestión de Recursos de Acceso Instantáneo" />-->
+        <!--<siteMapNode url="" title="Grupos Radio"  description="Gestión Grupos Radio">
+              <siteMapNode url="~/Configuracion/GrupoFD.aspx" title="Grupo FD"  description="Gestión Grupo de Frecuencias Desplazadas" />
+              <siteMapNode url="~/Configuracion/GrupoFCM.aspx" title="Grupo FCM"  description="Gestión Grupo de Frecuencias con Cobertura Múltiple" />
+              <siteMapNode url="~/Configuracion/GrupoFIS.aspx" title="Grupo FIS"  description="Gestión Grupo de Frecuencias FIS" />
+          </siteMapNode>-->
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode url="" title="Elementos Físicos"  description="Gestión de Elementos Hardware">
+      <siteMapNode url="~/Configuracion/TOP.aspx" title="Terminales de Operador"  description="Gestión de Terminales de Operador" />
+      <siteMapNode url="~/Configuracion/TIFX.aspx" title="Pasarelas"  description="Gestión de Pasarelas" />
+      <siteMapNode url="~/Configuracion/EquiposExternos.aspx" title="Equipos Externos"  description="Gestión de equipos externos" />
+    </siteMapNode>
+    <siteMapNode url="~/Configuracion/Sectorizaciones.aspx" title="Sectorizaciones"  description="Gestión de Sectorizaciones">
+      <siteMapNode url="~/Configuracion/Sector.aspx" title="Sectores"  description="Gestión de Sectores" />
+      <siteMapNode url="~/Configuracion/Agrupacion.aspx" title="Agrupaciones"  description="Gestión de Agrupaciones" />
+    </siteMapNode>
+
+    
+  </siteMapNode>
+</siteMap>

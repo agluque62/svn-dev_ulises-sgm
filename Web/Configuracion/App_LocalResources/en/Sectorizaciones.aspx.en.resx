@@ -1,0 +1,4479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BoundFieldResource1.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource1.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource1.HeaderText" xml:space="preserve">
+    <value>Network</value>
+  </data>
+  <data name="BoundFieldResource2.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource2.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource2.HeaderText" xml:space="preserve">
+    <value>Subscriber number</value>
+  </data>
+  <data name="BoundFieldResource3.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource3.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource3.HeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtAceptarNucleoResource1.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="BtAceptarNucleoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtAceptarResource1.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="BtAceptarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtActivarResource1.Text" xml:space="preserve">
+    <value>Activate</value>
+  </data>
+  <data name="BtActivarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtAsignarResource1.Text" xml:space="preserve">
+    <value>Allocate</value>
+  </data>
+  <data name="BtAsignarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtAsignaSectorResource1.Text" xml:space="preserve">
+    <value>Allocate</value>
+  </data>
+  <data name="BtCambiarResource1.Text" xml:space="preserve">
+    <value>Change of OT</value>
+  </data>
+  <data name="BtCambiarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtCancelarResource1.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="BtCancelarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtCancelResource1.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="BtCancelResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtCerrarResource1.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="BtCerrarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtEliminarResource1.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="BtEliminarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtExplorarResource1.Text" xml:space="preserve">
+    <value>See panel</value>
+  </data>
+  <data name="BtExplorarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtLiberarResource1.Text" xml:space="preserve">
+    <value>Deallocate</value>
+  </data>
+  <data name="BtLiberarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnIntercambiarTopResource1.Text" xml:space="preserve">
+    <value>Exchange OT</value>
+  </data>
+  <data name="BtnIntercambiarTopResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnLiberarTopResource1.Text" xml:space="preserve">
+    <value>Deallocate OT</value>
+  </data>
+  <data name="BtnLiberarTopResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnOcultoResource1.Text" xml:space="preserve">
+    <value>Button</value>
+  </data>
+  <data name="BtnOcultoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnPaginaMasResource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnPaginaMasResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnPaginaMenosResource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnPaginaMenosResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtNuevoResource1.Text" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="BtNuevoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnVolverASectorizacionResource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnVolverASectorizacionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios10Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios15Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios16Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios17Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios18Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios19Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios20Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios25Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios26Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios27Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios28Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios29Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios30Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios31Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios32Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios33Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios34Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios35Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios36Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios37Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios38Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios39Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios40Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios41Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios42Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios7Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios8Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BUsuarios9Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Button2Resource2.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Button2Resource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BVerSectorizacionActivaResource1.Text" xml:space="preserve">
+    <value>See</value>
+  </data>
+  <data name="BVerSectorizacionActivaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C11Resource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C11Resource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C12Resource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C12Resource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C13Resource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C13Resource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C14Resource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C14Resource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C21Resource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C21Resource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C22Resource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C22Resource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C23Resource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C23Resource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C24Resource2.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C24Resource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C31Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C31Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C32Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C32Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C33Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C33Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C34Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C34Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C41Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C41Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C42Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C42Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C43Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C43Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C44Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="C44Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio11Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio12Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio13Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio14Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio15Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio15Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio21Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio22Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio23Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio24Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio25Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio25Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio31Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio31Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio32Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio32Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio33Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio33Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio34Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio34Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio35Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CeldaRadio35Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell10Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell10Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell11Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell12Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell13Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell14Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell15Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell15Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell16Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell16Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell17Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell17Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell18Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell18Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell19Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell19Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell1Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell20Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell20Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell21Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell22Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell23Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell24Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell25Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell25Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell26Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell26Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell27Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell27Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell28Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell28Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell29Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell29Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell2Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell30Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell30Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell31Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell31Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell32Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell32Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell33Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell33Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell34Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell34Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell35Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell35Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell36Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell36Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell37Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell37Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell38Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell38Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell39Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell39Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell3Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell40Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell40Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell41Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell41Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell42Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell42Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell4Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell5Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell6Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell7Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell7Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell8Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell8Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell9Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cell9Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios10Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios10Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios11Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios12Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios13Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios14Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios15Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios15Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios16Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios16Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios17Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios17Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios18Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios18Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios19Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios19Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios1Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios20Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios20Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios21Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios22Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios23Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios24Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios25Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios25Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios26Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios26Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios27Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios27Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios28Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios28Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios29Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios29Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios2Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios30Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios30Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios31Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios31Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios32Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios32Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios33Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios33Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios34Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios34Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios35Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios35Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios36Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios36Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios37Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios37Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios38Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios38Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios39Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios39Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios3Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios40Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios40Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios41Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios41Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios42Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios42Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios4Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios5Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios6Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios7Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios7Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios8Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios8Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios9Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellUsuarios9Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBSSResource1.Text" xml:space="preserve">
+    <value>BSS Group</value>
+  </data>
+  <data name="CheckBSSResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckCapturaResource1.Text" xml:space="preserve">
+    <value>Capture</value>
+  </data>
+  <data name="CheckCapturaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckConferenciaResource1.Text" xml:space="preserve">
+    <value>Conference</value>
+  </data>
+  <data name="CheckConferenciaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckCoordTFResource1.Text" xml:space="preserve">
+    <value>Telephony coordinator</value>
+  </data>
+  <data name="CheckCoordTFResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckCoorRDResource1.Text" xml:space="preserve">
+    <value>Radio coordinator</value>
+  </data>
+  <data name="CheckCoorRDResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckEscuchaResource1.Text" xml:space="preserve">
+    <value>Listening</value>
+  </data>
+  <data name="CheckEscuchaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckIntRDTFResource1.Text" xml:space="preserve">
+    <value>Radio-Telephony integrat.</value>
+  </data>
+  <data name="CheckIntRDTFResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckIntruidoResource1.Text" xml:space="preserve">
+    <value>Intruded</value>
+  </data>
+  <data name="CheckIntruidoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckIntrusionResource1.Text" xml:space="preserve">
+    <value>Intrusion</value>
+  </data>
+  <data name="CheckIntrusionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckLlamadaSelectResource1.Text" xml:space="preserve">
+    <value>Selective call</value>
+  </data>
+  <data name="CheckLlamadaSelectResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckLTTResource1.Text" xml:space="preserve">
+    <value>LTT</value>
+  </data>
+  <data name="CheckLTTResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckMonitoringResource1.Text" xml:space="preserve">
+    <value>Monitoring</value>
+  </data>
+  <data name="CheckMonitoringResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckReAutomaticaResource1.Text" xml:space="preserve">
+    <value>Automatic redial</value>
+  </data>
+  <data name="CheckReAutomaticaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckRediCAResource1.Text" xml:space="preserve">
+    <value>Disable redirection H/S</value>
+  </data>
+  <data name="CheckRediCAResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckRedireccionResource1.Text" xml:space="preserve">
+    <value>Redirection</value>
+  </data>
+  <data name="CheckRedireccionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckRepUltLlamadaResource1.Text" xml:space="preserve">
+    <value>Repeat last call</value>
+  </data>
+  <data name="CheckRepUltLlamadaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckRetenerResource1.Text" xml:space="preserve">
+    <value>Hold</value>
+  </data>
+  <data name="CheckRetenerResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckSayAgainResource1.Text" xml:space="preserve">
+    <value>Say Again</value>
+  </data>
+  <data name="CheckSayAgainResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckTecla55Resource1.Text" xml:space="preserve">
+    <value>55+1 key</value>
+  </data>
+  <data name="CheckTecla55Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckTeclaPrioResource1.Text" xml:space="preserve">
+    <value>Priority key</value>
+  </data>
+  <data name="CheckTeclaPrioResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckTransDirectResource1.Text" xml:space="preserve">
+    <value>Direct transfer</value>
+  </data>
+  <data name="CheckTransDirectResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckTransPreResource1.Text" xml:space="preserve">
+    <value>Transfer with consultation</value>
+  </data>
+  <data name="CheckTransPreResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DDLCiclResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DDLCiplResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DDLCpiclResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DDLCpipclResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DDLPrioridadR2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DListNucleoParametrosResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DListNucleoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DListTipoPosicionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DListTipoSectorResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Fila1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Fila2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Fila3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Fila4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FilaLC1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FilaRadio1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FilaRadio2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FilaRadio3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GVAbonadosResource1.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GVAbonadosResource1.EmptyDataText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GVAbonadosResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB11Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB12Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB13Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB14Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB21Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB22Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB23Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB24Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB31Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB31Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB32Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB32Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB33Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB33Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB34Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB34Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB41Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB41Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB42Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB42Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB43Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB43Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB44Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IB44Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IBNivelesIntrusionResource1.ImageUrl" xml:space="preserve">
+    <value>~/Configuracion/Images/en/MenuSectorNivelesIntrusionUnSelected.JPG</value>
+  </data>
+  <data name="IBNivelesIntrusionResource1.ImageUrlSelected" xml:space="preserve">
+    <value>~/Configuracion/Images/en/MenuSectorNivelesIntrusionSelected.JPG</value>
+  </data>
+  <data name="IBParametrosResource1.ImageUrl" xml:space="preserve">
+    <value>~/Configuracion/Images/en/MenuSectorParametrosUnSelected.JPG</value>
+  </data>
+  <data name="IBParametrosResource1.ImageUrlSelected" xml:space="preserve">
+    <value>~/Configuracion/Images/en/MenuSectorParametrosSelected.JPG</value>
+  </data>
+  <data name="IBPermisosRedesResource1.ImageUrl" xml:space="preserve">
+    <value>~/Configuracion/Images/en/MenuSectorPermisosRedesUnSelected.JPG</value>
+  </data>
+  <data name="IBPermisosRedesResource1.ImageUrlSelected" xml:space="preserve">
+    <value>~/Configuracion/Images/en/MenuSectorPermisosRedesSelected.JPG</value>
+  </data>
+  <data name="IBPropiedadesGeneralesResource1.ImageUrl" xml:space="preserve">
+    <value>~/Configuracion/Images/en/MenuSectorPropGeneralesUnSelected.JPG</value>
+  </data>
+  <data name="IBPropiedadesGeneralesResource1.ImageUrlSelected" xml:space="preserve">
+    <value>~/Configuracion/Images/en/MenuSectorPropGeneralesSelected.JPG</value>
+  </data>
+  <data name="IBUtilidadesResource1.ImageUrl" xml:space="preserve">
+    <value>~/Configuracion/Images/en/MenuSectorUtilidadesUnSelected.JPG</value>
+  </data>
+  <data name="IBUtilidadesResource1.ImageUrlSelected" xml:space="preserve">
+    <value>~/Configuracion/Images/en/MenuSectorUtilidadesSelected.JPG</value>
+  </data>
+  <data name="IButton10Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton10Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton11Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton12Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton13Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton14Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton15Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton15Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton16Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton16Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton17Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton17Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton18Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton18Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton19Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton19Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton1Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton20Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton20Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton21Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton22Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton23Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton24Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton25Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton25Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton26Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton26Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton27Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton27Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton28Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton28Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton29Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton29Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton2Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton30Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton30Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton31Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton31Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton32Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton32Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton33Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton33Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton34Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton34Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton35Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton35Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton36Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton36Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton37Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton37Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton38Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton38Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton39Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton39Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton3Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton40Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton40Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton41Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton41Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton42Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton42Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton4Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton5Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton6Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton7Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton7Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton8Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton8Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton9Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IButton9Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton10Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton10Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton11Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton12Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton13Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton14Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton15Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton15Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton16Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton16Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton17Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton17Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton18Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton18Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton19Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton19Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton1Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton20Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton20Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton21Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton22Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton23Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton24Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton25Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton25Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton26Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton26Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton27Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton27Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton28Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton28Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton29Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton29Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton2Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton30Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton30Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton31Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton31Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton32Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton32Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton33Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton33Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton34Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton34Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton35Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton35Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton36Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton36Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton37Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton37Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton38Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton38Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton39Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton39Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton3Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton40Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton40Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton41Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton41Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton42Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton42Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton4Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton5Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton6Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton7Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton7Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton8Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton8Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton9Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButton9Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC11Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC12Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC13Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC14Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC15Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC15Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC16Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC16Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC17Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC17Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC18Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC18Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC19Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC19Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC21Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC22Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC23Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC24Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC25Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC25Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC26Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC26Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC27Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC27Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC28Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC28Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC29Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonLC29Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio11Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio12Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio13Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio14Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio15Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio15Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio21Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio22Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio23Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio24Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio25Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio25Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio31Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio31Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio32Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio32Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio33Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio33Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio34Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio34Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio35Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImageButtonRadio35Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label10Resource1.Text" xml:space="preserve">
+    <value>Number of frequencies per page:</value>
+  </data>
+  <data name="Label10Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label11Resource1.Text" xml:space="preserve">
+    <value>Number of freq. pages:</value>
+  </data>
+  <data name="Label11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label12Resource1.Text" xml:space="preserve">
+    <value>Number of internal links per page:</value>
+  </data>
+  <data name="Label12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label13Resource1.Text" xml:space="preserve">
+    <value>R2 Priority:</value>
+  </data>
+  <data name="Label13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label14Resource1.Text" xml:space="preserve">
+    <value>Number of internal links pages:</value>
+  </data>
+  <data name="Label14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label16Resource1.Text" xml:space="preserve">
+    <value>Core:</value>
+  </data>
+  <data name="Label16Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label18Resource1.Text" xml:space="preserve">
+    <value>Subscribers they respond:</value>
+  </data>
+  <data name="Label18Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label19Resource1.Text" xml:space="preserve">
+    <value>Type:</value>
+  </data>
+  <data name="Label19Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label1Resource1.Text" xml:space="preserve">
+    <value>Core</value>
+  </data>
+  <data name="Label1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label21Resource1.Text" xml:space="preserve">
+    <value>CICL:</value>
+  </data>
+  <data name="Label21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label2Resource1.Text" xml:space="preserve">
+    <value>Type of position:</value>
+  </data>
+  <data name="Label2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label3Resource1.Text" xml:space="preserve">
+    <value>CIPL:</value>
+  </data>
+  <data name="Label3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label4Resource1.Text" xml:space="preserve">
+    <value>CPIPCL:</value>
+  </data>
+  <data name="Label4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label5Resource1.Text" xml:space="preserve">
+    <value>ID:</value>
+  </data>
+  <data name="Label5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label6Resource1.Text" xml:space="preserve">
+    <value>SECTORIZATIONS MANAGEMENT</value>
+  </data>
+  <data name="Label6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label7Resource1.Text" xml:space="preserve">
+    <value>CPICL:</value>
+  </data>
+  <data name="Label7Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label8Resource1.Text" xml:space="preserve">
+    <value>Number of IDA queued incoming calls:</value>
+  </data>
+  <data name="Label8Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label9Resource1.Text" xml:space="preserve">
+    <value>Number of IDA calls:</value>
+  </data>
+  <data name="Label9Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LBImprimirResource1.Text" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="LBImprimirResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblEnlaceSactaResource1.Text" xml:space="preserve">
+    <value>SACTA link</value>
+  </data>
+  <data name="LblEnlaceSactaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblIdSectorizacionResource1.Text" xml:space="preserve">
+    <value>Sectorization ID:</value>
+  </data>
+  <data name="LblIdSectorizacionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblKAMResource1.Text" xml:space="preserve">
+    <value>Keep Alive Multiplier:</value>
+  </data>
+  <data name="LblKAMResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblKAPResource1.Text" xml:space="preserve">
+    <value>Keep Alive Period (ms):</value>
+  </data>
+  <data name="LblKAPResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblPaginaResource1.Text" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="LblPaginaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblPanelResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblPanelResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblSectorResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblSectorResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LBoxSectoresResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LBPanelLCResource1.Text" xml:space="preserve">
+    <value>Instantaneous Access Panel</value>
+  </data>
+  <data name="LBPanelLCResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LBPanelRadioResource1.Text" xml:space="preserve">
+    <value>Radio Panel</value>
+  </data>
+  <data name="LBPanelRadioResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LBPanelTelResource1.Text" xml:space="preserve">
+    <value>Telephony Panel</value>
+  </data>
+  <data name="LBPanelTelResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LFechaResource1.Text" xml:space="preserve">
+    <value>Date:</value>
+  </data>
+  <data name="LFechaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LFechaSectorizacionResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LFechaSectorizacionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LHoraResource1.Text" xml:space="preserve">
+    <value>Time:</value>
+  </data>
+  <data name="LHoraResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LHoraSectorizacionResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LHoraSectorizacionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LIdResource1.Text" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="LIdResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LIdSectorizacionResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LIdSectorizacionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListBox1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListItemResource1.Text" xml:space="preserve">
+    <value>Real</value>
+  </data>
+  <data name="ListItemResource1.Value" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="ListItemResource10.Text" xml:space="preserve">
+    <value>Not urgent</value>
+  </data>
+  <data name="ListItemResource10.Value" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ListItemResource11.Text" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="ListItemResource11.Value" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ListItemResource12.Text" xml:space="preserve">
+    <value>Urgent</value>
+  </data>
+  <data name="ListItemResource12.Value" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ListItemResource13.Text" xml:space="preserve">
+    <value>Emergency</value>
+  </data>
+  <data name="ListItemResource13.Value" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ListItemResource14.Text" xml:space="preserve">
+    <value>Not urgent</value>
+  </data>
+  <data name="ListItemResource14.Value" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ListItemResource15.Text" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="ListItemResource15.Value" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ListItemResource16.Text" xml:space="preserve">
+    <value>Urgent</value>
+  </data>
+  <data name="ListItemResource16.Value" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ListItemResource17.Text" xml:space="preserve">
+    <value>Emergency</value>
+  </data>
+  <data name="ListItemResource17.Value" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ListItemResource18.Text" xml:space="preserve">
+    <value>Not urgent</value>
+  </data>
+  <data name="ListItemResource18.Value" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ListItemResource19.Text" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="ListItemResource19.Value" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ListItemResource2.Text" xml:space="preserve">
+    <value>Virtual</value>
+  </data>
+  <data name="ListItemResource2.Value" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="ListItemResource20.Text" xml:space="preserve">
+    <value>Urgent</value>
+  </data>
+  <data name="ListItemResource20.Value" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ListItemResource21.Text" xml:space="preserve">
+    <value>Emergency</value>
+  </data>
+  <data name="ListItemResource21.Value" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ListItemResource22.Text" xml:space="preserve">
+    <value>Not urgent</value>
+  </data>
+  <data name="ListItemResource22.Value" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ListItemResource23.Text" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="ListItemResource23.Value" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ListItemResource24.Text" xml:space="preserve">
+    <value>Urgent</value>
+  </data>
+  <data name="ListItemResource24.Value" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ListItemResource25.Text" xml:space="preserve">
+    <value>Emergency</value>
+  </data>
+  <data name="ListItemResource25.Value" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ListItemResource3.Text" xml:space="preserve">
+    <value>Maintenance</value>
+  </data>
+  <data name="ListItemResource3.Value" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="ListItemResource4.Text" xml:space="preserve">
+    <value>Controller</value>
+  </data>
+  <data name="ListItemResource4.Value" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="ListItemResource5.Text" xml:space="preserve">
+    <value>Planner</value>
+  </data>
+  <data name="ListItemResource5.Value" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="ListItemResource6.Text" xml:space="preserve">
+    <value>Not urgent</value>
+  </data>
+  <data name="ListItemResource6.Value" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="ListItemResource7.Text" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="ListItemResource7.Value" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ListItemResource8.Text" xml:space="preserve">
+    <value>Urgent</value>
+  </data>
+  <data name="ListItemResource8.Value" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ListItemResource9.Text" xml:space="preserve">
+    <value>Emergency</value>
+  </data>
+  <data name="ListItemResource9.Value" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>Sectorizations management</value>
+  </data>
+  <data name="Panel1Resource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Panel1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelAbonadoResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelAbonadoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelActivaResource1.GroupingText" xml:space="preserve">
+    <value>Active sectorization</value>
+  </data>
+  <data name="PanelActivaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelNucleoResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelNucleoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelParametrosSectorResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelParametrosSectorResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelSectoresResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelSectoresResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelTopResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelTopResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PersonCaptionResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PersonCaptionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PnlParametrosSectorResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PnlParametrosSectorResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RequiredFieldValidator1Resource1.ErrorMessage" xml:space="preserve">
+    <value>Enter a name for the new sectorization</value>
+  </data>
+  <data name="RequiredFieldValidator1Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredFieldValidator1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Row1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Row2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Row3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Row4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Row5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Row6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Row7Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RowUsuarios1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RowUsuarios2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RowUsuarios3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RowUsuarios4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RowUsuarios5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RowUsuarios6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RowUsuarios8Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell100Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell100Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell101Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell101Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell102Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell102Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell103Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell103Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell104Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell104Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell105Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell105Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell106Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell106Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell107Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell107Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell108Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell108Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell109Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell109Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell10Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell10Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell110Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell110Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell111Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell111Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell112Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell112Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell113Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell113Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell114Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell114Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell115Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell115Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell116Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell116Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell117Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell117Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell118Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell118Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell11Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell12Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell13Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell14Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell15Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell15Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell16Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell16Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell17Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell17Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell18Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell18Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell19Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell19Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell1Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell20Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell20Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell21Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell22Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell23Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell24Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell25Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell25Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell26Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell26Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell27Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell27Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell28Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell28Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell29Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell29Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell2Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell30Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell30Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell31Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell31Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell32Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell32Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell33Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell33Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell34Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell34Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell35Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell35Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell36Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell36Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell37Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell37Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell38Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell38Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell39Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell39Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell3Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell40Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell40Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell41Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell41Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell42Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell42Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell46Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell46Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell47Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell47Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell48Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell48Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell49Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell49Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell4Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell50Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell50Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell51Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell51Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell53Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell53Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell55Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell55Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell56Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell56Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell57Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell57Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell58Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell58Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell59Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell59Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell5Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell60Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell60Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell61Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell61Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell63Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell63Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell64Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell64Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell65Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell65Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell66Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell66Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell67Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell67Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell68Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell68Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell69Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell69Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell6Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell70Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell70Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell71Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell71Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell72Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell72Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell73Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell73Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell74Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell74Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell75Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell75Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell76Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell76Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell77Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell77Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell78Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell78Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell79Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell79Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell7Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell7Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell80Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell80Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell81Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell81Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell82Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell82Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell83Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell83Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell84Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell84Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell85Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell85Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell86Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell86Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell87Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell87Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell88Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell88Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell89Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell89Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell8Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell8Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell90Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell90Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell91Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell91Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell92Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell92Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell93Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell93Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell94Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell94Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell95Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell95Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell96Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell96Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell97Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell97Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell98Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell98Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell99Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell99Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell9Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell9Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC11Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC12Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC13Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC14Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC15Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC15Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC16Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC16Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC17Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC17Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC18Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC18Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC19Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC19Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC21Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC22Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC23Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC24Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC25Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC25Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC26Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC26Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC27Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC27Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC28Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC28Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC29Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCellLC29Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableResource1.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableResource2.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableResource3.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableResource3.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableResource4.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableResource4.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow10Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow15Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow16Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow17Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow18Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow19Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow20Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow25Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow26Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow27Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow28Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow29Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow30Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow31Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow33Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow7Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow8Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow9Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRowLC2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRowResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRowResource10.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRowResource11.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRowResource12.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRowResource13.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRowResource14.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRowResource15.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRowResource2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRowResource3.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRowResource4.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRowResource5.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRowResource6.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRowResource7.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRowResource8.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRowResource9.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB11Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB12Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB13Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB14Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB21Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB22Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB23Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB24Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB31Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB31Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB32Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB32Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB33Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB33Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB34Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB34Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB41Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB41Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB42Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB42Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB43Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB43Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB44Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TB44Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBNuevoResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBNuevoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox10Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox10Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox11Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox12Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox13Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox14Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox15Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox15Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox16Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox16Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox17Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox17Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox18Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox18Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox19Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox19Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox1Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox20Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox20Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox21Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox22Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox23Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox24Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox25Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox25Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox26Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox26Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox27Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox27Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox28Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox28Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox29Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox29Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox2Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox30Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox30Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox31Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox31Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox32Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox32Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox33Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox33Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox34Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox34Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox35Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox35Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox36Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox36Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox37Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox37Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox38Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox38Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox39Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox39Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox3Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox40Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox40Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox41Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox41Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox42Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox42Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox4Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox5Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox6Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox7Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox7Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox8Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox8Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox9Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TBox9Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TEnlacesInternosResource1.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TEnlacesInternosResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TEnlacesLCResource1.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TEnlacesLCResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TEnlacesRadioResource1.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TEnlacesRadioResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox10Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox10Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox11Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox12Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox13Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox14Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox15Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox15Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox16Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox16Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox17Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox17Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox18Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox18Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox19Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox19Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox1Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox20Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox20Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox21Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox22Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox23Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox24Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox25Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox25Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox26Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox26Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox27Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox27Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox28Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox28Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox29Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox29Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox2Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox30Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox30Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox31Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox31Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox32Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox32Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox33Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox33Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox34Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox34Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox35Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox35Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox36Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox36Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox37Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox37Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox38Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox38Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox39Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox39Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox3Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox40Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox40Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox41Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox41Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox42Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox42Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox4Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox5Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox6Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox7Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox7Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox8Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox8Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox9Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox9Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC11Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC12Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC13Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC14Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC15Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC15Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC16Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC16Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC17Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC17Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC18Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC18Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC19Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC19Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC21Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC22Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC23Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC24Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC25Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC25Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC26Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC26Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC27Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC27Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC28Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC28Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC29Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxLC29Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio11Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio12Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio13Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio14Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio15Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio15Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio21Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio22Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio23Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio24Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio25Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio25Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio31Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio31Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio32Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio32Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio33Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio33Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio34Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio34Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio35Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBoxRadio35Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TPanelSectorResource1.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TPanelSectorResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TUCSResource1.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TUCSResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TView1Resource1.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TView1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtEnlIntPagResource1.Text" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="TxtEnlIntPagResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtFrecPagResource1.Text" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="TxtFrecPagResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtIdSectorResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtIdSectorResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtKAMResource1.Text" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="TxtKAMResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtKAPResource1.Text" xml:space="preserve">
+    <value>200</value>
+  </data>
+  <data name="TxtKAPResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtLlamEntIDAResource1.Text" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="TxtLlamEntIDAResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtLlamIDAResource1.Text" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="TxtLlamIDAResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtPagEnlIntResource1.Text" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="TxtPagEnlIntResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtPagFrecResource1.Text" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="TxtPagFrecResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UP2Resource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UP2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource7.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource7.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource7.HeaderText" xml:space="preserve">
+    <value>Network</value>
+  </data>
+  <data name="BoundFieldResource8.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource8.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource8.HeaderText" xml:space="preserve">
+    <value>Outgoing calls</value>
+  </data>
+  <data name="BoundFieldResource9.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource9.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource9.HeaderText" xml:space="preserve">
+    <value>Incoming calls</value>
+  </data>
+  <data name="LblPermisosResource1.Text" xml:space="preserve">
+    <value>You are not authorized to access this section.</value>
+  </data>
+  <data name="erroresResource1.HeaderText" xml:space="preserve">
+    <value>Summary of errors:</value>
+  </data>
+  <data name="erroresResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PanelTop_liberarTop" xml:space="preserve">
+    <value>Deallocate {0} OT</value>
+  </data>
+  <data name="PanelTop_InterCambiarTop" xml:space="preserve">
+    <value>Exchange {0} OT</value>
+  </data>
+  <data name="PanelUCS_Ver" xml:space="preserve">
+    <value>See panel of {0} OT </value>
+  </data>
+  <data name="PanelUCS_Asignar" xml:space="preserve">
+    <value>Allocate to {0} OT</value>
+  </data>
+  <data name="MsgIdentificadorNoValido" xml:space="preserve">
+    <value>Value not allowed. Please, configure a different identifier for the sectorization.</value>
+  </data>
+</root>

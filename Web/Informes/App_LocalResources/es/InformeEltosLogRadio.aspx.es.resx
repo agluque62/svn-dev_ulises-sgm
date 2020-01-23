@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BtnExcelResource1.AlternateText" xml:space="preserve">
+    <value>Exportar a Excel</value>
+  </data>
+  <data name="BtnExcelResource1.ToolTip" xml:space="preserve">
+    <value>Exportar a Excel</value>
+    <comment>Tooltip de la imagen de exporta a Excel</comment>
+  </data>
+  <data name="BtnPdfResource1.AlternateText" xml:space="preserve">
+    <value>Exportar a PDF</value>
+  </data>
+  <data name="BtnPdfResource1.ToolTip" xml:space="preserve">
+    <value>Exportar a PDF</value>
+    <comment>Tooltip de la imagen de exporta a PDF</comment>
+  </data>
+  <data name="CRViewerInfResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LB_APLICACION_RES.Text" xml:space="preserve">
+    <value>INFORMES DE CONFIGURACIÓN ULISES-5000</value>
+  </data>
+  <data name="LB_APLICACION_RES.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>Informe de configuración de elementos radio</value>
+  </data>
+  <data name="PAGINA" xml:space="preserve">
+    <value>Página</value>
+    <comment>Report: página N/M</comment>
+  </data>
+  <data name="RECURSO_TIPO_HF_TX" xml:space="preserve">
+    <value>Audio HF-TX</value>
+  </data>
+  <data name="RECURSO_TIPO_MN_RX" xml:space="preserve">
+    <value>Audio M+N RX</value>
+  </data>
+  <data name="RECURSO_TIPO_MN_RXTX" xml:space="preserve">
+    <value>Audio M+N RX TX</value>
+  </data>
+  <data name="RECURSO_TIPO_MN_TX" xml:space="preserve">
+    <value>Audio M+N TX</value>
+  </data>
+  <data name="RECURSO_TIPO_RX" xml:space="preserve">
+    <value>Audio RX</value>
+  </data>
+  <data name="RECURSO_TIPO_RXTX" xml:space="preserve">
+    <value>Audio RX TX</value>
+  </data>
+  <data name="LB_SUBINFORME_FRECUENCIAS_RADIO" xml:space="preserve">
+    <value>Configuración de Frecuencias de Radio</value>
+    <comment>SubInforme  frecuencias radio: Título sección de configuración</comment>
+  </data>
+  <data name="LB_INFORME_ELEMENTOS_LOG_RADIO_SUMMARY" xml:space="preserve">
+    <value>Informe de Configuración de Radio</value>
+    <comment>Informe de Configuración de  Radio: Resúmen</comment>
+  </data>
+  <data name="REP_NOMBRE_FICHERO" xml:space="preserve">
+    <value>InfCnfElementosRadio</value>
+    <comment>Nombre del fichero de impresión del fichero</comment>
+  </data>
+  <data name="EQUIPO_RECEPTOR" xml:space="preserve">
+    <value>Receptor</value>
+  </data>
+  <data name="EQUIPO_TRANSCEPTOR" xml:space="preserve">
+    <value>Transceptor</value>
+  </data>
+  <data name="EQUIPO_TRANSMISOR" xml:space="preserve">
+    <value>Transmisor</value>
+  </data>
+  <data name="GANANCIA_AD" xml:space="preserve">
+    <value>Ganancia AD(dB):</value>
+  </data>
+  <data name="GANANCIA_AUT" xml:space="preserve">
+    <value>AGC</value>
+  </data>
+  <data name="GANANCIA_DA" xml:space="preserve">
+    <value>Ganancia DA(dB):</value>
+  </data>
+  <data name="MCLIMAX_ABSOLUTO" xml:space="preserve">
+    <value>Absoluto</value>
+  </data>
+  <data name="MCLIMAX_RELATIVO" xml:space="preserve">
+    <value>Relativo</value>
+  </data>
+  <data name="MN_MODO_AMBOS" xml:space="preserve">
+    <value>Principal y Reserva</value>
+  </data>
+  <data name="MN_MODO_PRINCIPAL" xml:space="preserve">
+    <value>Principal (Monocanal)</value>
+  </data>
+  <data name="MN_MODO_RESERVA" xml:space="preserve">
+    <value>Reserva (Multicanal)</value>
+  </data>
+  <data name="MODO_FD" xml:space="preserve">
+    <value>FD</value>
+  </data>
+  <data name="MODO_NORMAL" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="MODO_TRANSMISION_C" xml:space="preserve">
+    <value>Climax</value>
+  </data>
+  <data name="MODO_TRANSMISION_M" xml:space="preserve">
+    <value>Manual</value>
+  </data>
+  <data name="MODO_TRANSMISION_R" xml:space="preserve">
+    <value>Última Recepción</value>
+  </data>
+  <data name="PRIORIDAD_SIP_EMERGENCIA" xml:space="preserve">
+    <value>Emergencia</value>
+  </data>
+  <data name="PRIORIDAD_SIP_NORMAL" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_ASIGHW" xml:space="preserve">
+    <value>Asignación Hardware</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_AUDIO" xml:space="preserve">
+    <value>Parámetros Audio:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_BSS" xml:space="preserve">
+    <value>BSS:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_CALC_CLD" xml:space="preserve">
+    <value>Periodo Cálc. CLD(s):</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_ED137" xml:space="preserve">
+    <value>Grabación ED-137:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_EMP" xml:space="preserve">
+    <value>Emplazamiento</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_EV_HIST" xml:space="preserve">
+    <value>Eventos Históricos PTT-SQ:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_FUNCIONALIDAD" xml:space="preserve">
+    <value>Funcionalidad:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_GRS" xml:space="preserve">
+    <value>GRS Delay(ms):</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_IDESTINO" xml:space="preserve">
+    <value>DESTINO:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_MCALPREF" xml:space="preserve">
+    <value>Met. Calificación Preferida:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_MCLIMAX" xml:space="preserve">
+    <value>Método Climax:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_METODOBSS" xml:space="preserve">
+    <value>Método BSS:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_MN" xml:space="preserve">
+    <value>Parámetros M+N</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_MN_CANALIZACION" xml:space="preserve">
+    <value>Canalización:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_MN_EQUIPO" xml:space="preserve">
+    <value>Equipo:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_MN_FREC_PAL" xml:space="preserve">
+    <value>Frecuencia Principal:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_MN_MARCA" xml:space="preserve">
+    <value>Marca/Modelo:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_MN_MODO" xml:space="preserve">
+    <value>Modo:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_MN_MODULACION" xml:space="preserve">
+    <value>Modulación:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_MN_PRIORIDAD" xml:space="preserve">
+    <value>Prioridad:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_MN_TIPOF" xml:space="preserve">
+    <value>Tipo de Frecuencia:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_MODO" xml:space="preserve">
+    <value>MODO DESTINO:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_MODO_TRANSM" xml:space="preserve">
+    <value>Modo Transmisión:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_EMP_DEFECTO" xml:space="preserve">
+    <value>Emplazamiento por Defecto:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_TBACK_DEFECTO" xml:space="preserve">
+    <value>T. Vuelta a Emp. Defecto:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_POSICION" xml:space="preserve">
+    <value>Posición</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_PRIORIDAD" xml:space="preserve">
+    <value>Prioridad sesión SIP:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_PTT" xml:space="preserve">
+    <value>PTT:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_PTT_MAX" xml:space="preserve">
+    <value>Tº Máximo en PTT(s):</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_RECEPCION" xml:space="preserve">
+    <value>Recepción:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_RECURSO" xml:space="preserve">
+    <value>Recurso</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_RX" xml:space="preserve">
+    <value>Rx:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_SLOT" xml:space="preserve">
+    <value>Slot</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_SQ" xml:space="preserve">
+    <value>SQ:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_TABCAL" xml:space="preserve">
+    <value>Conversión a índices RSSI:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_TIPO" xml:space="preserve">
+    <value>TIPO:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_TRANSMISION" xml:space="preserve">
+    <value>Transmisión:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_TX" xml:space="preserve">
+    <value>Tx:</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_VENTANABSS" xml:space="preserve">
+    <value>Ventana BSS(ms):</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_ZONA" xml:space="preserve">
+    <value>Zona</value>
+  </data>
+  <data name="LB_SUBINFORME_RECRADIO_NOASIGNADOS" xml:space="preserve">
+    <value>Configuración de Recursos Radio No Asignados</value>
+  </data>
+  <data name="LB_SUBINFORME_RECRADIO_RESERVA" xml:space="preserve">
+    <value>Configuración de Recursos Radio en Reserva</value>
+  </data>
+  <data name="HW" xml:space="preserve">
+    <value>hw</value>
+  </data>
+  <data name="HWSW" xml:space="preserve">
+    <value>hw+sw</value>
+  </data>
+  <data name="LB_INFORME_EL_RADIO" xml:space="preserve">
+    <value>Informe de Elementos Lógicos - Radio</value>
+  </data>
+  <data name="LB_SISTEMA" xml:space="preserve">
+    <value>Sistema:</value>
+  </data>
+  <data name="MODO_1_1" xml:space="preserve">
+    <value>1+1</value>
+  </data>
+  <data name="MODO_EM" xml:space="preserve">
+    <value>EM</value>
+  </data>
+  <data name="RECURSO_TIPO_TX" xml:space="preserve">
+    <value>Audio TX</value>
+  </data>
+  <data name="SW" xml:space="preserve">
+    <value>sw</value>
+  </data>
+  <data name="TIPO_EQ_EEXT" xml:space="preserve">
+    <value>Equipo Externo</value>
+  </data>
+  <data name="TIPO_EQ_PASARELA" xml:space="preserve">
+    <value>Pasarela</value>
+  </data>
+  <data name="TIPO_HF" xml:space="preserve">
+    <value>HF</value>
+  </data>
+  <data name="TIPO_UHF" xml:space="preserve">
+    <value>UHF</value>
+  </data>
+  <data name="TIPO_VHF" xml:space="preserve">
+    <value>VHF</value>
+  </data>
+  <data name="UMBRAL_VAD" xml:space="preserve">
+    <value>Umbral VAD:</value>
+  </data>
+  <data name="VAD" xml:space="preserve">
+    <value>VAD</value>
+  </data>
+  <data name="LB_SUBINFORME_TABCALIDAD" xml:space="preserve">
+    <value>Tablas de Conversión a Índices de Calidad </value>
+  </data>
+  <data name="LB_SUBINFORME_RECURSOS_RADIO_NOASIGNADOS" xml:space="preserve">
+    <value>Recursos Radio No Asignados</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_TIPOR" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="GRUPO_CONTINUA" xml:space="preserve">
+    <value>(Continuación)</value>
+  </data>
+</root>

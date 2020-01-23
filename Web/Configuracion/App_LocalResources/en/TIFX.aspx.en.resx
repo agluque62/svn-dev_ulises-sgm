@@ -1,0 +1,931 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BtAceptarResource1.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="BtAceptarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtCancelarResource1.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="BtCancelarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtEliminarResource1.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="BtEliminarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtModificarResource1.Text" xml:space="preserve">
+    <value>Modify</value>
+  </data>
+  <data name="BtModificarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtNuevoResource1.Text" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="BtNuevoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellHead1Resource1.Text" xml:space="preserve">
+    <value>Slot 0</value>
+  </data>
+  <data name="CellHead1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellHead2Resource1.Text" xml:space="preserve">
+    <value>Slot 1</value>
+  </data>
+  <data name="CellHead2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellHead3Resource1.Text" xml:space="preserve">
+    <value>Slot 2</value>
+  </data>
+  <data name="CellHead3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CellHead4Resource1.Text" xml:space="preserve">
+    <value>Slot 3</value>
+  </data>
+  <data name="CellHead4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox11Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox12Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox13Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox14Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox21Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox22Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox23Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox24Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox31Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox31Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox32Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox32Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox33Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox33Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox34Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox34Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox41Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox41Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox42Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox42Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox43Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox43Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox44Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckBox44Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DListArranqueResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DListModoSincroResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IBPropiedadesGeneralesResource1.ImageUrl" xml:space="preserve">
+    <value>~/Configuracion/Images/en/MenuTifxPropGeneralesUnSelected.JPG</value>
+  </data>
+  <data name="IBPropiedadesGeneralesResource1.ImageUrlSelected" xml:space="preserve">
+    <value>~/Configuracion/Images/en/MenuTifxPropGeneralesSelected.JPG</value>
+  </data>
+  <data name="IBProtocoloSIPResource1.ImageUrl" xml:space="preserve">
+    <value>~/Configuracion/Images/en/MenuTifxProtocoloSIPUnSelected.JPG</value>
+  </data>
+  <data name="IBProtocoloSIPResource1.ImageUrlSelected" xml:space="preserve">
+    <value>~/Configuracion/Images/en/MenuTifxProtocoloSIPSelected.JPG</value>
+  </data>
+  <data name="IBProtocoloSNMPResource1.ImageUrl" xml:space="preserve">
+    <value>~/Configuracion/Images/en/MenuTifxProtocoloSNMPUnSelected.JPG</value>
+  </data>
+  <data name="IBProtocoloSNMPResource1.ImageUrlSelected" xml:space="preserve">
+    <value>~/Configuracion/Images/en/MenuTifxProtocoloSNMPSelected.JPG</value>
+  </data>
+  <data name="IBRecursosResource1.ImageUrl" xml:space="preserve">
+    <value>~/Configuracion/Images/en/MenuTifxRecursosUnSelected.JPG</value>
+  </data>
+  <data name="IBRecursosResource1.ImageUrlSelected" xml:space="preserve">
+    <value>~/Configuracion/Images/en/MenuTifxRecursosSelected.JPG</value>
+  </data>
+  <data name="Label10Resource1.Text" xml:space="preserve">
+    <value>Synchronization mode</value>
+  </data>
+  <data name="Label10Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label11Resource1.Text" xml:space="preserve">
+    <value>SNMP local port</value>
+  </data>
+  <data name="Label11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label12Resource1.Text" xml:space="preserve">
+    <value>SNMP remote port</value>
+  </data>
+  <data name="Label12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label13Resource1.Text" xml:space="preserve">
+    <value>SNMP traps port</value>
+  </data>
+  <data name="Label13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label14Resource1.Text" xml:space="preserve">
+    <value>Local SIP Port</value>
+  </data>
+  <data name="Label14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label15Resource1.Text" xml:space="preserve">
+    <value>NTP Server</value>
+  </data>
+  <data name="Label15Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label1Resource1.Text" xml:space="preserve">
+    <value>Supervision time (s):</value>
+  </data>
+  <data name="Label1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label2Resource1.Text" xml:space="preserve">
+    <value>Start:</value>
+  </data>
+  <data name="Label2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label3Resource1.Text" xml:space="preserve">
+    <value>CPU-0 IP Address</value>
+  </data>
+  <data name="Label3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label4Resource1.Text" xml:space="preserve">
+    <value>CPU-1 IP Address</value>
+  </data>
+  <data name="Label4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label5Resource1.Text" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Label5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label6Resource1.Text" xml:space="preserve">
+    <value>GATEWAYS MANAGEMENT</value>
+  </data>
+  <data name="Label6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LBImprimirResource1.Text" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="LBImprimirResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RequiredFieldTxtIP1Resource1.ErrorMessage" xml:space="preserve">
+    <value>The CPU-0 IP address is required.</value>
+  </data>
+  <data name="RequiredFieldTxtIP1Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredFieldTxtIP1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RequiredFieldTxtIpVirtualResource1.ErrorMessage" xml:space="preserve">
+    <value>The Communications IP address is required.</value>
+  </data>
+  <data name="RequiredFieldTxtIpVirtualResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>  
+  
+  <data name="LblIp1ExistenteResource1.Text" xml:space="preserve">
+    <value>The CPU-0 IP address already exists on the system.</value>
+  </data>
+  <data name="LblIp1ExistenteResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblIp2ExistenteResource1.Text" xml:space="preserve">
+    <value>The CPU-1 IP address already exists on the system.</value>
+  </data>
+  <data name="LblIp2ExistenteResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListBox1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListItemResource1.Text" xml:space="preserve">
+    <value>Automatic</value>
+  </data>
+  <data name="ListItemResource1.Value" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="ListItemResource2.Text" xml:space="preserve">
+    <value>Manual</value>
+  </data>
+  <data name="ListItemResource2.Value" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="ListItemResource3.Text" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="ListItemResource3.Value" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ListItemResource4.Text" xml:space="preserve">
+    <value>IEE1588</value>
+  </data>
+  <data name="ListItemResource4.Value" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ListItemResource5.Text" xml:space="preserve">
+    <value>NTP</value>
+  </data>
+  <data name="ListItemResource5.Value" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ListItemResource6.Text" xml:space="preserve">
+    <value>NUCLEO protocol</value>
+  </data>
+  <data name="ListItemResource6.Value" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>Gateway Management</value>
+  </data>
+  <data name="Panel2Resource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Panel2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RangeValidatorLocalSNMPResource1.ErrorMessage" xml:space="preserve">
+    <value>The local SNMP port field must be numeric and greater than 99.</value>
+  </data>
+  <data name="RangeValidatorLocalSNMPResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RangeValidatorLocalSNMPResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RangeValidatorSIPLocalResource1.ErrorMessage" xml:space="preserve">
+    <value>The local SIP port field must be numeric and greater than 99</value>
+  </data>
+  <data name="RangeValidatorSIPLocalResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RangeValidatorSIPLocalResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RangeValidatorSNMPRemotoResource1.ErrorMessage" xml:space="preserve">
+    <value>The SNMP remote port field must be numeric and greater than 99</value>
+  </data>
+  <data name="RangeValidatorSNMPRemotoResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RangeValidatorSNMPRemotoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RangeValidatorTimeSupervisionResource1.ErrorMessage" xml:space="preserve">
+    <value>The Supervision Time field must be numeric.</value>
+  </data>
+  <data name="RangeValidatorTimeSupervisionResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RangeValidatorTimeSupervisionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RangeValidatorTrapsResource1.ErrorMessage" xml:space="preserve">
+    <value>The SNMP Traps field must be numeric.</value>
+  </data>
+  <data name="RangeValidatorTrapsResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RangeValidatorTrapsResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RegularExpressionValidator1Resource1.ErrorMessage" xml:space="preserve">
+    <value>Malformed CPU-0 IP Network address.</value>
+  </data>
+  <data name="RegularExpressionValidator1Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RegularExpressionValidator1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RegularExpressionValidator2Resource1.ErrorMessage" xml:space="preserve">
+    <value>Malformed CPU-1 IP Network address.</value>
+  </data>
+  <data name="RegularExpressionValidator2Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RegularExpressionValidator2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RequiredFieldIdTIFXResource1.ErrorMessage" xml:space="preserve">
+    <value>Gateway identifier cannot be empty.</value>
+  </data>
+  <data name="RequiredFieldIdTIFXResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredFieldIdTIFXResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RequiredFieldPortLocalSNMPResource1.ErrorMessage" xml:space="preserve">
+    <value>The local port for SNMP cannot be empty</value>
+  </data>
+  <data name="RequiredFieldPortLocalSNMPResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredFieldPortLocalSNMPResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RequiredFieldSIPResource1.ErrorMessage" xml:space="preserve">
+    <value>The local port for SIP cannot be empty</value>
+  </data>
+  <data name="RequiredFieldSIPResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredFieldSIPResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RequiredFieldSNMPRemotoResource1.ErrorMessage" xml:space="preserve">
+    <value>The SNMP remote port cannot be empty.</value>
+  </data>
+  <data name="RequiredFieldSNMPRemotoResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredFieldSNMPRemotoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RequiredFieldTimeSupervisionResource1.ErrorMessage" xml:space="preserve">
+    <value>The supervision time field cannot be empty.</value>
+  </data>
+  <data name="RequiredFieldTimeSupervisionResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredFieldTimeSupervisionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RequiredFieldTrapsResource1.ErrorMessage" xml:space="preserve">
+    <value>The SNMP Traps field cannot be empty.</value>
+  </data>
+  <data name="RequiredFieldTrapsResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RequiredFieldTrapsResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell10Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell10Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell11Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell12Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell13Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell14Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell15Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell15Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell16Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell16Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell1Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell2Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell3Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell4Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell5Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell6Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell7Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell7Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell8Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell8Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell9Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableCell9Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TableRow5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox11Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox12Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox12Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox13Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox13Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox14Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox14Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox21Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox21Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox22Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox22Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox23Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox23Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox24Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox24Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox31Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox31Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox32Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox32Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox33Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox33Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox34Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox34Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox41Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox41Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox42Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox42Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox43Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox43Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox44Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextBox44Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LBSupervisionLanGWResource.Text" xml:space="preserve">
+    <value>GW LAN Supervision:</value>
+  </data>
+  <data name="LBTmMaxSupervLanGWResource.Text" xml:space="preserve">
+    <value>Maximun time waiting for GateWay:</value>
+  </data>
+  <data name="TxtTmMaxSupervLanGW.Tooltip" xml:space="preserve">
+    <value>Value must be 0 &lt; value &lt; 5.</value>
+  </data>
+  <data name="RFV_TxtTmMaxSupervLanGWResource.Text" xml:space="preserve">
+    <value>Lan Supervision Max. Time cannot be empty.</value>
+  </data>
+  <data name="TxtTmMaxSupervLanGWResource" xml:space="preserve">
+    <value>Lan Supervision Max. Time must be great than 0 or less than 5 seconds.</value>
+  </data>
+  <data name="DDLSupervisionLanGW.Tooltip" xml:space="preserve">
+    <value>Enables GateWay LAN Supervision.</value>
+  </data>
+  <data name="DDLYesItemResource.Text" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="DDLNoItemResource.Text" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="TTifxResource1.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TTifxResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtIdTIFXResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtIdTIFXResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtIP1Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtIP1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtIP2Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtIP2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtMasterResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtMasterResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtPortSIPLocalResource1.Text" xml:space="preserve">
+    <value>5060</value>
+  </data>
+  <data name="TxtPortSIPLocalResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtSNMPPortLocalResource1.Text" xml:space="preserve">
+    <value>10161</value>
+  </data>
+  <data name="TxtSNMPPortLocalResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtSNMPPortRemotoResource1.Text" xml:space="preserve">
+    <value>10161</value>
+  </data>
+  <data name="TxtSNMPPortRemotoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtSNMPTrapsResource1.Text" xml:space="preserve">
+    <value>162</value>
+  </data>
+  <data name="TxtSNMPTrapsResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TxtTimeSupervisionResource1.Text" xml:space="preserve">
+    <value>90</value>
+  </data>
+  <data name="TxtTimeSupervisionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ValidationSummary1Resource1.HeaderText" xml:space="preserve">
+    <value>Summary of errors</value>
+  </data>
+  <data name="ValidationSummary1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label7Resource1.Text" xml:space="preserve">
+    <value>Communications IP address</value>
+  </data>
+  <data name="LblIpVirtualExistenteResource1.Text" xml:space="preserve">
+    <value>The communications IP address already exists on the system.</value>
+  </data>
+  <data name="IBPropiedadesGeneralesResource1.Text" xml:space="preserve">
+    <value>General param.</value>
+  </data>
+  <data name="IBPropiedadesGeneralesResource1.ToolTip" xml:space="preserve">
+    <value>General parameters</value>
+  </data>
+  <data name="IBProtocoloSIPResource1.Text" xml:space="preserve">
+    <value>ED137 Recording</value>
+  </data>
+  <data name="IBProtocoloSIPResource1.ToolTip" xml:space="preserve">
+    <value>ED137 Recording</value>
+  </data>
+  <data name="IBProtocoloSNMPResource1.Text" xml:space="preserve">
+    <value>SNMP protocol</value>
+  </data>
+  <data name="IBRecursosResource1.Text" xml:space="preserve">
+    <value>Resources</value>
+  </data>
+  <data name="RegularExpressionValidator3Resource1.ErrorMessage" xml:space="preserve">
+    <value>Malformed Communications IP address.</value>
+  </data>
+  <data name="RegularExpressionValidator3Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RegExpValidatorIPServidorNTPRes1.ErrorMessage" xml:space="preserve">
+    <value>Malformed NTP Server IP address.</value>
+  </data>
+  <data name="RegExpValidatorIPServidorNTPRes1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="Label41Resource1.Text" xml:space="preserve">
+    <value>Recorder 2</value>
+  </data>
+  <data name="Label43Resource1.Text" xml:space="preserve">
+    <value>Recorder 1</value>
+  </data>
+  <data name="RequiredFieldTxtIP2Resource1.ErrorMessage" xml:space="preserve">
+    <value>The CPU-1 IP address is required.</value>
+  </data>
+  <data name="RequiredFieldTxtIP2Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RFV_TxtTimeSupervisionResource1.ErrorMessage" xml:space="preserve">
+    <value>The Supervision time for SIP sessions is required.</value>
+  </data>
+  <data name="RFV_TxtTimeSupervisionResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>  
+  <data name="RV_TxtTimeSupervisionResource1.ErrorMessage" xml:space="preserve">
+    <value>The supervision time for SIP sessions must be numeric and must take a value in the interval [90,1800].</value>
+  </data>
+  <data name="RV_TxtTimeSupervisionResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="DDLRecorderItem1" xml:space="preserve">
+    <value>&lt; None &gt;</value>
+  </data>
+</root>

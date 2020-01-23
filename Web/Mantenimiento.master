@@ -1,0 +1,126 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Mantenimiento.master.cs" Inherits="Mantenimiento" %>
+<%@ Register Assembly="Mensajes" Namespace="Mensajes" TagPrefix="cc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Estadísticas ULISES-5000</title>
+<%--    <link href="App_Themes/TemaPaginasConfiguracion/AnimSheet.css" rel="stylesheet" type="text/css" />
+--%></head>
+<body class="estiloDiv gradpositivo white" style="height:842px; width: 1264px;">
+    <form id="form1" runat="server" style="height:831px">    
+ 		<%--<ajaxToolKit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" 
+			CombineScripts="True" >
+		</ajaxToolKit:ToolkitScriptManager>--%>
+
+        <div  id="DivCabecera" runat="server" style="z-index: 102; left: 8px; top: 8px;  width: 1264px; position: absolute; height: 105px; overflow: hidden; background-color:transparent" class="estiloDiv">
+            <asp:Image ID="Image7" runat="server" ImageUrl="~/Images/Logotipo_Duro_Nucleo.gif" Style="z-index: 109; left: 21px; width: 191px; position: absolute; top: 11px; height: 78px; 
+                border-right-color: black; background-image: none; background-color: transparent;" />          
+            <asp:Label ID="Label1" runat="server" SkinID="" 
+                Font-Strikeout="False" Font-Underline="False" Style="z-index: 100; left: 245px;
+                position: absolute; top: 17px; height: 25px; width: 364px;" 
+					Text="ESTADÍSTICAS ULISES 5000-I" meta:resourcekey="Label1Resource1"></asp:Label>
+            
+            <asp:LinkButton ID="BtCluster" runat="server" OnClick="BtCluster_Click"
+                Style="left: 477px; height: 25px; position: absolute; top: 65px; z-index: 101; text-align:center; width:116px" 
+                Text="Cluster" CausesValidation="False" SkinID="LinkButtonCabecera" 
+					meta:resourcekey="BtClusterResource1" />
+            <asp:LinkButton ID="BtConfiguracion" runat="server" OnClick="BtConfiguracion_Click"
+                Style="left: 361px; height:25px; position: absolute; top: 65px; z-index: 102; text-align:center; width:116px" 
+                Text="Configuración" CausesValidation="False"  SkinID="LinkButtonCabecera"
+					meta:resourcekey="BtConfiguracionResource1" />
+            <asp:LinkButton ID="BtInicio" runat="server" OnClick="BtInicio_Click"
+                Style="left: 245px; height:25px; position: absolute; top: 65px; z-index: 103; text-align:center; width:116px"  
+                Text="Inicio" CausesValidation="False" SkinID="LinkButtonCabecera"
+					meta:resourcekey="BtInicioResource1"/>
+
+<%--            <asp:Image ID="Image1" runat="server" Height="96px" ImageUrl="~/Images/Cabecera_08.gif"
+                
+					Style="z-index: 104; left: 915px; position: absolute; top: 0px; width: 89px;" 
+					meta:resourcekey="Image1Resource1" />
+            <asp:Image ID="Image2" runat="server" Height="96px" ImageUrl="~/Images/Cabecera_07.gif"
+                
+					Style="z-index: 105; left: 838px; position: absolute; top: 0px; height: 96px;  width: 77px;" 
+					meta:resourcekey="Image2Resource1" />
+            <asp:Image ID="Image3" runat="server" Height="96px" ImageUrl="~/Images/Cabecera_06.gif"
+                
+					Style="z-index: 106; left: 759px; position: absolute; top: 0px; height: 96px; width: 79px;" 
+					meta:resourcekey="Image3Resource1" />
+            <asp:Image ID="Image4" runat="server" Height="96px" ImageUrl="~/Images/Cabecera_05.gif"
+					
+					Style="z-index: 107; left: 618px; position: absolute; top: 0px; height: 96px; width: 141px;" 
+					meta:resourcekey="Image4Resource1" />
+            <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/Cabecera_04.gif"
+					
+					Style="z-index: 99; left: 4px; position: absolute; top: 0px; height: 96px; width: 623px;" 
+					meta:resourcekey="Image5Resource1" />
+            <asp:Image ID="Image6" runat="server" Height="113px" ImageUrl="~/Images/Cabecera_04.gif"
+                
+					Style="z-index: 99; left: 1003px; position: absolute; top: 0px; height: 96px; width: 274px;" 
+					meta:resourcekey="Image6Resource1" />--%>
+
+				<asp:Label ID="Label2" runat="server" Style="z-index: 110; left: 730px; position: absolute;
+				  top: 18px" Text="Usuario:" meta:resourcekey="Label2Resource1"></asp:Label>
+				<asp:Label ID="LabelUsuario" runat="server" Style="z-index: 111; left: 797px; position: absolute;
+				  top: 18px" ForeColor="#00C000" meta:resourcekey="LabelUsuarioResource1"></asp:Label>
+			  <asp:Label ID="Label3" runat="server" Style="z-index: 112; left: 730px; position: absolute;
+				  top: 47px" Text="Perfil:" meta:resourcekey="Label3Resource1"></asp:Label>
+			  <asp:Label ID="LabelPerfil" runat="server" Style="z-index: 113; left: 797px; position: absolute;
+				  top: 47px" ForeColor="#00C000" Width="91px" meta:resourcekey="LabelPerfilResource1"></asp:Label>
+			  <asp:LinkButton ID="LinkButton1" runat="server" Style="z-index: 114; left: 916px;
+				  position: absolute; top: 47px" OnClick="LinkButton1_Click"  SkinID="LinkButtonCabecera"
+					meta:resourcekey="LinkButton1Resource1">Cerrar sesión</asp:LinkButton>
+            
+<%--				<asp:Image ID="Image1" runat="server" Height="113px" ImageUrl="~/Images/Cabecera_08.gif"
+                Style="z-index: 104; left: 915px; position: absolute; top: 0px" Width="89px" />
+            <asp:Image ID="Image2" runat="server" Height="113px" ImageUrl="~/Images/Cabecera_07.gif"
+                Style="z-index: 105; left: 838px; position: absolute; top: 0px" Width="77px" />
+            <asp:Image ID="Image3" runat="server" Height="113px" ImageUrl="~/Images/Cabecera_06.gif"
+                Style="z-index: 106; left: 759px; position: absolute; top: 0px" Width="79px" />
+            <asp:Image ID="Image4" runat="server" Height="113px" ImageUrl="~/Images/Cabecera_05.gif"
+                Style="z-index: 107; left: 626px; position: absolute; top: 0px" />
+            <asp:Image ID="Image5" runat="server" Height="113px" ImageUrl="~/Images/Cabecera_04.gif"
+                Style="z-index: 99; left: 4px; position: absolute; top: 0px" Width="622px" />
+            <asp:Image ID="Image6" runat="server" Height="113px" ImageUrl="~/Images/Cabecera_04.gif"
+                Style="z-index: 99; left: 1003px; position: absolute; top: -2px" Width="274px" />
+--%>        </div>
+         <div id="DivContenido" style="z-index: 100; left: 242px; width: 1030px; position: absolute; top: 114px;height: 736px; background-color:transparent;" 
+                class="estiloDiv">
+            <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+
+				</asp:contentplaceholder>
+        </div>
+        <div id="DivArbol" class="estiloDiv"
+            style="z-index: 101; left: 8px; width: 233px; position: absolute; top: 114px; height: 736px; background-color:transparent">
+            <asp:TreeView ID="TreeView1" runat="server" ImageSet="Arrows"
+                Style="z-index: 100; left: 0px; position: absolute; top: 50px" Width="215px" Height="442px"
+                meta:resourcekey="TreeView1Resource1">
+                <Nodes>
+                    <asp:TreeNode Text="Estadísticas" Value="Estadísticas"
+                        meta:resourcekey="TreeNodeResource10">
+                        <asp:TreeNode Text="Fecha" Value="Fecha"
+                            NavigateUrl="~/Mantenimiento/Estadisticas.aspx?Filtro=Fechas" meta:resourcekey="TreeNodeResource1"></asp:TreeNode>
+                        <asp:TreeNode Text="Componente" Value="Componente"
+                            NavigateUrl="~/Mantenimiento/Estadisticas.aspx?Filtro=Componente"
+                            meta:resourcekey="TreeNodeResource2"></asp:TreeNode>
+                        <asp:TreeNode Text="Evento" Value="Evento"
+                            NavigateUrl="~/Mantenimiento/Estadisticas.aspx?Filtro=Evento" meta:resourcekey="TreeNodeResource3"></asp:TreeNode>
+                     </asp:TreeNode>
+                </Nodes>
+                <ParentNodeStyle Font-Bold="False" />
+                <HoverNodeStyle Font-Underline="True" ForeColor="#e00034" />
+                <SelectedNodeStyle Font-Underline="True" ForeColor="#e00034"
+                    HorizontalPadding="0px" VerticalPadding="0px" />
+                <NodeStyle Font-Names="Verdana" Font-Size="Small" ForeColor="black"
+                    HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />
+            </asp:TreeView>
+            <cc1:msgBox ID="MsgBox1" runat="server" Style="z-index: 180; left: 0px; position: absolute;top: 100px" />
+        </div>
+        <div style="z-index: 301; left: 8px; width: 1264px; position: absolute; top: 855px; height: 37px; text-align:center; color: red; font-family:Verdana; font-size:small" >
+            <br\ />
+            &#169 Núcleo. 2019. v2.5.9#7. All rights reserved.
+        </div>
+    </form>
+</body>
+</html>

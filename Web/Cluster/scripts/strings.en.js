@@ -1,0 +1,22 @@
+﻿Strings = {
+"Nodo1_A_Nodo2_NA" : "Node 1 ACTIVE, Node 2 STANDBY",
+"Nodo1_A_Nodo2_NA_Click": "Node 1 ACTIVE, Node 2 STANDBY. Click to commute",
+"Nodo1_NA_Nodo2_A_Click": "Node1 STANDBY, Node2 ACTIVE. Click to conmute",
+"Nodo1_NA_Nodo2_A": "Node1 STANDBY, Node2 ACTIVE",
+"Nodo1_A_Nodo2_P": "Node1 ACTIVE, Node2 STOPPED. Switching is not possible",
+"Nodo1_P_Nodo2_A": "Node1 STOPPED, Node ACTIVE. Switching is not possible",
+"Nodo1_P_Nodo2_P": "Node1 STOPPED, Node2 STOPPED. Switching is not possible",
+"Error_Nodo_1": "ERROR IN THE CLUSTER. RESET NODE 1",
+"Error_Nodo_2": "ERROR IN THE CLUSTER. RESET NODE 2",
+"Error_Cluster": "ERROR IN THE CLUSTER. If it persists reboot the nodes.",
+"Adaptador": "Adapter",
+"Desde": "Since",
+"Seguro_Conmutar": "Are you sure you want to switch Active node?",
+"Estado": "State",
+"Nodo": "Node",
+"No_Funcional": "Not functional",
+"Activando_Nodo": "Activating node",
+"Activo": "Active",
+"No_Activo": "Not active",
+"No_Operativo": "Not operational"
+};

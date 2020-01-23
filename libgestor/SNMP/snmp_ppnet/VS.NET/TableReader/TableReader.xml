@@ -1,0 +1,324 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TableReader</name>
+    </assembly>
+    <members>
+        <member name="T:Org.Snmp.Snmp_pp.TableReader">
+            <summary>
+            This class provides useful high-level SNMP tables retrieval mechanisms.
+            </summary>
+            <remarks>This class is a collection of static methods. Thus, instances
+            cannot be created.</remarks>
+        </member>
+        <member name="M:Org.Snmp.Snmp_pp.TableReader.GetTable(Org.Snmp.Snmp_pp.Snmp,Org.Snmp.Snmp_pp.Pdu,Org.Snmp.Snmp_pp.SnmpTarget,Org.Snmp.Snmp_pp.Oid[],Org.Snmp.Snmp_pp.Oid,Org.Snmp.Snmp_pp.Oid,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Retrieves an SNMP table from an agent.
+            </summary>
+            <param name="snmp">The SNMP session object to use.</param>
+            <param name="pdu">The PDU object used to convey the request type
+            and some security parameters (variable bindings are ignored; may
+            be an empty array).</param>
+            <param name="target">The SNMP target.</param>
+            <param name="columnOids">The OIDs of table columns to retrieve. The
+            columns should share table indexes  (e.g., be a part of the same or
+            AUGMENTed table).</param>
+            <param name="startRowIndex">The row index to start from or <b>null</b>.</param>
+            <param name="endRowIndex">The row index to finish at or <b>null</b>.</param>
+            <param name="maxRows">Maximum number of rows to retrieve. Specify 0
+            to read the whole table.</param>
+            <param name="rowsPerQuery">Number of rows to read in a single query.
+            Only valid if the request used will be GetBulk. Specify 0 to enable
+            a simple heuristic algorithm that dynamically computes this value
+            so that the response fits a single Ethernet packet.</param>
+            <param name="nRequests">Will be incremented every time a response
+            is received.</param>
+            <returns>The retrieved rows. Due to performance reasons, the rows
+            are returned as a jagged array  but the array is guaranteed to be
+            rectangular.  It contains either valid variable bindings or <b>null</b>
+            values for table "holes".</returns>
+            <remarks>This method returns table rows for the specified set of
+            columns. A typical example includes the retrieval of a complete
+            table but a number of parameters makes this method more flexible.
+            For more information on internal behavior, see the
+            <see cref="P:Org.Snmp.Snmp_pp.TableReader.UseAsyncInvoke"/> property.</remarks>
+        </member>
+        <member name="M:Org.Snmp.Snmp_pp.TableReader.GetTable(Org.Snmp.Snmp_pp.Snmp,Org.Snmp.Snmp_pp.Pdu,Org.Snmp.Snmp_pp.SnmpTarget,Org.Snmp.Snmp_pp.Oid[],Org.Snmp.Snmp_pp.TableReader.GetTableOptions,System.Int32@)">
+            <summary>
+            Retrieves an SNMP table from an agent.
+            </summary>
+            <param name="snmp">The SNMP session object to use.</param>
+            <param name="pdu">The PDU object used to convey the request type
+            and some security parameters (variable bindings are ignored; may
+            be an empty array).</param>
+            <param name="target">The SNMP target.</param>
+            <param name="columnOids">The OIDs of table columns to retrieve. The
+            columns should share table indexes  (e.g., be a part of the same or
+            AUGMENTed table).</param>
+            <param name="options">The options for the operation.</param>
+            <param name="nRequests">Will be incremented every time a response
+            is received.</param>
+            <returns>The retrieved rows. Due to performance reasons, the rows
+            are returned as a jagged array  but the array is guaranteed to be
+            rectangular.  It contains either valid variable bindings or <b>null</b>
+            values for table "holes".</returns>
+            <remarks>This method returns table rows for the specified set of
+            columns. A typical example includes the retrieval of a complete
+            table but a number of parameters makes this method more flexible.
+            For more information on internal behavior, see the
+            <see cref="P:Org.Snmp.Snmp_pp.TableReader.UseAsyncInvoke"/> property.</remarks>
+        </member>
+        <member name="M:Org.Snmp.Snmp_pp.TableReader.GetTable(Org.Snmp.Snmp_pp.Snmp,Org.Snmp.Snmp_pp.Pdu,Org.Snmp.Snmp_pp.SnmpTarget,Org.Snmp.Snmp_pp.Oid[],Org.Snmp.Snmp_pp.Oid,System.Int32)">
+            <summary>
+            Retrieves an SNMP table from an agent.
+            </summary>
+            <param name="snmp">The SNMP session object to use.</param>
+            <param name="pdu">The PDU object used to convey the request type
+            and some security parameters (variable bindings are ignored; may
+            be an empty array).</param>
+            <param name="target">The SNMP target.</param>
+            <param name="columnOids">The OIDs of table columns to retrieve. The
+            columns should share table indexes  (e.g., be a part of the same or
+            AUGMENTed table).</param>
+            <param name="startRowIndex">The row index to start from or <b>null</b>.</param>
+            <param name="maxRows">Maximum number of rows to retrieve. Specify 0
+            to read the whole table.</param>
+            <returns>The retrieved rows. Due to performance reasons, the rows
+            are returned as a jagged array  but the array is guaranteed to be
+            rectangular.  It contains either valid variable bindings or <b>null</b>
+            values for table "holes".</returns>
+            <remarks>This method returns table rows for the specified set of
+            columns. A typical example includes the retrieval of a complete
+            table but a number of parameters makes this method more flexible.
+            For more information on internal behavior, see the
+            <see cref="P:Org.Snmp.Snmp_pp.TableReader.UseAsyncInvoke"/> property.</remarks>
+        </member>
+        <member name="M:Org.Snmp.Snmp_pp.TableReader.GetTable(Org.Snmp.Snmp_pp.Snmp,Org.Snmp.Snmp_pp.Pdu,Org.Snmp.Snmp_pp.SnmpTarget,Org.Snmp.Snmp_pp.Oid[])">
+            <summary>
+            Retrieves an SNMP table from an agent.
+            </summary>
+            <param name="snmp">The SNMP session object to use.</param>
+            <param name="pdu">The PDU object used to convey the request type
+            and some security parameters (variable bindings are ignored; may
+            be an empty array).</param>
+            <param name="target">The SNMP target.</param>
+            <param name="columnOids">The OIDs of table columns to retrieve. The
+            columns should share table indexes  (e.g., be a part of the same or
+            AUGMENTed table).</param>
+            <returns>The retrieved rows. Due to performance reasons, the rows
+            are returned as a jagged array  but the array is guaranteed to be
+            rectangular.  It contains either valid variable bindings or <b>null</b>
+            values for table "holes".</returns>
+            <remarks>This method returns table rows for the specified set of
+            columns. A typical example includes the retrieval of a complete
+            table. For more information on internal behavior, see the
+            <see cref="P:Org.Snmp.Snmp_pp.TableReader.UseAsyncInvoke"/> property.</remarks>
+        </member>
+        <member name="M:Org.Snmp.Snmp_pp.TableReader.BeginGetTable(Org.Snmp.Snmp_pp.Snmp,Org.Snmp.Snmp_pp.Pdu,Org.Snmp.Snmp_pp.SnmpTarget,Org.Snmp.Snmp_pp.Oid[],Org.Snmp.Snmp_pp.Oid,Org.Snmp.Snmp_pp.Oid,System.Int32,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Starts an asynchronous SNMP table retrieval operation.
+            </summary>
+            <param name="snmp">The SNMP session object to use.</param>
+            <param name="pdu">The PDU object used to convey the request type
+            and some security parameters (variable bindings are ignored; may
+            be an empty array).</param>
+            <param name="target">The SNMP target.</param>
+            <param name="columnOids">The OIDs of table columns to retrieve. The
+            columns should share table indexes  (e.g., be a part of the same or
+            AUGMENTed table).</param>
+            <param name="startRowIndex">The row index to start from or <b>null</b>.</param>
+            <param name="endRowIndex">The row index to finish at or <b>null</b>.</param>
+            <param name="maxRows">Maximum number of rows to retrieve. Specify 0
+            to read the whole table.</param>
+            <param name="rowsPerQuery">Number of rows to read in a single query.
+            Only valid if the request used will be GetBulk. Specify 0 to enable
+            a simple heuristic algorithm that dynamically computes this value
+            so that the response fits a single Ethernet packet.</param>
+            <param name="callback">Callback method to invoke when a table is read
+            or <b>null</b>.</param>
+            <param name="callbackData">User state.</param>
+            <returns><see cref="T:System.IAsyncResult"/> object.</returns>
+            <remarks>
+            This method starts asynchronous table retrieval for the specified set
+            of columns. A typical example includes the retrieval of a whole table
+            but a number of parameters makes this method more flexible.  In order
+            to complete the operation and free related resources, <see cref="M:Org.Snmp.Snmp_pp.TableReader.EndGetTable(System.IAsyncResult,System.Int32@)"/>
+            must be later called,  usually, in the callback method specified
+            by <b>callback</b> parameter.
+            </remarks>
+        </member>
+        <member name="M:Org.Snmp.Snmp_pp.TableReader.BeginGetTable(Org.Snmp.Snmp_pp.Snmp,Org.Snmp.Snmp_pp.Pdu,Org.Snmp.Snmp_pp.SnmpTarget,Org.Snmp.Snmp_pp.Oid[],Org.Snmp.Snmp_pp.TableReader.GetTableOptions,System.AsyncCallback,System.Object)">
+            <summary>
+            Starts an asynchronous SNMP table retrieval operation.
+            </summary>
+            <param name="snmp">The SNMP session object to use.</param>
+            <param name="pdu">The PDU object used to convey the request type
+            and some security parameters (variable bindings are ignored; may
+            be an empty array).</param>
+            <param name="target">The SNMP target.</param>
+            <param name="columnOids">The OIDs of table columns to retrieve. The
+            columns should share table indexes  (e.g., be a part of the same or
+            AUGMENTed table).</param>
+            <param name="options">The options for the operation.</param>
+            <param name="callback">Callback method to invoke when a table is read
+            or <b>null</b>.</param>
+            <param name="callbackData">User state.</param>
+            <returns><see cref="T:System.IAsyncResult"/> object.</returns>
+            <remarks>
+            This method starts asynchronous table retrieval for the specified set
+            of columns. A typical example includes the retrieval of a whole table
+            but a number of parameters makes this method more flexible.  In order
+            to complete the operation and free related resources, <see cref="M:Org.Snmp.Snmp_pp.TableReader.EndGetTable(System.IAsyncResult,System.Int32@)"/>
+            must be later called,  usually, in the callback method specified
+            by <b>callback</b> parameter.
+            </remarks>
+        </member>
+        <member name="M:Org.Snmp.Snmp_pp.TableReader.BeginGetTable(Org.Snmp.Snmp_pp.Snmp,Org.Snmp.Snmp_pp.Pdu,Org.Snmp.Snmp_pp.SnmpTarget,Org.Snmp.Snmp_pp.Oid[],Org.Snmp.Snmp_pp.Oid,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Starts an asynchronous SNMP table retrieval operation.
+            </summary>
+            <param name="snmp">The SNMP session object to use.</param>
+            <param name="pdu">The PDU object used to convey the request type
+            and some security parameters (variable bindings are ignored; may
+            be an empty array).</param>
+            <param name="target">The SNMP target.</param>
+            <param name="columnOids">The OIDs of table columns to retrieve. The
+            columns should share table indexes  (e.g., be a part of the same or
+            AUGMENTed table).</param>
+            <param name="startRowIndex">The row index to start from or <b>null</b>.</param>
+            <param name="maxRows">Maximum number of rows to retrieve. Specify 0
+            to read the whole table.</param>
+            <param name="callback">Callback method to invoke when a table is read
+            or <b>null</b>.</param>
+            <param name="callbackData">User state.</param>
+            <returns><see cref="T:System.IAsyncResult"/> object.</returns>
+            <remarks>
+            This method starts asynchronous table retrieval for the specified set
+            of columns. A typical example includes the retrieval of a whole table
+            but a number of parameters makes this method more flexible.  In order
+            to complete the operation and free related resources, <see cref="M:Org.Snmp.Snmp_pp.TableReader.EndGetTable(System.IAsyncResult,System.Int32@)"/>
+            must be later called,  usually, in the callback method specified
+            by <b>callback</b> parameter.
+            </remarks>
+        </member>
+        <member name="M:Org.Snmp.Snmp_pp.TableReader.BeginGetTable(Org.Snmp.Snmp_pp.Snmp,Org.Snmp.Snmp_pp.Pdu,Org.Snmp.Snmp_pp.SnmpTarget,Org.Snmp.Snmp_pp.Oid[],System.AsyncCallback,System.Object)">
+            <summary>
+            Starts an asynchronous SNMP table retrieval operation.
+            </summary>
+            <param name="snmp">The SNMP session object to use.</param>
+            <param name="pdu">The PDU object used to convey the request type
+            and some security parameters (variable bindings are ignored; may
+            be an empty array).</param>
+            <param name="target">The SNMP target.</param>
+            <param name="columnOids">The OIDs of table columns to retrieve. The
+            columns should share table indexes  (e.g., be a part of the same or
+            AUGMENTed table).</param>
+            <param name="callback">Callback method to invoke when a table is read
+            or <b>null</b>.</param>
+            <param name="callbackData">User state.</param>
+            <returns><see cref="T:System.IAsyncResult"/> object.</returns>
+            <remarks>
+            This method starts asynchronous table retrieval for the specified set
+            of columns. A typical example includes the retrieval of a whole table.
+            In order to complete the operation and free related resources,
+            <see cref="M:Org.Snmp.Snmp_pp.TableReader.EndGetTable(System.IAsyncResult,System.Int32@)"/> must be later called, usually, in the callback
+            method specified by <b>callback</b> parameter.
+            </remarks>
+        </member>
+        <member name="M:Org.Snmp.Snmp_pp.TableReader.EndGetTable(System.IAsyncResult,System.Int32@)">
+            <summary>
+            Completes an asynchronous SNMP table retrieval operation.
+            </summary>
+            <param name="ar"><see cref="T:System.IAsyncResult"/> object returned by
+            <see cref="M:Org.Snmp.Snmp_pp.TableReader.BeginGetTable(Org.Snmp.Snmp_pp.Snmp,Org.Snmp.Snmp_pp.Pdu,Org.Snmp.Snmp_pp.SnmpTarget,Org.Snmp.Snmp_pp.Oid[],Org.Snmp.Snmp_pp.Oid,Org.Snmp.Snmp_pp.Oid,System.Int32,System.Int32,System.AsyncCallback,System.Object)"/>.</param>
+            <param name="nRequests">This parameter will be incremented by the
+            number of received responses.</param>
+            <returns>The retrieved rows. Due to performance reasons, the rows
+            are returned as a jagged array  but the array is guaranteed to be
+            rectangular.  It contains either valid variable bindings or <b>null</b>
+            values for table "holes".</returns>
+            <remarks>
+            The method waits for the asynchronous <see cref="M:Org.Snmp.Snmp_pp.TableReader.BeginGetTable(Org.Snmp.Snmp_pp.Snmp,Org.Snmp.Snmp_pp.Pdu,Org.Snmp.Snmp_pp.SnmpTarget,Org.Snmp.Snmp_pp.Oid[],Org.Snmp.Snmp_pp.Oid,Org.Snmp.Snmp_pp.Oid,System.Int32,System.Int32,System.AsyncCallback,System.Object)"/> operation
+            to complete and returns retrieved rows or throws an exception on
+            error.
+            </remarks>
+        </member>
+        <member name="M:Org.Snmp.Snmp_pp.TableReader.EndGetTable(System.IAsyncResult)">
+            <summary>
+            Completes an asynchronous SNMP table retrieval operation.
+            </summary>
+            <param name="ar"><see cref="T:System.IAsyncResult"/> object returned by
+            <see cref="M:Org.Snmp.Snmp_pp.TableReader.BeginGetTable(Org.Snmp.Snmp_pp.Snmp,Org.Snmp.Snmp_pp.Pdu,Org.Snmp.Snmp_pp.SnmpTarget,Org.Snmp.Snmp_pp.Oid[],Org.Snmp.Snmp_pp.Oid,Org.Snmp.Snmp_pp.Oid,System.Int32,System.Int32,System.AsyncCallback,System.Object)"/>.</param>
+            <returns>The retrieved rows. Due to performance reasons, the rows
+            are returned as a jagged array  but the array is guaranteed to be
+            rectangular.  It contains either valid variable bindings or <b>null</b>
+            values for table "holes".</returns>
+            <remarks>
+            The method waits for the asynchronous <see cref="M:Org.Snmp.Snmp_pp.TableReader.BeginGetTable(Org.Snmp.Snmp_pp.Snmp,Org.Snmp.Snmp_pp.Pdu,Org.Snmp.Snmp_pp.SnmpTarget,Org.Snmp.Snmp_pp.Oid[],Org.Snmp.Snmp_pp.Oid,Org.Snmp.Snmp_pp.Oid,System.Int32,System.Int32,System.AsyncCallback,System.Object)"/> operation
+            to complete and returns retrieved rows or throws an exception on
+            error.
+            </remarks>
+        </member>
+        <member name="M:Org.Snmp.Snmp_pp.TableReader.GetRowIndex(Org.Snmp.Snmp_pp.Vb[],Org.Snmp.Snmp_pp.Oid[])">
+            <summary>
+            Returns the row index for the supplied row of variable bindings that
+            corresponds to the specified columns.
+            </summary>
+            <param name="vbRow">The variable bindings. At least one of them must
+            be non-null, which is guaranteed by the <see cref="M:Org.Snmp.Snmp_pp.TableReader.GetTable(Org.Snmp.Snmp_pp.Snmp,Org.Snmp.Snmp_pp.Pdu,Org.Snmp.Snmp_pp.SnmpTarget,Org.Snmp.Snmp_pp.Oid[],Org.Snmp.Snmp_pp.Oid,Org.Snmp.Snmp_pp.Oid,System.Int32,System.Int32,System.Int32@)"/> method.
+            </param>
+            <param name="columnOids">The set of columns.</param>
+            <returns>This row's index or <b>null</b>.</returns>
+        </member>
+        <member name="M:Org.Snmp.Snmp_pp.TableReader.PrintTable(System.IO.TextWriter,Org.Snmp.Snmp_pp.Oid[],Org.Snmp.Snmp_pp.Vb[][])">
+            <summary>
+            Prints the SNMP table returned by <see cref="M:Org.Snmp.Snmp_pp.TableReader.GetTable(Org.Snmp.Snmp_pp.Snmp,Org.Snmp.Snmp_pp.Pdu,Org.Snmp.Snmp_pp.SnmpTarget,Org.Snmp.Snmp_pp.Oid[],Org.Snmp.Snmp_pp.Oid,Org.Snmp.Snmp_pp.Oid,System.Int32,System.Int32,System.Int32@)"/>.
+            </summary>
+            <param name="os">The writer to use.</param>
+            <param name="columnOids">The column OIDs.</param>
+            <param name="vbTable">The table of variable bindings.</param>
+        </member>
+        <member name="P:Org.Snmp.Snmp_pp.TableReader.UseAsyncInvoke">
+            <summary>
+            Sets interface type to use by synchronous <see cref="M:Org.Snmp.Snmp_pp.TableReader.GetTable(Org.Snmp.Snmp_pp.Snmp,Org.Snmp.Snmp_pp.Pdu,Org.Snmp.Snmp_pp.SnmpTarget,Org.Snmp.Snmp_pp.Oid[],Org.Snmp.Snmp_pp.Oid,Org.Snmp.Snmp_pp.Oid,System.Int32,System.Int32,System.Int32@)"/>
+            operations.
+            </summary>
+            <remarks>
+            While <see cref="M:Org.Snmp.Snmp_pp.TableReader.GetTable(Org.Snmp.Snmp_pp.Snmp,Org.Snmp.Snmp_pp.Pdu,Org.Snmp.Snmp_pp.SnmpTarget,Org.Snmp.Snmp_pp.Oid[],Org.Snmp.Snmp_pp.Oid,Org.Snmp.Snmp_pp.Oid,System.Int32,System.Int32,System.Int32@)"/> offers a synchronous interface, it
+            may internally employ either synchronous or asynchronous SNMP++
+            calls. The property allows to select the call type. Setting the
+            value to <b>true</b> enables asynchronous calls.  The property
+            should be set once, at application startup; it is not synchronized
+            and changes may not be immediately visible in other threads.</remarks>
+        </member>
+        <member name="T:Org.Snmp.Snmp_pp.TableReader.GetTableOptions">
+            <summary>
+            Provides options for table retrieval operations.
+            </summary>
+        </member>
+        <member name="F:Org.Snmp.Snmp_pp.TableReader.GetTableOptions.startRowIndex">
+            <summary>
+            The row index to start from or <b>null</b>.
+            </summary>
+        </member>
+        <member name="F:Org.Snmp.Snmp_pp.TableReader.GetTableOptions.endRowIndex">
+            <summary>
+            The row index to finish at or <b>null</b>.
+            </summary>
+        </member>
+        <member name="F:Org.Snmp.Snmp_pp.TableReader.GetTableOptions.maxRows">
+            <summary>
+            Maximum number of rows to retrieve. Specify 0 to read the whole
+            table.
+            </summary>
+        </member>
+        <member name="F:Org.Snmp.Snmp_pp.TableReader.GetTableOptions.rowsPerQuery">
+            <summary>
+            Number of rows to read in a single query. Only valid if the request
+            used will be GetBulk. Specify 0 to enable a simple heuristic algorithm
+            that dynamically computes this value so that the response fits a single
+            Ethernet packet.
+            </summary>
+        </member>
+    </members>
+</doc>

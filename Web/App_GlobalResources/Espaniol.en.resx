@@ -1,0 +1,708 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AceptarCambios" xml:space="preserve">
+    <value>Save changes</value>
+  </data>
+  <data name="AvisoRecurso" xml:space="preserve">
+    <value>The resource must be assigned to a gateway or to external equipment.</value>
+  </data>
+  <data name="CancelarCambios" xml:space="preserve">
+    <value>The changes will be lost. Continue anyway?</value>
+  </data>
+  <data name="DefinirRangosCentralPropia" xml:space="preserve">
+    <value>There are no ranges for the VCS "{0}". Do you want to go to the Routing page to register ranges?</value>
+  </data>
+  <data name="DestinosGrupo" xml:space="preserve">
+    <value>Group's Destinations:</value>
+  </data>
+  <data name="ElementoEliminado" xml:space="preserve">
+    <value>Element removed.</value>
+  </data>
+  <data name="EliminarDestino" xml:space="preserve">
+    <value>Remove the destination {0}?</value>
+  </data>
+  <data name="EliminarEncaminamiento" xml:space="preserve">
+    <value>Remove the routing {0}?</value>
+  </data>
+  <data name="EliminarEquipoEU" xml:space="preserve">
+    <value>Remove the external equipment {0}?</value>
+  </data>
+  <data name="EliminarIncidencia" xml:space="preserve">
+    <value>Remove the incidence?</value>
+  </data>
+  <data name="EliminarNucleo" xml:space="preserve">
+    <value>Remove the core {0}?</value>
+  </data>
+  <data name="EliminarOperador" xml:space="preserve">
+    <value>Remove the operator {0}?</value>
+  </data>
+  <data name="EliminarRango" xml:space="preserve">
+    <value>Remove the range {0} - {1}?</value>
+  </data>
+  <data name="EliminarRecurso" xml:space="preserve">
+    <value>Remove the resource {0}?</value>
+  </data>
+  <data name="EliminarRed" xml:space="preserve">
+    <value>Remove the network {0}?</value>
+  </data>
+  <data name="EliminarRuta" xml:space="preserve">
+    <value>Remove the route {0}?</value>
+  </data>
+  <data name="EliminarSector" xml:space="preserve">
+    <value>Remove the sector {0}?</value>
+  </data>
+  <data name="EliminarTIFX" xml:space="preserve">
+    <value>Remove the gateway {0}?</value>
+  </data>
+  <data name="EliminarTOP" xml:space="preserve">
+    <value>Remove the operator terminal {0}?</value>
+  </data>
+  <data name="EliminarTroncal" xml:space="preserve">
+    <value>Remove the trunk {0}?</value>
+  </data>
+  <data name="FinTransaccion" xml:space="preserve">
+    <value>The maximum time since the last modification was exceeded without activating the configuration in the system. To make the changes effective you must activate the settings. Otherwise, the changes will be discarded. Do you want to activate the settings?</value>
+  </data>
+  <data name="ErrorEliminarEmplazamiento" xml:space="preserve">
+    <value>Error: The site {0} has not been removed.</value>
+  </data>
+  <data name="ErrorEliminarNucleo" xml:space="preserve">
+    <value>Error: The core {0} has not been removed.</value>
+  </data>
+  <data name="ErrorEliminarSector" xml:space="preserve">
+    <value>Error: The sector {0} has not been removed.</value>
+  </data>
+  <data name="ErrorEliminarSectorizacion" xml:space="preserve">
+    <value>Error: The sectorization {0} has not been removed.</value>
+  </data>
+  <data name="ErrorGuardarAgrupacion" xml:space="preserve">
+    <value>Unable to save the sectors' grouping {0}. It may already exist.</value>
+  </data>
+  <data name="ErrorGuardarEmplazamiento" xml:space="preserve">
+    <value>Unable to save the site {0}. Please, enter another name that is unique.</value>
+  </data>
+  <data name="ErrorGuardarNucleo" xml:space="preserve">
+    <value>Unable to save the core {0}. It may already exist.</value>
+  </data>
+  <data name="ErrorGuardarSectorizacion" xml:space="preserve">
+    <value>Unable to save the sectorization {0}. It may already exist.</value>
+  </data>
+  <data name="IrAEncaminamientos" xml:space="preserve">
+    <value>There is no VCS set to 'Own'. Do you want to go to the routing page to register a VCS like 'own'?</value>
+  </data>
+  <data name="NoHayNucleo" xml:space="preserve">
+    <value>No cores in the system.</value>
+  </data>
+  <data name="NoTodosSectoresReales" xml:space="preserve">
+    <value>Sectorization rejected. All real sectors are not in the selected sectorization.</value>
+  </data>
+  <data name="NucleoConSectores" xml:space="preserve">
+    <value>A core with assigned sectors cannot be deleted.</value>
+  </data>
+  <data name="NumRutasDirectas" xml:space="preserve">
+    <value>Only one direct route in routing is allowed.</value>
+  </data>
+  <data name="NumRutaSup" xml:space="preserve">
+    <value>Maximum number of routes by routing exceeded</value>
+  </data>
+  <data name="OperadorDadoDeAlta" xml:space="preserve">
+    <value>Operator registered.</value>
+  </data>
+  <data name="OperadorModificado" xml:space="preserve">
+    <value>Operator modified.</value>
+  </data>
+  <data name="Pagina" xml:space="preserve">
+    <value>PAGE</value>
+  </data>
+  <data name="PasarelaNoVacia" xml:space="preserve">
+    <value>A gateway with assigned resources cannot be deleted.</value>
+  </data>
+  <data name="RangosExcedido" xml:space="preserve">
+    <value>Maximum {0} range limit exceeded.</value>
+  </data>
+  <data name="RecursosTroncal" xml:space="preserve">
+    <value>Trunk resources:</value>
+  </data>
+  <data name="RutaSinTroncales" xml:space="preserve">
+    <value>Routes without assigned trunks are not allowed.</value>
+  </data>
+  <data name="SectoresNucleo" xml:space="preserve">
+    <value>Core sectors:</value>
+  </data>
+  <data name="TroncalesRutaSup" xml:space="preserve">
+    <value>Maximum number of trunks per route exceeded.</value>
+  </data>
+  <data name="EliminarSectorizacion" xml:space="preserve">
+    <value>Remove the sectorization {0}?</value>
+  </data>
+  <data name="EliminarAgrupacion" xml:space="preserve">
+    <value>Remove the sectors' grouping {0}?</value>
+  </data>
+  <data name="AvisoRecursoSinZonas" xml:space="preserve">
+    <value>To register a resource it is necessary to assign a valid zone.</value>
+  </data>
+  <data name="AvisoRecursoSinEmplazamiento" xml:space="preserve">
+    <value>To register a resource it is necessary to assign a valid site.</value>
+  </data>
+  <data name="EliminarGrupo" xml:space="preserve">
+    <value>Remove the group {0}?</value>
+  </data>
+  <data name="TransaccionCanceladaPorUsuario" xml:space="preserve">
+    <value>There are pending modifications to the database. If you want to save the changes, press 'OK' or 'Cancel' to discard the changes.</value>
+  </data>
+  <data name="SectoresManttoSolos" xml:space="preserve">
+    <value>Maintenance sectors cannot be grouped with other sectors.</value>
+  </data>
+  <data name="PanelesConDestinoAsignado" xml:space="preserve">
+    <value>There are panels with this assigned destination. If you remove the resource, you'll delete the destination of all panels.</value>
+  </data>
+  <data name="AbonadoAsignado" xml:space="preserve">
+    <value>The subscriber number is already assigned in the sector </value>
+  </data>
+  <data name="BorrarTarea" xml:space="preserve">
+    <value>To delete a task it must not be scheduled</value>
+  </data>
+  <data name="EntreRangoCentral" xml:space="preserve">
+    <value>ATS subscriber number is not between the ranks of the VCS </value>
+  </data>
+  <data name="IdRecursoYaExiste" xml:space="preserve">
+    <value>The resource ID already exists. Please, enter a different value.</value>
+  </data>
+  <data name="NoSectores" xml:space="preserve">
+    <value>There are no sectors to be assigned to operator terminals.</value>
+  </data>
+  <data name="SinNucleo" xml:space="preserve">
+    <value>There must exist a core to add a sector.</value>
+  </data>
+  <data name="UnNumeroATS" xml:space="preserve">
+    <value>You must define at least one ATS number for the sector </value>
+  </data>
+  <data name="Cod125" xml:space="preserve">
+    <value>The maximum number of positions with priority that can not be ruled out has been exceeded.</value>
+  </data>
+  <data name="SectorizacionImplantada" xml:space="preserve">
+    <value>Sectorization implemented correctly.</value>
+  </data>
+  <data name="Operador" xml:space="preserve">
+    <value>Operator</value>
+  </data>
+  <data name="Tecnico1" xml:space="preserve">
+    <value>Technician1</value>
+  </data>
+  <data name="Tecnico2" xml:space="preserve">
+    <value>Technician2</value>
+  </data>
+  <data name="Tecnico3" xml:space="preserve">
+    <value>Technician3</value>
+  </data>
+  <data name="NoMasRedes" xml:space="preserve">
+    <value>Maximum number of networks exceeded.</value>
+  </data>
+  <data name="ErrorRecursoSinRed" xml:space="preserve">
+    <value>The resource of type "{0}" has to be assigned to a network.</value>
+  </data>
+  <data name="ErrorRangoFechas" xml:space="preserve">
+    <value>'Until' date must be greater than 'from' date</value>
+  </data>
+  <data name="NoConRecursosEliminarRed" xml:space="preserve">
+    <value>You can´t delete a network with assigned resources.</value>
+  </data>
+  <data name="SeleccionarAlgunRecurso" xml:space="preserve">
+    <value>At least, there must be one selected resource.</value>
+  </data>
+  <data name="AvisoDestinoSinRecurso" xml:space="preserve">
+    <value>To register a radio destination it is necessary to assign a resource.</value>
+  </data>
+  <data name="NoTeclaPrio" xml:space="preserve">
+    <value>If you remove this property, the Priority key will disappear of the sector's panel.</value>
+  </data>
+  <data name="MaximoNumeroGrabadores" xml:space="preserve">
+    <value>Maximum number of recorders exceeded.</value>
+  </data>
+  <data name="ErrorEliminarZonas" xml:space="preserve">
+    <value>Error: The zone {0} has not been removed.</value>
+  </data>
+  <data name="ErrorEliminarTablas" xml:space="preserve">
+    <value>Error: The conversion table to RSSI indexes {0} has not been removed.</value>
+  </data>
+  <data name="ErrorGuardarZona" xml:space="preserve">
+    <value>Unable to save the zone {0}. Please, enter another name that is unique.</value>
+  </data>
+  <data name="EliminarTablaCalidad" xml:space="preserve">
+    <value>Do you wish to delete the RSSI index conversion table: "{0}"?</value>
+  </data>
+  <data name="ErrorGuardarTablaCalidad" xml:space="preserve">
+    <value>Unable to save the conversion table to RSSI indexes {0}. It may already exist.</value>
+  </data>
+  <data name="ErrorTablaCalidadExiste" xml:space="preserve">
+    <value>The Conversion Table to RSSI indexes "{0}" already exists. Please, enter another name that is unique.</value>
+  </data>
+  <data name="AvisoRecursoTablaCalificacion" xml:space="preserve">
+    <value>To register a resource with BSS selected it is necessary to assign a conversion table to RSSI indexes.</value>
+  </data>
+  <data name="ErrorAsignacionRecursosDestinoNormal" xml:space="preserve">
+    <value>In "Normal" destination mode, 1 receiving circuit and 0 or 1 transmitting circuit must be assigned, either in an RxTx resource or in a Tx resource and an Rx resource.</value>
+  </data>
+  <data name="ErrorAsignacionRecursosDestinoNormalHF" xml:space="preserve">
+    <value>In "Normal" Destination Mode and HF frequency type, the destination can only have an Audio Rx resource associated with it.</value>
+  </data>
+  <data name="ErrorAsignacionRecursosDestino1_mas_1" xml:space="preserve">
+    <value>The "1+1" Destination Mode must have 2 Tx and Rx, either with RxTx resources, Tx and Rx resources, or a combination of both.</value>
+  </data>
+  <data name="ErrorAsignacionEmplazamientosRecursosDestinoFD" xml:space="preserve">
+    <value>In "OC" destination mode, each site must have at least one Tx and Rx OC the same type. Please, review resource configuration "{0}" at site "{1}"</value>
+  </data>
+  <data name="ErrorDiferenetesNumTxyRx" xml:space="preserve">
+    <value>Must have the same number of TX and RX resources</value>
+  </data>
+  <data name="MaximosRecursosDestinoFD" xml:space="preserve">
+    <value>In "OC" destination mode there must be a maximum of 5 transmission circuits and 5 reception circuits, either in RxTx resources or Tx resources and Rx resources or combination of both.</value>
+  </data>
+  <data name="MinimoRecursosDestinoFD" xml:space="preserve">
+    <value>The "OC" Destination Mode must have a minimum of 3 circuits assigned and at least one circuit must be a reception circuit and another one a transmission circuit.</value>
+  </data>
+  <data name="NopropiedadBSS" xml:space="preserve">
+    <value>In "OC" Destination mode all resources must have BSS property enabled.</value>
+  </data>
+  <data name="ErrorEmplazamientoSupNumTxRX_DestinoFD" xml:space="preserve">
+    <value>In the "OC" destination mode, only one Rx resource and one Tx resource, or only one RxTx resource, can be assigned from the same site.</value>
+  </data>
+  <data name="Nombredestinoutilizado" xml:space="preserve">
+    <value>The Destination cannot be repeated.</value>
+  </data>
+  <data name="EquipoAsignadoARecurso" xml:space="preserve">
+    <value>An external telephony or radio equipment that is assigned to a resource, or an external recorder that is assigned to a gateway or to an operator terminal cannot be deleted. Please, release the equipment {0} before you delete it.</value>
+  </data>
+  <data name="AvisoRecursoGrabador" xml:space="preserve">
+    <value>At least on recording system must be selected if the ED-137 Recording option is selected</value>
+  </data>
+  <data name="AvisoRecursoRadioCon_DestinoFD" xml:space="preserve">
+    <value>The resource cannot be deleted because it is associated with a Radio Destination in the "OC" mode. The Radio Destination resource must be deleted before the resource can be deleted.</value>
+  </data>
+  <data name="AvisoConfGrabadorEnTop" xml:space="preserve">
+    <value>If you want to configure only one recorder, it must be configured on recorder 1.</value>
+  </data>
+  <data name="FormatoIdentificadoDestinoRadioIncorrecto" xml:space="preserve">
+    <value>The radio destination identifier doesn´t have a correct format. For the type of frequency {0}, the identifier must have a value in ICAO format between {1} and {2} MHz.</value>
+  </data>
+  <data name="FormatoIdentificadoDestinoRadioIncorrectoHFMN" xml:space="preserve">
+    <value>The radio destination identifier doesn´t have a correct format. If Radio destiny is HF or have any M+N resourcethe identifier must have a value in ICAO.</value>
+  </data>
+  <data name="ErrorAsignacionFrecuenciaHFDestinoFD" xml:space="preserve">
+    <value>The type of HF frequency cannot be configured in the "OC" Destination mode.</value>
+  </data>
+  <data name="AddNumAgendaRequerido" xml:space="preserve">
+    <value>The name, number and prefix names must be informed to be able to add a record to the Destinations Book.</value>
+  </data>
+  <data name="AvisoCnfHwRecursoRadioMN" xml:space="preserve">
+    <value>Please, review the HW assignment. If the resource is assigned to a gateway, release it and assign it to an external equipment.</value>
+  </data>
+  <data name="AvisoCnfHwRecursoRadioMN_EquipExt" xml:space="preserve">
+    <value>The "Audio M+N" radio resource must be assigned to an external equipment. Please check the Hw assignment.</value>
+  </data>
+  <data name="ErrorIdentificadorEltoFisicoExiste" xml:space="preserve">
+    <value>The identifier "{0}" is assigned to another physical element in the system. Please, enter a name that is unique.</value>
+  </data>
+  <data name="ErrorConfiguracionCPUPasarela" xml:space="preserve">
+    <value>If the CPU configuration is Simple, the "CPU-0 IP address", "CPU-1 IP address" and "Communications IP" must be the same. If the configuration is Dual, the IP addresses must be different.</value>
+  </data>
+  <data name="ErrorEncaminamientoIdCentral_EU_Existente" xml:space="preserve">
+    <value>In the system, there is a resource with the same identifier as the VCS ID. Please, enter a different value.</value>
+  </data>
+  <data name="ErrorEncaminamientoIdCentral_EU_Existente_AddRuta" xml:space="preserve">
+    <value>In the system, there is a resource with the same identifier. Please, enter a different value for ATS VCS before registering the route.</value>
+  </data>
+  <data name="ErrorEU_Existente" xml:space="preserve">
+    <value>In the system, there is an external device, a physical element or resource with the same identifier. Please, enter a different value.</value>
+  </data>
+  <data name="NumATSAgendaIncorrecto" xml:space="preserve">
+    <value>The ATS number, which you want to add to the Destinations book, is not correct.</value>
+  </data>
+  <data name="AvisoConfGrabadorDistintos" xml:space="preserve">
+    <value> Recorder 1 and Recorder 2 must be different. </value>
+  </data>
+  <data name="AvisoConfGrabadorMismaIp" xml:space="preserve">
+    <value>In the system, there is a Recorder with the same IP address {0}.</value>
+  </data>
+  <data name="AvisoSectorEnSectorizacion" xml:space="preserve">
+    <value>The sector {0} is assigned to one or several sectorizations. Before deleting the sector, you must release it.  </value>
+  </data>
+  <data name="AvisoAgrupacionExiste" xml:space="preserve">
+    <value>The group "{0}" already exists. Please, enter another identifier that is unique.</value>
+  </data>
+  <data name="AvisoAgrupacionConMismosSectoresExiste" xml:space="preserve">
+    <value>In the system, there is a group with the same set of sectors ({0}). Please, review the settings.</value>
+  </data>
+  <data name="EliminarEmplazamiento" xml:space="preserve">
+    <value> Do you want to remove the Site "{0}"?</value>
+  </data>
+  <data name="Cod127" xml:space="preserve">
+    <value>Successful operation on Ulises V 4000.</value>
+  </data>
+  <data name="Cod128" xml:space="preserve">
+    <value>An error occurred. This operation has not been possible on the Ulises V 4000.</value>
+  </data>
+  <data name="PanelLcCompleto" xml:space="preserve">
+    <value>Reciprocal user panel is complete</value>
+  </data>
+  <data name="AgrupacionNumMinSectores" xml:space="preserve">
+    <value>The group must have at least 2 sectors.</value>
+  </data>
+  <data name="EliminarZona" xml:space="preserve">
+    <value>Do you want to delete Zone: "{0}"?</value>
+  </data>
+  <data name="Cod100" xml:space="preserve">
+    <value>Core "{0}" registered correctly in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod101" xml:space="preserve">
+    <value>Error when Registering the Core "{0}" in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod102" xml:space="preserve">
+    <value>Core "{0}" deregistered correctly from the Ulises V 4000.</value>
+  </data>
+  <data name="Cod103" xml:space="preserve">
+    <value>Error when Deregistering the Core "{0}" from the Ulises V 4000. The Core has not been deleted.</value>
+  </data>
+  <data name="Cod104" xml:space="preserve">
+    <value>Sectorization "{0}" registered correctly in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod105" xml:space="preserve">
+    <value>Error when Registering the Sectorization "{0}" in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod106" xml:space="preserve">
+    <value>Sectorization "{0}" deregistered correctly from the Ulises V 4000.</value>
+  </data>
+  <data name="Cod107" xml:space="preserve">
+    <value>Error when Deregistering the Sectorization "{0}" from the Ulises V 4000. The Sectorization has not been deleted.</value>
+  </data>
+  <data name="Cod108" xml:space="preserve">
+    <value>Site "{0}" registered correctly in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod109" xml:space="preserve">
+    <value>Error when Registering the Site "{0}" in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod110" xml:space="preserve">
+    <value>Group "{0}" registered correctly in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod111" xml:space="preserve">
+    <value>Error when Registering the Group "{0}" in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod112" xml:space="preserve">
+    <value>Group "{0}" deregistered correctly from the Ulises V 4000.</value>
+  </data>
+  <data name="Cod113" xml:space="preserve">
+    <value>Error when Deregistering the Group "{0}" from the Ulises V 4000. The Group has not been deleted.</value>
+  </data>
+  <data name="Cod114" xml:space="preserve">
+    <value>Sector "{0}" registered correctly in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod115" xml:space="preserve">
+    <value>Error when Registering the Sector "{0}" in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod116" xml:space="preserve">
+    <value>Maximum number of Users exceeded in the Ulises V 4000. The User has not been Registered.</value>
+  </data>
+  <data name="Cod117" xml:space="preserve">
+    <value>Sector "{0}" deregistered correctly from the Ulises V 4000.</value>
+  </data>
+  <data name="Cod118" xml:space="preserve">
+    <value>Error when Registering the Sector "{0}" in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod119" xml:space="preserve">
+    <value>Position released successfully in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod120" xml:space="preserve">
+    <value>An error occurred. The position could not be released in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod121" xml:space="preserve">
+    <value>Positions exchanged correctly in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod122" xml:space="preserve">
+    <value>An error occurred. The positions could not be exchanged in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod123" xml:space="preserve">
+    <value>The sector was assigned correctly in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod124" xml:space="preserve">
+    <value>An error occurred. The sector could not be assigned in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod129" xml:space="preserve">
+    <value>Trunk "{0}" registered correctly in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod130" xml:space="preserve">
+    <value>Error when Registering the Trunk "{0}" in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod131" xml:space="preserve">
+    <value>The operation could not be carried out in the Ulises V 4000. The maximum number of trunks allowed has been reached.</value>
+  </data>
+  <data name="Cod132" xml:space="preserve">
+    <value>Network "{0}" registered correctly in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod133" xml:space="preserve">
+    <value>Error when Registering the Network "{0}" in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod134" xml:space="preserve">
+    <value>Error when Registering the Network "{0}" in the Ulises V 4000. No networks can be registered with this prefix.</value>
+  </data>
+  <data name="Cod135" xml:space="preserve">
+    <value>Operator "{0}" registered correctly in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod136" xml:space="preserve">
+    <value>Error when Registering the Operator "{0}" in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod137" xml:space="preserve">
+    <value>Operator "{0}" deregistered correctly from the Ulises V 4000.</value>
+  </data>
+  <data name="Cod138" xml:space="preserve">
+    <value>Error when Deregistering the Operator "{0}" from the Ulises V 4000.</value>
+  </data>
+  <data name="Cod139" xml:space="preserve">
+    <value>Operator "{0}" modified correctly in the Ulises V 4000.</value>
+  </data>
+  <data name="Cod140" xml:space="preserve">
+    <value>Error when modifying the Operator "{0}" in the Ulises V 4000.</value>
+  </data>
+  <data name="MismoEmplazamiento" xml:space="preserve">
+    <value>The resource "{0}" has the same site as resource "{1}". Not allowed in the Ulises V 4000.</value>
+  </data>
+  <data name="AvisoBorrarCentralIP_DestinosATS_LC" xml:space="preserve">
+    <value>In the system, there is some sector with ATS destinations configured in the Instantaneous access panel that use this IP VCS. If you delete the VCS {0}, the destinations will stop working. Do you want to continue?</value>
+  </data>
+  <data name="AvisoGuardarCentralIP_DestinosATS_LC" xml:space="preserve">
+    <value>In the system, there is some sector with ATS destinations configured in the Instantaneous access panel that use this SCV. For the destinations to work, the VCS {0} must be IP. Do you want to continue?</value>
+  </data>
+  <data name="CentralIPEliminada_DestinosATS_LC" xml:space="preserve">
+    <value>The user has deleted the IP VCS {0}, and in the system there are ATS destinations, configured in the hot line panel of some sector that use it, which will stop working.</value>
+  </data>
+  <data name="CentralIPModificada_DestinosATS_LC" xml:space="preserve">
+    <value>The user has modified the VCS {0} as non-IP VCS. So the ATS destinations, configured in the hot line panel that use it, will stop working.</value>
+  </data>
+  <data name="AvisoRecursoRadioCheckGrabacionED137" xml:space="preserve">
+    <value>The radio resource can not have the ED-137 Recording option selected, because the assigned gateway {0} has not configured recorders.</value>
+  </data>
+  <data name="MaximoNumeroEquiposExtCentralitaInterna" xml:space="preserve">
+    <value>In the system, only one internal telephony switchboard can be configured.</value>
+  </data>
+  <data name="DestinoLCENAsignadoEnPanelLC" xml:space="preserve">
+    <value>The destination {0} is assigned to the ATS destination {1} in the Instantaneous access panel of sector {2}. Please, release the destination before you delete it.</value>
+  </data>
+  <data name="DestinoRadioSinRecursosMN" xml:space="preserve">
+    <value>The destination radio {0} can not be assigned resources of type M + N, because the identifier does not have a correct ICAO format for the frequency type {1} .</value>
+  </data>
+  <data name="ErrorRecurso_Existente" xml:space="preserve">
+    <value>In the system, there is a radio or telephony resource with the same identifier. Please, enter a different value.</value>
+  </data>
+  <data name="NumAbonadoIncorrecto" xml:space="preserve">
+    <value>The ATS number is not correct.</value>
+  </data>
+  <data name="RangTiempoVueltaEmpDefecto" xml:space="preserve">
+    <value>The value of Time for coming back to default site must be between 10 y 120 seconds, or 0 to disable it.</value>
+  </data>
+  <data name="ToptSpvColl" xml:space="preserve">
+    <value>El rango para el Tiempo entre Options en Superv. Colateral debe de estar comprendido entre 1 y 19 segundos.</value>
+  </data>
+    <data name="MsgDestinoFDConMetodoBSSNoPermitido" xml:space="preserve">
+    <value>In "OC" destination mode , the BSS method "RSSI and NUCLEO" can not be selected if any of the allocated resources is a reception circuit that is not assigned to a gateway.</value>
+  </data>
+  <data name="ErrorTMSupLANNaN" xml:space="preserve">
+    <value>Maximun time waiting for GateWay must be a number.</value>
+  </data>
+  <data name="ErrorTMSupLANRange" xml:space="preserve">
+    <value>Maximun time waiting for GateWay must be between 1 and 5.</value>
+  </data>
+  <data name="ErrorTMSupLANValue" xml:space="preserve">
+    <value>Maximun time waiting for GateWay must have a value.</value>
+  </data>
+  <data name="ErrorTmDeteccionCallerIdNaN" xml:space="preserve">
+    <value>Error: Caller ID Detection Time value must be number.</value>
+  </data>
+  <data name="ErrorTmDeteccionCallerIdRange" xml:space="preserve">
+    <value>Error: Caller ID Detection Time must be between 1001 and 5000.</value>
+  </data>
+  <data name="ErrorTmDeteccionCallerIdValue" xml:space="preserve">
+    <value>Error: Caller ID Detection Time value should have a value.</value>
+  </data>
+  <data name="ErrorTMLANNaN" xml:space="preserve">
+    <value>Error: Supervision Time value must be a number.</value>
+  </data>
+  <data name="ErrorTMLANRange" xml:space="preserve">
+    <value>Error: Supervision Time must be between 90 y 1800.</value>
+  </data>
+  <data name="ErrorTMLANValue" xml:space="preserve">
+    <value>Error: Supervision Time should have a value.</value>
+  </data>
+  <data name="ErrorTmLlamadaEntranteNaN" xml:space="preserve">
+    <value>Error: Max Time Entry Call value must be number.</value>
+  </data>
+  <data name="ErrorTmLlamadaEntranteRange" xml:space="preserve">
+    <value>Error: Max Time Entry Call value must be between 1 and 60.</value>
+  </data>
+  <data name="ErrorTmLlamadaEntranteValue" xml:space="preserve">
+    <value>Error: Max Time Entry Call value should have a value.</value>
+  </data>
+  <data name="ErrorTmSupervisionOptionsNaN" xml:space="preserve">
+    <value>Error: Supervision  Options Time value must be a number.</value>
+  </data>
+  <data name="ErrorTmSupervisionOptionsRange" xml:space="preserve">
+    <value>Error: Supervision Options Time must be between 1 and 20.</value>
+  </data>
+  <data name="ErrorTmSupervisionOptionsValue" xml:space="preserve">
+    <value>Error: Supervision  Options Time dhould have a value.</value>
+  </data>
+  <data name="ErrorFiltroSpvRingNaN" xml:space="preserve">
+    <value>Error: Ring Supervision Filter value should be a number.</value>
+  </data>
+  <data name="ErrorFiltroSpvRingRange" xml:space="preserve">
+    <value>Error: Ring Supervision Filter must be between 1 and 6.</value>
+  </data>
+  <data name="ErrorFiltroSpvRingValue" xml:space="preserve">
+    <value>Error: Ring Supervision Filter must have a value.</value>
+  </data>
+  <data name="ErrorPeriodoSpvRingNaN" xml:space="preserve">
+    <value>Error: Ring Supervision Period value should be a number.</value>
+  </data>
+  <data name="ErrorPeriodoSpvRingRange" xml:space="preserve">
+    <value>Error: Ring Supervision Period must be between 50 and 400.</value>
+  </data>
+  <data name="ErrorPeriodoSpvRingValue" xml:space="preserve">
+    <value>Error: Ring Supervision Period must have a value.</value>
+  </data>
+  <data name="ErrorTmDetFinLlamadaNaN" xml:space="preserve">
+    <value>Error: Call Ended DetectionTime value should be a number.</value>
+  </data>
+  <data name="ErrorTmDetFinLlamadaRange" xml:space="preserve">
+    <value>Error: Call Ended DetectionTime must be between 1 and 8.</value>
+  </data>
+  <data name="ErrorTmDetFinLlamadaValue" xml:space="preserve">
+    <value>Error: Call Ended DetectionTime must have a value.</value>
+  </data>
+  <data name="ErrorTReleaseBLNaN" xml:space="preserve">
+    <value>Error: BL Release Time value should be a number.</value>
+  </data>
+  <data name="ErrorTReleaseBLRange" xml:space="preserve">
+    <value>Error: BL Release Time must be between 1 and 10.</value>
+  </data>
+  <data name="ErrorTReleaseBLValue" xml:space="preserve">
+    <value>Error: BL Release Time must have a value.</value>
+  </data>
+  <data name="RecursoDestinoLCENAsignadoEnPanelLC" xml:space="preserve">
+    <value>The resource {3} can not be deleted. The destination {0} is assigned to the ATS destination '{1}' in the Instantaneous access panel of sector {2}. Please, release the destination before you delete it.</value>
+  </data>
+</root>

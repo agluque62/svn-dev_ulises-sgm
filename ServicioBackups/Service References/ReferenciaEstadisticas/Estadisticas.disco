@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://localhost:1885/Estadisticas/Estadisticas.asmx?wsdl" docRef="http://localhost:1885/Estadisticas/Estadisticas.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost:1885/Estadisticas/Estadisticas.asmx" xmlns:q1="http://CD40.es/" binding="q1:EstadisticasSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost:1885/Estadisticas/Estadisticas.asmx" xmlns:q2="http://CD40.es/" binding="q2:EstadisticasSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

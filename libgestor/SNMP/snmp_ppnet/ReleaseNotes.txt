@@ -1,0 +1,440 @@
+SNMP++.NET Release Notes:
+
+v. 1.21
+Changes and fixes:
+- SNMP++.NET now requires SNMP++ 3.2.21 or newer.
+- Snmp::NotifyListenPort is now an instance (non-static) property (this
+  follows a similar change in the SNMP++ interface).
+New features:
+- the PrivProtocol enum has an additional value, DES3, which denotes 3DES.
+  This reflects a new feature in SNMP++.
+Comments:
+- none.
+-------------------------------------------------------------------------------
+
+v. 1.20
+Changes and fixes:
+- SNMP++.NET has been now converted to the new C++ for .NET 2.0. The
+  code is quite fresh so the release should in fact be treated as beta.
+New features:
+- added two read-only properties to the Pdu class: V1GenericTrap and
+  V1SpecificTrap. They are helper properties that extract generic-trap
+  and specific-trap values from NotifyId as specified in RFC-2576,
+  section 3.2. Note that for simplicity, the return type is int (not
+  the unsigned int type), which could be insufficient for some huge
+  specific-trap values.
+Comments:
+- there have been lots of changes in VS 2005 and C++ for .NET 2.0.
+  When compiling SnmpComp.cpp, you notice a number of compiler C4461
+  warnings:
+  
+  'type' : this class has a finalizer 'finalizer' but no destructor 'dtor'
+  
+  This is a design choice - maybe right, maybe wrong. There are some
+  native resources to delete (native memory blocks), yes, but users
+  should not bother doing this. A long-time development goal is to
+  rewrite the library so that it only used managed types and employed
+  SNMP++ only during SNMP operations. This would remove all the issues
+  related with native memory freeing. However, honestly speaking, if
+  the library's performance is satisfying, and currently it seems to
+  be (at least with memory manager tricks), I am not going to do it
+  for some time. Thus, at present, all "lightweight" objects do not
+  derive from IDisposable and things will stay this way.
+- LNK4243 link warning should be gone with .NET 2.0. For confirmation,
+  see http://msdn2.microsoft.com/en-us/ms173266.aspx
+- project files for VS 2003 have been removed and will not be supported.
+-------------------------------------------------------------------------------
+
+v. 1.16
+Changes and fixes:
+- corrected Vb.Create(): SnmpSyntax name was incorrectly mapped to the
+  type. This caused the command line tool (SnmpManager) work incorrectly
+  for the set operation. Thanks to Tony Koehn for reporting.
+- Snmp.NotifyListenPort is now a static property
+- GetHashValue() methods have been renamed to GetHashCode()
+New features:
+- none
+Comments:
+- It is interesting that in the managed C++ !expr is not the same as
+  expr != 0. One could suspect this, as there is no type conversion
+  from int to bool (in managed code). However, there was not even a
+  warning issued by the compiler! See line 1176 in MSnmpcomp.cpp for
+  details (the static constructor for the SnmpSyntax class) - it was
+  !String::Compare(...), which caused the problem.
+-------------------------------------------------------------------------------
+
+v. 1.15
+Changes and fixes:
+- small code and project files updates for SNMP++ v. 3.2.17
+New features:
+- none
+Comments:
+- SNMP++ v. 3.2.17 now required although you still can use a previous
+  version after small manual changes (look for "3.2.17" in SnmpComp.cpp).
+-------------------------------------------------------------------------------
+
+v. 1.14
+Changes and fixes:
+- SNMP++ 3.2.15 is now required by SNMP++.NET 1.14 as it uses a number
+  of new features (improved error reporting in Pdu class)
+- added calls to GC::KeepAlive() in multiple places (either directly or
+  through GCReturn* templates) to protect from a possible scenario when
+  a managed object is collected and finalized while underlying unmanaged
+  object is still in use (e.g., is passed to an unmanaged function)
+- removed MT-unsafe calls to get_printable*() functions in  ::SnmpSyntax
+  and derived classes. get_printable() is now called on a temporary copy
+  (see SafePrintable* templates) or has completely been replaced with own
+  implementations. Note: Counter64.ToString() now always returns a decimal
+  number
+- IpAddress.FriendlyName now uses the .NET Dns class (due to doubts about
+  MT-safety of the unmanaged implementation)
+- Pdu::EndInvoke() does not create a WaitHandle any more even if it has
+  to wait for completion - see CallbackData::WaitForCompletion()
+- small corrections and changes in the SnmpManager example (e.g., it is
+  now possible to specify the process priority as a command line option)
+New features:
+- added constructors UdpAddress(IPEndPoint*) and GenAddress(IPEndPoint*)
+- added conversion operator (implicit) (IPaddress) IpAddress
+- added property Snmp.BuildTime (the build date & time of the assembly)
+- added Oid.MaxLength field (the maximum OID length in SNMP)
+Comments:
+- it is possible that aggressive optimization dictates the GC to collect
+  and finalize a managed SNMP++.NET object while its underlying unmanaged
+  SNMP++ object is still in use. Yes, this means that 'this' is not a GC
+  root and that the currently "executing" managed object (an object on
+  which a method is being called) may be collected and finalized before
+  the method returns. For a more detailed explanation, see
+  http://blogs.msdn.com/cbrumme/archive/2003/04/19/51365.aspx
+  http://www.gotdotnet.com/team/fxcop/Docs/Rules/SecurityRules/IntptrAndFinalize.html
+  
+  What does it mean? Well, as long as unmanaged resources are in use, the
+  object's lifetime must be sustained, e.g., with calls to GC::KeepAlive().
+  Thus, even such trivial methods as
+  
+  	__property int get_Length() {
+		return dynamic_cast<const ::Oid&>(WrappedRef()).len();
+	}
+
+  should be modified to:
+
+  	__property int get_Length() {
+		int temp = dynamic_cast<const ::Oid&>(WrappedRef()).len();
+		GC::KeepAlive(this);
+		return temp;
+	}
+
+  to protect from a scenario when the object is finalized during a call
+  to unmanaged code. I have done some tests and could not make GC exhibit
+  this behavior. But this does not mean that the problem is unlikely, of
+  course, and it may happen in the current or a next .NET version.
+- calls to get_printable*() use an internal buffer. Thus, they are mostly
+  MT-unsafe, even for immutable (const) objects (some of these functions,
+  the simpler ones, could be safe but it depends on implementation and may
+  even depend on the behavior of library functions). Additionally, these
+  functions for ::Oid and ::OctetStr classes allocate and keep buffers,
+  which are unnecessary and waste memory.
+
+  A safe approach is to call these functions on a copy, e.g.,
+
+      ::OctetStr os(m_os);
+      return os->get_printable();	// called on a copy of m_os
+
+  This is the approach employed by SafePrintable* templates, although
+  the actual implementation is a bit more complex as error checks are
+  made.
+- due to (former) problems with MT-safety and possible performance hits
+  caused by finalizers, and also the fact that the "plumbing code" has
+  become so complex, for a next major release I consider rewriting Pdu,
+  Vb and all SnmpSyntax classes in purely managed code. Then, for e.g.
+  Snmp.Invoke(), an unmanaged Pdu object would be created on demand, on
+  the stack. Unfortunately, all these classes must be rewritten together
+  and some care must be taken not to introduce bugs. Thus, such a change
+  will have to wait.
+-------------------------------------------------------------------------------
+
+v. 1.13 [update]
+Changes and fixes:
+- it seems that the original version 1.13 was released a bit too early; in
+  this update, I have commented out the warning 'DLL already terminated',
+  as it was annoying (you can uncomment it if you need to experiment a bit).
+- C++ walk example fixed (thanks to Heinz Wirtz)
+- C++ walk example project fixed; exe's are now placed where they should be
+- in VS.NET, SnmpManager now outputs binaries to Debug or Release subdirs
+- fixed some configuration mess in VSOLD.NET & VS.NET
+New features:
+- Snmp_ppVerify.bat added to quickly verify that examples compiled in a
+  given configuration work.
+  Usage:
+  Snmp_ppVerify <SolutionDir> {Debug|Release} <SnmpAgent>
+  Example:
+  Snmp_ppVerify VS.NET Release 127.0.0.1
+  (after you have created SNMP++.NET in the Release mode, of course)
+Comments:
+- none
+-------------------------------------------------------------------------------
+
+v. 1.13
+Changes and fixes:
+- the CRT namespace moved to Org::Snmp::Snmp_pp in order to avoid possible
+  conflicts with other DLLs
+- changes in Dispose(bool), which are aiming at providing some protection
+  against problems with automatic DLL termination - see the DELETE_NATIVE
+  macro and the CRT namespace, and also the comments below (thanks to Fred
+  Stevens for pointing this issue up)
+- small changes in the SnmpManager example, to demonstrate differences in
+  GC behavior in the Debug and Release mode
+- VSNET.NET (the solution with LNK4243 fixed) renamed to VS.NET and VS.NET
+  (the old solution that ignores the warning) renamed to VSOLD.NET.
+New features:
+- none
+Comments:
+- A number of small fixes have been added to ease DLL termination. The DLL
+  should only be terminated when all managed SNMP++.NET objects have been
+  finalized and appropriate unmanaged destructors have been run. However,
+  this is impossible to assure. In the Debug mode, one could effectively
+  enforce garbage collection and finalization. In the Release mode, though,
+  the GC is lazy and does not collect objects. This is so bad news because
+  statics may be collected and finalized *before* normal objects (yes, this
+  means that the DLL may be terminated before all its objects are deleted),
+  and it may happen when the application domain or the runtime is shutting
+  down. The fix relies on a global flag, which is set to false when the DLL
+  is to be shut down; in such a case, delete statements will not be executed,
+  and NullReferenceExceptions will be avoided. Additionally, in the Debug
+  mode, a warning will be displayed (I am not sure whether this will really
+  be useful; should only be if a reliable means to trigger GC in the Release
+  mode appears in the future).
+
+  Summarizing, the following mechanisms are currently implemented to manage
+  the DLL termination problem:
+  - MemoryManager.Count returns the number of unmanaged objects; a value
+    of 0 is only reliable when all SNMP activities have been terminated
+    (e.g., the listening thread has been terminated)
+  - a global flag (Org::Snmp::Snmp_pp::CRT::g_dllUp) is cleared when the
+    DLL is terminated; in such a case, delete statements for unmanaged
+    objects will not be called during finalization.
+
+  The following should be kept in mind about DLL termination:
+  - manual termination may only be safely performed if MemoryManager.Count
+    equals 0 and there are no further SNMP activities; this is because no
+    locking is used to prevent the termination occuring concurrently with
+    delete statements in finalizers
+  - the only way to enforce the deletion of unmanaged objects is to employ
+    a MemoryManager in every thread that uses the library *and* not to use
+    the listening thread, which may produce objects in the background
+  - automatic (GC-based) termination is performed at application domain or
+    runtime shutdown (Environment.HasShutdownStarted) and is safe even if
+    there are still objects waiting for finalization (finalization occurs
+    on a dedicated thread; there is no concurrency here, so the DLL cannot
+    be terminated while a destructor is being run)
+  - automatic termination seems to be both safer and more convenient.
+
+  Phew... That's all for now, Happy New Year!
+-------------------------------------------------------------------------------
+
+v. 1.12
+Changes and fixes:
+- return type for UdpAddress.Port() and IpxSockAddress.Socket() is now
+  int (instead of unsigned short), to make them CLS-compliant.
+  Properties Pdu.MaxSizeScopedPdu, Pdu.NonRepeaters and Pdu.MaxRepetitions
+  were changed from unsigned int to int.
+- fixed a bug in TimeTicks (::SnmpUInt32 instead of ::TimeTicks was created
+  as the underlying native SNMP++ object). (thanks to Henrik Puls)
+New features:
+- A number of CLS compliant constructors, methods and properties added
+  in many classes using unsigned types; new additions use Int64 (C++'s
+  long long) type with values matching UInt32. Parameterless methods and
+  properties have AsInt64 suffix. Note that Counter64 also uses Int64.
+Comments:
+- Return type/property type changes: These methods/properties did not use
+  the full range of unsigned int, so this change is safe. This seems to be
+  a simpler approach than prividing a separate set of methods/properties,
+  although it may require slight code changes. Note: an attempt to set a
+  property to a negative value will throw ArgumentException.
+- Counter64: as for counters only comparison/subtraction make sense, it
+  is more convenient to have its value returned as (CLS-compliant) Int64
+  than to have two separate 'high'/'low' values.
+- I believe that currently all non-CLS-compliant features have their CLS-
+  compliant counterparts but specifying the [CLSCompliant(true)] attribute
+  for the component assembly seems to not work in Managed C++, so I cannot
+  be sure. If you find a non-compliant feature without an alternative, let
+  me know.
+-------------------------------------------------------------------------------
+
+v. 1.11
+Changes and fixes:
+- C++'s volatile seems to be a bit slippery as it does not offer the same
+  functionality as .NET's volatile. Thus, 'volatile' has been dropped for
+  all unmanaged fields. Instead, explicit .NET locks are used. See:
+  http://blogs.msdn.com/brada/archive/2004/05/12/130935.aspx
+- corrected a bug in one of internal OctetStr constructors (a reference to
+  a released memory; yes, this is unmanaged C++ ;-)).
+- fixed UdpAddress::Ip.
+- a small fix to the heuristics employed by TableReader.GetTable(); header
+  sizes have been corrected for various SNMP versions.
+New features:
+- none
+Comments:
+- none
+-------------------------------------------------------------------------------
+
+v. 1.10
+Changes and fixes:
+- an important change in the interface: all Count/Length properties return
+  int instead of unsigned int, similarly, indexers take int-type parameter
+  rather than unsigned int.  This change makes the API more compliant with
+  standard libraries (e.g., string.Length, Hashtable.Count, string[], etc.).
+  Similar change has been made in Oid.Compare(), Oid.Trim(), Oid.TrimLeft()
+  and Snmp.PendingInvokes. Note that SNMP++ is not too consistent here, as
+  lengths for OctetStr and Oid are unsigned long, int otherwise.
+- the string conversion module (MConversion.h/MConversion.cpp) now uses
+  the recommended approach with Marshal.StringToHGlobalAnsi()
+- the component is now compiled with /d1PrivateNativeTypes option;
+  SNMP++ (native) classes no more trash the global (::) namespace
+  - see http://support.microsoft.com/default.aspx?scid=kb;en-us;822330
+New features:
+- LNK4243 warning is now gone with a new solution, VSNEW.NET (contributed
+  by Fred Stevens). The previous one, VS.NET, will be kept for some time.
+- added two convenient Pdu constructors that operate on Oid's rather than
+  Vb's and should be more efficient in case of empty Vb's
+- added Clone() methods for cloning targets
+- added two static properties for debugging configuration: Snmp.DebugLogFile
+  and Snmp.DebugLogLevel; SnmpManager now supports two additional options
+  (-D...)
+Comments:
+- the solution in VSNEW.NET contains the way of fixing LNK4243 warning,
+  as recommended by Microsoft. Microsoft says that with this fix, future
+  releases of .NET Framework will guarantee problemless initialization
+  for mixed-mode components.
+  Before any action takes place, the following block should be declared:
+
+#if REQUIRES_CRT_INIT
+    CRT.Auto.Initialize();
+#endif
+
+  A usual place is the beginning of Main() but I think a better place would
+  be a static class constructor (of the class where Main() is defined). This
+  guarantees that SNMP++.NET will not be involved earlier.
+-------------------------------------------------------------------------------
+
+v. 1.04
+Changes and fixes:
+- SNMP++ 3.2.14 now required by SNMP++.NET to compile (it relies on new
+  features)
+- fixed a bug in the component code, which caused that asynchronous calls
+  did not throw exceptions for error-status in Pdu not equal to Success
+- fixed handling of SNMPv1 end-of-MIB (noSuchName) in TableReader
+- added support for (incorrect) SNMP agents that return NULL values in
+  TableReader (as suggested by Fred Stevens, thanks)
+- changes and new functionality in the Snmp class:
+  The Snmp class now provides  a dedicated dispatching thread for async
+  operations. There is no more need to start a dedicated thread calling
+  Snmp.ProcessEvents(), as the background dispatcher,  if enabled, will
+  do it for you. The class' constructors require an additional argument,
+  which specifies whether the dispatcher should be started.  This means
+  that existing code needs to be changed  - but I think that this not a
+  real problem, and the additional functionality is worth the effort.
+  Also see below (New features).
+- simplified SnmpManager example: removed calls to Snmp.ProcessEvents()
+  and corrected some mess (which resulted from various usage scenarios);
+  asynchronous tables retrieval now supported by the example
+- also updated other examples (Snmp object creation)
+New features:
+- added Snmp.StartAsyncDispatcher() and an additional argument to Snmp
+  class constructors.  The method and the argument allow Snmp to start
+  a background dispatching thread for the asynchronous interface (async
+  responses and notifications). The thread may be terminated explicitly,
+  by Snmp.StopAsyncDispatcher(), or implicitly, when a using (Snmp) {}
+  block is terminated (and Snmp.Dispose() is called).
+- added an option for TableReader.GetTable() to use either synchronous
+  or asynchronous interface internally for synchronous tables retrieval
+  (refer to TableReader.UseAsyncInvoke()).
+- added truly asynchronous mode for tables retrieval
+  (TableReader.BeginGetTable()/EndGetTable())
+- added OctetStr.OutputType enum and OctetStr.OutputType property (which
+  follows a new SNMP++ 3.2.14 feature)
+Comments:
+- assuming there are not any obvious and trivial bugs in my measurements,
+  the asynchronous interface seems to be significantly faster, especially
+  for larger number of threads sending requests to a local agent. This
+  may be caused by SNMP++ implementation, in which synchronous threads
+  spend some time actively searching a response queue.
+  Try enable and disable the -Xa or -Xs options in SnmpManager for larger
+  number of repetitions and larger number of threads. For remote agent or
+  for a single thread, the difference may be slight but for larger loads
+  the asynchronous interface is faster.
+-------------------------------------------------------------------------------
+
+v. 1.03
+Changes and fixes:
+- corrected Pdu.Clone(), now pduType is set (Fred Stevens)
+- improved memory management: no more potentially dangerous bare unmanaged
+  pointers in constructors; auto_ptr<T>s used in all such places
+- Address.CompareTo() now compares addresses on a byte-by-byte manner
+- WaitHandle is now Close()d
+New features:
+- added RowStatus enumeration; operations on SNMP RowStatus still rely on
+  SnmpInt32 but now this enum can be used, e.g., as in this example (C#):
+
+  SnmpInt32 rowStatus = new SnmpInt32((int) RowStatus.CreateAndGo);
+
+- added Manager.GetHeapsMemory() (moved code from SnmpManager)
+Comments:
+- memory usage tracing seems to be ok now after code has been moved to C++
+  ("It Just Works" in place of P/Invoke)
+-------------------------------------------------------------------------------
+
+v. 1.02
+Changes and fixes:
+- added code to improve reliability, e.g., checks if SNMP++'s += operators
+  succeeded
+- corrected OBJECT_CREATED/OBJECT_DISPOSED macros, which now use a pointer
+  to correctly track the number of created objects
+- Snmp.DefaultBulkMaxRepetitions property removed from API (was unused)
+- UTarget.EngineId property was finally made MT-safe
+- Oid.Trim(int) changed to Oid.Trim(unsigned int) (as is in SNMP++)
+- code review and a number of small fixes in comments
+New features:
+- TableReader component that enables SNMP table retrievals (SnmpManager now
+  supports this operation and accepts a number of additional parameters)
+- Oid.TrimLeft() method added to ease extracting row indexes
+Comments:
+- memory usage tracing is error-prone; locking may cause SnmpManager to hang
+  and not locking sometimes causes mysterious null pointer exceptions
+- currently, TableReader internally uses the synchronous interface, which is
+  a lot slower that the asynchronous one; in the near future, both options
+  will be available
+-------------------------------------------------------------------------------
+
+v. 1.01:
+Changes:
+- minor API changes in the Pdu class (two constructors for a GetBulk request
+  removed, added GetBulk-related properties instead)
+- as noted in comments, the Pdu class is the only MT-unsafe SNMP++.NET class
+  and generally should not be shared among threads
+- all is now converted to .NET Framework 1.1 and Visual Studio .NET 2003;
+  examples required a few minor changes
+New features:
+- none
+Comments:
+- during component build, the compiler displays the following warning:
+  
+  LINK : warning LNK4243: DLL containing objects compiled with /clr is not
+  linked with /NOENTRY; image may not run correctly
+  
+  the warning is related to a bug in Framework 1.0 and 1.1, which may lead
+  to a deadlock when a mixed-mode component DLL is loaded - see explanation
+  in
+  
+  http://msdn.microsoft.com/library/default.asp?url=/library/en-us
+  /dv_vstechart/html/vcconMixedDLLLoadingProblem.asp).
+  
+  (A mixed-mode component contains both managed and unmanaged code and the
+  latter requires initialization due to static variables/fields.) Currently,
+  please ignore the warning and try to load SNMP++.NET at application startup
+  (e.g., by calling a static method). I am working on a solution as advised in
+  
+  http://support.microsoft.com/?id=814472
+
+Marek Malowidzki
+republika.pl/maom_onet/
+maom_onet@poczta.onet.pl

@@ -1,0 +1,30 @@
+/* Estilo para mostrar espera mientras se realiza la conmutacion del cluster*/
+#initloader {
+  position: absolute;
+  margin-top: 2px;
+  background-color: white;
+  z-index: 500;
+  display: none;
+}
+
+#Desactivador {
+  position: absolute;
+  margin-top: 0px;
+  background-color: transparent;
+  width:  1200px;
+  height: 1200px;  
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  margin: 400px 0 0 450px;  
+
+  background-image: url('../Images/progress.gif');
+  background-repeat: no-repeat;
+  background-size: 90% 90%;
+  
+}

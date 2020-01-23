@@ -1,0 +1,22 @@
+﻿Strings = {
+"Nodo1_A_Nodo2_NA": "Équipement 1 ACTIF, Équipement 2 PAS ACTIF",
+"Nodo1_A_Nodo2_NA_Click": "Équipement 1 ACTIVE, Équipement 2 PAS ACTIF. Cliquez pour activer/désactiver",
+"Nodo1_NA_Nodo2_A_Click": "Équipement 1 PAS ACTIVE, Équipement 2 ACTIF. Cliquez pour activer/désactiver",
+"Nodo1_NA_Nodo2_A": "Équipement 1 PAS ACTIVE, Équipement 2 ACTIF",
+"Nodo1_A_Nodo2_P": "Équipement 1 ACTIF, Équipement 2 ARRÊTÉ. Il n'est pas possible de passer.",
+"Nodo1_P_Nodo2_A": "Équipement 1 ARRÊTÉ, Équipement 2 ACTIF. Il n'est pas possible de passer.",
+"Nodo1_P_Nodo2_P": "Équipement 1 ARRÊTÉ, Équipement 2 ARRÊTÉ. Il n'est pas possible de passer.",
+"Error_Nodo_1": "ERREUR DANS LE CLUSTER. REDÉMARREZ LE Équipement 1",
+"Error_Nodo_2": "ERREUR DANS LE CLUSTER. REDÉMARREZ LE Équipement 2",
+"Error_Cluster": "ERREUR DANS LE CLUSTER. S'il persiste redémarrez les Équipements",
+"Adaptador": "Adaptateur",
+"Desde": "De",
+"Seguro_Conmutar": "Êtes-vous sûr de que vous voulez passer du Équipement actif ?",
+"Estado": "État",
+"Nodo": "Équipement",
+"No_Funcional": "Pas fonctionnel",
+"Activando_Nodo": "Activant équipement",
+"Activo": "Actif",
+"No_Activo": "Pas actif",
+"No_Operativo": "Pas operational"
+};
