@@ -1291,7 +1291,7 @@ namespace Sacta
             if ((_ActivityState & 0x2) == 0x2)
                 _socket.Send(_EndPoint[1], (new SactaMsg(SactaMsg.MsgType.SectAsk, 0, _SeqNum)).Serialize());
 
-            _SeqNum = (_SeqNum + 1) & 0x1FFF;
+            _SeqNum = _SeqNum >= 287 ? 0 : _SeqNum + 1; // (_SeqNum + 1) & 0x1FFF;
 
             Log(false, System.Reflection.MethodBase.GetCurrentMethod().Name, "Mensaje SECTASK enviado...");
 #else
@@ -1315,7 +1315,7 @@ namespace Sacta
             if ((_ActivityState & 0x2) == 0x2)
                 _socket.Send(_EndPoint[1], (new SactaMsg(SactaMsg.MsgType.SectAnwer, 0, _SeqNum, (int)version, (result == 0 ? 1 : 0))).Serialize());
 
-            _SeqNum = (_SeqNum + 1) & 0x1FFF;
+            _SeqNum = _SeqNum >= 287 ? 0 : _SeqNum + 1; // _SeqNum = (_SeqNum + 1) & 0x1FFF;
 
             Log(false, System.Reflection.MethodBase.GetCurrentMethod().Name, "Mensaje SectAnswer enviado...");
 #else
@@ -1340,7 +1340,7 @@ namespace Sacta
             if ((_ActivityState & 0x2) == 0x2)
                 _socket.Send(_EndPoint[1], (new SactaMsg(SactaMsg.MsgType.Presence, 0, _SeqNum)).Serialize());
 
-            _SeqNum = (_SeqNum + 1) & 0x1FFF;
+            _SeqNum = _SeqNum >= 287 ? 0 : _SeqNum + 1; // _SeqNum = (_SeqNum + 1) & 0x1FFF;
 
             Log(false, 
                 System.Reflection.MethodBase.GetCurrentMethod().Name, 
