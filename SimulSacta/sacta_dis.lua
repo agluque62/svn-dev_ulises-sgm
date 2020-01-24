@@ -7,7 +7,7 @@ function sacta35_proto.dissector(buffer,pinfo,tree)
 	ttipos = {[0]="Inicio Secuencia",[707]="Peticion Sectorizacion",[710]="Resultado Sectorizacion", [1530]="Presencia",[1632]="Orden de Sectorizacion"}
 -- En la lista ONLINE	
 	pinfo.cols.protocol = "SACTA35"
-	pinfo.cols.info = buffer(0,1):uint() .."-"..buffer(1,1):uint().."-"..buffer(2,2):uint().." => "..buffer(4,1):uint() .."-"..buffer(5,1):uint().."-"..buffer(6,2):uint()..": "..ttipos[buffer(10,2):uint()]
+	pinfo.cols.info = "("..buffer(12,2):uint() ..")-"..buffer(0,1):uint() .."-"..buffer(1,1):uint().."-"..buffer(2,2):uint().." => "..buffer(4,1):uint() .."-"..buffer(5,1):uint().."-"..buffer(6,2):uint()..": "..ttipos[buffer(10,2):uint()]
 --  Decodificar el HEADER.	
 	local subtree    = tree:add(sacta35_proto,buffer(),"Mensaje SACTA V3.5")
 	subtree:add(buffer(10,2),"" .. ttipos[buffer(10,2):uint()])
