@@ -29,8 +29,14 @@ public partial class TFTRadio :	PageBaseCD40.PageCD40	// System.Web.UI.Page
             return _logDebugView;
         }
     }
-    private static int NumPaginas;
-    private static int NumPosicionesPag;
+    private static uint NumPaginas;
+    private static uint NumPosicionesPag;
+    // Número de columnas fijas en la cuadrícula gráfica
+    private const uint NUM_COLUMNAS_FIJAS = 5;
+    private const uint NUM_FILAS_FIJAS = 4;
+    private static uint NumColumnasVisibles = NUM_COLUMNAS_FIJAS;
+    private static uint NumFilasVisibles = NUM_FILAS_FIJAS;
+    private const uint MAX_FREC_PAG = NUM_COLUMNAS_FIJAS * NUM_FILAS_FIJAS;
     private static uint numPagActual = 0;
 	private static bool Modificando = false;
 	static bool PermisoSegunPerfil;
@@ -135,8 +141,28 @@ public partial class TFTRadio :	PageBaseCD40.PageCD40	// System.Web.UI.Page
 			ServiciosCD40.Tablas[] d = ServicioCD40.ListSelectSQL(t);
 			if (d.Length > 0)
 			{
-				NumPaginas = (int)((ServiciosCD40.ParametrosSector)d[0]).NumPagFrec;
-				NumPosicionesPag = (int)((ServiciosCD40.ParametrosSector)d[0]).NumFrecPagina;
+				NumPaginas = ((ServiciosCD40.ParametrosSector)d[0]).NumPagFrec;
+				NumPosicionesPag = ((ServiciosCD40.ParametrosSector)d[0]).NumFrecPagina;
+                if (NumPosicionesPag > 12)
+                {
+                    NumColumnasVisibles = 5;
+                    if (NumPosicionesPag < 16) NumFilasVisibles = 3;
+                }
+                else if (NumPosicionesPag > 9)
+                {
+                    NumColumnasVisibles = 4;
+                    NumFilasVisibles = 3;
+                }
+                else if (NumPosicionesPag > 4)
+                {
+                    NumColumnasVisibles = 3;
+                    NumFilasVisibles = 3;
+                }
+                else
+                {
+                    NumColumnasVisibles = 2;
+                    NumFilasVisibles = 2;
+                }
 			}
 		}
 		catch (Exception ex)
@@ -144,6 +170,22 @@ public partial class TFTRadio :	PageBaseCD40.PageCD40	// System.Web.UI.Page
 			logDebugView.Error("(TFTRadio-CargaParametrosPanel): ", ex);
 		}
 	}
+
+    private uint CalculatePosHmi(uint buttonIndex)
+    {
+        uint fila = ((uint)buttonIndex - 1) / NUM_COLUMNAS_FIJAS; //0..NUM_COLUMNAS_FIJAS
+        uint columna = ((uint)buttonIndex - 1) % NUM_COLUMNAS_FIJAS; //0..NUM_COLUMNAS_FIJAS
+
+        return fila * NumColumnasVisibles + columna + 1 + ((numPagActual - 1) * NumPosicionesPag);
+    }
+    private uint CalculatePosButton(uint posHmi)
+    {
+        //pos HMI 1...NumPosicionesPag*Num pag
+        uint fila = ((posHmi - 1) % (uint)NumPosicionesPag) / NumColumnasVisibles;
+        uint columna = ((posHmi - 1) % (uint)NumPosicionesPag) % NumColumnasVisibles; //0..NUM_COLUMNAS_FIJAS
+
+        return fila * NUM_COLUMNAS_FIJAS + columna + 1;
+    }
 
     protected void IButPagArriba_Click(object sender, ImageClickEventArgs e)
     {
@@ -214,8 +256,8 @@ public partial class TFTRadio :	PageBaseCD40.PageCD40	// System.Web.UI.Page
     {
         try
         {
-            int posini = ((int)(numPagActual - 1) * NumPosicionesPag) + 1;
-            int posfin = posini + NumPosicionesPag - 1;
+            uint posini = ((numPagActual - 1) * NumPosicionesPag) + 1;
+            uint posfin = posini + NumPosicionesPag - 1;
 
             if (datosRadio != null)
             {
@@ -224,9 +266,7 @@ public partial class TFTRadio :	PageBaseCD40.PageCD40	// System.Web.UI.Page
                     uint pos = ((ServiciosCD40.DestinosRadioSector)datosRadio[i]).PosHMI;
                     if ((pos >= posini) && (pos <= posfin))
                     {
-                        uint posenpanel = ((ServiciosCD40.DestinosRadioSector)datosRadio[i]).PosHMI;
-                        if (posenpanel > NumPosicionesPag)
-                            posenpanel -= ((numPagActual - 1) * (uint)NumPosicionesPag);
+                        uint posenpanel = CalculatePosButton(pos);
                         Button ibut = (Button)TEnlacesRadio.FindControl("Button" + posenpanel.ToString());
                         TextBox tbox = (TextBox)TEnlacesRadio.FindControl("TextBox" + posenpanel.ToString());
                         //ibut.ImageUrl = "~/Configuracion/Images/BotonEnlaceExternoAs.jpg";
@@ -247,12 +287,24 @@ public partial class TFTRadio :	PageBaseCD40.PageCD40	// System.Web.UI.Page
 
     private void LimpiarPanel()
     {
-        for (int i = 1; i <= NumPosicionesPag; i++)
+        int visibleCount = 0;
+        for (int i = 1; i <= NumFilasVisibles * NUM_COLUMNAS_FIJAS; i++)
         {
 			TableCell tCell = (TableCell)TEnlacesRadio.FindControl("TableCell" + i.ToString());
 			if (tCell != null)
 			{
-				tCell.Visible = true;
+                int fila = (i - 1) / (int)NUM_COLUMNAS_FIJAS; //0..NUM_COLUMNAS_FIJAS
+                int columna = (i - 1) % (int)NUM_COLUMNAS_FIJAS; //0..NUM_COLUMNAS_FIJAS
+                if ((fila <= NumFilasVisibles) && (columna < NumColumnasVisibles))
+                {
+                    tCell.Visible = true;
+                    if (++visibleCount <= NumPosicionesPag)
+                        tCell.Enabled = true;
+                    else tCell.Enabled = false;
+                }
+                else
+                    tCell.Visible = false;
+
 				Button ibut = (Button)TEnlacesRadio.FindControl("Button" + i.ToString());
 				TextBox tbox = (TextBox)TEnlacesRadio.FindControl("TextBox" + i.ToString());
                 //ibut.ImageUrl = "~/Configuracion/Images/BotonEnlaceExterno.jpg";
@@ -271,8 +323,7 @@ public partial class TFTRadio :	PageBaseCD40.PageCD40	// System.Web.UI.Page
         if (ibut.CssClass != "BtnPanelRadioAsignado")
             DesasignarDestino(id);
 	
-		uint posicion = UInt16.Parse(id.Replace("Button", "")) +
-									(uint)((numPagActual - 1) * NumPosicionesPag);
+		uint posicion = CalculatePosHmi(UInt16.Parse(id.Replace("Button", "")));
 		ServiciosCD40.DestinosRadioSector elemento = (ServiciosCD40.DestinosRadioSector)Array.Find(datosRadio,
 														delegate(object d) { return ((ServiciosCD40.DestinosRadioSector)d).PosHMI == posicion; });
 
@@ -331,8 +382,7 @@ public partial class TFTRadio :	PageBaseCD40.PageCD40	// System.Web.UI.Page
             TextBox tbox = (TextBox)TEnlacesRadio.FindControl("TextBox" + id.Replace("Button", ""));
             if (ibut != null && ibut.CssClass == "BtnPanelRadioAsignado")
 			{
-				uint posicion = UInt16.Parse(id.Replace("Button", "")) +
-											(uint)((numPagActual - 1) * NumPosicionesPag);
+                uint posicion = CalculatePosHmi(UInt16.Parse(id.Replace("Button", "")));
 				ServiciosCD40.DestinosRadioSector elemento = (ServiciosCD40.DestinosRadioSector)Array.Find(datosRadio,
 																delegate(object d) { return ((ServiciosCD40.DestinosRadioSector)d).PosHMI == posicion; });
 
@@ -386,8 +436,7 @@ public partial class TFTRadio :	PageBaseCD40.PageCD40	// System.Web.UI.Page
                     t.IdSector = (string)Session["NombreSector"];
                     t.IdNucleo = (string)Session["idnucleo"];
                     t.IdDestino = idDest;
-                    t.PosHMI = UInt16.Parse(((string)ViewState["IdBoton"]).Replace("Button", "")) +
-                                            (uint)((numPagActual - 1) * NumPosicionesPag);
+                    t.PosHMI = CalculatePosHmi(UInt16.Parse(((string)ViewState["IdBoton"]).Replace("Button", "")));
                     t.TipoDestino = 0;
                     t.Literal = literal;
                     t.Prioridad = prioridad;
@@ -555,8 +604,7 @@ public partial class TFTRadio :	PageBaseCD40.PageCD40	// System.Web.UI.Page
 		string id = (string)ViewState["IdBoton"];
 		TextBox tbox = (TextBox)TEnlacesRadio.FindControl("TextBox" + id.Replace("Button", ""));
 
-		uint posicion = UInt16.Parse(id.Replace("Button", "")) +
-									(uint)((numPagActual - 1) * NumPosicionesPag);
+        uint posicion = CalculatePosHmi(UInt16.Parse(id.Replace("Button", "")));
 		ServiciosCD40.DestinosRadioSector elemento = (ServiciosCD40.DestinosRadioSector)Array.Find(datosRadio,
 														delegate(object d) { return ((ServiciosCD40.DestinosRadioSector)d).PosHMI == posicion; });
 		//ServiciosCD40.DestinosRadioSector elemento = (ServiciosCD40.DestinosRadioSector)Array.Find(datosRadio, 
@@ -592,8 +640,7 @@ public partial class TFTRadio :	PageBaseCD40.PageCD40	// System.Web.UI.Page
 		eRecurso.IdSistema = (string)Session["idsistema"];
 		eRecurso.IdSector = (string)Session["NombreSector"];
 		eRecurso.IdNucleo = (string)Session["idnucleo"];
-		eRecurso.PosHMI = UInt16.Parse(((string)ViewState["IdBoton"]).Replace("Button", "")) +
-								(uint)((numPagActual - 1) * NumPosicionesPag);
+        eRecurso.PosHMI = CalculatePosHmi(UInt16.Parse(((string)ViewState["IdBoton"]).Replace("Button", "")));
 
 		eRecurso.TipoRecurso = 0;	// Radio
 		eRecurso.IdDestino = strDestino;
@@ -634,8 +681,7 @@ public partial class TFTRadio :	PageBaseCD40.PageCD40	// System.Web.UI.Page
         {
             if (t.IdDestino == strDestino)
             {
-                if (t.PosHMI == UInt16.Parse(((string)ViewState["IdBoton"]).Replace("Button", "")) +
-                                    (uint)((numPagActual - 1) * NumPosicionesPag))
+                if (t.PosHMI == CalculatePosHmi(UInt16.Parse(((string)ViewState["IdBoton"]).Replace("Button", ""))))
                 {
                     DListPrioridadTecla.SelectedValue = ((ServiciosCD40.DestinosRadioSector)t).Prioridad.ToString();
                     DListPrioridadSIP.SelectedValue = ((ServiciosCD40.DestinosRadioSector)t).PrioridadSIP.ToString();
@@ -698,8 +744,7 @@ public partial class TFTRadio :	PageBaseCD40.PageCD40	// System.Web.UI.Page
                 else
                 {
                     string id = (string)ViewState["IdBoton"];
-                    uint posicion = UInt16.Parse(id.Replace("Button", "")) +
-                                                (uint)((numPagActual - 1) * NumPosicionesPag);
+                    uint posicion = CalculatePosHmi(UInt16.Parse(id.Replace("Button", "")));
                     ServiciosCD40.DestinosRadioSector elemento = (ServiciosCD40.DestinosRadioSector)Array.Find(datosRadio,
                                                                     delegate(object d) { return ((ServiciosCD40.DestinosRadioSector)d).PosHMI == posicion; });
 
@@ -796,8 +841,7 @@ public partial class TFTRadio :	PageBaseCD40.PageCD40	// System.Web.UI.Page
 		oneRecurso.IdSistema = eRecurso.IdSistema = (string)Session["idsistema"];
         eRecurso.IdSector = (string)Session["NombreSector"];
 		eRecurso.IdNucleo = (string)Session["idnucleo"];
-		eRecurso.PosHMI = UInt16.Parse(((string)ViewState["IdBoton"]).Replace("Button", "")) +
-								(uint)((numPagActual - 1) * NumPosicionesPag);
+        eRecurso.PosHMI = CalculatePosHmi(UInt16.Parse(((string)ViewState["IdBoton"]).Replace("Button", "")));
 
         oneRecurso.TipoRecurso = eRecurso.TipoRecurso = 0;	// Radio
         oneRecurso.IdDestino = eRecurso.IdDestino = id;
@@ -843,8 +887,7 @@ public partial class TFTRadio :	PageBaseCD40.PageCD40	// System.Web.UI.Page
 		t.IdSector = (string)Session["NombreSector"];
 		t.IdNucleo = (string)Session["idnucleo"];
 		t.IdDestino = id;
-		t.PosHMI = UInt16.Parse(((string)ViewState["IdBoton"]).Replace("Button", "")) +
-								(uint)((numPagActual - 1) * NumPosicionesPag);
+        t.PosHMI = CalculatePosHmi(UInt16.Parse(((string)ViewState["IdBoton"]).Replace("Button", "")));
 		t.TipoDestino = 0;
 		t.Literal = TBoxLiteral.Text;
 		t.Cascos = DListCascos.SelectedValue;
@@ -886,8 +929,7 @@ public partial class TFTRadio :	PageBaseCD40.PageCD40	// System.Web.UI.Page
 		oneRecurso.IdSistema = eRecurso.IdSistema = (string)Session["idsistema"];
 		eRecurso.IdSector = (string)Session["NombreSector"];
 		eRecurso.IdNucleo = (string)Session["idnucleo"];
-		eRecurso.PosHMI = UInt16.Parse(((string)ViewState["IdBoton"]).Replace("Button", "")) +
-								(uint)((numPagActual - 1) * NumPosicionesPag);
+        eRecurso.PosHMI = CalculatePosHmi(UInt16.Parse(((string)ViewState["IdBoton"]).Replace("Button", "")));
 		
 		oneRecurso.TipoRecurso = eRecurso.TipoRecurso = 0;	// Radio
 		oneRecurso.IdDestino = eRecurso.IdDestino = (string)ViewState["IdDestino"];

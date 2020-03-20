@@ -220,20 +220,16 @@ CodeFileBaseClass="PageBaseCD40.PageCD40"	Title="Gestión de Recursos Radio" Enab
                                     <asp:TextBox ID="TBMin" runat="server" OnClick="this.value=''" Style="z-index: auto; left: 15px; position: absolute; top: 140px; width: 80px;" meta:resourcekey="StrRangoMinimo">Valor Mínimo</asp:TextBox>
                                     <asp:TextBox ID="TBMax" runat="server" OnClick="this.value=''" Style="z-index: auto; left: 15px; position: absolute; top: 160px; width: 80px;" meta:resourcekey="StrRangoMaximo">Valor Máximo</asp:TextBox>
                                     <asp:GridView ID="GVRangos" runat="server" Visible="True" Style="z-index: auto; left: 100px; position: absolute; top: 110px"
-                                        AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None"
+                                        AutoGenerateColumns="False" BackColor="#CCDDF9" BorderStyle="None"
                                         BorderWidth="1px" CellPadding="3" CellSpacing="2" Height="70px" PageSize="2" AllowPaging="true"
                                         EmptyDataText="No data in the data source." Width="220px" OnRowDeleting="GVRangos_OnRowDeleting"
-                                        OnPageIndexChanging="GVRangos_OnSelectedIndexChanging">
-                                        <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+                                        OnPageIndexChanging="GVRangos_OnSelectedIndexChanging" SkinId="GridViewSkin">
                                         <Columns>
                                             <asp:CommandField meta:resourcekey="CommandFieldResource1" ShowDeleteButton="True" />
                                             <asp:BoundField DataField="Min" HeaderText="Frec. Mín." />
                                             <asp:BoundField DataField="Max" HeaderText="Frec. Máx." />
                                         </Columns>
-                                        <HeaderStyle BackColor="#e13423" Font-Bold="True" ForeColor="White" Height="10px" />
-                                        <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-                                        <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-                                        <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+                                        <HeaderStyle Height="10px" />
                                     </asp:GridView>
                                 </Content>
                             </ajaxToolkit:AccordionPane>

@@ -48,17 +48,14 @@
     <asp:Label ID="Label4" runat="server" Style="z-index: 111; left: 518px; position: absolute;
         top: 126px" Text="Sectores Disponibles" Visible="False" 
 		  meta:resourcekey="Label4Resource1"></asp:Label>
-    <asp:LinkButton ID="LBImprimir" runat="server" SkinID="MascaraBotonImprimir" Visible="false"
-		  meta:resourcekey="LBImprimirResource1">Imprimir</asp:LinkButton>
-
 
     <asp:Button ID="BtAceptar" runat="server" Style="z-index: 113; left: 397px; position: absolute;
-        top: 429px" Text="Aceptar" Width="80px" Visible="False" UseSubmitBehavior="true"
+        top: 535px" Text="Aceptar" Width="80px" Visible="False" UseSubmitBehavior="true"
 		  OnClick="BtAceptar_Click" meta:resourcekey="BtAceptarResource1" />
       <ajaxToolKit:ConfirmButtonExtender ID="BtAceptar_ConfirmButtonExtender" 
           runat="server" ConfirmText="" Enabled="True" TargetControlID="BtAceptar">
       </ajaxToolKit:ConfirmButtonExtender>
-    <asp:ValidationSummary ID="errores" runat="server" HeaderText="Resumen de Errorres:"
+    <asp:ValidationSummary ID="errores" runat="server" HeaderText="Resumen de Errores:"
         Style="z-index: 114; left: 264px; position: absolute; top: 455px" 
 		  Visible="False" meta:resourcekey="erroresResource1" />
     <asp:LinkButton ID="BtCancelar" runat="server" Text="Cancelar" SkinID="MascaraBotonCancelar" 
@@ -74,10 +71,10 @@
 		  meta:resourcekey="TxtIdAgrupacionResource1"></asp:TextBox>
 
     
-    <asp:ListBox ID="ListSectores" runat="server" Height="259px" Enabled="False" Style="z-index: 120;
+    <asp:ListBox ID="ListSectores" runat="server" Height="308px" Enabled="False" Style="z-index: 120;
         left: 264px; position: absolute; top: 158px" Width="188px" 
 		  SelectionMode="Multiple" meta:resourcekey="ListSectoresResource1"></asp:ListBox>
-    <asp:ListBox ID="ListSectoresLibres" runat="server" Height="259px" Style="z-index: 121;
+    <asp:ListBox ID="ListSectoresLibres" runat="server" Height="308px" Style="z-index: 121;
         left: 517px; position: absolute; top: 158px" Visible="False" Width="188px" 
 		  SelectionMode="Multiple" meta:resourcekey="ListSectoresLibresResource1"></asp:ListBox>
 </asp:Content>

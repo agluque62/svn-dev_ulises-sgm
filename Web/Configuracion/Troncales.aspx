@@ -71,8 +71,7 @@
         <asp:LinkButton ID="BtModificar" runat="server" OnClick="BtModificar_Click"
             CausesValidation="False" Text="Modificar" SkinID="MascaraBotonModificar"
             meta:resourcekey="BtModificarResource1" />
-        <asp:LinkButton ID="LBImprimir" runat="server" SkinID="MascaraBotonImprimir" Visible="false"
-            meta:resourcekey="LBImprimirResource1">Imprimir</asp:LinkButton>
+
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Resumen de errores:"
                 Style="z-index: 118; left: 250px; position: absolute; top: 490px" 
         meta:resourcekey="ValidationSummary1Resource1" />

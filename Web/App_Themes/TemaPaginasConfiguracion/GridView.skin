@@ -15,11 +15,11 @@ no se permite que haya varios SkinId por tipo de control en el mismo tema.
 --%>
 
 <asp:GridView runat="server" SkinId="GridViewSkin" GridLines="None">
-	<HeaderStyle BackColor="#e00034" Font-Bold="True" Font-Names="Verdana" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
-	<RowStyle BackColor="#e5c0be" ForeColor="white" />
-	<AlternatingRowStyle BackColor="#e5a6a3"  />
-    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" BackColor="white" Font-Bold="True" ForeColor="616365"  />
+    <HeaderStyle BackColor="#4A7729" Font-Bold="True" Font-Names="Arial" Font-Size="14px" ForeColor="White" HorizontalAlign="Left" VerticalAlign="Middle" />
+    <RowStyle BackColor="#c8d6be" ForeColor="Black" />
+    <AlternatingRowStyle BackColor="#b6c8a9"  />
+    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" BackColor="white" Font-Bold="True" ForeColor="#616365"  />
     <EditRowStyle BackColor="white" ForeColor="black" />
-	<PagerStyle BackColor="#e00034" ForeColor="White" HorizontalAlign="Center" CssClass="pager" />
-	<SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+    <PagerStyle BackColor="#4A7729" ForeColor="White" HorizontalAlign="Center" CssClass="pager" />
+    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
 </asp:GridView>

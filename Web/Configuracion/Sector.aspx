@@ -147,13 +147,12 @@
 						  Style="z-index: 123; left: 273px; position: absolute; top: 161px" Text="Abonado Nuevo"
 						  Visible="False" Width="109px" meta:resourcekey="BtNuevoAbonadoResource1" />
 					<asp:GridView ID="GVAbonados" runat="server" Style="z-index: 126; left: 5px; position: absolute;
-						top: 23px" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" 
-						 GridLines="None" PageSize="5" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None"
+						top: 23px" AutoGenerateColumns="False" CellPadding="4" SkinId="GridViewSkin" 
+						 GridLines="None" PageSize="5"  BorderStyle="None"
                          BorderWidth="1px" EmptyDataText="No data in the data source."
 						OnRowDeleting="GVAbonados_OnRowDeleting" AllowPaging="True" 
 						OnPageIndexChanging="GVAbonados_OnSelectedIndexChanging" Height="159px" Width="257px" 
 						 meta:resourcekey="GVAbonadosResource1">
-						<FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510"/>
 						<Columns>
 							<asp:CommandField meta:resourcekey="CommandFieldResource1" 
 								ShowDeleteButton="True" />
@@ -164,19 +163,17 @@
 							<asp:BoundField DataField="IdPrefijo" meta:resourcekey="BoundFieldResource3" 
 								Visible="False" />
 						</Columns>
-                        <HeaderStyle BackColor="#e13423" Font-Bold="True" ForeColor="White" Height="10px"/>
-                        <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-                        <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle Height="10px"/>
+                        <PagerStyle  HorizontalAlign="Center" />
 					</asp:GridView>
 					<asp:LinkButton ID="LkBRangos" runat="server" Style="z-index: 117; left: 273px;
 						position: absolute; top: 134px" OnClick="LkBRangos_OnClick" Visible="False" SkinId="LinkButtonCabecera" 
 						 meta:resourcekey="LkBRangosResource1">Ver Rangos</asp:LinkButton>
-					<asp:GridView ID="GVRangos" runat="server" Visible="False" Style="z-index: 117; left: 5px; position: absolute;
-						top: 35px" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" 
+
+                    <asp:GridView ID="GVRangos" runat="server" Visible="False" Style="z-index: 117; left: 5px; position: absolute;
+						top: 35px" AutoGenerateColumns="False" SkinId="GridViewSkin" BorderStyle="None" 
 						BorderWidth="1px" CellPadding="3" CellSpacing="2" Height="159px" PageSize="5" 
 						 Width="257px" meta:resourcekey="GVRangosResource1">
-						<FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
 						<Columns>
 							<asp:BoundField DataField="Tipo" HeaderText="Tipo" 
 								meta:resourcekey="BoundFieldResource4" />
@@ -185,10 +182,7 @@
 							<asp:BoundField DataField="Final" HeaderText="Final" 
 								meta:resourcekey="BoundFieldResource6" />
 						</Columns>
-						<HeaderStyle BackColor="#e13423" Font-Bold="True" ForeColor="White" Height="10px"/>
-                        <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-						<RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-						<SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+						<HeaderStyle Height="10px"/>
 					</asp:GridView>
 				</asp:Panel>
 		</asp:View>
@@ -391,52 +385,46 @@
 
             <asp:View ID="ViewPermisosRedes" runat="server">
 					<asp:GridView ID="GVPermisosRedes" runat="server" Style="z-index: 126; left: 55px; position: absolute;
-						top: 23px" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" 
-						 GridLines="None" PageSize="5" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None"
+						top: 23px" AutoGenerateColumns="False" CellPadding="4" SkinId="GridViewSkin" 
+						 GridLines="None" PageSize="5"  BorderStyle="None"
                          BorderWidth="1px" EmptyDataText="No data." 
                         OnPageIndexChanging="GridView_OnSelectedIndexChange"
 						AllowPaging="True" 
 						Height="159px" Width="257px" 
 						meta:resourcekey="GVPermisosRedesResource1">
-						<FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510"/>
 						<Columns>
 							<asp:BoundField DataField="IdRed" HeaderText="Red"
 								meta:resourcekey="BoundFieldResource7" />
-							<asp:CheckBoxField DataField="Llamar" HeaderText="Llamar"
+							<asp:CheckBoxField DataField="Llamar" HeaderText="Llamar" ItemStyle-HorizontalAlign="Center"
 								meta:resourcekey="BoundFieldResource8" />
-							<asp:CheckBoxField DataField="Recibir" HeaderText="Recibir"
+							<asp:CheckBoxField DataField="Recibir" HeaderText="Recibir" ItemStyle-HorizontalAlign="Center"
 								meta:resourcekey="BoundFieldResource9" />
 						</Columns>
-						<HeaderStyle BackColor="#e13423" Font-Bold="True" ForeColor="White" Height="10px"/>
-                        <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-						<RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-						<SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+						<HeaderStyle  Height="10px"/>
+                        <PagerStyle HorizontalAlign="Center" />
 					</asp:GridView>
             </asp:View>
 
 			<asp:View ID="ViewAgenda" runat="server">
 					<asp:GridView ID="GVAgenda" runat="server" Style="z-index: 126; left: 55px; position: absolute;
-						top: 23px" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" 
-						 GridLines="None" PageSize="5" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None"
+						top: 23px" AutoGenerateColumns="False" CellPadding="4" SkinId="GridViewSkin" 
+						 GridLines="None" PageSize="5" BorderStyle="None"
                          BorderWidth="1px" EmptyDataText="No data in the data source."
 						OnRowDeleting="GVagenda_OnRowDeleting" AllowPaging="True" 
 						OnPageIndexChanging="GVAgenda_OnSelectedIndexChanging" Height="159px" Width="257px" 
 						meta:resourcekey="GVAgendaResource1">
-						<FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510"/>
 						<Columns>
 							<asp:CommandField meta:resourcekey="CommandFieldResource2" 
 								ShowDeleteButton="True" Visible="False" />
-							<asp:BoundField DataField="Nombre" HeaderText="Nombre" 
+							<asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-HorizontalAlign="Left"
 								meta:resourcekey="BoundFieldResource7" />
-							<asp:BoundField DataField="Prefijo" HeaderText="Prefijo" 
+							<asp:BoundField DataField="Prefijo" HeaderText="Prefijo" ItemStyle-HorizontalAlign="Left"
 								meta:resourcekey="BoundFieldResource10" />
-							<asp:BoundField DataField="Numero" HeaderText="Número" 
+							<asp:BoundField DataField="Numero" HeaderText="Número" ItemStyle-HorizontalAlign="Left" 
 								meta:resourcekey="BoundFieldResource11" />
 						</Columns>
-						<HeaderStyle BackColor="#e13423" Font-Bold="True" ForeColor="White" Height="10px"/>
-                        <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-						<RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-						<SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+						<HeaderStyle Height="10px"/>
+                        <PagerStyle HorizontalAlign="Center" />
 					</asp:GridView>
 
 
@@ -532,8 +520,7 @@
       <ajaxToolKit:ConfirmButtonExtender ID="BtCancelar_ConfirmButtonExtender" 
           runat="server" ConfirmText="" Enabled="True" TargetControlID="BtCancelar">
       </ajaxToolKit:ConfirmButtonExtender>
-    <asp:LinkButton ID="LBImprimir" runat="server" SkinID="MascaraBotonImprimir" Visible="false"
-		  meta:resourcekey="LBImprimirResource1">Imprimir</asp:LinkButton>
+
    
     <asp:LinkButton ID="BtLC" runat="server" Style="z-index: 103; left: 725px; position: absolute;
         top: 430px; width: auto;" Text="Panel Línea Caliente" Visible="False" 

@@ -16,7 +16,7 @@
     </asp:ListBox>
 
     <asp:Panel ID="Panel1" runat="server" BorderStyle="Inset" Height="256px" Style="z-index: 105; left: 275px; position: absolute; top: 58px"
-        Width="540px" Enabled="False"
+        Width="560px" Enabled="False"
         meta:resourcekey="Panel1Resource1">
 
         <asp:Label ID="Label2" runat="server" Style="left: 12px; position: absolute; top: 22px; z-index: 102; height: 19px; width: inherit;"
@@ -91,8 +91,7 @@
     <asp:LinkButton ID="BModificar" runat="server" OnClick="BModificar_Click" 
 		  CausesValidation="False" Text="Modificar" SkinID="MascaraBotonModificar" 
 		  meta:resourcekey="BModificarResource1"/>
-    <asp:LinkButton ID="LBImprimir" runat="server" SkinID="MascaraBotonImprimir" Visible="false"
-		  meta:resourcekey="LBImprimirResource1">Imprimir</asp:LinkButton>
+
     <asp:LinkButton ID="BEliminar" runat="server" OnClick="BEliminar_Click" 
 		  CausesValidation="False" Text="Eliminar" SkinID="MascaraBotonEliminar" 
 		  meta:resourcekey="BEliminarResource1" />

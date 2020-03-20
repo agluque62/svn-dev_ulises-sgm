@@ -225,7 +225,6 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
 
             bUpdateRango = false;
 		
-			CargarInforme();
 		}
         else
         {
@@ -275,15 +274,6 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
 		ActualizaWebPadre(HayCentralPropia);
 	}
 
-    /// <summary>
-    /// 
-    /// </summary>
-	protected void CargarInforme()
-	{
-		LBImprimir.Attributes.Remove("onclick");
-		string comando = "AbreVentana('../Informes/Report.aspx?Report=Encaminamientos.rpt');return false;";
-		LBImprimir.Attributes.Add("onclick", comando);
-	}
 
     /// <summary>
     /// 
@@ -345,7 +335,7 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
                 ListBox1.SelectedIndex = IndexListBox1 != -1 && IndexListBox1 < ListBox1.Items.Count ? IndexListBox1 : 0;
             
             MostrarElemento();
-			GeneraXmlParaInforme();
+
 			BtModificar.Visible = BtEliminar.Visible = PermisoSegunPerfil;
 		}
 		else
@@ -359,26 +349,7 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
 		// ListTroncalesLibres.Items.Clear();
 	}
 
-    /// <summary>
-    /// 
-    /// </summary>
-	private void GeneraXmlParaInforme()
-	{
-		ServiciosCD40.Encaminamientos t = new ServiciosCD40.Encaminamientos();
-		Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
-		KeyValueConfigurationElement s = config.AppSettings.Settings["Sistema"];
-		t.IdSistema = s.Value;
 
-		ServicioCD40.DataSetSelectSQL(t).WriteXml(Server.MapPath("~/Informes/Encaminamientos.xml"));
-		ServicioCD40.RangosConIdRed(s.Value, null).WriteXml(Server.MapPath("~/Informes/Rangos.xml"));
-
-		ServiciosCD40.Rutas r = new ServiciosCD40.Rutas();
-		r.IdSistema = s.Value;
-		ServicioCD40.DataSetSelectSQL(r).WriteXml(Server.MapPath("~/Informes/Rutas.xml"));
-		ServiciosCD40.TroncalesRuta tr = new ServiciosCD40.TroncalesRuta();
-		tr.IdSistema = s.Value;
-		ServicioCD40.DataSetSelectSQL(tr).WriteXml(Server.MapPath("~/Informes/TroncalesRutas.xml"));
-	}
 
     /// <summary>
     /// 

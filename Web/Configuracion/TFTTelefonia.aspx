@@ -25,10 +25,10 @@
     position: absolute; top: 79px" Text="PAGINA " 
 		meta:resourcekey="LabelPagResource1"></asp:Label>
             
-<asp:Table ID="TEnlacesInternos" runat="server" Height="177px" Style="left: 43px;
-        position: absolute; top: 127px; z-index: 104;" BackColor="Transparent" BorderStyle="Solid" BorderColor="#eeb44f">
+<asp:Table ID="TEnlacesInternos" runat="server" Height="201px" Style="left: 43px;
+        position: absolute; top: 127px; z-index: 104;" BackColor="Transparent"   BorderStyle="Solid" BorderColor="#eeb44f">
     <asp:TableRow ID="TableRow4" runat="server" BackColor="Transparent">
-        <asp:TableCell ID="TableCell1" runat="server" Visible="false" BorderStyle="Solid" BorderColor="#eeb44f" BorderWidth="1px">
+        <asp:TableCell ID="TableCell1" runat="server" Visible="false">
 <%--            <asp:TextBox ID="TextBox1" runat="server" ReadOnly="True"
                 TextMode="MultiLine" Rows="3" MaxLength="32"
                 SkinID="LiteralTeclaPanelTelefonia"></asp:TextBox>--%>
@@ -36,7 +36,7 @@
                 SkinId="BotonPanelTelefonia"
                 OnClick="CeldaEnlaceTelefonia_OnClick" CausesValidation="false" />
         </asp:TableCell>
-        <asp:TableCell ID="TableCell2" runat="server" Visible="false" BorderStyle="Solid" BorderColor="#eeb44f" BorderWidth="1px">
+        <asp:TableCell ID="TableCell2" runat="server" Visible="false">
             <%--<asp:TextBox ID="TextBox2" runat="server" ReadOnly="True"
                 TextMode="MultiLine" Rows="3" MaxLength="32"
                 SkinID="LiteralTeclaPanelTelefonia"></asp:TextBox>--%>
@@ -66,8 +66,6 @@
                 OnClick="CeldaEnlaceTelefonia_OnClick" CausesValidation="false" />
 
         </asp:TableCell>
-    </asp:TableRow>
-    <asp:TableRow ID="TableRow5" runat="server" >
         <asp:TableCell ID="TableCell5" runat="server" Visible="false">
             <%--<asp:TextBox ID="TextBox5" runat="server" ReadOnly="True"
                 TextMode="MultiLine" Rows="3" MaxLength="32"
@@ -78,6 +76,8 @@
                 OnClick="CeldaEnlaceTelefonia_OnClick" CausesValidation="false" />
 
         </asp:TableCell>
+    </asp:TableRow>
+    <asp:TableRow ID="TableRow5" runat="server" >
         <asp:TableCell ID="TableCell6" runat="server" Visible="false">
             <%--<asp:TextBox ID="TextBox6" runat="server" ReadOnly="True"
                 TextMode="MultiLine" Rows="3" MaxLength="32"
@@ -108,8 +108,6 @@
                 OnClick="CeldaEnlaceTelefonia_OnClick" CausesValidation="false" />
 
         </asp:TableCell>
-    </asp:TableRow>
-    <asp:TableRow ID="TableRow6" runat="server" >
         <asp:TableCell ID="TableCell9" runat="server" Visible="false">
             <%--<asp:TextBox ID="TextBox9" runat="server" ReadOnly="True"
                 TextMode="MultiLine" Rows="3" MaxLength="32"
@@ -130,6 +128,8 @@
                 OnClick="CeldaEnlaceTelefonia_OnClick" CausesValidation="false" />
 
         </asp:TableCell>
+    </asp:TableRow>
+    <asp:TableRow ID="TableRow6" runat="server" >
         <asp:TableCell ID="TableCell11" runat="server" Visible="false">
             <%--<asp:TextBox ID="TextBox11" runat="server" ReadOnly="True"
                 TextMode="MultiLine" Rows="3" MaxLength="32"
@@ -150,8 +150,6 @@
                 OnClick="CeldaEnlaceTelefonia_OnClick" CausesValidation="false" />
 
         </asp:TableCell>
-    </asp:TableRow>
-    <asp:TableRow ID="TableRow7" runat="server" >
         <asp:TableCell ID="TableCell13" runat="server" Visible="false">
             <%--<asp:TextBox ID="TextBox13" runat="server" ReadOnly="True"
                 TextMode="MultiLine" Rows="3" MaxLength="32"
@@ -182,62 +180,88 @@
                 OnClick="CeldaEnlaceTelefonia_OnClick" CausesValidation="false" />
 
         </asp:TableCell>
-        <asp:TableCell ID="TableCell16" runat="server" Visible="false">
+    </asp:TableRow>
+    <asp:TableRow ID="TableRow7" runat="server" >
+        <asp:TableCell ID="TableCell16" runat="server" Visible="false" >
             <%--<asp:TextBox ID="TextBox16" runat="server" ReadOnly="True"
                 TextMode="MultiLine" Rows="3" MaxLength="32"
                 SkinID="LiteralTeclaPanelTelefonia"></asp:TextBox>--%>
 
-            <asp:Button ID="Button16" runat="server"
+            <asp:Button ID="Button16" runat="server" 
                 SkinId="BotonPanelTelefonia"
                 OnClick="CeldaEnlaceTelefonia_OnClick" CausesValidation="false" />
 
         </asp:TableCell>
-    </asp:TableRow>
-    <asp:TableRow ID="TableRow1" runat="server" >
         <asp:TableCell ID="TableCell17" runat="server" Visible="false">
-           <%-- <asp:TextBox ID="TextBox17" runat="server" ReadOnly="True"
-                TextMode="MultiLine" Rows="3" MaxLength="32"
-                SkinID="LiteralTeclaPanelTelefonia"></asp:TextBox>--%>
-
             <asp:Button ID="Button17" runat="server"
                 SkinId="BotonPanelTelefonia"
                 OnClick="CeldaEnlaceTelefonia_OnClick" CausesValidation="false" />
 
         </asp:TableCell>
         <asp:TableCell ID="TableCell18" runat="server" Visible="false">
-           <%-- <asp:TextBox ID="TextBox18" runat="server" ReadOnly="True"
-                TextMode="MultiLine" Rows="3" MaxLength="32"
-                SkinID="LiteralTeclaPanelTelefonia"></asp:TextBox>--%>
-
             <asp:Button ID="Button18" runat="server"
                 SkinId="BotonPanelTelefonia"
                 OnClick="CeldaEnlaceTelefonia_OnClick" CausesValidation="false" />
 
         </asp:TableCell>
         <asp:TableCell ID="TableCell19" runat="server" Visible="false">
-            <%--<asp:TextBox ID="TextBox19" runat="server" ReadOnly="True"
-                TextMode="MultiLine" Rows="3" MaxLength="32"
-                SkinID="LiteralTeclaPanelTelefonia"></asp:TextBox>--%>
-
             <asp:Button ID="Button19" runat="server"
                 SkinId="BotonPanelTelefonia"
                 OnClick="CeldaEnlaceTelefonia_OnClick" CausesValidation="false" />
 
         </asp:TableCell>
         <asp:TableCell ID="TableCell20" runat="server" Visible="false">
-           <%-- <asp:TextBox ID="TextBox20" runat="server" ReadOnly="True"
-                TextMode="MultiLine" Rows="3" MaxLength="32"
-                SkinID="LiteralTeclaPanelTelefonia"></asp:TextBox>--%>
-
             <asp:Button ID="Button20" runat="server"
                 SkinId="BotonPanelTelefonia"
                 OnClick="CeldaEnlaceTelefonia_OnClick" CausesValidation="false" />
 
         </asp:TableCell>
     </asp:TableRow>
+    <asp:TableRow ID="TableRow8" runat="server" >
+        <asp:TableCell ID="TableCell21" runat="server" Visible="false">
+           <%-- <asp:TextBox ID="TextBox21" runat="server" ReadOnly="True"
+                TextMode="MultiLine" Rows="3" MaxLength="32"
+                SkinID="LiteralTeclaPanelTelefonia"></asp:TextBox>--%>
+
+            <asp:Button ID="Button21" runat="server"
+                SkinId="BotonPanelTelefonia"
+                OnClick="CeldaEnlaceTelefonia_OnClick" CausesValidation="false" />
+
+        </asp:TableCell>
+        <asp:TableCell ID="TableCell22" runat="server" Visible="false">
+           <%-- <asp:TextBox ID="TextBox22" runat="server" ReadOnly="True"
+                TextMode="MultiLine" Rows="3" MaxLength="32"
+                SkinID="LiteralTeclaPanelTelefonia"></asp:TextBox>--%>
+
+            <asp:Button ID="Button22" runat="server"
+                SkinId="BotonPanelTelefonia"
+                OnClick="CeldaEnlaceTelefonia_OnClick" CausesValidation="false" />
+
+        </asp:TableCell>
+        <asp:TableCell ID="TableCell23" runat="server" Visible="false">
+            <%--<asp:TextBox ID="TextBox23" runat="server" ReadOnly="True"
+                TextMode="MultiLine" Rows="3" MaxLength="32"
+                SkinID="LiteralTeclaPanelTelefonia"></asp:TextBox>--%>
+
+            <asp:Button ID="Button23" runat="server"
+                SkinId="BotonPanelTelefonia"
+                OnClick="CeldaEnlaceTelefonia_OnClick" CausesValidation="false" />
+
+        </asp:TableCell>
+        <asp:TableCell ID="TableCell24" runat="server" Visible="false">
+           <%-- <asp:TextBox ID="TextBox24" runat="server" ReadOnly="True"
+                TextMode="MultiLine" Rows="3" MaxLength="32"
+                SkinID="LiteralTeclaPanelTelefonia"></asp:TextBox>--%>
+
+            <asp:Button ID="Button24" runat="server"
+                SkinId="BotonPanelTelefonia"
+                OnClick="CeldaEnlaceTelefonia_OnClick" CausesValidation="false" />
+
+        </asp:TableCell>
+    </asp:TableRow>
 </asp:Table>
-    <asp:ListBox ID="LBoxDestinos" runat="server" Height="335px" Style="z-index: 105; left: 430px;
-        position: absolute; top: 130px" Width="195px" Rows="100" 
+    <asp:ListBox ID="LBoxDestinos" runat="server" Height="335px" Style="z-index: 105; left: 455px;
+        position: absolute; top: 130px" Width="175px" Rows="100" 
 		meta:resourcekey="LBoxDestinosResource1"></asp:ListBox>
     <asp:Label ID="Label1" runat="server" Style="z-index: 106; left: 430px; position: absolute;
         top: 102px" Text="Destinos disponibles" 
@@ -250,7 +274,7 @@
 		OnClick="BtLC_Click" meta:resourcekey="BtLCResource1" />
 
     <asp:LinkButton ID="BtSector" runat="server" Style="z-index: 103; left: 80px; position: absolute;
-        top: 490px; width: 180px; height: 35px; background: url('../Configuracion/Images/arrowback.gif') no-repeat left top; 
+        top: 550px; width: 180px; height: 35px; background: url('../Configuracion/Images/arrowback.gif') no-repeat left top; 
         padding-left:18px;margin-left: 10px;padding-right:10px;" SkinId="LinkButtonCabecera" 
         Visible="True" 
 		OnClick="BtSector_Click" CausesValidation="False"  

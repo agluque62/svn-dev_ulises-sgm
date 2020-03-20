@@ -117,7 +117,6 @@ public partial class TOP :	PageBaseCD40.PageCD40	// System.Web.UI.Page
 
             BtNuevo.Visible = PermisoSegunPerfil;
 			MuestraDatos(DameDatos());
-			CargarInforme();
 		}
 		else
 		{
@@ -155,15 +154,6 @@ public partial class TOP :	PageBaseCD40.PageCD40	// System.Web.UI.Page
        }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-	protected void CargarInforme()
-	{
-		LBImprimir.Attributes.Remove("onclick");
-		string comando = "AbreVentana('../Informes/Report.aspx?Report=TOP.rpt');return false;";
-		LBImprimir.Attributes.Add("onclick", comando);
-	}
 
     /// <summary>
     /// 
@@ -385,7 +375,6 @@ public partial class TOP :	PageBaseCD40.PageCD40	// System.Web.UI.Page
                 ListBox1.SelectedIndex = IndexListBox1 != -1 && IndexListBox1 < ListBox1.Items.Count ? IndexListBox1 : 0;
 
             MostrarElemento();
-			GeneraXmlParaInforme();
 		}
 		else
 		{
@@ -396,19 +385,7 @@ public partial class TOP :	PageBaseCD40.PageCD40	// System.Web.UI.Page
         //	ActualizaPosiciones(-1);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-	private void GeneraXmlParaInforme()
-	{
-		ServiciosCD40.Top t = new ServiciosCD40.Top();
-		Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
-		KeyValueConfigurationElement s = config.AppSettings.Settings["Sistema"];
-		t.IdSistema = s.Value;
 
-		ServicioCD40.DataSetSelectSQL(t).WriteXml(Server.MapPath("~/Informes/Top.xml"));
-	}
-	
     /// <summary>
     /// 
     /// </summary>

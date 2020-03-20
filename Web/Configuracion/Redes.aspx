@@ -71,9 +71,9 @@
                     <asp:ListItem Value="O" meta:resourcekey="ListTipo_O">Otros</asp:ListItem>
                 </asp:DropDownList>
 
-				<asp:GridView ID="GVRecursos" runat="server" Style="z-index: 128; left: 15px; position: absolute;
-                            top: 15px;" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333"  Visible="true"
-                            GridLines="None" PageSize="5" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None"
+				<asp:GridView ID="GVRecursos" runat="server" SkinId="GridViewSkin" Style="z-index: 128; left: 15px; position: absolute;
+                            top: 15px;" AutoGenerateColumns="False" CellPadding="4"   Visible="true"
+                            GridLines="None" PageSize="5" BorderStyle="None"
                             BorderWidth="2px" AllowPaging="True" 
 					OnPageIndexChanging="GViewRecursos_OnSelectedIndexChanging"
                     OnRowDatabound="GViewRecursos_RowDataBound"  
@@ -98,10 +98,6 @@
 						</asp:BoundField>
 					</Columns>
 					<EditRowStyle BackColor="#8C4510" />
-                    <HeaderStyle BackColor="#e13423" Font-Bold="True" ForeColor="White" Height="10px"/>
-                    <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-                    <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
 				</asp:GridView>
 			</asp:View>
 		</asp:MultiView></asp:Panel>
@@ -117,8 +113,6 @@
 		OnClick="OnButton_Click" Style="z-index: 110; left: 372px; position: absolute;
 		top: 66px" meta:resourcekey="IBRecursosResource1" />
 
-    <asp:LinkButton ID="LBImprimir" runat="server" SkinID="MascaraBotonImprimir" Visible="false"
-		 meta:resourcekey="LBImprimirResource1">Imprimir</asp:LinkButton>
-            
+
 </asp:Content>
 

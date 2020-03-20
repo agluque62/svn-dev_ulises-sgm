@@ -1054,7 +1054,7 @@
     <value />
   </data>
   <data name="RangeValidator3Resource1.ErrorMessage" xml:space="preserve">
-    <value>Le champ nombre de fréquences par page doit être compris entre 1 et 15.</value>
+    <value>Le champ nombre de fréquences par page doit être compris entre 4 et 20.</value>
   </data>
   <data name="RangeValidator3Resource1.Text" xml:space="preserve">
     <value>*</value>
@@ -1063,7 +1063,7 @@
     <value />
   </data>
   <data name="RangeValidator4Resource1.ErrorMessage" xml:space="preserve">
-    <value>Le champ nombre de liaisons internes par page doit être compris entre 1 et 20.</value>
+    <value>Le champ nombre de liaisons internes par page doit être compris entre 8 et 24.</value>
   </data>
   <data name="RangeValidator4Resource1.Text" xml:space="preserve">
     <value>*</value>
@@ -1165,7 +1165,7 @@
     <value>*</value>
   </data>
   <data name="RFVTxtGrupoMultiResource1.ErrorMessage" xml:space="preserve">
-  <value>La IP del Grupo Multicast no puede estar vacía.</value>
+    <value>La IP del Grupo Multicast no puede estar vacía.</value>
   </data>
   <data name="RFVTxtGrupoMultiResource1.Text" xml:space="preserve">
     <value>*</value>
@@ -1175,5 +1175,8 @@
   </data>
   <data name="RFVTxtPortMultiResource1.Text" xml:space="preserve">
     <value>*</value>
+  </data>
+  <data name="WarnResource.Text" xml:space="preserve">
+    <value>Avant changer le nombre de resources par page, on doit eraser tous les liasons sur les secteurs</value>
   </data>
 </root>

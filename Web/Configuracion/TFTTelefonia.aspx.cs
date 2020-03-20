@@ -31,9 +31,13 @@ public partial class TFTTelefonia :	PageBaseCD40.PageCD40	// System.Web.UI.Page
 
     //private const uint MAX_POSICIONES_PAGINA = 20;
 
-    private static int NumPaginas;
-    private static int NumPosicionesPag;
-    private static int numPagActual = 0;
+    private static uint NumPaginas;
+    private static uint NumPosicionesPag;
+    // Número de columnas fijas en la cuadrícula gráfica
+    private const uint NUM_COLUMNAS_FIJAS = 5;
+    private static uint NumColumnasVisibles = NUM_COLUMNAS_FIJAS;
+    private static uint NUM_BUTTONS = 25;
+    private static uint numPagActual = 0;
 	private static bool Modificando = false;
 
     private static ServiciosCD40.Tablas[] datosInternos;
@@ -71,7 +75,7 @@ public partial class TFTTelefonia :	PageBaseCD40.PageCD40	// System.Web.UI.Page
         {
             CargaParametrosPanel();
 
-            prefijosPosiciones = new uint[(NumPaginas * NumPosicionesPag) + 1];	// Las posiciones empiezan en 1
+            prefijosPosiciones = new uint[(NumPaginas * NumPosicionesPag) + 1];	// Las posiciones empiezan en 1. Se indexa por el indice del HMI
             if (Session["NombreSector"] != null)
                 Label6.Text = GetLocalResourceObject("Label6Resource1.Text").ToString() + ": " +
                     ((string)Session["NombreSector"]);	// "-- Telefonía del Sector: " + ((string)Session["NombreSector"]) + " --";
@@ -106,8 +110,12 @@ public partial class TFTTelefonia :	PageBaseCD40.PageCD40	// System.Web.UI.Page
 			ServiciosCD40.Tablas[] d = ServicioCD40.ListSelectSQL(t);
 			if (d.Length > 0)
 			{
-				NumPaginas = (int)((ServiciosCD40.ParametrosSector)d[0]).NumPagDestinosInt;
-				NumPosicionesPag = (int)((ServiciosCD40.ParametrosSector)d[0]).NumDestinosInternosPag;
+				NumPaginas = ((ServiciosCD40.ParametrosSector)d[0]).NumPagDestinosInt;
+				NumPosicionesPag = ((ServiciosCD40.ParametrosSector)d[0]).NumDestinosInternosPag;
+                if (NumPosicionesPag > 15) NumColumnasVisibles = 5;
+                else if (NumPosicionesPag > 8) NumColumnasVisibles = 4;
+                else if (NumPosicionesPag > 3) NumColumnasVisibles = 3;
+                else NumColumnasVisibles = 2;
 			}
 		}
 		catch (Exception ex)
@@ -206,25 +214,23 @@ public partial class TFTTelefonia :	PageBaseCD40.PageCD40	// System.Web.UI.Page
 
     private void MostrarInternos()
     {
-		int posini = ((numPagActual - 1) * NumPosicionesPag) + 1;
-		int posfin = posini + NumPosicionesPag - 1;
+		uint posini = ((numPagActual - 1) * NumPosicionesPag) + 1;
+		uint posfin = posini + NumPosicionesPag - 1;
 
         if (datosInternos != null)
         {
             for (int i = 0; i < datosInternos.Length; i++)
             {
-                uint pos = ((ServiciosCD40.DestinosInternosSector)datosInternos[i]).PosHMI;
-                if ((pos >= posini) && (pos <= posfin))
+                uint posHmi = ((ServiciosCD40.DestinosInternosSector)datosInternos[i]).PosHMI;
+                if ((posHmi >= posini) && (posHmi <= posfin))
                 {
-                    uint posenpanel = ((ServiciosCD40.DestinosInternosSector)datosInternos[i]).PosHMI;
-					if (posenpanel > NumPosicionesPag)
-						posenpanel -= ((uint)(numPagActual - 1) * (uint)NumPosicionesPag);
+                    uint posenpanel = CalculatePosButton(posHmi);
                     Button ibut = (Button)TEnlacesInternos.FindControl("Button" + posenpanel.ToString());
                     // TextBox tbox = (TextBox)TEnlacesInternos.FindControl("TextBox" + posenpanel.ToString());
                     ibut.CssClass = "BtnPanelTfAsignado";
                     //ibut.ImageUrl = "~/Configuracion/Images/BotonEnlaceInternoAs.jpg";
                     ibut.Text = ((ServiciosCD40.DestinosInternosSector)datosInternos[i]).Literal;
-                    prefijosPosiciones[pos] = ((ServiciosCD40.DestinosInternosSector)datosInternos[i]).IdPrefijo;
+                    prefijosPosiciones[posHmi] = ((ServiciosCD40.DestinosInternosSector)datosInternos[i]).IdPrefijo;
                 }
             }
         }
@@ -232,44 +238,69 @@ public partial class TFTTelefonia :	PageBaseCD40.PageCD40	// System.Web.UI.Page
 
     private void MostrarExternos()
     {
-		int posini = ((numPagActual - 1) * NumPosicionesPag) + 1;
-		int posfin = posini + NumPosicionesPag - 1;
+		uint posini = ((numPagActual - 1) * NumPosicionesPag) + 1;
+		uint posfin = posini + NumPosicionesPag - 1;
         if (datosExternos != null)
         {
             for (int i = 0; i < datosExternos.Length; i++)
             {
-                uint pos = ((ServiciosCD40.DestinosExternosSector)datosExternos[i]).PosHMI;
-                if ((pos >= posini) && (pos <= posfin))
+                uint posHmi = ((ServiciosCD40.DestinosExternosSector)datosExternos[i]).PosHMI;
+
+                if ((posHmi >= posini) && (posHmi <= posfin))
                 {
-                    uint posenpanel = ((ServiciosCD40.DestinosExternosSector)datosExternos[i]).PosHMI;
-					if (posenpanel > NumPosicionesPag)
-						posenpanel -= ((uint)(numPagActual - 1) * (uint)NumPosicionesPag);
+                    uint posenpanel = CalculatePosButton(posHmi);
                     Button ibut = (Button)TEnlacesInternos.FindControl("Button" + posenpanel.ToString());
                     // TextBox tbox = (TextBox)TEnlacesInternos.FindControl("TextBox" + posenpanel.ToString());
                     ibut.CssClass = "BtnPanelTfAsignado"; 
                     //ibut.ImageUrl = "~/Configuracion/Images/BotonEnlaceInternoAs.jpg";
                     ibut.Text = ((ServiciosCD40.DestinosExternosSector)datosExternos[i]).Literal;
-                    prefijosPosiciones[pos] = ((ServiciosCD40.DestinosExternosSector)datosExternos[i]).IdPrefijo;
+                    prefijosPosiciones[posHmi] = ((ServiciosCD40.DestinosExternosSector)datosExternos[i]).IdPrefijo;
                 }
             }
         }
     }
+    private uint CalculatePosHmi(uint buttonIndex)
+    {
+        uint fila = ((uint)buttonIndex - 1) / NUM_COLUMNAS_FIJAS; //0..NUM_COLUMNAS_FIJAS
+        uint columna = ((uint)buttonIndex - 1) % NUM_COLUMNAS_FIJAS; //0..NUM_COLUMNAS_FIJAS
 
+        return fila * NumColumnasVisibles + columna + 1 + ((numPagActual-1) * NumPosicionesPag);
+    }
+    private uint CalculatePosButton(uint posHmi)
+    {
+        //pos HMI 1...NumPosicionesPag*Num pag
+        uint fila = ((posHmi-1) % (uint)NumPosicionesPag) / NumColumnasVisibles; 
+        uint columna = ((posHmi-1) % (uint)NumPosicionesPag) % NumColumnasVisibles; //0..NUM_COLUMNAS_FIJAS
+
+        return fila * NUM_COLUMNAS_FIJAS + columna + 1;
+    }
     private void LimpiarPanel()
     {
-        for (int i = 1; i <= NumPosicionesPag; i++)
+        uint numFilas = (NumPosicionesPag / NumColumnasVisibles) +1;
+        int visibleCount = 0;
+        for (int i = 1; i < numFilas * NUM_COLUMNAS_FIJAS; i++)
         {
-			TableCell tCell = (TableCell)TEnlacesInternos.FindControl("TableCell" + i.ToString());
-			if (tCell != null)
-			{
-                tCell.Visible = i <= NumPosicionesPag;
-				Button ibut = (Button)TEnlacesInternos.FindControl("Button" + i.ToString());
+            TableCell tCell = (TableCell)TEnlacesInternos.FindControl("TableCell" + i.ToString());
+            if (tCell != null)
+            {
+                int fila = (i - 1) / (int)NUM_COLUMNAS_FIJAS; //0..NUM_COLUMNAS_FIJAS
+                int columna = (i - 1) % (int)NUM_COLUMNAS_FIJAS; //0..NUM_COLUMNAS_FIJAS
+                if ((fila <= numFilas) && (columna < NumColumnasVisibles))
+                {
+                    tCell.Visible = true;
+                    if (++visibleCount <= NumPosicionesPag)
+                        tCell.Enabled = true;
+                    else tCell.Enabled = false;
+                }
+                else
+                    tCell.Visible = false;
+                Button ibut = (Button)TEnlacesInternos.FindControl("Button" + i.ToString());
                 if (ibut != null)
                 {
                     ibut.CssClass = "BtnPanelRadioLibre";
                     ibut.Text = "";
                 }
-			}
+            }
         }
     }
 
@@ -293,13 +324,15 @@ public partial class TFTTelefonia :	PageBaseCD40.PageCD40	// System.Web.UI.Page
             // if (ibut != null && ibut.ImageUrl == "~/Configuracion/Images/BotonEnlaceInternoAs.jpg")
             if (ibut != null && ibut.CssClass == "BtnPanelTfAsignado")
             {
-			    uint prefijo = prefijosPosiciones[Int16.Parse(id.Replace("Button", "")) + ((numPagActual - 1) * NumPosicionesPag)];
+                UInt16 buttonIndex = UInt16.Parse(((string)ViewState["IdBoton"]).Replace("Button", ""));
+                uint recalcPosHMI = CalculatePosHmi(buttonIndex);
+                uint prefijo = prefijosPosiciones[recalcPosHMI];
                 if (prefijo == 2)
                 {
                     for (int i = 0; i < datosInternos.Length; i++)
                     {
                         if ((((ServiciosCD40.DestinosInternosSector)datosInternos[i]).Literal == ibut.Text) &&
-						    ((ServiciosCD40.DestinosInternosSector)datosInternos[i]).PosHMI == Int16.Parse(id.Replace("Button", "")) + ((numPagActual - 1) * NumPosicionesPag))
+                            ((ServiciosCD40.DestinosInternosSector)datosInternos[i]).PosHMI == recalcPosHMI)
                         {
 						    if (ServicioCD40.DeleteSQL(datosInternos[i]) < 0) logDebugView.Warn("(TFTTelefonia-DesasignarDestino): Fallo en el delete enlace interno");
 						    else
@@ -342,7 +375,7 @@ public partial class TFTTelefonia :	PageBaseCD40.PageCD40	// System.Web.UI.Page
                         for (int i = 0; i < datosExternos.Length; i++)
                         {
                             if ((((ServiciosCD40.DestinosExternosSector)datosExternos[i]).Literal == ibut.Text) &&
-							    ((ServiciosCD40.DestinosExternosSector)datosExternos[i]).PosHMI == Int16.Parse(id.Replace("Button", "")) + ((numPagActual - 1) * NumPosicionesPag))
+                                ((ServiciosCD40.DestinosExternosSector)datosExternos[i]).PosHMI == recalcPosHMI)
                             {
 							    if (ServicioCD40.DeleteSQL(datosExternos[i]) < 0) logDebugView.Warn("(TFTTelefonia-DesasignarDestino): Fallo en el delete enlace externo");
 							    else
@@ -388,6 +421,8 @@ public partial class TFTTelefonia :	PageBaseCD40.PageCD40	// System.Web.UI.Page
         {
             try
             {
+                UInt16 buttonIndex = UInt16.Parse(((string)ViewState["IdBoton"]).Replace("Button", ""));
+                uint posHmi = CalculatePosHmi(buttonIndex);
                 // TextBox tbox = (TextBox)TEnlacesInternos.FindControl("TextBox" + ((string)ViewState["IdBoton"]).Replace("Button", ""));
                 if (idPref > 2)//telefonia externa
                 {
@@ -397,7 +432,7 @@ public partial class TFTTelefonia :	PageBaseCD40.PageCD40	// System.Web.UI.Page
                     t.OrigenR2 = (string)Session["NombreSector"];
                     t.IdNucleo = (string)Session["idnucleo"];
                     t.IdDestino = idDest;
-                    t.PosHMI = UInt16.Parse(((string)ViewState["IdBoton"]).Replace("Button", "")) + (uint)((numPagActual - 1) * NumPosicionesPag);
+                    t.PosHMI = posHmi;
                     t.IdPrefijo = idPref;
                     t.TipoDestino = 1;
                     t.Literal = literal;
@@ -463,7 +498,7 @@ public partial class TFTTelefonia :	PageBaseCD40.PageCD40	// System.Web.UI.Page
                         t.OrigenR2 = (string)Session["NombreSector"];
                         t.IdNucleo = (string)Session["idnucleo"];
                         t.IdDestino = idDest;
-                        t.PosHMI = UInt16.Parse(((string)ViewState["IdBoton"]).Replace("Button", "")) + (uint)((numPagActual - 1) * NumPosicionesPag);
+                        t.PosHMI = posHmi;
                         t.IdPrefijo = idPref;
                         t.TipoDestino = 2;
                         t.Literal = literal;
@@ -522,7 +557,7 @@ public partial class TFTTelefonia :	PageBaseCD40.PageCD40	// System.Web.UI.Page
                         if (!Modificando)
                         {
                             // Dar de baja el colatarel en el usuario recíproco
-                            if (ServicioCD40.InsertaColateralEnUsuarioReciproco(ref t, NumPosicionesPag))
+                            if (ServicioCD40.InsertaColateralEnUsuarioReciproco(ref t, (int)NumPosicionesPag))
                             {
                                 #region Sincronizar CD30
                                 Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
@@ -558,8 +593,6 @@ public partial class TFTTelefonia :	PageBaseCD40.PageCD40	// System.Web.UI.Page
     protected void CeldaEnlaceTelefonia_OnClick(object sender, EventArgs e)
     {
         Button ibut = (Button)TEnlacesInternos.FindControl(((Button)sender).ID);
-		//TextBox tbox = (TextBox)TEnlacesInternos.FindControl("TextBox" + ibut.ID.Replace("Button", ""));
-
 
         if (ibut != null && ibut.CssClass == "BtnPanelRadioLibre")
 		{
@@ -694,7 +727,8 @@ public partial class TFTTelefonia :	PageBaseCD40.PageCD40	// System.Web.UI.Page
 
 	private void MuestraParametrosPosicion()
 	{
-		uint posicionPulsada = UInt16.Parse(((string)ViewState["IdBoton"]).Replace("Button", "")) + (uint)((numPagActual - 1) * NumPosicionesPag);
+        UInt16 buttonIndex = UInt16.Parse(((string)ViewState["IdBoton"]).Replace("Button", ""));
+        uint posicionPulsada = CalculatePosHmi(buttonIndex);
 
 		if (posicionPulsada <= 0)
 			return;
@@ -711,7 +745,7 @@ public partial class TFTTelefonia :	PageBaseCD40.PageCD40	// System.Web.UI.Page
 			t.IdNucleo = (string)Session["idnucleo"];
 			t.IdSector = (string)Session["NombreSector"];
 			t.IdPrefijo = prefijosPosiciones[posicionPulsada];
-			t.PosHMI = posicionPulsada;
+            t.PosHMI = CalculatePosHmi(buttonIndex);
             t.TipoAcceso = "DA";
 
 			try
@@ -742,7 +776,7 @@ public partial class TFTTelefonia :	PageBaseCD40.PageCD40	// System.Web.UI.Page
 			t.IdNucleo = (string)Session["idnucleo"];
 			t.IdSector = (string)Session["NombreSector"];
 			t.IdPrefijo = 2;
-			t.PosHMI = posicionPulsada;
+            t.PosHMI = CalculatePosHmi(buttonIndex);
             t.TipoAcceso = "DA";
 
 			try

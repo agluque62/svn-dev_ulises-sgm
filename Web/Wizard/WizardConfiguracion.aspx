@@ -6,6 +6,7 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" meta:resourcekey="PageResource1"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link rel="shortcut icon" href="~/favicon.ico">
 </head>
 <body>
 <%--	  <script type="text/javascript">
@@ -38,7 +39,7 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" meta:resourcekey="PageResource1"%>
     <form id="form1" runat="server">
 
 
-		<asp:Panel ID="PanelWizard" runat="server" BorderColor="Black" BackColor="#ff6262" 
+		<asp:Panel ID="PanelWizard" runat="server" BorderColor="Black" BackColor="white" 
 			Height="872px" Width="1230px" style="margin-bottom: 84px">		
             <div id="DivCabeceraWizard" runat="server" style="z-index: 125; left: 31px; width: 1190px; position: absolute; top: 29px;background-color:transparent;
                 height: 105px; overflow:inherit; border-style:solid; border-width:1px" class="estiloDiv red" visible="true" border-style="">
@@ -48,23 +49,23 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" meta:resourcekey="PageResource1"%>
 
                 <asp:Label ID="Label1" runat="server"  
                     Font-Strikeout="False" Font-Underline="False" Style="z-index: 100; left: 250px; position: absolute; top: 30px; height: 28px; width: 400px; right: 392px; "
-                    ForeColor="#616365" BackColor="Transparent" Font-Names="Verdana" Font-Size="16px" Font-Bold="true" meta:resourcekey="LabelUlises">
+                    ForeColor="#616365" BackColor="Transparent" Font-Names="Arial" Font-Size="16px" Font-Bold="true" meta:resourcekey="LabelUlises">
                 </asp:Label>
 
-                <asp:LinkButton ID="LBFinWizard" runat="server" ForeColor="#616365" Font-Names="Verdana" Font-Size="14px"
+                <asp:LinkButton ID="LBFinWizard" runat="server" ForeColor="#616365" Font-Names="Arial" Font-Size="14px"
 			    style="height: 26px; width: 200px; position:absolute; left:277px; top:70px" Visible="true"
 			    OnClick="LBFinWizard_OnCLick"  meta:resourcekey="LBFinWizardResource1"/>		
                 
-                <asp:Label ID="Label2" runat="server" Style="z-index: 110; left: 760px; position: absolute; top: 19px" ForeColor="#616365" Font-Names="Verdana" Font-Size="14px"
+                <asp:Label ID="Label2" runat="server" Style="z-index: 110; left: 760px; position: absolute; top: 19px" ForeColor="#616365" Font-Names="Arial" Font-Size="14px"
                     Text="Usuario:" meta:resourcekey="Label2Resource1"></asp:Label>
                 <asp:Label ID="LabelUsuario" runat="server" Style="z-index: 111; left: 760px; position: absolute; top: 35px" 
                     ForeColor="#00C000" meta:resourcekey="LabelUsuarioResource1"></asp:Label>
-                <asp:Label ID="Label3" runat="server" Style="z-index: 112; left: 760px; position: absolute; top: 57px" ForeColor="#616365" Font-Names="Verdana" Font-Size="14px"
+                <asp:Label ID="Label3" runat="server" Style="z-index: 112; left: 760px; position: absolute; top: 57px" ForeColor="#616365" Font-Names="Arial" Font-Size="14px"
                     Text="Perfil:" meta:resourcekey="Label3Resource1"></asp:Label>
                 <asp:Label ID="LabelPerfil" runat="server" Style="z-index: 113; left: 760px; position: absolute; top: 75px"
                     ForeColor="#00C000" Width="91px" meta:resourcekey="LabelPerfilResource1"></asp:Label>
                 <asp:LinkButton ID="LinkLogOut" runat="server" Style="z-index: 114; left: 956px; position: absolute; top: 75px"
-                    OnClick="LinkLogOut_Click" ForeColor="#616365" Font-Names="Verdana" Font-Size="14px" CausesValidation="False"
+                    OnClick="LinkLogOut_Click" ForeColor="#616365" Font-Names="Arial" Font-Size="14px" CausesValidation="False"
                     meta:resourcekey="LinkButton1Resource1">Cerrar sesión</asp:LinkButton>
                 			        
             </div>
@@ -141,19 +142,19 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" meta:resourcekey="PageResource1"%>
                 Style="position:relative;left: 46px; top: 770px; height:39px; width: 1113px;">
 				    <asp:TableRow runat="server" ID="Row1">
 			            <asp:TableCell runat="server" ID="Cell1" Width="100px">
-                            <asp:Button ID="BtnAnterior" runat="server" BackColor="#FF9966" 
-				                BorderStyle="Inset" 
+                            <asp:Button ID="BtnAnterior" runat="server" BackColor="White" 
+				                BorderStyle="Outset" 
 				                style="height: 26px; width: 89px" 
-				                onclick="BtnAnterior_Click" Enabled="false" meta:resourcekey="BtnAnteriorResource1"/>				        
+				                onclick="BtnAnterior_Click" Enabled="false" meta:resourcekey="BtnAnteriorResource1"/>
 			            </asp:TableCell>
                         <asp:TableCell runat="server" ID="TableCell1" Width="950px">
-			                <asp:Button ID="BtnSiguiente" runat="server" BackColor="#FF9966" 
-				                BorderStyle="Inset" 
+			                <asp:Button ID="BtnSiguiente" runat="server" BackColor="White" 
+				                BorderStyle="Outset" 
 				                style="height: 26px; width: 89px" 
 				                onclick="BtnSiguiente_Click" Enabled="true"  meta:resourcekey="BtnSiguienteResource1"/>
                             </asp:TableCell>
 			            <asp:TableCell runat="server" ID="TableCell2">
-<%--                            <asp:LinkButton ID="LBFinWizard" runat="server" ForeColor="#616365" Font-Names="Verdana" Font-Size="14px"
+<%--                            <asp:LinkButton ID="LBFinWizard" runat="server" ForeColor="#616365" Font-Names="Arial" Font-Size="14px"
 			                style="height: 26px; width: 289px;" Visible="true"
 			                OnClick="LBFinWizard_OnCLick"  meta:resourcekey="LBFinWizardResource1"/>					        --%>
 			            </asp:TableCell>
@@ -162,9 +163,9 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" meta:resourcekey="PageResource1"%>
 		</asp:Panel>
 
     </form>
-        <div style="z-index: 301; left: 8px; width: 1264px; position: absolute; top: 890px; height: 37px; text-align:center; color: red; font-family:Verdana; font-size:small" >
+        <div style="z-index: 301; left: 8px; width: 1264px; position: absolute; top: 890px; height: 37px; text-align:center; color: black; font-family:Arial; font-size:small" >
             <br\ />
-            &#169 Núcleo. 2019. v2.5.9#7. All rights reserved.
+            &#169 Núcleo. 2020. v2.6.0. All rights reserved.
         </div>
 
 </body></html>

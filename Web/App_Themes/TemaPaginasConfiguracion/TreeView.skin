@@ -22,7 +22,7 @@ no se permite que haya varios SkinId por tipo de control en el mismo tema.
 
  <asp:TreeView SkinId="TreeViewCD40"
    NodeStyle-ForeColor="Black"
-   NodeStyle-Font-Names="Verdana"
+   NodeStyle-Font-Names="Arial"
    NodeStyle-Font-Size="10pt"
    NodeStyle-HorizontalPadding="5"
    HoverNodeStyle-BackColor="#cccccc"

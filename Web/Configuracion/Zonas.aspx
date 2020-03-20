@@ -61,8 +61,7 @@
     <ajaxToolKit:ConfirmButtonExtender ID="BtCancelar_ConfirmButtonExtender" 
         runat="server" ConfirmText="" Enabled="True" TargetControlID="BtCancelar">
     </ajaxToolKit:ConfirmButtonExtender>
-    <asp:LinkButton ID="LBImprimir" runat="server" SkinID="MascaraBotonImprimir" Visible="False"
-		 meta:resourcekey="LBImprimirResource1">Imprimir</asp:LinkButton>
+
 
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Resumén de errores:"
 		Style="z-index: 118; left: 250px; position: absolute; top: 490px"  

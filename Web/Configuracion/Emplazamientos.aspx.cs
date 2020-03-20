@@ -59,7 +59,6 @@ public partial class Emplazamientos : PageBaseCD40.PageCD40		//System.Web.UI.Pag
             BtCancelar_ConfirmButtonExtender.ConfirmText = (string)GetGlobalResourceObject("Espaniol", "CancelarCambios");
 
             MuestraDatos(DameDatos());
-            CargarInforme();
         }
         else
         {
@@ -94,12 +93,6 @@ public partial class Emplazamientos : PageBaseCD40.PageCD40		//System.Web.UI.Pag
 			//}
     }
 
-	protected void CargarInforme()
-	{
-		LBImprimir.Attributes.Remove("onclick");
-		string comando = "AbreVentana('../Informes/Report.aspx?Report=Emplazamientos.rpt');return false;";
-		LBImprimir.Attributes.Add("onclick", comando);
-	}
 
     private ServiciosCD40.Tablas[] DameDatos()
     {

@@ -9,7 +9,13 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" Title="Parámetros Generales" EnableEve
     		window.open(ventana);
     	}
 	</script>
-
+<script runat="server">
+    protected void WarnChange(object sender, System.EventArgs e)
+    {
+        WarnText.Text = "* ¡Antes de cambiar el número de frecuencias o accesos telefónicos por página debe borrar las asignaciones en todos los sectores!";
+    }
+    
+</script>
 
 	 <asp:Label ID="Label9" runat="server" Text="PARÁMETROS GENERALES DEL SISTEMA" 
 		CssClass="labelPagina" meta:resourcekey="Label9Resource1"></asp:Label>
@@ -36,8 +42,7 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" Title="Parámetros Generales" EnableEve
     <ajaxToolKit:ConfirmButtonExtender ID="BtCancelar_ConfirmButtonExtender" 
         runat="server" ConfirmText="" Enabled="True" TargetControlID="BtCancelar">
     </ajaxToolKit:ConfirmButtonExtender>
-    <asp:LinkButton ID="LBImprimir" runat="server" SkinID="MascaraBotonImprimir" style="left:770px; top: 545px;position: absolute;" Visible="false"
-		meta:resourcekey="LBImprimirResource1">Imprimir</asp:LinkButton>
+
 		 
 <%--	<asp:ScriptManager ID="ScriptManager1" runat="server">
 	</asp:ScriptManager>
@@ -233,7 +238,11 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" Title="Parámetros Generales" EnableEve
 					  top: 114px" Text="Número de frecuencias por página:" 
 					meta:resourcekey="Label12Resource1"></asp:Label>
 				 <asp:TextBox ID="TxtFrecPag" runat="server" Style="z-index: 175; left: 22px; position: absolute;
-					  top: 134px" Width="39px" ReadOnly="True" meta:resourcekey="TxtFrecPagResource1">15</asp:TextBox>
+					  top: 134px" Width="39px" ReadOnly="True" OnLoad="WarnChange"  AutoPostBack="true" 
+                      meta:resourcekey="TxtFrecPagResource1">15</asp:TextBox>
+				 <asp:label ID="WarnText" runat="server" Style="z-index: 173; left: 50px; position: absolute; 
+                      top: 325px" ReadOnly="True" Visible="true" color="#f00000" meta:resourcekey="WarnResource">
+					  </asp:label>
 				 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="TxtFrecPag"
 					  ErrorMessage="El campo número de frecuencias por página no puede estar vacio."
 					  Style="z-index: 148; left: 80px; position: absolute; top: 140px" 
@@ -242,9 +251,9 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" Title="Parámetros Generales" EnableEve
 					  ErrorMessage="El campo número de frecuencias por página debe ser numérico." Operator="DataTypeCheck"
 					  Style="z-index: 190; left: 369px; position: absolute; top: 116px" Type="Integer" 
 					meta:resourcekey="CompareValidator3Resource1">*</asp:CompareValidator>
-				<asp:RangeValidator ID="RangeValidator3" runat="server" MinimumValue="1" 
-					MaximumValue="15" ControlToValidate="TxtFrecPag"
-											ErrorMessage="El campo número de frecuencias por página debe estar comprendido entre 1 y 15." 
+				<asp:RangeValidator ID="RangeValidator3" runat="server" MinimumValue="4" 
+					MaximumValue="20" Type="Integer" ControlToValidate="TxtFrecPag"
+											ErrorMessage="El campo número de frecuencias por página debe estar comprendido entre 4 y 20." 
 											Style="z-index: 148; left: 369px; position: absolute; top: 116px" 
 					meta:resourcekey="RangeValidator3Resource1">*</asp:RangeValidator>
 				 <asp:Label ID="Label27" runat="server" Style="z-index: 174; left: 400px; position: absolute;
@@ -274,9 +283,9 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" Title="Parámetros Generales" EnableEve
 					  ErrorMessage="El campo número de enlaces telefónicos por página debe ser numérico."
 					  Operator="DataTypeCheck" Style="z-index: 191; left: 80px; position: absolute;
 					  top: 180px" Type="Integer" meta:resourcekey="CompareValidator6Resource1">*</asp:CompareValidator>
-				<asp:RangeValidator ID="RangeValidator4" runat="server" MinimumValue="1" 
-					MaximumValue="20" ControlToValidate="TxtEnlIntPag"
-											ErrorMessage="El campo número de enlaces telefónicos por página debe estar comprendido entre 1 y 20." 
+				<asp:RangeValidator ID="RangeValidator4" runat="server" MinimumValue="8" 
+					MaximumValue="24" Type="Integer" ControlToValidate="TxtEnlIntPag"
+											ErrorMessage="El campo número de enlaces telefónicos por página debe estar comprendido entre 8 y 24." 
 											Style="z-index: 149; left: 80px; position: absolute; top: 180px" 
 					meta:resourcekey="RangeValidator4Resource1">*</asp:RangeValidator>
 
@@ -329,7 +338,7 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" Title="Parámetros Generales" EnableEve
                       meta:resourcekey="RFVTxtPortMultiResource1">*</asp:RequiredFieldValidator>
 
                     <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Resumen de errores"
-                    Style="z-index: 137; left: 50px; position: absolute; top: 345px" 
+                    Style="z-index: 137; left: 50px; position: absolute; top: 360px" 
 		            Visible="true" meta:resourcekey="erroresResource1" />
 					</asp:View>					
 					<asp:View ID="View2" runat="server">

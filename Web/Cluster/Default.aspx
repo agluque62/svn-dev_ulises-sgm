@@ -4,8 +4,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-   <title>SoftCluster State</title>
-
+   <title>Cluster State</title>
+    <link rel="shortcut icon" href="~/favicon.ico">
    <link rel="stylesheet" href="style/loader.css" />
 
 </head>
@@ -446,9 +446,9 @@
        <div id="Errores" style="font-weight: bold; z-index: 125; left: 223px; width: 488px;
            color: red; position: absolute; top: 425px; height: 16px; text-align: center">
        </div>
-        <div style="z-index: 301; left: 8px; width: 1264px; position: absolute; top: 855px; height: 37px; text-align:center; color: red; font-family:Verdana; font-size:small" >
+        <div style="z-index: 301; left: 8px; width: 1264px; position: absolute; top: 855px; height: 37px; text-align:center; color: black; font-family:Arial; font-size:small" >
             <br\ />
-            &#169 Núcleo. 2019. v2.5.9#7. All rights reserved.
+            &#169 Núcleo. 2020. v2.6.0. All rights reserved.
         </div>	
             <table>
                 <tr>

@@ -84,7 +84,6 @@ public partial class DestinosRadio : PageBaseCD40.PageCD40	// System.Web.UI.Page
             BtCancelar_ConfirmButtonExtender.ConfirmText = (string)GetGlobalResourceObject("Espaniol", "CancelarCambios");
 
             MuestraDatos(DameDatos());
-            CargarInforme();
         }
         else
         {
@@ -98,12 +97,7 @@ public partial class DestinosRadio : PageBaseCD40.PageCD40	// System.Web.UI.Page
         }
     }
 
-	protected void CargarInforme()
-	{
-		LBImprimir.Attributes.Remove("onclick");
-		string comando = "AbreVentana('../Informes/Report.aspx?Report=DestinosRd.rpt');return false;";
-		LBImprimir.Attributes.Add("onclick", comando);
-	}
+
 
     protected void BtNuevo_Click(object sender, EventArgs e)
     {
@@ -343,7 +337,6 @@ public partial class DestinosRadio : PageBaseCD40.PageCD40	// System.Web.UI.Page
                 ListBox1.SelectedIndex = IndexListBox1 != -1 && IndexListBox1 < ListBox1.Items.Count ? IndexListBox1 : 0;
     
 			MostrarElemento();
-			GeneraXmlParaInforme();
 		}
 		else
 		{
@@ -351,15 +344,7 @@ public partial class DestinosRadio : PageBaseCD40.PageCD40	// System.Web.UI.Page
 		}
     }
 
-	private void GeneraXmlParaInforme()
-	{
-		ServiciosCD40.DestinosRadio t = new ServiciosCD40.DestinosRadio();
-		Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
-		KeyValueConfigurationElement s = config.AppSettings.Settings["Sistema"];
-		t.IdSistema = s.Value;
 
-		ServicioCD40.DataSetSelectSQL(t).WriteXml(Server.MapPath("~/Informes/DestinosRd.xml"));
-	}
 
 	protected override void AceptarCambios()
 	{

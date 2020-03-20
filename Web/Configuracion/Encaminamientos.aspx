@@ -49,8 +49,7 @@
 	 <asp:LinkButton ID="BtModificar" runat="server" OnClick="BtModificar_Click" 
 		 CausesValidation="False" Text="Modificar" SkinID="MascaraBotonModificar" 
 		 meta:resourcekey="BtModificarResource1"/>
-    <asp:LinkButton ID="LBImprimir" runat="server" SkinID="MascaraBotonImprimir" Visible="false"
-		 meta:resourcekey="LBImprimirResource1">Imprimir</asp:LinkButton>
+
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Resumen de errores"
         Style="z-index: 104; left: 220px; position: absolute; top: 516px" 
 		 Visible="False" Width="450px" meta:resourcekey="ValidationSummary1Resource1" />
@@ -318,12 +317,12 @@
 					style="z-index: 103; left: 210px; position: absolute; top: 33px" 
 					ControlToValidate="DDLRutas" ValidationGroup="ValidatorRutas" 
 					meta:resourcekey="RequiredFieldValidator4Resource1">*</asp:RequiredFieldValidator>
-				<asp:ImageButton style="Z-INDEX: 103; LEFT: 214px; POSITION: absolute; TOP: 168px; -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -o-transform: rotate(90deg); transform: rotate(90deg); " 
+				<asp:ImageButton style="Z-INDEX: 103; LEFT: 214px; POSITION: absolute; TOP: 178px; -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -o-transform: rotate(90deg); transform: rotate(90deg); " 
                     id="IButAsignar" runat="server" ImageUrl="~/Configuracion/Images/arrow.png" Enabled="False" 
 					OnClick="IButAsignar_Click" ValidationGroup="ValidatorRutas" 
 					meta:resourcekey="IButAsignarResource1">
 					</asp:ImageButton>
-				<asp:ImageButton style="Z-INDEX: 104; LEFT: 214px; POSITION: absolute; TOP: 225px; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -o-transform: rotate(-90deg); transform: rotate(-90deg); " 
+				<asp:ImageButton style="Z-INDEX: 104; LEFT: 214px; POSITION: absolute; TOP: 235px; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -o-transform: rotate(-90deg); transform: rotate(-90deg); " 
                     id="IButQuitar" runat="server" ImageUrl="~/Configuracion/Images/arrow.png" Enabled="False" 
 					OnClick="IButQuitar_Click" ValidationGroup="ValidatorRutas" 
 					meta:resourcekey="IButQuitarResource1">

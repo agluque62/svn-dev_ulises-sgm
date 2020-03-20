@@ -15,7 +15,7 @@ no se permite que haya varios SkinId por tipo de control en el mismo tema.
 --%>
 <asp:Button runat="server"  CssClass="botonCD40"/> 
 
-<asp:Button runat="server" CssClass="buttonImage" Font-Names="Verdana" Font-Size="10px" SkinId="ButtonTab" />
+<asp:Button runat="server" CssClass="buttonImage" Font-Names="Arial" Font-Size="10px" SkinId="ButtonTab" />
 
 <asp:Button runat="server" CssClass="BtnPanelRadioLibre" SkinId="BotonPanelTelefonia" Width="75px" />
 
@@ -23,42 +23,42 @@ no se permite que haya varios SkinId por tipo de control en el mismo tema.
 
 <asp:Button runat="server" CssClass="BtnPanelTfAsignado" SkinId="BotonPanelLc" Width="75px" />
 
-<asp:Label runat="server" ForeColor="#616365" BackColor="Transparent" Font-Names="Verdana" Font-Size="14px"/>
+<asp:Label runat="server" ForeColor="#616365" BackColor="Transparent" Font-Names="Arial" Font-Size="14px"/>
 
-<asp:Label runat="server" ForeColor="#FFFFFF" BackColor="Transparent" Font-Names="Verdana" Font-Size="12px" SkinId="LabelPanel" />
+<asp:Label runat="server" ForeColor="#FFFFFF" BackColor="Transparent" Font-Names="Arial" Font-Size="12px" SkinId="LabelPanel" />
 
-<asp:Label runat="server" ForeColor="#616365" BackColor="Transparent" Font-Names="Verdana" Font-Size="16px" Font-Bold="true" SkinId="LabelCabecera"/>
+<asp:Label runat="server" ForeColor="#616365" BackColor="Transparent" Font-Names="Arial" Font-Size="16px" Font-Bold="true" SkinId="LabelCabecera"/>
 
 <asp:RadioButton runat="server" ForeColor="#616365" BackColor="Transparent" />
 
 <asp:CheckBox runat="server" ForeColor="#616365" BackColor="Transparent" />
 
-<%-- <asp:Label runat="server" ForeColor="#616365" BackColor="Transparent" Font-Names="Verdana" Font-Size="16px" SkinId="LabelTituloPagina"/> --%>
+<%-- <asp:Label runat="server" ForeColor="#616365" BackColor="Transparent" Font-Names="Arial" Font-Size="16px" SkinId="LabelTituloPagina"/> --%>
 
-<asp:LinkButton runat="server" ForeColor="#616365" Font-Names="Verdana" Font-Size="14px" SkinId="LinkButtonCabecera" />
+<asp:LinkButton runat="server" ForeColor="#616365" Font-Names="Arial" Font-Size="14px" SkinId="LinkButtonCabecera" />
 				
 <asp:LinkButton runat="server" ForeColor="#616365" Style="position: absolute; left: 682px; top: 535px; right: 63px; height: 19px; width: 62px;" 
-				 Font-Names="Verdana" Font-Size="14px" Visible="false" SkinId="MascaraBotonEliminar" />
+				 Font-Names="Arial" Font-Size="14px" Visible="false" SkinId="MascaraBotonEliminar" />
 				
 <asp:LinkButton runat="server" ForeColor="#616365" Style="position: absolute; left: 682px; top: 535px; right: 63px; height: 19px; width: 62px;" 
-				 Font-Names="Verdana" Font-Size="14px" Visible="false" SkinId="MascaraBotonCancelar" />
+				 Font-Names="Arial" Font-Size="14px" Visible="false" SkinId="MascaraBotonCancelar" />
 				
 <asp:LinkButton runat="server" ForeColor="#616365" Style="position: absolute; left: 336px; top: 535px; right: 63px; height: 19px; width: 100px;" 
-				 Font-Names="Verdana" Font-Size="14px" Visible="false" SkinId="MascaraBotonModificar" />
+				 Font-Names="Arial" Font-Size="14px" Visible="false" SkinId="MascaraBotonModificar" />
 
 <asp:LinkButton runat="server" ForeColor="#616365" Style="position: absolute; left: 236px; top: 535px; right: 63px; height: 19px; width: 62px;" 
-				 Font-Names="Verdana" Font-Size="14px" SkinId="MascaraBotonNuevo" />
+				 Font-Names="Arial" Font-Size="14px" SkinId="MascaraBotonNuevo" />
 				
 <asp:LinkButton runat="server" ForeColor="#616365" Style="position: absolute; left: 682px; top: 545px; right: 63px; height: 19px; width: 62px;" 
-				 Font-Names="Verdana" Font-Size="14px" Visible="false" SkinId="MascaraBotonCancelarSistema" />
+				 Font-Names="Arial" Font-Size="14px" Visible="false" SkinId="MascaraBotonCancelarSistema" />
 				
 <asp:LinkButton runat="server" ForeColor="#616365" Style="position: absolute; left: 136px; top: 545px; right: 63px; height: 19px; width: 100px;" 
-				 Font-Names="Verdana" Font-Size="14px" SkinId="MascaraBotonModificarSistema" />
+				 Font-Names="Arial" Font-Size="14px" SkinId="MascaraBotonModificarSistema" />
 				
 <asp:LinkButton runat="server" ForeColor="#616365" Style="left: 770px; top: 535px; position: absolute" 
-		  Font-Names="Verdana" Font-Size="14px" SkinId="MascaraBotonImprimir" />
+		  Font-Names="Arial" Font-Size="14px" SkinId="MascaraBotonImprimir" />
 
 <asp:LinkButton runat="server" ForeColor="#616365" Style="left: 770px; top: 535px; position: absolute; " 
-		 Font-Names="Verdana" Font-Size="14px" SkinId="ShadowLink" />
+		 Font-Names="Arial" Font-Size="14px" SkinId="ShadowLink" />
 
 

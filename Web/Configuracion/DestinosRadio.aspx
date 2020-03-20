@@ -122,8 +122,7 @@
       <ajaxToolKit:ConfirmButtonExtender ID="BtCancelar_ConfirmButtonExtender" 
           runat="server" ConfirmText="" Enabled="True" TargetControlID="BtCancelar">
       </ajaxToolKit:ConfirmButtonExtender>
-    <asp:LinkButton ID="LBImprimir" runat="server" SkinID="MascaraBotonImprimir" Visible="false"
-		  meta:resourcekey="LBImprimirResource1">Imprimir</asp:LinkButton>
+
     <asp:LinkButton ID="BtModificar" runat="server" OnClick="BtModificar_Click" 
 		  CausesValidation="False" Text="Modificar" SkinID="MascaraBotonModificar" 
 		  meta:resourcekey="BtModificarResource1"/>

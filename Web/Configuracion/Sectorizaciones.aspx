@@ -281,19 +281,19 @@
         </div> 
     </div>
 
-    <asp:Panel ID="PanelActiva" runat="server" ForeColor="#00C000" 
+    <asp:Panel ID="PanelActiva" runat="server" ForeColor="#97D700"
 		 GroupingText="Sectorización activa" 
 		 
 		 Style="z-index: -1; left: 204px; position: absolute; top: 408px; height: 60px; width: 657px;" 
 		 meta:resourcekey="PanelActivaResource1">
 		 &nbsp;&nbsp;&nbsp;&nbsp;
 		<asp:Label ID="LFecha" runat="server" Style="z-index: 100; left: 14px; position: absolute;
-			top: 26px" Text="Fecha:" Width="47px" ForeColor="#FF8000" 
+			top: 26px" Text="Fecha:" Width="47px" ForeColor="#4A7729" Font-Bold="true" 
 			 meta:resourcekey="LFechaResource1"></asp:Label>
 		<asp:Label ID="LHora" runat="server" Style="z-index: 106; left: 206px; position: absolute;
-			top: 26px" Text="Hora:" ForeColor="#FF8000" meta:resourcekey="LHoraResource1"></asp:Label>
+			top: 26px" Text="Hora:" ForeColor="#4A7729" Font-Bold="true" meta:resourcekey="LHoraResource1"></asp:Label>
 		<asp:Label ID="LId" runat="server" Style="z-index: 102; left: 377px; position: absolute;
-			top: 26px" Text="Nombre:" ForeColor="#FF8000" meta:resourcekey="LIdResource1"></asp:Label>
+			top: 26px" Text="Nombre:" ForeColor="#4A7729" Font-Bold="true" meta:resourcekey="LIdResource1"></asp:Label>
 		<asp:Label ID="LFechaSectorizacion" runat="server" Style="z-index: 101; left: 64px; position: absolute;
 			top: 26px" Width="106px" ForeColor="Black" 
 			 meta:resourcekey="LFechaSectorizacionResource1"></asp:Label>
@@ -315,17 +315,22 @@
 
 
     <asp:Button ID="BtActivar" runat="server" OnClick="BtActivar_Click" Style="left: 208px;
-        position: absolute; top: 498px; z-index: 101;" Text="Activar"
+        position: absolute; top: 498px; z-index: 101;" Text="Activar" BackColor="#b6c8a9"
 		    Width="100px" Enabled="False" Height="24px" 
 		    meta:resourcekey="BtActivarResource1" />
 
-    <asp:LinkButton ID="BtEliminar" runat="server" OnClick="BtEliminar_Click" 
+    <asp:LinkButton ID="BtEliminar"
+        runat="server" 
+        style="position: absolute; left: 682px; top: 570px; right: 63px; height: 19px; width: 62px;"
+        OnClick="BtEliminar_Click" 
+        
 		 CausesValidation="False" Text="Eliminar" SkinID="MascaraBotonEliminar" 
 		 meta:resourcekey="BtEliminarResource1"/>
     <asp:ConfirmButtonExtender ID="BtEliminar_ConfirmButtonExtender" runat="server" 
         ConfirmText="" Enabled="True" TargetControlID="BtEliminar">
     </asp:ConfirmButtonExtender>
-    <asp:LinkButton ID="BtNuevo" runat="server" OnClick="BtNuevo_Click" 
+    <asp:LinkButton ID="BtNuevo" runat="server"  OnClick="BtNuevo_Click" 
+         style="position: absolute; left: 236px; top: 570px; "
 		 CausesValidation="False" Text="Nuevo" SkinID="MascaraBotonNuevo" 
 		 meta:resourcekey="BtNuevoResource1"/>
     <asp:Button ID="BtAceptar" runat="server" Style="left: 250px; position: absolute;
@@ -336,6 +341,7 @@
         ConfirmText="" Enabled="True" TargetControlID="BtAceptar">
     </asp:ConfirmButtonExtender>
     <asp:LinkButton ID="BtCancelar" runat="server" OnClick="BtCancelar_Click" 
+         style="position: absolute; left: 682px; top: 570px; right: 63px;"
 		 CausesValidation="False" Text="Cancelar" SkinID="MascaraBotonCancelar" 
 		 meta:resourcekey="BtCancelarResource1" />   
     <asp:ConfirmButtonExtender ID="BtCancelar_ConfirmButtonExtender" runat="server" 
@@ -348,7 +354,7 @@
 
     
     <div runat="server" id="DvMarcoTops"
-        style="position: absolute; top: 58px; right: 175px; left: 211px; height: 345px; border: inset 2px black; overflow: auto; margin-bottom: 9px; background-color: white">
+        style="position: absolute; top: 58px; width: 650px; left: 205px; height: 345px; border: inset 2px black; overflow: auto; margin-bottom: 9px; background-color: white">
         <asp:Table ID="TUCS" runat="server" BorderStyle="None"
             BackColor="Transparent" GridLines="Both" meta:resourcekey="TUCSResource1">
             <asp:TableRow ID="Row1" runat="server" BackColor="Transparent">
@@ -413,9 +419,9 @@
             </asp:TableCell> 
                 --%>
             </asp:TableRow>
-            <asp:TableRow ID="TableRow1" runat="server" VerticalAlign="Top"
+            <asp:TableRow ID="UserTRow1" runat="server" VerticalAlign="Top"
                 BorderWidth="0px">
-                <asp:TableCell ID="TableCell1" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell1" runat="server" Visible="false">
                     <asp:Button ID="TextBox1" Width="100px" BackColor="transparent"
                         runat="server" BorderStyle="None" OnClick="UCS_OnClick" 
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -424,7 +430,7 @@
                         OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell2" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell2" runat="server" Visible="false">
                     <asp:Button ID="TextBox2" Width="100px" BackColor="Transparent"
                         runat="server" BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -433,7 +439,7 @@
                         OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell3" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell3" runat="server" Visible="false">
                     <asp:Button ID="TextBox3" Width="100px" BackColor="Transparent"
                         runat="server" BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -442,7 +448,7 @@
                         OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell4" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell4" runat="server" Visible="false">
                     <asp:Button ID="TextBox4" Width="100px" BackColor="Transparent"
                         runat="server" BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -451,7 +457,7 @@
                         OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell5" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell5" runat="server" Visible="false">
                     <asp:Button ID="TextBox5" Width="100px" BackColor="Transparent"
                         runat="server" BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -460,7 +466,7 @@
                         OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell6" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell6" runat="server" Visible="false">
                     <asp:Button ID="TextBox6" Width="100px" BackColor="Transparent"
                         runat="server" BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -469,7 +475,7 @@
                         OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <%--            <asp:TableCell ID="TableCell7" runat="server" Visible="false">
+                <%--            <asp:TableCell ID="UserCell7" runat="server" Visible="false">
                 <asp:Button ID="TextBox7" Width="100px" BackColor="Transparent" runat="server" BorderStyle="None" OnClick="UCS_OnClick"
                     style="overflow:hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align:middle; position: absolute"></asp:Button>
                 <asp:ImageButton ID="ImageButton7" runat="server" ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick"/>
@@ -603,8 +609,8 @@
             </asp:TableCell>
                 --%>
             </asp:TableRow>
-            <asp:TableRow ID="TableRow2" runat="server" VerticalAlign="Top">
-                <asp:TableCell ID="TableCell7" runat="server" Visible="false">
+            <asp:TableRow ID="UserTRow2" runat="server" VerticalAlign="Top">
+                <asp:TableCell ID="UserCell7" runat="server" Visible="false">
                     <asp:Button ID="TextBox7" Width="100px" BackColor="Transparent"
                         runat="server" BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -613,7 +619,7 @@
                         OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell8" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell8" runat="server" Visible="false">
                     <asp:Button ID="TextBox8" Width="100px" BackColor="Transparent"
                         runat="server" BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -622,7 +628,7 @@
                         OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell9" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell9" runat="server" Visible="false">
                     <asp:Button ID="TextBox9" Width="100px" BackColor="Transparent"
                         runat="server" BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -631,7 +637,7 @@
                         OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell10" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell10" runat="server" Visible="false">
                     <asp:Button ID="TextBox10" Width="100px" BackColor="Transparent"
                         runat="server" BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -640,7 +646,7 @@
                         OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell11" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell11" runat="server" Visible="false">
                     <asp:Button ID="TextBox11" Width="100px" BackColor="Transparent"
                         runat="server" BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -649,7 +655,7 @@
                         OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell12" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell12" runat="server" Visible="false">
                     <asp:Button ID="TextBox12" Width="100px" BackColor="Transparent"
                         runat="server" BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -658,7 +664,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <%--            <asp:TableCell ID="TableCell13" runat="server" Visible="false">
+                <%--            <asp:TableCell ID="UserCell13" runat="server" Visible="false">
                 <asp:Button ID="TextBox13" Width="100px" BackColor="Transparent" runat="server" BorderStyle="None" OnClick="UCS_OnClick"
                     style="overflow:hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align:middle; position: absolute"></asp:Button>
                 <asp:ImageButton ID="ImageButton13" runat="server" ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick"/>
@@ -797,8 +803,8 @@
             </asp:TableCell>
                 --%>
             </asp:TableRow>
-            <asp:TableRow ID="TableRow3" runat="server" VerticalAlign="Top">
-                <asp:TableCell ID="TableCell13" runat="server" Visible="false">
+            <asp:TableRow ID="UserTRow3" runat="server" VerticalAlign="Top">
+                <asp:TableCell ID="UserCell13" runat="server" Visible="false">
                     <asp:Button ID="TextBox13" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -807,7 +813,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell14" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell14" runat="server" Visible="false">
                     <asp:Button ID="TextBox14" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -816,7 +822,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell15" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell15" runat="server" Visible="false">
                     <asp:Button ID="TextBox15" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -825,7 +831,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell16" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell16" runat="server" Visible="false">
                     <asp:Button ID="TextBox16" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -834,7 +840,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell17" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell17" runat="server" Visible="false">
                     <asp:Button ID="TextBox17" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -843,7 +849,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell18" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell18" runat="server" Visible="false">
                     <asp:Button ID="TextBox18" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -852,7 +858,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <%--            <asp:TableCell ID="TableCell21" runat="server" Visible="false">
+                <%--            <asp:TableCell ID="UserCell21" runat="server" Visible="false">
                 <asp:Button ID="TextBox21" BackColor="Transparent" runat="server" BorderStyle="None" OnClick="UCS_OnClick"
                     style="overflow:hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30; width: 101px; text-align: center; vertical-align:middle; position: absolute" ></asp:Button>
                 <asp:ImageButton ID="ImageButton21" runat="server" ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick"/>
@@ -991,8 +997,8 @@
             </asp:TableCell>
                 --%>
             </asp:TableRow>
-            <asp:TableRow ID="TableRow4" runat="server" VerticalAlign="Top">
-                <asp:TableCell ID="TableCell19" runat="server" Visible="false">
+            <asp:TableRow ID="UserTRow4" runat="server" VerticalAlign="Top">
+                <asp:TableCell ID="UserCell19" runat="server" Visible="false">
                     <asp:Button ID="TextBox19" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1001,7 +1007,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell20" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell20" runat="server" Visible="false">
                     <asp:Button ID="TextBox20" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1010,7 +1016,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell21" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell21" runat="server" Visible="false">
                     <asp:Button ID="TextBox21" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1019,7 +1025,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell22" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell22" runat="server" Visible="false">
                     <asp:Button ID="TextBox22" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1028,7 +1034,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell23" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell23" runat="server" Visible="false">
                     <asp:Button ID="TextBox23" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1037,7 +1043,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell24" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell24" runat="server" Visible="false">
                     <asp:Button ID="TextBox24" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1046,7 +1052,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <%--            <asp:TableCell ID="TableCell28" runat="server" Visible="false">
+                <%--            <asp:TableCell ID="UserCell28" runat="server" Visible="false">
                 <asp:Button ID="TextBox28" BackColor="Transparent" runat="server" BorderStyle="None" OnClick="UCS_OnClick"
                     style="overflow:hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30; width: 101px; text-align: center; vertical-align:middle; position: absolute" ></asp:Button>
                 <asp:ImageButton ID="ImageButton28" runat="server" ImageUrl="~/Configuracion/Images/UCS.jpg"  OnClick="UCS_OnClick"/>
@@ -1185,8 +1191,8 @@
             </asp:TableCell>
                 --%>
             </asp:TableRow>
-            <asp:TableRow ID="TableRow5" runat="server" VerticalAlign="Top">
-                <asp:TableCell ID="TableCell25" runat="server" Visible="false">
+            <asp:TableRow ID="UserTRow5" runat="server" VerticalAlign="Top">
+                <asp:TableCell ID="UserCell25" runat="server" Visible="false">
                     <asp:Button ID="TextBox25" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1195,7 +1201,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell26" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell26" runat="server" Visible="false">
                     <asp:Button ID="TextBox26" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1204,7 +1210,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell27" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell27" runat="server" Visible="false">
                     <asp:Button ID="TextBox27" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1213,7 +1219,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell28" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell28" runat="server" Visible="false">
                     <asp:Button ID="TextBox28" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1222,7 +1228,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell29" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell29" runat="server" Visible="false">
                     <asp:Button ID="TextBox29" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1231,7 +1237,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell30" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell30" runat="server" Visible="false">
                     <asp:Button ID="TextBox30" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1240,7 +1246,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <%--            <asp:TableCell ID="TableCell35" runat="server" Visible="false">
+                <%--            <asp:TableCell ID="UserCell35" runat="server" Visible="false">
                 <asp:Button ID="TextBox35" BackColor="Transparent" runat="server" BorderStyle="None" OnClick="UCS_OnClick"
                     style="overflow:hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30; width: 101px; text-align: center; vertical-align:middle; position: absolute" ></asp:Button>
                 <asp:ImageButton ID="ImageButton35" runat="server" ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick"/>
@@ -1379,8 +1385,8 @@
             </asp:TableCell>
                 --%>
             </asp:TableRow>
-            <asp:TableRow ID="TableRow6" runat="server" VerticalAlign="Top">
-                <asp:TableCell ID="TableCell31" runat="server" Visible="false">
+            <asp:TableRow ID="UserTRow6" runat="server" VerticalAlign="Top">
+                <asp:TableCell ID="UserCell31" runat="server" Visible="false">
                     <asp:Button ID="TextBox31" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1389,7 +1395,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell32" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell32" runat="server" Visible="false">
                     <asp:Button ID="TextBox32" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1398,7 +1404,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell33" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell33" runat="server" Visible="false">
                     <asp:Button ID="TextBox33" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1407,7 +1413,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell34" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell34" runat="server" Visible="false">
                     <asp:Button ID="TextBox34" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1416,7 +1422,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell35" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell35" runat="server" Visible="false">
                     <asp:Button ID="TextBox35" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1425,7 +1431,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell36" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell36" runat="server" Visible="false">
                     <asp:Button ID="TextBox36" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1434,7 +1440,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <%--            <asp:TableCell ID="TableCell42" runat="server" Visible="false">
+                <%--            <asp:TableCell ID="UserCell42" runat="server" Visible="false">
                 <asp:Button ID="TextBox42" BackColor="Transparent" runat="server" BorderStyle="None" OnClick="UCS_OnClick"
                     style="overflow:hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30; width: 101px; text-align: center; vertical-align:middle; position: absolute" ></asp:Button>
                 <asp:ImageButton ID="ImageButton42" runat="server" ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick"/>
@@ -1573,8 +1579,8 @@
             </asp:TableCell>
                 --%>
             </asp:TableRow>
-            <asp:TableRow ID="TableRow7" runat="server" VerticalAlign="Top">
-                <asp:TableCell ID="TableCell37" runat="server" Visible="false">
+            <asp:TableRow ID="UserTRow7" runat="server" VerticalAlign="Top">
+                <asp:TableCell ID="UserCell37" runat="server" Visible="false">
                     <asp:Button ID="TextBox37" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1583,7 +1589,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell38" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell38" runat="server" Visible="false">
                     <asp:Button ID="TextBox38" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1592,7 +1598,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell39" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell39" runat="server" Visible="false">
                     <asp:Button ID="TextBox39" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1601,7 +1607,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell40" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell40" runat="server" Visible="false">
                     <asp:Button ID="TextBox40" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1610,7 +1616,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell41" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell41" runat="server" Visible="false">
                     <asp:Button ID="TextBox41" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1619,7 +1625,7 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <asp:TableCell ID="TableCell42" runat="server" Visible="false">
+                <asp:TableCell ID="UserCell42" runat="server" Visible="false">
                     <asp:Button ID="TextBox42" BackColor="Transparent" runat="server"
                         BorderStyle="None" OnClick="UCS_OnClick"
                         Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
@@ -1628,14 +1634,14 @@
                         ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
 
                 </asp:TableCell>
-                <%--            <asp:TableCell ID="TableCell49" runat="server" Visible="false">
+                <%--            <asp:TableCell ID="UserCell49" runat="server" Visible="false">
                 <asp:Button ID="TextBox49" BackColor="Transparent" runat="server" BorderStyle="None" OnClick="UCS_OnClick"
                     style="overflow:hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30; width: 101px; text-align: center; vertical-align:middle; position: absolute" ></asp:Button>
                 <asp:ImageButton ID="ImageButton49" runat="server" ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick"/>
             </asp:TableCell>
                 --%>
             </asp:TableRow>
-            <asp:TableRow ID="RowUsuarios8" runat="server" BackColor="Coral">
+            <asp:TableRow ID="RowUsuarios7" runat="server" BackColor="Coral">
                 <asp:TableCell ID="CellUsuarios37" runat="server" Visible="false">
                     <div style="height: 75px; overflow: hidden; width: 100px">
                         <asp:ListBox ID="BUsuarios37" runat="server" BorderStyle="None"
@@ -1704,6 +1710,1737 @@
             </asp:TableRow>
             <asp:TableRow Height="10px" runat="server"></asp:TableRow>
 
+            <asp:TableRow ID="Row8" runat="server" BackColor="Transparent">
+                <asp:TableCell ID="Cell43" runat="server" Visible="false">
+                    <asp:Button ID="TBox43" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton43" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell44" runat="server" Visible="false">
+                    <asp:Button ID="TBox44" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton44" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell45" runat="server" Visible="false">
+                    <asp:Button ID="TBox45" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton45" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell46" runat="server" Visible="false">
+                    <asp:Button ID="TBox46" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton46" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell47" runat="server" Visible="false">
+                    <asp:Button ID="TBox47" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton47" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell48" runat="server" Visible="false">
+                    <asp:Button ID="TBox48" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton48" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <%--            <asp:TableCell ID="Cell49" runat="server" Visible="false">
+                <asp:Button ID="TBox49" Width="100px" BackColor="transparent" runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                    style="position:absolute; overflow:hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align:middle;"></asp:Button>
+					<asp:ImageButton ID="IButton49" runat="server" ImageUrl="~/Configuracion/Images/TextoUCS.jpg"/>                    
+            </asp:TableCell>
+                --%>
+            </asp:TableRow>
+            <asp:TableRow ID="UserTRow8" runat="server" VerticalAlign="Top">
+                <asp:TableCell ID="UserCell43" runat="server" Visible="false">
+                    <asp:Button ID="TextBox43" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton43" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell44" runat="server" Visible="false">
+                    <asp:Button ID="TextBox44" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton44" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell45" runat="server" Visible="false">
+                    <asp:Button ID="TextBox45" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton45" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell46" runat="server" Visible="false">
+                    <asp:Button ID="TextBox46" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton46" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell47" runat="server" Visible="false">
+                    <asp:Button ID="TextBox47" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton47" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell48" runat="server" Visible="false">
+                    <asp:Button ID="TextBox48" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton48" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <%--            <asp:TableCell ID="UserCell49" runat="server" Visible="false">
+                <asp:Button ID="TextBox49" BackColor="Transparent" runat="server" BorderStyle="None" OnClick="UCS_OnClick"
+                    style="overflow:hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30; width: 101px; text-align: center; vertical-align:middle; position: absolute" ></asp:Button>
+                <asp:ImageButton ID="ImageButton49" runat="server" ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick"/>
+            </asp:TableCell>
+                --%>
+            </asp:TableRow>
+            <asp:TableRow ID="RowUsuarios8" runat="server" BackColor="Coral">
+                <asp:TableCell ID="CellUsuarios43" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios43" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="false"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios44" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios44" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios45" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios45" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios46" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios46" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios47" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios47" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios48" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios48" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow Height="10px" runat="server"></asp:TableRow>
+
+            <asp:TableRow ID="Row9" runat="server" BackColor="Transparent">
+                <asp:TableCell ID="Cell49" runat="server" Visible="false">
+                    <asp:Button ID="TBox49" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton49" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell50" runat="server" Visible="false">
+                    <asp:Button ID="TBox50" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton50" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell51" runat="server" Visible="false">
+                    <asp:Button ID="TBox51" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton51" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell52" runat="server" Visible="false">
+                    <asp:Button ID="TBox52" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton52" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell53" runat="server" Visible="false">
+                    <asp:Button ID="TBox53" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton53" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell54" runat="server" Visible="false">
+                    <asp:Button ID="TBox54" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton54" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="UserTRow9" runat="server" VerticalAlign="Top">
+                <asp:TableCell ID="UserCell49" runat="server" Visible="false">
+                    <asp:Button ID="TextBox49" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton49" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell50" runat="server" Visible="false">
+                    <asp:Button ID="TextBox50" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton50" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell51" runat="server" Visible="false">
+                    <asp:Button ID="TextBox51" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton51" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell52" runat="server" Visible="false">
+                    <asp:Button ID="TextBox52" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton52" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell53" runat="server" Visible="false">
+                    <asp:Button ID="TextBox53" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton53" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell54" runat="server" Visible="false">
+                    <asp:Button ID="TextBox54" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton54" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="RowUsuarios9" runat="server" BackColor="Coral">
+                <asp:TableCell ID="CellUsuarios49" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios49" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="false"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios50" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios50" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios51" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios51" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios52" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios52" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios53" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios53" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios54" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios54" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow Height="10px" runat="server"></asp:TableRow>
+
+            <asp:TableRow ID="Row10" runat="server" BackColor="Transparent">
+                <asp:TableCell ID="Cell55" runat="server" Visible="false">
+                    <asp:Button ID="TBox55" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton55" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell56" runat="server" Visible="false">
+                    <asp:Button ID="TBox56" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton56" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell57" runat="server" Visible="false">
+                    <asp:Button ID="TBox57" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton57" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell58" runat="server" Visible="false">
+                    <asp:Button ID="TBox58" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton58" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell59" runat="server" Visible="false">
+                    <asp:Button ID="TBox59" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton59" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell60" runat="server" Visible="false">
+                    <asp:Button ID="TBox60" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton60" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="UserTRow10" runat="server" VerticalAlign="Top">
+                <asp:TableCell ID="UserCell55" runat="server" Visible="false">
+                    <asp:Button ID="TextBox55" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton55" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell56" runat="server" Visible="false">
+                    <asp:Button ID="TextBox56" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton56" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell57" runat="server" Visible="false">
+                    <asp:Button ID="TextBox57" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton57" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell58" runat="server" Visible="false">
+                    <asp:Button ID="TextBox58" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton58" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell59" runat="server" Visible="false">
+                    <asp:Button ID="TextBox59" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton59" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell60" runat="server" Visible="false">
+                    <asp:Button ID="TextBox60" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton60" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="RowUsuarios10" runat="server" BackColor="Coral">
+                <asp:TableCell ID="CellUsuarios55" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios55" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="false"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios56" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios56" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios57" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios57" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios58" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios58" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios59" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios59" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios60" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios60" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow Height="10px" runat="server"></asp:TableRow>
+
+            <asp:TableRow ID="Row11" runat="server" BackColor="Transparent">
+                <asp:TableCell ID="Cell61" runat="server" Visible="false">
+                    <asp:Button ID="TBox61" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton61" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell62" runat="server" Visible="false">
+                    <asp:Button ID="TBox62" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton62" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell63" runat="server" Visible="false">
+                    <asp:Button ID="TBox63" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton63" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell64" runat="server" Visible="false">
+                    <asp:Button ID="TBox64" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton64" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell65" runat="server" Visible="false">
+                    <asp:Button ID="TBox65" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton65" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell66" runat="server" Visible="false">
+                    <asp:Button ID="TBox66" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton66" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="UserTRow11" runat="server" VerticalAlign="Top">
+                <asp:TableCell ID="UserCell61" runat="server" Visible="false">
+                    <asp:Button ID="TextBox61" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton61" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell62" runat="server" Visible="false">
+                    <asp:Button ID="TextBox62" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton62" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell63" runat="server" Visible="false">
+                    <asp:Button ID="TextBox63" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton63" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell64" runat="server" Visible="false">
+                    <asp:Button ID="TextBox64" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton64" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell65" runat="server" Visible="false">
+                    <asp:Button ID="TextBox65" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton65" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell66" runat="server" Visible="false">
+                    <asp:Button ID="TextBox66" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton66" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="RowUsuarios11" runat="server" BackColor="Coral">
+                <asp:TableCell ID="CellUsuarios61" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios61" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="false"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios62" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios62" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios63" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios63" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios64" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios64" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios65" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios65" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios66" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios66" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow Height="10px" runat="server"></asp:TableRow>
+   
+            <asp:TableRow ID="Row12" runat="server" BackColor="Transparent">
+                <asp:TableCell ID="Cell67" runat="server" Visible="false">
+                    <asp:Button ID="TBox67" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton67" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell68" runat="server" Visible="false">
+                    <asp:Button ID="TBox68" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton68" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell69" runat="server" Visible="false">
+                    <asp:Button ID="TBox69" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton69" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell70" runat="server" Visible="false">
+                    <asp:Button ID="TBox70" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton70" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell71" runat="server" Visible="false">
+                    <asp:Button ID="TBox71" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton71" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell72" runat="server" Visible="false">
+                    <asp:Button ID="TBox72" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton72" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="UserTRow12" runat="server" VerticalAlign="Top">
+                <asp:TableCell ID="UserCell67" runat="server" Visible="false">
+                    <asp:Button ID="TextBox67" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton67" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell68" runat="server" Visible="false">
+                    <asp:Button ID="TextBox68" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton68" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell69" runat="server" Visible="false">
+                    <asp:Button ID="TextBox69" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton69" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell70" runat="server" Visible="false">
+                    <asp:Button ID="TextBox70" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton70" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell71" runat="server" Visible="false">
+                    <asp:Button ID="TextBox71" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton71" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell72" runat="server" Visible="false">
+                    <asp:Button ID="TextBox72" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton72" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="RowUsuarios12" runat="server" BackColor="Coral">
+                <asp:TableCell ID="CellUsuarios67" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios67" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="false"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios68" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios68" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios69" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios69" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios70" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios70" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios71" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios71" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios72" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios72" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow Height="10px" runat="server"></asp:TableRow>
+
+            <asp:TableRow ID="Row13" runat="server" BackColor="Transparent">
+                <asp:TableCell ID="Cell73" runat="server" Visible="false">
+                    <asp:Button ID="TBox73" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton73" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell74" runat="server" Visible="false">
+                    <asp:Button ID="TBox74" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton74" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell75" runat="server" Visible="false">
+                    <asp:Button ID="TBox75" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton75" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell76" runat="server" Visible="false">
+                    <asp:Button ID="TBox76" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton76" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell77" runat="server" Visible="false">
+                    <asp:Button ID="TBox77" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton77" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell78" runat="server" Visible="false">
+                    <asp:Button ID="TBox78" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton78" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="UserTRow13" runat="server" VerticalAlign="Top">
+                <asp:TableCell ID="UserCell73" runat="server" Visible="false">
+                    <asp:Button ID="TextBox73" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton73" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell74" runat="server" Visible="false">
+                    <asp:Button ID="TextBox74" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton74" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell75" runat="server" Visible="false">
+                    <asp:Button ID="TextBox75" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton75" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell76" runat="server" Visible="false">
+                    <asp:Button ID="TextBox76" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton76" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell77" runat="server" Visible="false">
+                    <asp:Button ID="TextBox77" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton77" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell78" runat="server" Visible="false">
+                    <asp:Button ID="TextBox78" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton78" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="RowUsuarios13" runat="server" BackColor="Coral">
+                <asp:TableCell ID="CellUsuarios73" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios73" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="false"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios74" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios74" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios75" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios75" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios76" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios76" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios77" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios77" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios78" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios78" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow Height="10px" runat="server"></asp:TableRow>
+
+            <asp:TableRow ID="Row14" runat="server" BackColor="Transparent">
+                <asp:TableCell ID="Cell79" runat="server" Visible="false">
+                    <asp:Button ID="TBox79" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton79" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell80" runat="server" Visible="false">
+                    <asp:Button ID="TBox80" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton80" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell81" runat="server" Visible="false">
+                    <asp:Button ID="TBox81" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton81" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell82" runat="server" Visible="false">
+                    <asp:Button ID="TBox82" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton82" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell83" runat="server" Visible="false">
+                    <asp:Button ID="TBox83" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton83" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell84" runat="server" Visible="false">
+                    <asp:Button ID="TBox84" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton84" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="UserTRow14" runat="server" VerticalAlign="Top">
+                <asp:TableCell ID="UserCell79" runat="server" Visible="false">
+                    <asp:Button ID="TextBox79" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton79" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell80" runat="server" Visible="false">
+                    <asp:Button ID="TextBox80" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton80" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell81" runat="server" Visible="false">
+                    <asp:Button ID="TextBox81" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton81" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell82" runat="server" Visible="false">
+                    <asp:Button ID="TextBox82" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton82" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell83" runat="server" Visible="false">
+                    <asp:Button ID="TextBox83" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton83" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell84" runat="server" Visible="false">
+                    <asp:Button ID="TextBox84" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton84" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="RowUsuarios14" runat="server" BackColor="Coral">
+                <asp:TableCell ID="CellUsuarios79" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios79" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="false"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios80" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios80" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios81" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios81" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios82" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios82" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios83" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios83" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios84" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios84" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow Height="10px" runat="server"></asp:TableRow>
+
+            <asp:TableRow ID="Row15" runat="server" BackColor="Transparent">
+                <asp:TableCell ID="Cell85" runat="server" Visible="false">
+                    <asp:Button ID="TBox85" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton85" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell86" runat="server" Visible="false">
+                    <asp:Button ID="TBox86" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton86" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell87" runat="server" Visible="false">
+                    <asp:Button ID="TBox87" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton87" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell88" runat="server" Visible="false">
+                    <asp:Button ID="TBox88" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton88" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell89" runat="server" Visible="false">
+                    <asp:Button ID="TBox89" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton89" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell90" runat="server" Visible="false">
+                    <asp:Button ID="TBox90" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton90" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="UserTRow15" runat="server" VerticalAlign="Top">
+                <asp:TableCell ID="UserCell85" runat="server" Visible="false">
+                    <asp:Button ID="TextBox85" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton85" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell86" runat="server" Visible="false">
+                    <asp:Button ID="TextBox86" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton86" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell87" runat="server" Visible="false">
+                    <asp:Button ID="TextBox87" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton87" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell88" runat="server" Visible="false">
+                    <asp:Button ID="TextBox88" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton88" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell89" runat="server" Visible="false">
+                    <asp:Button ID="TextBox89" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton89" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell90" runat="server" Visible="false">
+                    <asp:Button ID="TextBox90" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton90" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="RowUsuarios15" runat="server" BackColor="Coral">
+                <asp:TableCell ID="CellUsuarios85" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios85" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="false"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios86" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios86" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios87" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios87" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios88" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios88" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios89" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios89" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios90" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios90" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow Height="10px" runat="server"></asp:TableRow>
+
+            <asp:TableRow ID="Row16" runat="server" BackColor="Transparent">
+                <asp:TableCell ID="Cell91" runat="server" Visible="false">
+                    <asp:Button ID="TBox91" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton91" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell92" runat="server" Visible="false">
+                    <asp:Button ID="TBox92" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton92" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell93" runat="server" Visible="false">
+                    <asp:Button ID="TBox93" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton93" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell94" runat="server" Visible="false">
+                    <asp:Button ID="TBox94" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton94" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell95" runat="server" Visible="false">
+                    <asp:Button ID="TBox95" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton95" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell96" runat="server" Visible="false">
+                    <asp:Button ID="TBox96" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton96" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="UserTRow16" runat="server" VerticalAlign="Top">
+                <asp:TableCell ID="UserCell91" runat="server" Visible="false">
+                    <asp:Button ID="TextBox91" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton91" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell92" runat="server" Visible="false">
+                    <asp:Button ID="TextBox92" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton92" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell93" runat="server" Visible="false">
+                    <asp:Button ID="TextBox93" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton93" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell94" runat="server" Visible="false">
+                    <asp:Button ID="TextBox94" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton94" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell95" runat="server" Visible="false">
+                    <asp:Button ID="TextBox95" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton95" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell96" runat="server" Visible="false">
+                    <asp:Button ID="TextBox96" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton96" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="RowUsuarios16" runat="server" BackColor="Coral">
+                <asp:TableCell ID="CellUsuarios91" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios91" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="false"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios92" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios92" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios93" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios93" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios94" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios94" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios95" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios95" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios96" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios96" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow Height="10px" runat="server"></asp:TableRow>
+
+            <asp:TableRow ID="Row17" runat="server" BackColor="Transparent">
+                <asp:TableCell ID="Cell97" runat="server" Visible="false">
+                    <asp:Button ID="TBox97" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton97" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell98" runat="server" Visible="false">
+                    <asp:Button ID="TBox98" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton98" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell99" runat="server" Visible="false">
+                    <asp:Button ID="TBox99" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton99" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell100" runat="server" Visible="false">
+                    <asp:Button ID="TBox100" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton100" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell101" runat="server" Visible="false">
+                    <asp:Button ID="TBox101" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton101" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="Cell102" runat="server" Visible="false">
+                    <asp:Button ID="TBox102" Width="100px" BackColor="transparent"
+                        runat="server" BorderStyle="None" OnClick="Top_OnClick"
+                        Style="position: absolute; overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; text-align: center; vertical-align: middle;"></asp:Button>
+
+                    <asp:ImageButton ID="IButton102" runat="server"
+                        ImageUrl="~/Configuracion/Images/TextoUCS.jpg" />
+
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="UserTRow17" runat="server" VerticalAlign="Top">
+                <asp:TableCell ID="UserCell97" runat="server" Visible="false">
+                    <asp:Button ID="TextBox97" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton97" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell98" runat="server" Visible="false">
+                    <asp:Button ID="TextBox98" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton98" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell99" runat="server" Visible="false">
+                    <asp:Button ID="TextBox99" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton99" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell100" runat="server" Visible="false">
+                    <asp:Button ID="TextBox100" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton100" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell101" runat="server" Visible="false">
+                    <asp:Button ID="TextBox101" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton101" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+                <asp:TableCell ID="UserCell102" runat="server" Visible="false">
+                    <asp:Button ID="TextBox102" BackColor="Transparent" runat="server"
+                        BorderStyle="None" OnClick="UCS_OnClick"
+                        Style="overflow: hidden; font-weight: bold; font-size: x-small; font-family: Tahoma; height: 30px; width: 101px; text-align: center; vertical-align: middle; position: absolute; text-overflow: ellipsis"></asp:Button>
+
+                    <asp:ImageButton ID="ImageButton102" runat="server"
+                        ImageUrl="~/Configuracion/Images/UCS.jpg" OnClick="UCS_OnClick" />
+
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="RowUsuarios17" runat="server" BackColor="Coral">
+                <asp:TableCell ID="CellUsuarios97" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios97" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="false"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios98" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios98" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios99" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios99" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios100" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios100" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+
+
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios101" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios101" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+                <asp:TableCell ID="CellUsuarios102" runat="server" Visible="false">
+                    <div style="height: 75px; overflow: hidden; width: 100px">
+                        <asp:ListBox ID="BUsuarios102" runat="server" BorderStyle="None"
+                            BackColor="Coral" Visible="true"
+                            Style="height: 75px; width: 100px; font-family: Tahoma; font-size:x-small; overflow: hidden"
+                            SelectionMode="Multiple" />
+                    </div>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow Height="10px" runat="server"></asp:TableRow>
         </asp:Table>
     </div>
 
@@ -1807,7 +3544,7 @@
                                     runat="server" Font-Bold="True"
                                     ForeColor="LightSkyBlue"
                                     Visible="False" Width="151px" />
-                            </asp:TableCell><asp:TableCell ID="TableCell48" runat="server" HorizontalAlign="Center">
+                            </asp:TableCell><asp:TableCell ID="TableCell48" runat="server" HorizontalAlign="Right">
                                 <asp:ImageButton
                                     ID="BtnVolverASectorizacion" runat="server" Visible="False"
                                     OnClick="BtnVolverASectorizacion_OnClick"

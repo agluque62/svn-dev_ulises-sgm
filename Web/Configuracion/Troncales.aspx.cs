@@ -61,7 +61,6 @@ public partial class Troncales : PageBaseCD40.PageCD40	// System.Web.UI.Page
             IndexListBox1 = -1;
             BtNuevo.Visible = PermisoSegunPerfil;
             MuestraDatos(DameDatos());
-            CargarInforme();
 
             ActualizaWebPadre(true);
         }
@@ -73,12 +72,6 @@ public partial class Troncales : PageBaseCD40.PageCD40	// System.Web.UI.Page
 
     }
 
-	protected void CargarInforme()
-	{
-		LBImprimir.Attributes.Remove("onclick");
-		string comando = "AbreVentana('../Informes/Report.aspx?Report=Troncales.rpt');return false;";
-		LBImprimir.Attributes.Add("onclick", comando);
-	}
 
     private ServiciosCD40.Tablas[] DameDatos()
     {

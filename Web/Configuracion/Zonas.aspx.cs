@@ -63,7 +63,6 @@ public partial class Zonas : PageBaseCD40.PageCD40		//System.Web.UI.Page
             BtCancelar_ConfirmButtonExtender.ConfirmText = (string)GetGlobalResourceObject("Espaniol", "CancelarCambios");
 
             MuestraDatos(DameDatos());
-            CargarInforme();
         }
         else
         {
@@ -76,13 +75,6 @@ public partial class Zonas : PageBaseCD40.PageCD40		//System.Web.UI.Page
         }
     }
 
-	protected void CargarInforme()
-	{
-		LBImprimir.Attributes.Remove("onclick");
-        string comando = "AbreVentana('../Informes/Report.aspx?Report=Emplazamientos.rpt');return false;";
-        //JC string comando = "AbreVentana('../Informes/Report.aspx?Report=Zonas.rpt');return false;";
-		LBImprimir.Attributes.Add("onclick", comando);
-	}
 
     private ServiciosCD40.Tablas[] DameDatos()
     {
@@ -135,7 +127,6 @@ public partial class Zonas : PageBaseCD40.PageCD40		//System.Web.UI.Page
 
             MostrarRecursos(); //MAF_zonas
 
-            //GeneraXmlParaInforme();
         }
         else//MAF
         {

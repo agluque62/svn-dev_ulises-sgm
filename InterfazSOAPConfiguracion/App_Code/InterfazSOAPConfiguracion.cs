@@ -811,6 +811,8 @@ public class InterfazSOAPConfiguracion : System.Web.Services.WebService
                                 //VMG 18/02/2019
                                 ObjEnlace.EmplazamientoDefecto = ((DestinosRadio)listaEnlaces[0]).EmplazamientoDefecto;
                                 ObjEnlace.TiempoVueltaADefecto = ((DestinosRadio)listaEnlaces[0]).TiempoVueltaADefecto;
+                                //Se pone un 
+                                ObjEnlace.PorcentajeRSSI = "0";
                             }
 
                             for (int j = 0; j < listaRecursosEnlace.Count; j++)
@@ -837,7 +839,8 @@ public class InterfazSOAPConfiguracion : System.Web.Services.WebService
                                 //cfgRecurso.CldSupervisionTime = ((RecursosRadio)listaRecursosEnlace[j]).CldSupervisionTime;
                                 cfgRecurso.OffSetFrequency = ((RecursosRadio)listaRecursosEnlace[j]).OffSetFrequency;
                                 cfgRecurso.EnableEventPttSq = ((RecursosRadio)listaRecursosEnlace[j]).EnableEventPttSq;
-
+                                cfgRecurso.RedundanciaRol = ((RecursosRadio)listaRecursosEnlace[j]).RedundanciaRol;
+                                cfgRecurso.RedundanciaIdPareja = ((RecursosRadio)listaRecursosEnlace[j]).RedundanciaIdPareja;
                                 cfgRecurso.Estado = GetEstadoDelRecurso(((Sectorizaciones)sectorizacion[0]).IdSectorizacion, r, (Radio)listaEnlacesExternos[i]);// "S"; 
 
                                 // Obtener los valores de la tabla de calificación de audio
@@ -951,6 +954,8 @@ public class InterfazSOAPConfiguracion : System.Web.Services.WebService
 					ConfiguracionEnlaceInterno[i].TipoEnlaceInterno = ((Internos)listaEnlacesInternos[i]).TipoAcceso;
 					ConfiguracionEnlaceInterno[i].Prioridad = ((Internos)listaEnlacesInternos[i]).PrioridadSIP;
 					ConfiguracionEnlaceInterno[i].OrigenR2 = ((Internos)listaEnlacesInternos[i]).OrigenR2;
+                    //Por defecto, se inicializa a cadena vacía, para que aparezca en la interfaz
+                    ConfiguracionEnlaceInterno[i].Dominio = "";
 
 					DestinosTelefonia interno = new DestinosTelefonia();
 					interno.IdSistema = id_sistema;
@@ -1053,6 +1058,11 @@ public class InterfazSOAPConfiguracion : System.Web.Services.WebService
 
 								cfgRecursoInterno.NombreRecurso = (string)listaRecurso.Tables[0].Rows[numRecurso]["IdRecurso"];
 
+                                //Por defecto, se inicializa a cadena vacía, para que aparezca en la interfaz
+                                cfgRecursoInterno.NombreMostrar = "";
+
+                                cfgRecursoInterno.Interface = Tipos.TipoInterface.TI_BC; //Pueder ser BL
+
                                 cfgRecursoInterno.Interface = (Tipos.TipoInterface)(uint)listaRecurso.Tables[0].Rows[numRecurso]["Interface"];
                                 if (cfgRecursoInterno.Interface == Tipos.TipoInterface.TI_EM_PP &&
                                     listaRecurso.Tables[0].Rows[numRecurso]["Interface"]!= System.DBNull.Value &&
@@ -1122,6 +1132,8 @@ public class InterfazSOAPConfiguracion : System.Web.Services.WebService
                                     cfgRecursoInterno = new CfgRecursoEnlaceInternoConInterface();
 
                                     cfgRecursoInterno.NombreRecurso = (string)listaRecurso.Tables[0].Rows[numRecurso]["IdRecurso"];
+                                    //Por defecto, se inicializa a cadena vacía, para que aparezca en la interfaz
+                                    cfgRecursoInterno.NombreMostrar = "";
 
                                     cfgRecursoInterno.Interface = (Tipos.TipoInterface)(uint)listaRecurso.Tables[0].Rows[numRecurso]["Interface"];
                                     if (cfgRecursoInterno.Interface == Tipos.TipoInterface.TI_EM_PP &&
@@ -1162,9 +1174,35 @@ public class InterfazSOAPConfiguracion : System.Web.Services.WebService
 
                         cfgRecursoInterno.Prefijo = ((Externos)listaEnlacesExternos[j]).IdPrefijo;
 
+                        //Por defecto, se inicializa a cadena vacía, para que aparezca en la interfaz
+                        cfgRecursoInterno.NombreMostrar = "";
+
 
                         if (((Externos)listaEnlacesExternos[j]).TipoAcceso == "DA")
                         {
+                            switch (cfgRecursoInterno.Prefijo)
+                            {
+                                case 2:
+                                    cfgRecursoInterno.Interface = Tipos.TipoInterface.TI_Radio;
+                                    //Calcular el OrigenR2
+                                    break;
+                                case 3:
+                                    //En teoria solo debe de haber uno 
+                                    cfgRecursoInterno.Interface = Tipos.TipoInterface.TI_ATS_R2;
+                                    break;
+                                case 4:
+                                    cfgRecursoInterno.Interface = Tipos.TipoInterface.TI_AB;
+                                    break;
+                                case 7:
+                                    //En teoria solo debe de haber uno
+                                    cfgRecursoInterno.Interface = Tipos.TipoInterface.TI_ATS_QSIG;
+                                    break;
+
+                                default:
+                                    cfgRecursoInterno.Interface = Tipos.TipoInterface.TI_Radio;
+                                    break;
+                            }
+
                             //Enlaces externos de telefonía (tipoAcceso=DA)
                             // Ver si el destino tiene un número de abonado asociado.
                             DestinosExternos dExterno = new DestinosExternos();

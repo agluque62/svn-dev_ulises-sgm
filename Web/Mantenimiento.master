@@ -109,17 +109,17 @@
                      </asp:TreeNode>
                 </Nodes>
                 <ParentNodeStyle Font-Bold="False" />
-                <HoverNodeStyle Font-Underline="True" ForeColor="#e00034" />
-                <SelectedNodeStyle Font-Underline="True" ForeColor="#e00034"
+                <HoverNodeStyle Font-Underline="True" ForeColor="#4A7729" />
+                <SelectedNodeStyle Font-Underline="True" ForeColor="#4A7729"
                     HorizontalPadding="0px" VerticalPadding="0px" />
-                <NodeStyle Font-Names="Verdana" Font-Size="Small" ForeColor="black"
+                <NodeStyle Font-Names="Arial" Font-Size="Small" ForeColor="black"
                     HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />
             </asp:TreeView>
             <cc1:msgBox ID="MsgBox1" runat="server" Style="z-index: 180; left: 0px; position: absolute;top: 100px" />
         </div>
-        <div style="z-index: 301; left: 8px; width: 1264px; position: absolute; top: 855px; height: 37px; text-align:center; color: red; font-family:Verdana; font-size:small" >
+        <div style="z-index: 301; left: 8px; width: 1264px; position: absolute; top: 855px; height: 37px; text-align:center; color: black; font-family:Arial; font-size:small" >
             <br\ />
-            &#169 Núcleo. 2019. v2.5.9#7. All rights reserved.
+            &#169 Núcleo. 2020. v2.6.0. All rights reserved.
         </div>
     </form>
 </body>

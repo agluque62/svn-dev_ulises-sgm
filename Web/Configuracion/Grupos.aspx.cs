@@ -68,7 +68,7 @@ public partial class Grupos :	PageBaseCD40.PageCD40	//	System.Web.UI.Page
             MuestraDatos(DameDatos());
 
 			ActualizaWebPadre(true);
-			CargarInforme();
+
 		}
         //else
         //    if (IsPostBack)
@@ -92,12 +92,6 @@ public partial class Grupos :	PageBaseCD40.PageCD40	//	System.Web.UI.Page
 			//}
     }
 
-	protected void CargarInforme()
-	{
-		LBImprimir.Attributes.Remove("onclick");
-		string comando = "AbreVentana('../Informes/Report.aspx?Report=Grupos.rpt');return false;";
-		LBImprimir.Attributes.Add("onclick", comando);
-	}
 
     private ServiciosCD40.Tablas[] DameDatos()
     {
@@ -139,20 +133,12 @@ public partial class Grupos :	PageBaseCD40.PageCD40	//	System.Web.UI.Page
             
             BtEliminar.Visible = PermisoSegunPerfil;
 			MostrarDestinosGrupo();
-			GeneraXmlParaInforme();
+
 		}
 		else
 			BtEliminar.Visible = false;
     }
 
-	private void GeneraXmlParaInforme()
-	{
-		ServiciosCD40.DestinosRadio t = new ServiciosCD40.DestinosRadio();
-		Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
-		KeyValueConfigurationElement s = config.AppSettings.Settings["Sistema"];
-
-		ServicioCD40.DestinosPorGruposTelefonia(s.Value).WriteXml(Server.MapPath("~/Informes/GruposTelefonia.xml"));
-	}
 
 	protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
     {

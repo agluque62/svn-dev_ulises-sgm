@@ -16,4 +16,4 @@ no se permite que haya varios SkinId por tipo de control en el mismo tema.
 
 <asp:Panel BackColor="White" runat="server" />
 
-<asp:Panel BackColor="#e00034" BorderColor="#0033CC" runat="server" SkinId="PanelCabecera" />
+<asp:Panel BackColor="#4A7729" BorderColor="#0033CC" runat="server" SkinId="PanelCabecera" />

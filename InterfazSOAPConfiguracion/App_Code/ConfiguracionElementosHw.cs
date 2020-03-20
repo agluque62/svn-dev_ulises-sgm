@@ -144,6 +144,24 @@ namespace ConfiguracionElementosHw
         public uint TamLiteralEmplazamiento;    // Tamaño de los literales en los emplazamientos
     }
 
+    //VMG 12/12/2018
+    public class CEncaminaAbonados
+    {
+        //usuarios_scv[]
+        //redes_alternativas[]
+    }
+    public class CTelefonosSeguridad
+    {
+        public string TelefonosSeguridad;
+    }
+    
+    public class CParametrosProxy
+    {
+        public CEncaminaAbonados encamina_abonados;
+        public CTelefonosSeguridad[] telefonos_seguridad;
+    }
+
+
     public class ConfiguracionSistema
     {
         // Estructura con los parámetros generales del CD40
@@ -263,6 +281,10 @@ namespace ConfiguracionElementosHw
         public int OffSetFrequency;
         // Parametro EnableEventPttSq
         public bool EnableEventPttSq;
+        //public string id del recursoPar de redundancia, vacio si no hay redundancia
+        public string RedundanciaIdPareja;
+        //Rol en 1+1, principal=P, reserva=R, vacio si ho hay redundancia
+        public string RedundanciaRol;
     }
 
     public class CfgEnlaceExterno
@@ -319,6 +341,9 @@ namespace ConfiguracionElementosHw
         public string EmplazamientoDefecto;
         //Tiempo de vuelta al empl por defecto
         public string TiempoVueltaADefecto;
+
+        //Porcentaje que no es RSSI
+        public string PorcentajeRSSI;
     }
     #endregion
 
@@ -338,6 +363,8 @@ namespace ConfiguracionElementosHw
 	{
 		// Tipo de interfaz del recurso
 		public Tipos.TipoInterface Interface;
+
+        public string NombreMostrar;
 	}
 
     public class CfgEnlaceInterno
@@ -346,7 +373,7 @@ namespace ConfiguracionElementosHw
         public string Literal;
         // Posición donde el enlace está configurado
         public uint PosicionHMI;
-        // Tipo del enlace : DA, AI, AG
+        // Tipo del enlace : DA, AI, AG, MD-->Multi Destino VMG
         public string TipoEnlaceInterno;
         // Lista de recursos que atienden al enlace
         public List<CfgRecursoEnlaceInternoConInterface> ListaRecursos;
@@ -356,6 +383,11 @@ namespace ConfiguracionElementosHw
         public uint Prioridad;
         // Identificador del usuario origen para hacer la llamada R2
         public string OrigenR2;
+        //VMG 13/12/2018
+        //Identificador del dominio.
+        public string Dominio;
+        
+        
     }
     #endregion
 

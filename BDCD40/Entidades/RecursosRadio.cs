@@ -128,6 +128,20 @@ namespace CD40.BD.Entidades
             set { _Metodos_bss_idmetodos_bss = value; }
         }
 
+        private string _RedundanciaRol;
+        public string RedundanciaRol
+        {
+            get { return _RedundanciaRol; }
+            set { _RedundanciaRol = value; }
+        }
+
+        private string _RedundanciaIdPareja;
+        public string RedundanciaIdPareja
+        {
+            get { return _RedundanciaIdPareja; }
+            set { _RedundanciaIdPareja = value; }
+        }
+
         //MVO: se añade la recuperación de la pasarela asociado al recurso radio
         //idTIFX asociado al recurso radio
         private string _idTIFX;
@@ -350,7 +364,13 @@ namespace CD40.BD.Entidades
                     //MVO: se recupera el tipo frecuencia del destino radio asociado al recurso
                     if (dr["DestRad_tipoFrec"] != System.DBNull.Value)
                         pr.DestRad_tipoFrec = (uint) dr["DestRad_tipoFrec"];
-                    
+
+                    if (dr["RedundanciaRol"] != System.DBNull.Value)
+                        pr.RedundanciaRol = (string)dr["RedundanciaRol"];
+
+                    if (dr["RedundanciaIdPareja"] != System.DBNull.Value)
+                        pr.RedundanciaIdPareja = (string)dr["RedundanciaIdPareja"];
+
                     ListaResultado.Add(pr);
                 }
             }
@@ -740,6 +760,13 @@ namespace CD40.BD.Entidades
                             pr.OffSetFrequency = (int)dr["OffSetFrequency"];
                         if (dr["EnableEventPttSq"] != System.DBNull.Value)
                             pr.EnableEventPttSq = (bool)dr["EnableEventPttSq"];
+
+                        if (dr["RedundanciaRol"] != System.DBNull.Value)
+                            pr.RedundanciaRol = (string)dr["RedundanciaRol"];
+
+                        if (dr["RedundanciaIdPareja"] != System.DBNull.Value)
+                            pr.RedundanciaIdPareja = (string)dr["RedundanciaIdPareja"];
+
 
                         ListaResultado.Add(pr);
                     }

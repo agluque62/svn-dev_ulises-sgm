@@ -132,7 +132,6 @@ public partial class Sector :	PageBaseCD40.PageCD40	//	System.Web.UI.Page
 
 				MuestraDatos(DameDatos());
 				CargarPrefijos();
-				CargarInforme();
 
 			}
 			else
@@ -185,15 +184,6 @@ public partial class Sector :	PageBaseCD40.PageCD40	//	System.Web.UI.Page
 		}
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-	protected void CargarInforme()
-	{
-		LBImprimir.Attributes.Remove("onclick");
-		string comando = "AbreVentana('../Informes/Report.aspx?Report=Sectores.rpt');return false;";
-		LBImprimir.Attributes.Add("onclick", comando);
-	}
 
     /// <summary>
     /// 
@@ -748,7 +738,7 @@ public partial class Sector :	PageBaseCD40.PageCD40	//	System.Web.UI.Page
             
             MostrarElemento();
 			BtNuevo.Visible = BtModificar.Visible = BtEliminar.Visible = PermisoSegunPerfil;
-			GeneraXmlParaInforme();
+
 		}
 		else
 		{
@@ -758,40 +748,7 @@ public partial class Sector :	PageBaseCD40.PageCD40	//	System.Web.UI.Page
 		}
 	}
 
-    /// <summary>
-    /// 
-    /// </summary>
-	private void GeneraXmlParaInforme()
-	{
-		ServiciosCD40.Sectores t = new ServiciosCD40.Sectores();
-		Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
-		KeyValueConfigurationElement s = config.AppSettings.Settings["Sistema"];
-		t.IdSistema = s.Value;
-		t.SectorSimple = true;
 
-		ServicioCD40.DataSetSelectSQL(t).WriteXml(Server.MapPath("~/Informes/Sectores.xml"));
-
-		ServiciosCD40.UsuariosAbonados ua = new ServiciosCD40.UsuariosAbonados();
-		ua.IdSistema = s.Value;
-		ServicioCD40.DataSetSelectSQL(ua).WriteXml(Server.MapPath("~/Informes/UsuariosAbonados.xml"));
-
-		ServicioCD40.DestinosRadioSectorizadosParaXML(s.Value, null).WriteXml(Server.MapPath("~/Informes/DestinosExternos.xml"));
-		ServicioCD40.DestinosTelefoniaSectorizadosParaXML(s.Value, null, false /* DA */).WriteXml(Server.MapPath("~/Informes/DestinosInternosTf.xml"));
-		ServicioCD40.DestinosTelefoniaSectorizadosParaXML(s.Value, null, true /* IA */).WriteXml(Server.MapPath("~/Informes/DestinosInternosLC.xml"));
-
-		ServicioCD40.TeclasSectorParaXML(s.Value, null).WriteXml(Server.MapPath("~/Informes/UtilidadesSectores.xml"));
-		ServicioCD40.NivelesIntrusionParaXML(s.Value, null).WriteXml(Server.MapPath("~/Informes/NivelesIntrusion.xml"));
-		ServicioCD40.ParametrosSectoresParaXML(s.Value, null).WriteXml(Server.MapPath("~/Informes/ParametrosSectores.xml"));
-
-		/*
-		ServicioCD40.DestinosTelefoniaAsignadosAlSectorParaXML(s.Value, null, true, true).WriteXml(Server.MapPath("~/Informes/telefoniaInternos.xml"));
-		ServicioCD40.DestinosTelefoniaAsignadosAlSectorParaXML(s.Value, null, true, false).WriteXml(Server.MapPath("~/Informes/telefoniaExternos.xml"));
-		ServicioCD40.DestinosTelefoniaAsignadosAlSectorParaXML(s.Value, null, false, true).WriteXml(Server.MapPath("~/Informes/lcInternos.xml"));
-		ServicioCD40.DestinosTelefoniaAsignadosAlSectorParaXML(s.Value, null, false, false).WriteXml(Server.MapPath("~/Informes/lcExternos.xml"));
-
-		ServicioCD40.DestinosRadioAsignadosAlSectorParaXML(s.Value, null).WriteXml(Server.MapPath("~/Informes/radio.xml"));
-		 */
-	}
 
     /// <summary>
     /// 

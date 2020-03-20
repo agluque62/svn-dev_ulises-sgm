@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Default Web Site/NucleoDF/U5kCfg/InterfazSOAPConfiguracion" />
+  <setParameter name="ConexionBaseDatosCD40-Web.config Connection String" value="Server=localhost;Database=new_cd40;Uid=root;Pwd=cd40" />
+</parameters>

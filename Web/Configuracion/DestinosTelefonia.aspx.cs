@@ -83,7 +83,6 @@ public partial class DestinosTelefonia : PageBaseCD40.PageCD40	// System.Web.UI.
             MuestraDatos();
 			CargaDDL();
 			BNuevo.Visible = PermisoSegunPerfil;
-			CargarInforme();
 		}
         else
         {
@@ -121,12 +120,6 @@ public partial class DestinosTelefonia : PageBaseCD40.PageCD40	// System.Web.UI.
     /// <summary>
     /// 
     /// </summary>
-	protected void CargarInforme()
-	{
-		LBImprimir.Attributes.Remove("onclick");
-		string comando = "AbreVentana('../Informes/Report.aspx?Report=DestinosTf.rpt');return false;";
-		LBImprimir.Attributes.Add("onclick", comando);
-	}
 
     /// <summary>
     /// 
@@ -165,7 +158,6 @@ public partial class DestinosTelefonia : PageBaseCD40.PageCD40	// System.Web.UI.
 				BModificar.Visible = BEliminar.Visible = PermisoSegunPerfil;
 
 				MuestraElemento();
-				GeneraXmlParaInforme();
 			}
 			else
 			{
@@ -177,26 +169,7 @@ public partial class DestinosTelefonia : PageBaseCD40.PageCD40	// System.Web.UI.
             logDebugView.Error("(DestinosTelefonia-MuestraDatos):", e);
         }
     }
-    /// <summary>
-    /// 
-    /// </summary>
-	private void GeneraXmlParaInforme()
-	{
-		//ServiciosCD40.DestinosTelefonia t = new ServiciosCD40.DestinosTelefonia();
-		Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
-		KeyValueConfigurationElement s = config.AppSettings.Settings["Sistema"];
-		//t.IdSistema = s.Value;
 
-		ServiceServiciosCD40.DestinosDeTelefoniaEnElSistema(s.Value).WriteXml(Server.MapPath("~/Informes/DestinosTf.xml"));
-		// ServiceServiciosCD40.RangosConIdRed(s.Value, null).WriteXml(Server.MapPath("~/Informes/Rangos.xml"));
-
-		// ServiciosCD40.Rutas r = new ServiciosCD40.Rutas();
-		// r.IdSistema = s.Value;
-		// ServiceServiciosCD40.DataSetSelectSQL(r).WriteXml(Server.MapPath("~/Informes/Rutas.xml"));
-		// ServiciosCD40.TroncalesRuta tr = new ServiciosCD40.TroncalesRuta();
-		// tr.IdSistema = s.Value;
-		// ServiceServiciosCD40.DataSetSelectSQL(tr).WriteXml(Server.MapPath("~/Informes/TroncalesRutas.xml"));
-	}
 
     /// <summary>
     /// 

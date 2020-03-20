@@ -6,6 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>CD40</title>
+    <link rel="shortcut icon" href="~/favicon.ico">
 <%--	 <style type="text/css">
 		 .blue
 		 {
@@ -23,8 +24,8 @@
         {
             border: 1px solid #2F4F4F;
             color: #616365;
-            background-color: #e5a19e;
-            font-family: Verdana;
+            background-color: #4A7729;
+            font-family: Arial;
             font-size: 14px;
             font-weight: normal;
             padding: 5px;
@@ -36,8 +37,10 @@
         {
             border: 1px solid #2F4F4F;
             color: white;
-            background-color: #e00034;
-            font-family: Verdana;
+            /*background-color:  #e5a19e; */
+            
+            background-color:#4e9eea ;
+            font-family: Arial;
             font-size: 14px;
             font-weight: bold;
             padding: 5px;
@@ -124,11 +127,11 @@
             <asp:Label ID="Label2" runat="server" Style="z-index: 110; left: 730px; position: absolute; top: 9px"
                 Text="Usuario:" meta:resourcekey="Label2Resource1"></asp:Label>
             <asp:Label ID="LabelUsuario" runat="server" Style="z-index: 111; left: 730px; position: absolute; top: 29px"
-                ForeColor="#00C000" meta:resourcekey="LabelUsuarioResource1"></asp:Label>
+                ForeColor="#4A7729" Font-Bold="True" meta:resourcekey="LabelUsuarioResource1"></asp:Label>
             <asp:Label ID="Label3" runat="server" Style="z-index: 112; left: 730px; position: absolute; top: 57px"
                 Text="Perfil:" meta:resourcekey="Label3Resource1"></asp:Label>
             <asp:Label ID="LabelPerfil" runat="server" Style="z-index: 113; left: 730px; position: absolute; top: 79px"
-                ForeColor="#00C000" Width="91px" meta:resourcekey="LabelPerfilResource1"></asp:Label>
+                ForeColor="#4A7729" Font-Bold="True" Width="91px" meta:resourcekey="LabelPerfilResource1"></asp:Label>
             <asp:LinkButton ID="LinkButton1" runat="server" Style="z-index: 114; left: 916px; position: absolute; top: 79px"
                 OnClick="LinkButton1_Click" SkinID="LinkButtonCabecera" CausesValidation="False"
                 meta:resourcekey="LinkButton1Resource1">Cerrar sesión</asp:LinkButton>
@@ -194,10 +197,10 @@
                 left: 4px; position: absolute; top: 44px" Width="215px" Height="442px" 
 					ImageSet="Arrows" ontreenodedatabound="TreeView1_TreeNodeDataBound" meta:resourcekey="TreeView1Resource1" >
 					<ParentNodeStyle Font-Bold="False" />
-					<HoverNodeStyle Font-Underline="True" ForeColor="#e00034" />
-					<SelectedNodeStyle Font-Underline="True" ForeColor="#e00034" 
+					<HoverNodeStyle Font-Underline="True" ForeColor="#4A7729" />
+					<SelectedNodeStyle Font-Underline="True" ForeColor="#4A7729" 
 						HorizontalPadding="0px" VerticalPadding="0px" />
-					<NodeStyle Font-Names="Verdana" Font-Size="Small" ForeColor="black" 
+					<NodeStyle Font-Names="Arial" Font-Size="Small" ForeColor="black" 
 						HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />
             </asp:TreeView>
 			  &nbsp;&nbsp;
@@ -221,7 +224,7 @@
 			 visible="false">
             <%--
 					<asp:Label ID="BtnSistema" runat="server" BorderStyle="Inset" 
-						BackColor="Transparent" Text="Sistema" Height="20px" ForeColor="#CC3300" 
+						BackColor="Transparent" Text="Sistema" Height="20px" ForeColor="black" 
 						Style="position:absolute; top: 14px; left: 5px; width:200px; text-align:center" 
 						meta:resourcekey="BtnSistemaResource1"/> --%>
 
@@ -229,7 +232,7 @@
                   <asp:TableRow  >
                       <asp:TableCell >
                         <asp:Label ID="BtnOperadores" runat="server" BorderStyle="Inset"
-                          BackColor="Transparent" Text="Operadores"  ForeColor="#CC3300"
+                          BackColor="Transparent" Text="Operadores"  ForeColor="black"
                           Style="width:200px; text-align:center" height="20px"
                           meta:resourcekey="BtnOperadoresResource1"/>
                       </asp:TableCell>
@@ -237,7 +240,7 @@
                   <asp:TableRow>
                     <asp:TableCell >
                       <asp:label ID="BtnTifx" runat="server" BorderStyle="Inset"
-                          BackColor="Transparent" Text="Pasarelas"  ForeColor="#CC3300"
+                          BackColor="Transparent" Text="Pasarelas"  ForeColor="black"
                           Style="left: 5px; width:200px; text-align:center" height="20px"
                           meta:resourcekey="BtnTifxResource1"/>
                       </asp:TableCell>
@@ -245,7 +248,7 @@
                   <asp:TableRow >
                     <asp:TableCell >
                     <asp:label ID="BtnEqEx" runat="server" BorderStyle="Inset"
-                          BackColor="Transparent" Text="Equipos Externos"  ForeColor="#CC3300"
+                          BackColor="Transparent" Text="Equipos Externos"  ForeColor="black"
                           Style="left: 5px; width:200px; height: 20px; text-align:center"
                           meta:resourcekey="BtnEqExResource1"/>
                     </asp:TableCell>
@@ -253,7 +256,7 @@
                  <asp:TableRow >
                   <asp:TableCell >
                     <asp:label ID="BtnTops" runat="server" BorderStyle="Inset"
-                      ForeColor="#CC3300"
+                      ForeColor="black"
                       BackColor="Transparent" Text="Terminales de Operador" Style=" left: 5px; width:200px; text-align:center"
                       height="20px" meta:resourcekey="BtnTopsResource1"/>
                   </asp:TableCell>
@@ -261,7 +264,7 @@
                   <asp:TableRow >
                     <asp:TableCell >
                         <asp:label ID="BtnRedes" runat="server" BorderStyle="Inset"
-                        ForeColor="#CC3300"
+                        ForeColor="black"
                         BackColor="Transparent" Text="Redes" Style=" left: 5px; width:200px; text-align:center"
                         height="20px" meta:resourcekey="BtnRedesResource1"/>
                     </asp:TableCell>
@@ -269,7 +272,7 @@
                   <asp:TableRow >
                     <asp:TableCell >
                       <asp:label ID="BtnTroncales" runat="server" BorderStyle="Inset"
-                        BackColor="Transparent" Text="Troncales"  ForeColor="#CC3300"
+                        BackColor="Transparent" Text="Troncales"  ForeColor="black"
                         Style=" left: 5px; width:200px; text-align:center" height="20px"
                         meta:resourcekey="BtnTroncalesResource1"/>
                     </asp:TableCell>
@@ -277,7 +280,7 @@
                   <asp:TableRow >
                     <asp:TableCell >
                       <asp:label ID="BtnEncaminamientos" runat="server" BorderStyle="Inset"
-                        BackColor="Transparent" Text="Encaminamientos"  ForeColor="#CC3300"
+                        BackColor="Transparent" Text="Encaminamientos"  ForeColor="black"
                         Style=" left: 5px; width:200px; text-align:center" height="20px"
                         meta:resourcekey="BtnEncaminamientosResource1"/>
                     </asp:TableCell>
@@ -285,7 +288,7 @@
                   <asp:TableRow >
                     <asp:TableCell >
                       <asp:label ID="BtnRecursosTf" runat="server" BorderStyle="Inset"
-                        BackColor="Transparent" Text="Recursos Telefonía"  ForeColor="#CC3300"
+                        BackColor="Transparent" Text="Recursos Telefonía"  ForeColor="black"
                         Style="left: 5px; width:200px;height: 20px; text-align:center"
                         meta:resourcekey="BtnRecursosTfResource1"/>
                     </asp:TableCell>
@@ -293,7 +296,7 @@
                   <asp:TableRow >
                     <asp:TableCell >
                                 <asp:label ID="BtnGrupos" runat="server" BorderStyle="Inset"
-                        BackColor="Transparent" Text="Grupos"  ForeColor="#CC3300"
+                        BackColor="Transparent" Text="Grupos"  ForeColor="black"
                         Style="left: 5px; width:200px; height: 20px; text-align:center"
                         meta:resourcekey="BtnGruposResource1"/>
                     </asp:TableCell>
@@ -301,7 +304,7 @@
                   <asp:TableRow >
                     <asp:TableCell >
                       <asp:label ID="BtnDestinosTf" runat="server" BorderStyle="Inset"
-                        BackColor="Transparent" Text="Destinos Telefonía"  ForeColor="#CC3300"
+                        BackColor="Transparent" Text="Destinos Telefonía"  ForeColor="black"
                         Style=" left: 5px; width:200px; text-align:center"
                         height="20px" meta:resourcekey="BtnDestinosTfResource1"/>
                     </asp:TableCell>
@@ -309,7 +312,7 @@
                   <asp:TableRow >
                     <asp:TableCell >
                       <asp:label ID="BtnEmplazamientos" runat="server" BorderStyle="Inset"
-                        BackColor="Transparent" Text="Emplazamientos"  ForeColor="#CC3300"
+                        BackColor="Transparent" Text="Emplazamientos"  ForeColor="black"
                         Style="left: 5px; width:200px; text-align:center" height="20px"
                         meta:resourcekey="BtnEmplazamientosResource1"/>
                     </asp:TableCell>
@@ -317,7 +320,7 @@
                   <asp:TableRow >
                     <asp:TableCell >
                       <asp:label ID="BtnZonas" runat="server" BorderStyle="Inset"
-                        BackColor="Transparent" Text="Zonas Radio"  ForeColor="#CC3300"
+                        BackColor="Transparent" Text="Zonas Radio"  ForeColor="black"
                         Style="top: 386px; left: 5px; width:200px; text-align:center"
                         height="20px" meta:resourcekey="BtnZonasResource1"/>
                     </asp:TableCell>
@@ -325,7 +328,7 @@
                   <asp:TableRow >
                     <asp:TableCell >
                       <asp:label ID="BtnTabCalidad" runat="server" BorderStyle="Inset"
-                        BackColor="Transparent" Text="Conversion RSSI"  ForeColor="#CC3300"
+                        BackColor="Transparent" Text="Conversion RSSI"  ForeColor="black"
                         Style=" left: 5px; width:200px; text-align:center"
                         height="20px" meta:resourcekey="BtnTabCalidadResource1"/>
                     </asp:TableCell>
@@ -333,7 +336,7 @@
                   <asp:TableRow >
                     <asp:TableCell >
                       <asp:label ID="BtnRecursosRd" runat="server" BorderStyle="Inset"
-                        BackColor="Transparent" Text="Recursos Radio"  ForeColor="#CC3300"
+                        BackColor="Transparent" Text="Recursos Radio"  ForeColor="black"
                         Style="top: 448px; left: 5px; width:200px; text-align:center"
                         height="20px" meta:resourcekey="BtnRecursosRdResource1"/>
                     </asp:TableCell>
@@ -341,7 +344,7 @@
                   <asp:TableRow >
                     <asp:TableCell >
                       <asp:label ID="BtnDestinosRadio" runat="server" BorderStyle="Inset"
-                        BackColor="Transparent" Text="Destinos Radio"  ForeColor="#CC3300"
+                        BackColor="Transparent" Text="Destinos Radio"  ForeColor="black"
                         Style="left: 5px; width:200px; text-align:center" height="20px"
                         meta:resourcekey="BtnDestinosRadioResource1"/>
                     </asp:TableCell>
@@ -349,7 +352,7 @@
                   <asp:TableRow >
                     <asp:TableCell >
                       <asp:label ID="BtnNucleos" runat="server" BorderStyle="Inset"
-                        ForeColor="#CC3300"
+                        ForeColor="black"
                         BackColor="Transparent" Text="Núcleos" Style=" left: 5px; width:200px; text-align:center"
                         height="20px" meta:resourcekey="BtnNucleosResource1"/>
                     </asp:TableCell>
@@ -357,7 +360,7 @@
                   <asp:TableRow >
                     <asp:TableCell >
                       <asp:label ID="BtnSectores" runat="server" BorderStyle="Inset"
-                        BackColor="Transparent" Text="Sectores"  ForeColor="#CC3300"
+                        BackColor="Transparent" Text="Sectores"  ForeColor="black"
                         Style=" left: 5px; width:200px;height: 20px; text-align:center"
                         meta:resourcekey="BtnSectoresResource1"/>
                     </asp:TableCell>
@@ -365,7 +368,7 @@
                   <asp:TableRow >
                     <asp:TableCell >
                       <asp:label ID="BtnAgrupaciones" runat="server" BorderStyle="Inset"
-                        BackColor="Transparent" Text="Agrupaciones"  ForeColor="#CC3300"
+                        BackColor="Transparent" Text="Agrupaciones"  ForeColor="black"
                         Style=" left: 5px; width:200px; text-align:center" height="20px"
                         onclick="BtnAgrupaciones_Click" meta:resourcekey="BtnAgrupacionesResource1"/>
                     </asp:TableCell>
@@ -373,7 +376,7 @@
                   <asp:TableRow >
                     <asp:TableCell >
                       <asp:label ID="BtnSectorizaciones" runat="server" BorderStyle="Inset"
-                        BackColor="Transparent" Text="Sectorizaciones" ForeColor="#CC3300"
+                        BackColor="Transparent" Text="Sectorizaciones" ForeColor="black"
                         Style="left: 5px; width:200px;text-align:center" height="20px"
                         meta:resourcekey="BtnSectorizacionesResource1"/>
                     </asp:TableCell>
@@ -382,12 +385,12 @@
         </div>
         
 		<asp:Panel ID="Panel1" runat="server" Visible="False" 
-			 BackColor="#F7F6F3" BorderColor="#e00034"
+			 BackColor="#F7F6F3" BorderColor="#4A7729"
 			 style="position: relative; top: 241px; left: 310px; width: 700px; height: 171px; z-index: 103;" 
 			BorderStyle="Solid" meta:resourcekey="Panel1Resource1" >
 			<asp:Panel ID="PnlCabecera" runat="server" 
 				 style="position: relative; top: 4px; left: 7px; width: 688px; height: 29px" 
-				 BackColor="#e00034" BorderColor="#0033CC" meta:resourcekey="PnlCabeceraResource1">
+				 BackColor="#4A7729" BorderColor="#0033CC" meta:resourcekey="PnlCabeceraResource1">
 				 <asp:Label ID="Label6" runat="server" SkinID="LabelPanel"
 					style="z-index: 1; left: 5px; top: 5px; position: absolute; height: 22px; width: 680px; text-align:center" 
 					 Text="Las últimas modificaciones no fueron activadas en el sistema. ¿Qué desea hacer?" 
@@ -416,9 +419,9 @@
 			</asp:Panel>
 		</asp:Panel>
 
-        <div style="z-index: 301; left: 8px; width: 1264px; position: absolute; top: 855px; height: 37px; text-align:center; color: red; font-family:Verdana; font-size:small" >
+        <div style="z-index: 301; left: 8px; width: 1264px; position: absolute; top: 855px; height: 37px; text-align:center; color: black; font-family:Arial; font-size:small" >
             <br\ />
-            &#169 Núcleo. 2019. v2.5.9#7. All rights reserved.
+            &#169 Núcleo. 2020. v2.6.0. All rights reserved.
         </div>
     </form>
 </body>

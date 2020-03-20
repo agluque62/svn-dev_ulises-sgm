@@ -86,14 +86,14 @@
             <asp:ListBox ID="ListEmplazamientosLibres" runat="server" Style="overflow-x:auto; z-index: 121; left: 600px; position: absolute; top: 215px; width: 120px; height: 190px;"
                 Visible="False" SelectionMode="Multiple" meta:resourcekey="ListTiposLibresResource1"></asp:ListBox>
   
-            <asp:ImageButton ID="IButAsignar" runat="server" OnClick="IButAsignar_Click" Style="z-index: 102; left: 410px; position: absolute; top: 260px"
+            <asp:ImageButton ID="IButAsignar" runat="server" OnClick="IButAsignar_Click" Style="z-index: 102; left: 407px; position: absolute; top: 260px; -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -o-transform: rotate(90deg); transform: rotate(90deg);"
                 CausesValidation="False"
-                ImageUrl="~/Images/left.png" Visible="True"
+                ImageUrl="~/Configuracion/Images/arrow.png" Visible="True"
                 meta:resourcekey="IButAsignarResource1" />
                     &nbsp;
-            <asp:ImageButton ID="IButQuitar" runat="server" Style="z-index: 103; left: 415px; position: absolute; top: 320px"
+            <asp:ImageButton ID="IButQuitar" runat="server" Style="z-index: 103; left: 407px; position: absolute; top: 320px;-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -o-transform: rotate(-90deg); transform: rotate(-90deg); "
                 CausesValidation="False"
-                ImageUrl="~/Images/right.png" OnClick="IButQuitar_Click"
+                ImageUrl="~/Configuracion/Images/arrow.png" OnClick="IButQuitar_Click"
                 Visible="True" meta:resourcekey="IButQuitarResource1" />
 
 <%--            <asp:RangeValidator ID="RVFrequency" runat="server" Style="left: 480px; position: absolute; top: 90px" 

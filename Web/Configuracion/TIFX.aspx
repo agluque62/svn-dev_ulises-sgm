@@ -38,8 +38,7 @@
       <ajaxToolKit:ConfirmButtonExtender ID="BtCancelar_ConfirmButtonExtender" 
           runat="server" ConfirmText="" Enabled="True" TargetControlID="BtCancelar">
       </ajaxToolKit:ConfirmButtonExtender>
-    <asp:LinkButton ID="LBImprimir" runat="server" SkinID="MascaraBotonImprimir"  Visible="false"
-		  meta:resourcekey="LBImprimirResource1">Imprimir</asp:LinkButton>
+
     
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Resumen de errores"
         Style="z-index: 139; left: 230px; position: absolute; top: 550px" 
@@ -294,16 +293,16 @@
 						BorderColor="Black" meta:resourcekey="TTifxResource1">
 				  <asp:TableRow ID="TableRow1" runat="server" BorderColor="Black" BorderWidth="3px" 
 						 BorderStyle="Solid" meta:resourcekey="TableRow1Resource1" >
-						<asp:TableCell ID="CellHead1" runat="server" BackColor="#E00034" 
+						<asp:TableCell ID="CellHead1" runat="server" BackColor="#4A7729" 
 							HorizontalAlign="Center" Font-Bold="True" BorderColor="Black"  ForeColor="White"
 							meta:resourcekey="CellHead1Resource1">Slot 0</asp:TableCell>
-						<asp:TableCell ID="CellHead2" runat="server" BackColor="#E00034" 
+						<asp:TableCell ID="CellHead2" runat="server" BackColor="#4A7729" 
 							HorizontalAlign="Center" Font-Bold="True" BorderColor="Black"  ForeColor="White"
 							meta:resourcekey="CellHead2Resource1">Slot 1</asp:TableCell>
-						<asp:TableCell ID="CellHead3" runat="server" BackColor="#E00034" 
+						<asp:TableCell ID="CellHead3" runat="server" BackColor="#4A7729" 
 							HorizontalAlign="Center" Font-Bold="True" BorderColor="Black" ForeColor="White" 
 							meta:resourcekey="CellHead3Resource1">Slot 2</asp:TableCell>
-						<asp:TableCell ID="CellHead4" runat="server" BackColor="#E00034"  ForeColor="White"
+						<asp:TableCell ID="CellHead4" runat="server" BackColor="#4A7729"  ForeColor="White"
 							HorizontalAlign="Center" Font-Bold="True" BorderColor="Black" 
 							meta:resourcekey="CellHead4Resource1">Slot 3</asp:TableCell>
 				  </asp:TableRow>

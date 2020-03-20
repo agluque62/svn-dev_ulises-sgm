@@ -1201,7 +1201,7 @@
     <value />
   </data>
   <data name="RangeValidator3Resource1.ErrorMessage" xml:space="preserve">
-    <value>The number of frequencies per page must be between 1 and 15.</value>
+    <value>The number of frequencies per page must be between 4 and 20.</value>
   </data>
   <data name="RangeValidator3Resource1.Text" xml:space="preserve">
     <value>*</value>
@@ -1210,7 +1210,7 @@
     <value />
   </data>
   <data name="RangeValidator4Resource1.ErrorMessage" xml:space="preserve">
-    <value>The number of intenal links per page must be between 1 and 20.</value>
+    <value>The number of intenal links per page must be between 8 and 24.</value>
   </data>
   <data name="RangeValidator4Resource1.Text" xml:space="preserve">
     <value>*</value>
@@ -1321,7 +1321,7 @@
     <value>*</value>
   </data>
   <data name="RFVTxtGrupoMultiResource1.ErrorMessage" xml:space="preserve">
-  <value>The multicast grouping  IP is required.</value>
+    <value>The multicast grouping  IP is required.</value>
   </data>
   <data name="RFVTxtGrupoMultiResource1.Text" xml:space="preserve">
     <value>*</value>
@@ -1331,5 +1331,8 @@
   </data>
   <data name="RFVTxtPortMultiResource1.Text" xml:space="preserve">
     <value>*</value>
+  </data>
+  <data name="WarnResource.Text" xml:space="preserve">
+    <value>Before changing number of frequencies or links per page, you should remove their asignations in sectors</value>
   </data>
 </root>

@@ -211,6 +211,68 @@
                 </div>
             </asp:TableCell>
         </asp:TableRow>
+        <asp:TableRow ID="TableRow4" runat="server" BackColor="Transparent">
+            <asp:TableCell ID="TableCell16" runat="server" Visible="false" Width="103px"
+                BorderStyle="Solid" BorderColor="#eeb44f" BorderWidth="1px">
+                <div id="Div30" runat="server" style="height: 30px; width: 103px">
+                    <asp:TextBox ID="TextBox16" runat="server" ReadOnly="True" Rows="3"
+                        MaxLength="32" SkinID="LiteralTeclaPanelRadio"></asp:TextBox>
+                </div>
+                <div id="Div32" runat="server" style="height: 50px; width: 103px">
+                    <asp:Button ID="Button16" runat="server"
+                        SkinId="BotonPanelRadio" Text="Tx Rx"
+                        OnClick="CeldaEnlaceRadio_OnClick" CausesValidation="false" />
+                </div>
+            </asp:TableCell>
+            <asp:TableCell ID="TableCell17" runat="server" Visible="false" Width="103px"
+                BorderStyle="Solid" BorderColor="#eeb44f" BorderWidth="1px">
+                <div id="Div33" runat="server" style="height: 30px; width: 103px">
+                    <asp:TextBox ID="TextBox17" runat="server" ReadOnly="True" Rows="3"
+                        MaxLength="32" SkinID="LiteralTeclaPanelRadio"></asp:TextBox>
+                </div>
+                <div id="Div34" runat="server" style="height: 50px; width: 103px">
+                    <asp:Button ID="Button17" runat="server"
+                        SkinId="BotonPanelRadio" Text="Tx Rx"
+                        OnClick="CeldaEnlaceRadio_OnClick" CausesValidation="false" />
+                </div>
+            </asp:TableCell>
+            <asp:TableCell ID="TableCell18" runat="server" Visible="false" Width="103px"
+                BorderStyle="Solid" BorderColor="#eeb44f" BorderWidth="1px">
+                <div id="Div35" runat="server" style="height: 30px; width: 103px">
+                    <asp:TextBox ID="TextBox18" runat="server" ReadOnly="True" Rows="3"
+                        MaxLength="32" SkinID="LiteralTeclaPanelRadio"></asp:TextBox>
+                </div>
+                <div id="Div36" runat="server" style="height: 50px; width: 103px">
+                    <asp:Button ID="Button18" runat="server"
+                        SkinId="BotonPanelRadio" Text="Tx Rx"
+                        OnClick="CeldaEnlaceRadio_OnClick" CausesValidation="false" />
+                </div>
+            </asp:TableCell>
+            <asp:TableCell ID="TableCell19" runat="server" Visible="false" Width="103px"
+                BorderStyle="Solid" BorderColor="#eeb44f" BorderWidth="1px">
+                <div id="Div37" runat="server" style="height: 30px; width: 103px">
+                    <asp:TextBox ID="TextBox19" runat="server" ReadOnly="True" Rows="3"
+                        MaxLength="32" SkinID="LiteralTeclaPanelRadio"></asp:TextBox>
+                </div>
+                <div id="Div38" runat="server" style="height: 50px; width: 103px">
+                    <asp:Button ID="Button19" runat="server"
+                        SkinId="BotonPanelRadio" Text="Tx Rx"
+                        OnClick="CeldaEnlaceRadio_OnClick" CausesValidation="false" />
+                </div>
+            </asp:TableCell>
+            <asp:TableCell ID="TableCell20" runat="server" Visible="false" Width="103px"
+                BorderStyle="Solid" BorderColor="#eeb44f" BorderWidth="1px">
+                <div id="Div39" runat="server" style="height: 30px; width: 103px">
+                    <asp:TextBox ID="TextBox20" runat="server" ReadOnly="True" Rows="3"
+                        MaxLength="32" SkinID="LiteralTeclaPanelRadio"></asp:TextBox>
+                </div>
+                <div id="Div40" runat="server" style="height: 50px; width: 103px">
+                    <asp:Button ID="Button20" runat="server"
+                        SkinId="BotonPanelRadio" Text="Tx Rx"
+                        OnClick="CeldaEnlaceRadio_OnClick" CausesValidation="false" />
+                </div>
+            </asp:TableCell>
+        </asp:TableRow>
     </asp:Table>
     <asp:ListBox ID="LBoxDestinos" runat="server" Height="335px" Style="z-index: 105; left: 620px;
         position: absolute; top: 128px" Width="195px" Rows="100" 
@@ -219,15 +281,15 @@
         top: 100px" Text="Destinos disponibles" 
 		meta:resourcekey="Label1Resource1"></asp:Label>
    <asp:LinkButton ID="BtLC" runat="server" Style="z-index: 108; left: 317px; position: absolute;
-        top: 415px; height: 19px; width: auto;" Text="Panel Linea Caliente" SkinId="LinkButtonCabecera"
+        top: 485px; height: 19px; width: auto;" Text="Panel Linea Caliente" SkinId="LinkButtonCabecera"
 		OnClick="BtLC_Click" meta:resourcekey="BtLCResource1" />
    <asp:LinkButton ID="BtTelefonia" runat="server" Style="z-index: 107; left: 102px; position: absolute;
-        top: 415px; height: 19px; width: auto;" Text="Panel Telefonía" 
+        top: 485px; height: 19px; width: auto;" Text="Panel Telefonía" 
 		SkinId="LinkButtonCabecera" OnClick="BtTelefonia_Click" 
 		meta:resourcekey="BtTelefoniaResource1" />
 
     <asp:LinkButton ID="BtSector" runat="server" Style="z-index: 103; left: 180px; position: absolute;
-        top: 490px; width: 180px; height: 35px; background: url('../Configuracion/Images/arrowback.gif') no-repeat left top; 
+        top: 550px; width: 180px; height: 35px; background: url('../Configuracion/Images/arrowback.gif') no-repeat left top; 
         padding-left:18px;margin-left: 10px;padding-right:10px;" SkinId="LinkButtonCabecera" 
         Visible="True" 
 		OnClick="BtSector_Click" CausesValidation="False"  

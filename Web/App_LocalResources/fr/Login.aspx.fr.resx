@@ -315,4 +315,7 @@
   <data name="TableRow2Resource1.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <data name="TitleApplicationLogin.Text" xml:space="preserve">
+    <value>CONFIGURATION ULISES-5000</value>
+  </data>
 </root>

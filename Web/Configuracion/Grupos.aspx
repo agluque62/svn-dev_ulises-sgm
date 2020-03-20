@@ -62,7 +62,5 @@ CodeFileBaseClass="PageBaseCD40.PageCD40"	Title="Gestión de Grupos de Telefonía"
       <ajaxToolKit:ConfirmButtonExtender ID="BtCancelar_ConfirmButtonExtender" 
           runat="server" ConfirmText="" Enabled="True" TargetControlID="BtCancelar">
       </ajaxToolKit:ConfirmButtonExtender>
-    <asp:LinkButton ID="LBImprimir" runat="server" SkinID="MascaraBotonImprimir" Visible="false"
-		  meta:resourcekey="LBImprimirResource1">Imprimir</asp:LinkButton>
 </asp:Content>
 

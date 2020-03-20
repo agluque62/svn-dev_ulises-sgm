@@ -5,6 +5,7 @@ Theme="TemaPaginasConfiguracion" culture="auto" meta:resourcekey="PageResource1"
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
+      <link rel="shortcut icon" href="~/favicon.ico">
 <%--    <title>Control de acceso</title>
 	 <style type="text/css">
 		 #form1
@@ -16,15 +17,15 @@ Theme="TemaPaginasConfiguracion" culture="auto" meta:resourcekey="PageResource1"
 <body>
     <form id="form1" runat="server" class="estiloDiv gradpositivo white">
         <div runat="server">
-    	<asp:Panel ID="Panel3" runat="server" BackColor="#F7F6F3" BorderColor="#FF3300" 
+    	<asp:Panel ID="Panel3" runat="server" BackColor="#F7F6F3" BorderColor="#4A7729" 
 			 BorderStyle="Solid" BorderWidth="5px" 
-			 Font-Names="Verdana" style="z-index: 3; left: 82px; top: 232px; position: absolute; height: 206px; width: 1039px" 
+			 Font-Names="Arial" style="z-index: 3; left: 82px; top: 232px; position: absolute; height: 206px; width: 1039px" 
 			 Visible="False" meta:resourcekey="Panel3Resource1">
 			<asp:Label ID="Label3" runat="server" BackColor="#F7F6F3"
 				style="position: absolute; z-index: 1; left: 214px; top: 86px; height: 64px; width: 691px;" 
 				meta:resourcekey="Label3Resource1">
 			</asp:Label>
-			<asp:Panel ID="Panel2" runat="server" BackColor="#e00034" 
+			<asp:Panel ID="Panel2" runat="server" BackColor="#4A7729" 
 				style="z-index: 2; left: 11px; top: 6px; position: absolute; height: 47px; width: 1014px" 
 				meta:resourcekey="Panel2Resource1">
 				<asp:Label ID="Label2" runat="server" SkinId="LabelPanel"
@@ -69,24 +70,30 @@ Theme="TemaPaginasConfiguracion" culture="auto" meta:resourcekey="PageResource1"
 		</div>
 		 
         <div id="divCenter" style="position:absolute;left:50%; top:50%;  margin-left:-131px; margin-top:-70px;">
+            <h1>
+            <asp:Label ID="LabelTitle" runat="server" SkinID="LabelCabecera" 
+                Font-Strikeout="False" Font-Underline="False" Font-Bold="true"  Style="z-index: 100; text-align:Center; position: absolute; top: -40px; height: 28px; width: 368px; left:-20%; color:black; "
+                Text="Configuración Ulises"
+                meta:resourcekey="TitleApplicationLogin"></asp:Label>
+            </h1>
 		 <asp:Login ID="Login1" runat="server" BackColor="Transparent"
 			BorderColor="#E6E2D8" BorderPadding="4"
 			 BorderStyle="Solid" BorderWidth="1px" DestinationPageUrl="~/Default.aspx" DisplayRememberMe="False"
-			 FailureText="Usuario incorrecto.Por favor, inténtelo de nuevo." Font-Names="Verdana"
+			 FailureText="Usuario incorrecto.Por favor, inténtelo de nuevo." Font-Names="Arial"
 			 Font-Size="0.8em" ForeColor="#333333" Height="140px" LoginButtonText="Aceptar" 
 			 OnAuthenticate="Login1_Authenticate" PasswordLabelText="Clave:" PasswordRequiredErrorMessage="Debe introducir una clave." 
-			 RememberMeText="" TextBoxStyle-Font-Names="Verdana" LabelStyle-Font-Names="Verdana" TitleTextStyle-Font-Names="Verdana" 
+			 RememberMeText="" TextBoxStyle-Font-Names="Arial" LabelStyle-Font-Names="Arial" TitleTextStyle-Font-Names="Arial" 
 			 TitleText="Login" UserNameLabelText="Usuario:" UserNameRequiredErrorMessage="Debe introducir un usuario." Width="262px" meta:resourcekey="Login1Resource1">
-			 <TitleTextStyle BackColor="#e00034" Font-Bold="True" Font-Size="0.9em" ForeColor="#E5E5E5"  />
+			 <TitleTextStyle BackColor="#4A7729" Font-Bold="True" Font-Size="0.9em" ForeColor="#E5E5E5"  />
 			 <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
 			 <TextBoxStyle Font-Size="0.8em" BackColor="#FFCC99" CssClass="textbox" />
 			 <LoginButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px"
-				 Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284775" />
+				 Font-Names="Arial" Font-Size="0.8em" ForeColor="#284775" />
 		 </asp:Login>
 		</div>   
 			
 		<asp:Panel ID="Panel1" runat="server" Visible="False"
-			 BackColor="#F7F6F3" BorderColor="#e00034"
+			 BackColor="#F7F6F3" BorderColor="#4A7729"
 			 style="position: relative; top: 247px; left: 310px; width: 676px; height: 169px; z-index: 103;" 
 			BorderStyle="Solid" meta:resourcekey="Panel1Resource1" >
 				 <asp:Label ID="Label1" runat="server" SkinId="LabelPanel"

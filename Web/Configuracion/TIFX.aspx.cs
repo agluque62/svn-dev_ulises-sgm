@@ -102,7 +102,6 @@ public partial class TIFX_Cfg : PageBaseCD40.PageCD40	// System.Web.UI.Page
             IndexListBox1 = -1;
             NumPaginaActiva = 0;
 			MuestraDatos(DameDatos());
-			CargarInforme();
 
             IBPropiedadesGenerales.CssClass = "buttonImageSelected";
             IBProtocoloSIP.CssClass = "buttonImage";
@@ -136,15 +135,7 @@ public partial class TIFX_Cfg : PageBaseCD40.PageCD40	// System.Web.UI.Page
 
         }
     }
-    /// <summary>
-    /// 
-    /// </summary>
-	protected void CargarInforme()
-	{
-		LBImprimir.Attributes.Remove("onclick");
-		string comando = "AbreVentana('../Informes/Report.aspx?Report=Tifx.rpt');return false;";
-		LBImprimir.Attributes.Add("onclick", comando);
-	}
+
     /// <summary>
     /// 
     /// </summary>
@@ -369,7 +360,6 @@ public partial class TIFX_Cfg : PageBaseCD40.PageCD40	// System.Web.UI.Page
 
             CargaRecursosDeLaTifx(ListBox1.SelectedItem.Text);
 			MostrarElemento();
-			GeneraXmlParaInforme();
 		}
 		else
 		{
@@ -391,23 +381,7 @@ public partial class TIFX_Cfg : PageBaseCD40.PageCD40	// System.Web.UI.Page
         if (d.Length > 0)
             TxtIpVirtual.Text = ((ServiciosCD40.GwActivas)d[0]).IpRed;
     }
-    /// <summary>
-    /// 
-    /// </summary>
-	private void GeneraXmlParaInforme()
-	{
-		ServiciosCD40.TifX t = new ServiciosCD40.TifX();
-		Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
-		KeyValueConfigurationElement s = config.AppSettings.Settings["Sistema"];
-		t.IdSistema = s.Value;
 
-		ServicioCD40.DataSetSelectSQL(t).WriteXml(Server.MapPath("~/Informes/Tifx.xml"));
-
-		ServiciosCD40.Recursos r = new ServiciosCD40.Recursos();
-		r.IdSistema = s.Value;
-		r.TipoRecurso = 255;	/* DONT_CARE */
-		ServicioCD40.DataSetSelectSQL(r).WriteXml(Server.MapPath("~/Informes/RecursosEnTifx.xml"));
-	}
     /// <summary>
     /// 
     /// </summary>

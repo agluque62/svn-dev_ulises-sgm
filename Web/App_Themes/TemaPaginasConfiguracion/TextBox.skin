@@ -16,7 +16,7 @@ no se permite que haya varios SkinId por tipo de control en el mismo tema.
 <asp:TextBox runat="server" BackColor="#FFCC99" ForeColor="Black" CssClass="textbox"></asp:TextBox>
 
 <asp:TextBox runat="server" CssClass="TxtPanelRadio"
-	        Style="position: absolute; font-size: 10px; font-family: Verdana; height: 30px; width: 103px; text-align: center; vertical-align:middle;" 
+	        Style="position: absolute; font-size: 10px; font-family: Arial; height: 30px; width: 103px; text-align: center; vertical-align:middle;" 
             SkinId="LiteralTeclaPanelRadio"></asp:TextBox>
 
 <asp:TextBox runat="server" BackColor="Transparent" BorderStyle="None" 

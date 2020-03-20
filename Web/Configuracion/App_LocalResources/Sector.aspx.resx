@@ -913,7 +913,7 @@
     <value />
   </data>
   <data name="RangeValidator3Resource1.ErrorMessage" xml:space="preserve">
-    <value>El campo número de frecuencias por página debe estar comprendido entre 1 y 15.</value>
+    <value>El campo número de frecuencias por página debe estar comprendido entre 8 y 24.</value>
   </data>
   <data name="RangeValidator3Resource1.Text" xml:space="preserve">
     <value>*</value>
@@ -922,7 +922,7 @@
     <value />
   </data>
   <data name="RangeValidator4Resource1.ErrorMessage" xml:space="preserve">
-    <value>El campo número de enlaces internos por página debe estar comprendido entre 1 y 20.</value>
+    <value>El campo número de enlaces internos por página debe estar comprendido entre 8 y 24.</value>
   </data>
   <data name="RangeValidator4Resource1.Text" xml:space="preserve">
     <value>*</value>

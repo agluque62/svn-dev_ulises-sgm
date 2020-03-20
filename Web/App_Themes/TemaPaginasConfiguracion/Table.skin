@@ -15,8 +15,8 @@ no se permite que haya varios SkinId por tipo de control en el mismo tema.
 --%>
 <asp:Table runat="server"  GridLines="Horizontal" BorderColor="Black" Font-Size="Small" SkinId="TableSkin" />
 
-<asp:TableRow runat="server" BorderColor="Black" BorderWidth="3px" BorderStyle="None" BackColor="#e00034" ForeColor="white" SkinId="TableHeaderRow"
-    HorizontalAlign="Center" Font-Bold="True" Font-Names="Verdana" Font-Size="14px"  />
+<asp:TableRow runat="server" BorderColor="Black" BorderWidth="3px" BorderStyle="None" BackColor="#4A7729" ForeColor="white" SkinId="TableHeaderRow"
+    HorizontalAlign="Center" Font-Bold="True" Font-Names="Arial" Font-Size="14px"  />
 
 <asp:TableRow runat="server" BorderColor="Black" BorderStyle="None" BackColor="Transparent" ForeColor="black" SkinId="TableRow"
-    HorizontalAlign="Center" Font-Names="Verdana" Font-Size="12px" />
+    HorizontalAlign="Center" Font-Names="Arial" Font-Size="12px" />

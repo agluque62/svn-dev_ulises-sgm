@@ -93,7 +93,6 @@ public partial class ParamGenerales : PageBaseCD40.PageCD40	// System.Web.UI.Pag
 			MuestraDatos(DameDatos());
 			LeeTareas();
 			UltimaPagina = 0;
-			CargarInforme();
 
 			Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
 			KeyValueConfigurationElement s = config.AppSettings.Settings["Sistema"];
@@ -128,15 +127,6 @@ public partial class ParamGenerales : PageBaseCD40.PageCD40	// System.Web.UI.Pag
 	//        ClientScript.RegisterStartupScript(this.GetType(), "WebPadreScript", webPadreScript, false);
 	//}
 
-    /// <summary>
-    /// 
-    /// </summary>
-	protected void CargarInforme()
-	{
-		LBImprimir.Attributes.Remove("onclick");
-		string comando = "AbreVentana('../Informes/Report.aspx?Report=Sistema.rpt');return false;";
-		LBImprimir.Attributes.Add("onclick", comando);
-	}
     /// <summary>
     /// 
     /// </summary>
@@ -263,7 +253,6 @@ public partial class ParamGenerales : PageBaseCD40.PageCD40	// System.Web.UI.Pag
                 RadioButtonList4.SelectedValue = DatosBackup.Profundidad[7].ToString();
             }
 
-			GeneraXmlParaInforme();
 		}
 		else
 		{
@@ -271,19 +260,7 @@ public partial class ParamGenerales : PageBaseCD40.PageCD40	// System.Web.UI.Pag
 			BtNuevo.Visible = true;
 		}
     }
-    /// <summary>
-    /// 
-    /// </summary>
-	private void GeneraXmlParaInforme()
-	{
-		ServiciosCD40.Sistema t = new ServiciosCD40.Sistema();
-		Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
-		KeyValueConfigurationElement s = config.AppSettings.Settings["Sistema"];
-		t.IdSistema = s.Value;
 
-		DataSet d = ServicioCD40.DataSetSelectSQL(t);
-		d.WriteXml(Server.MapPath("~/Informes/Sistema.xml"));
-	}
     /// <summary>
     /// Boton Modificar...
     /// </summary>

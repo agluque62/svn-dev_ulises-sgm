@@ -86,7 +86,6 @@ public partial class Redes : PageBaseCD40.PageCD40	//	System.Web.UI.Page
             NumPaginaActiva = 0;
 			BtNuevo.Visible = PermisoSegunPerfil;
 			MuestraDatos(DameDatos());
-			CargarInforme();
 
 			ActualizaWebPadre(true);
 
@@ -117,15 +116,6 @@ public partial class Redes : PageBaseCD40.PageCD40	//	System.Web.UI.Page
             }
 		}
     }
-    /// <summary>
-    /// 
-    /// </summary>
-	protected void CargarInforme()
-	{
-		LBImprimir.Attributes.Remove("onclick");
-		string comando = "AbreVentana('../Informes/Report.aspx?Report=Redes.rpt');return false;";
-		LBImprimir.Attributes.Add("onclick", comando);
-	}
 
     /// <summary>
     /// 
@@ -197,7 +187,7 @@ public partial class Redes : PageBaseCD40.PageCD40	//	System.Web.UI.Page
                 ListBox1.SelectedIndex = IndexListBox1 != -1 && IndexListBox1 < ListBox1.Items.Count ? IndexListBox1 : 0;
 
 			MostrarElemento();
-			GeneraXmlParaInforme();
+
 		}
 		else
 		{
@@ -206,20 +196,7 @@ public partial class Redes : PageBaseCD40.PageCD40	//	System.Web.UI.Page
 
         NewItem = string.Empty;
     }
-    /// <summary>
-    /// 
-    /// </summary>
-	private void GeneraXmlParaInforme()
-	{
-		ServiciosCD40.Redes t = new ServiciosCD40.Redes();
-		Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
-		KeyValueConfigurationElement s = config.AppSettings.Settings["Sistema"];
-		t.IdSistema = s.Value;
 
-		DataSet d = ServicioCD40.DataSetSelectSQL(t);
-		d.WriteXml(Server.MapPath("~/Informes/Redes.xml"));
-		ServicioCD40.RecursosDeUnaRed((string)Session["idsistema"], null).WriteXml(Server.MapPath("~/Informes/RecursosEnRedes.xml"));
-	}
     /// <summary>
     /// 
     /// </summary>

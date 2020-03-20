@@ -98,7 +98,6 @@ public partial class Agrupacion : PageBaseCD40.PageCD40	//System.Web.UI.Page
             MuestraDatos(DameDatos());
 
             ActualizaWebPadre(true);
-            CargarInforme();
         }
         else
         {
@@ -132,13 +131,6 @@ public partial class Agrupacion : PageBaseCD40.PageCD40	//System.Web.UI.Page
                 //}
             //}
     }
-
-	protected void CargarInforme()
-	{
-		LBImprimir.Attributes.Remove("onclick");
-		string comando = "AbreVentana('../Informes/Report.aspx?Report=Agrupaciones.rpt');return false;";
-		LBImprimir.Attributes.Add("onclick", comando);
-	}
 
 	protected void BtNuevo_Click(object sender, EventArgs e)
     {
@@ -316,7 +308,6 @@ public partial class Agrupacion : PageBaseCD40.PageCD40	//System.Web.UI.Page
 
 
 			MostrarElemento();
-			GeneraXmlParaInforme();
 		}
 		else
 		{
@@ -332,16 +323,6 @@ public partial class Agrupacion : PageBaseCD40.PageCD40	//System.Web.UI.Page
 		ModoEdicion(false);
 	}
 
-	private void GeneraXmlParaInforme()
-	{
-		ServiciosCD40.SectoresAgrupacion t = new ServiciosCD40.SectoresAgrupacion();
-		Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
-		KeyValueConfigurationElement a = config.AppSettings.Settings["Sistema"];
-		t.IdSistema = a.Value;
-
-		ServiciosCD40.ServiciosCD40 s = new ServiciosCD40.ServiciosCD40();
-		s.DataSetSelectSQL(t).WriteXml(Server.MapPath("~/Informes/Agrupaciones.xml"));
-	}
 
 	protected override void AceptarCambios()
 	{

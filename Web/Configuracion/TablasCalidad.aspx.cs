@@ -67,16 +67,9 @@ public partial class TablasCalidad : PageBaseCD40.PageCD40		//System.Web.UI.Page
             BtCancelar_ConfirmButtonExtender.ConfirmText = (string)GetGlobalResourceObject("Espaniol", "CancelarCambios");
             
             MuestraDatos(DameDatos());
-			//CargarInforme();
 		}
     }
 
-	protected void CargarInforme()
-	{
-		LBImprimir.Attributes.Remove("onclick");
-        string comando = "AbreVentana('../Informes/Report.aspx?Report=Emplazamientos.rpt');return false;";        
-		LBImprimir.Attributes.Add("onclick", comando);
-	}
 
     private ServiciosCD40.Tablas[] DameDatos()
     {
@@ -481,6 +474,7 @@ public partial class TablasCalidad : PageBaseCD40.PageCD40		//System.Web.UI.Page
         BtAceptar.Visible = true;
         BtCancelar.Visible = true;
         BtModificar.Visible = false;
+        BtEliminar.Visible = false;
         TextBox1.Text = "";
         Label2.Visible = true;
         TextBox1.Visible = true;        
