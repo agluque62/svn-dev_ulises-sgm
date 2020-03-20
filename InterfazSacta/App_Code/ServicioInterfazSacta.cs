@@ -2,11 +2,16 @@ using System;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
-
-
 using System.Collections;
 using System.Text;
+
+using Newtonsoft.Json;
+
+
 using Sacta;
+
+using CD40.BD;
+using UtilitiesCD40;
 
 
 [WebService(Namespace = "http://CD40.es/")]
@@ -118,5 +123,44 @@ public class ServicioInterfazSacta : System.Web.Services.WebService
     {
         return SactaModule.SactaCfgSet(jcfg);
     }
+
+	/** 20200320. Metodos para el nuevo Servicio SACTA localizado en MTTO. */
+	[WebMethod]
+	public string SectorizeFromSacta(uint Version, string dataSect)
+	{
+		var info = new SactaInfo();
+		var FechaActivacion = DateTime.Now;
+		var util = new Utilidades(MySqlConnectionToCd40);
+		int Result = 0;
+		string Cause = default(string);
+		object sectorizacion = null;
+
+		util.EventResultSectorizacion += new CD40.BD.SectorizacionEventHandler<CD40.BD.SactaInfo>((resinfo) =>
+		{
+			Result = (int)resinfo["Resutado"];
+			Cause = resinfo.ContainsKey("ErrorCause") ? (string)resinfo["ErrorCause"] : null;
+		});
+
+		info["Version"] = Version;
+		info["SectName"] = "SACTA";
+		info["SectData"] = dataSect;
+		try
+		{
+			sectorizacion = util.GeneraSectorizacion(info, FechaActivacion);
+		}
+		catch (Exception x)
+		{
+			Result = 1;
+			Cause = String.Format("Exception {0}",x.Message);
+		}
+		return JsonConvert.SerializeObject(new
+		{
+			Executed = sectorizacion!=null,
+			FechaActivacion,
+			Version,
+			Result,
+			Cause
+		}); ;
+	}
 
 }
