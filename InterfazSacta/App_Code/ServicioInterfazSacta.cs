@@ -134,14 +134,16 @@ public class ServicioInterfazSacta : System.Web.Services.WebService
 		int Result = 0;
 		string Cause = default(string);
 		object sectorizacion = null;
+		Exception exception = default(Exception);
 
 		util.EventResultSectorizacion += new CD40.BD.SectorizacionEventHandler<CD40.BD.SactaInfo>((resinfo) =>
 		{
-			Result = (int)resinfo["Resutado"];
+			Result = (int)resinfo["Resultado"];
 			Cause = resinfo.ContainsKey("ErrorCause") ? (string)resinfo["ErrorCause"] : null;
 		});
 
 		info["Version"] = Version;
+		info["IdSistema"] = "departamento";
 		info["SectName"] = "SACTA";
 		info["SectData"] = dataSect;
 		try
@@ -152,6 +154,7 @@ public class ServicioInterfazSacta : System.Web.Services.WebService
 		{
 			Result = 1;
 			Cause = String.Format("Exception {0}",x.Message);
+			exception = x;
 		}
 		return JsonConvert.SerializeObject(new
 		{
@@ -159,7 +162,13 @@ public class ServicioInterfazSacta : System.Web.Services.WebService
 			FechaActivacion,
 			Version,
 			Result,
-			Cause
+			Cause,
+			DataIn = new
+			{
+				Version,
+				dataSect
+			},
+			exception
 		}); ;
 	}
 
