@@ -137,7 +137,7 @@
                 meta:resourcekey="LinkButton1Resource1">Cerrar sesión</asp:LinkButton>
             &nbsp; &nbsp;
         </div>
-        <div id="DivContenido" style="z-index: 100; left: 243px; width: 1029px; position: absolute; top: 114px;height: 736px; background-color:transparent;" 
+        <div id="DivContenido" style="z-index: 100; left: 252px; width: 1020px; position: absolute; top: 114px;height: 736px; background-color:transparent;" 
                 class="estiloDiv">
             <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
 
@@ -192,7 +192,7 @@
 					</asp:UpdatePanel>
         </div>
         <div runat="server" id="DivArbol" class="estiloDiv"
-            style="z-index: 101; left: 8px; width: 234px; position: absolute; top: 114px; height: 736px; background-color:transparent">
+            style="z-index: 101; left: 8px; width: 243px; position: absolute; top: 114px; height: 736px; background-color:transparent">
             <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1" Style="z-index: 200;
                 left: 4px; position: absolute; top: 44px" Width="215px" Height="442px" 
 					ImageSet="Arrows" ontreenodedatabound="TreeView1_TreeNodeDataBound" meta:resourcekey="TreeView1Resource1" >
@@ -228,7 +228,7 @@
 						Style="position:absolute; top: 14px; left: 5px; width:200px; text-align:center" 
 						meta:resourcekey="BtnSistemaResource1"/> --%>
 
-                <asp:Table id="TabBotDivWizard"  runat="server" Style="left: 9px; position: absolute; top: 43px; ">
+                <asp:Table id="TabBotDivWizard"  runat="server" Style="left: 5px; position: absolute; top: 43px; ">
                   <asp:TableRow  >
                       <asp:TableCell >
                         <asp:Label ID="BtnOperadores" runat="server" BorderStyle="Inset"

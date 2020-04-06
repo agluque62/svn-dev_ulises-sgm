@@ -13,10 +13,8 @@ using System.Web.Configuration;
 using log4net;
 using log4net.Config;
 using System.Text.RegularExpressions;
-using System.Text;
-using System.Linq;
 
-public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
+public partial class GrupoFD : PageBaseCD40.PageCD40	// System.Web.UI.Page
 {
     const string FREC_DESPLAZADA_MODO_ASAP = "0";
     const string FREC_DESPLAZADA_MODO_TIEMPO_FIJO = "1";
@@ -26,16 +24,13 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
     const string DESTINORADIO_MODO_FD = "2";
     const string DESTINORADIO_MODO_EM = "3";
 
-    const string TIPO_RECURSO_RX = "0";
-    const string TIPO_RECURSO_TX = "1";
-    const string TIPO_RECURSO_RXTX = "2";
-    const string TIPO_RECURSO_AUDIO_HF_TX= "3";
-    const string TIPO_RECURSO_M_N_RX = "4";
-    const string TIPO_RECURSO_M_N_TX = "5";
-    const string TIPO_RECURSO_M_N_RXTX = "6";
-    const string TIPO_RECURSO_EE_RX = "7";
-    const string TIPO_RECURSO_EE_TX = "8";
-    const string TIPO_RECURSO_EE_RXTX = "9";
+    const string TIPO_DESTINO_RX = "0";
+    const string TIPO_DESTINO_TX = "1";
+    const string TIPO_DESTINO_TXRX = "2";
+    const string TIPO_DESTINO_AUDIO_HF_TX= "3";
+    const string TIPO_DESTINO_M_N_RX = "4";
+    const string TIPO_DESTINO_M_N_TX = "5";
+    const string TIPO_DESTINO_M_N_TXRX = "6";
 
     
     const string DESTINORADIO_TIPOFRECUENCIA_VHF = "0";
@@ -53,8 +48,6 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
     const string METODO_BSS_NINGUNO = "0";
     const string METODO_BSS_RSSI = "1";
     const string METODO_BSS_RSSI_NUCLEO = "2";
-    const string FORMATO_LB_RECURSOS = "{0, -20} {1, -15} {2,-10}";
-    const string FORMATO_LB_RECURSOS_LIBRES = "{0, -20} {1, -15}";
 
 
     private static ServiciosCD40.Tablas[] datos;
@@ -204,7 +197,6 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
         ListRecursos.Items.Clear();
         ListEmplazamientos.Items.Clear();
         Frecuencia = string.Empty;
-        CheckBoxRedundancia.Checked = false;
 
         //VMG 18/02/2019
         LbEmplazamientoDefecto.Visible = false;
@@ -221,7 +213,7 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
         CargarRecursosSinAsignar(); 
         //CargarRecursosSinAsignarporEmplazamiento();
 
-        ListRecursosLibres.Visible = true;
+        ListRecursosLibres.Visible = true;       
         
         LblFiltroEmplazamiento.Visible = DListEmplazamiento.Visible = DropDownFiltro.Visible = true;
 
@@ -229,8 +221,8 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
         IButQuitar.Visible = true;
         DListEmplazamiento.Enabled = true;
 
-        //ListTiposLibres.Visible = (String.Compare("0", DropDownFiltro.SelectedValue) == 0);
-        //ListEmplazamientosLibres.Visible = !ListTiposLibres.Visible;
+        ListTiposLibres.Visible = (String.Compare("0", DropDownFiltro.SelectedValue) == 0);
+        ListEmplazamientosLibres.Visible = !ListTiposLibres.Visible;
 
         //MVO: Se visualizan/ocultan los campos de FD
         DListModoDestino.SelectedValue = DESTINORADIO_MODO_NORMAL;
@@ -267,145 +259,63 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
         IndexListBox1 = ListBox1.SelectedIndex;
     }
 
-    private void CargarRecursosSinAsignar(bool porEmplazamiento=false)
+    private void CargarRecursosSinAsignar()
     {
         try
         {
-            //Indica si se visualiza la lista de recursos libres con tipos  (true) o con emplazamientos (false)
-            bool visualizaRecLibresTipos = (String.Compare("0", DropDownFiltro.SelectedValue) == 0);
-            string strSistema = (string)Session["idsistema"];
-            StringBuilder strTexto = new StringBuilder();
-            int i = 0;
-            ServiciosCD40.Tablas[] d=null;
-
             ListRecursosLibres.Items.Clear();
             ListTiposLibres.Items.Clear();
             ListEmplazamientosLibres.Items.Clear();
-            //ListTiposLibres.Visible = (String.Compare("0", DropDownFiltro.SelectedValue) == 0);
-            //ListEmplazamientosLibres.Visible = !ListTiposLibres.Visible;
+
+            ListTiposLibres.Visible = (String.Compare("0", DropDownFiltro.SelectedValue) == 0);
+            ListEmplazamientosLibres.Visible = !ListTiposLibres.Visible;
+                     
+            DListEmplazamiento.SelectedIndex = 0;
 
             Label4.Text = (string)GetLocalResourceObject("Label4Resource1.Text");
-
-            if (!porEmplazamiento || string.IsNullOrEmpty(DListEmplazamiento.Text))
-            {
-                DListEmplazamiento.SelectedIndex = 0;
-                d = ServicioCD40.RecursosSinAsignarAEnlaces1(strSistema, 0, null);
-            }
-            else
-                d = ServicioCD40.RecursosSinAsignarAEnlaces1(strSistema, 0, DListEmplazamiento.Text);
-
+            ServiciosCD40.Tablas[] d = ServicioCD40.RecursosSinAsignarAEnlaces1((string)Session["idsistema"], 0, null);
             ServiciosCD40.RecursosRadio recRd = new ServiciosCD40.RecursosRadio();
 
+            int i = 0;
+
             if (d != null)
-            {
                 for (i = 0; i < d.Length; i++)
                 {
-                    ListItem lbItem = new ListItem();
-                    ListItem lbTipoItem = new ListItem();
-                    string strTipo = string.Empty;
-                    string strEmplazamiento = string.Empty;
-                    int tipoRec = 0;
-                    string strTipoValue = string.Empty;
-
-                    strTexto.Clear();
-                    ServiciosCD40.Recursos rec = (ServiciosCD40.Recursos)d[i];
-
-                    // Si el destino es de tipo HF, sólo se pueden mostrar recursos de tipo 0 = AUDIO_RX
-                    // o si el tipo no es HF, Si el tipo de recurso es TIPO_DESTINO_AUDIO_HF_TX=3  no se carga en la lista,
-                    //independientemente de que esté o no definida la tool RadioHF
-                    if ((DListTipo.SelectedValue == DESTINORADIO_TIPOFRECUENCIA_HF && rec.Tipo != 0) ||
-                       (DListTipo.SelectedValue != DESTINORADIO_TIPOFRECUENCIA_HF && rec.Tipo == 3))
+                    if (DListTipo.SelectedValue == DESTINORADIO_TIPOFRECUENCIA_HF)
                     {
-                        continue;
+                        // Si el destino es de tipo HF, sólo se pueden mostrar recursos de tipo AUDIO_RX
+                        if (((ServiciosCD40.Recursos)d[i]).Tipo == 0)
+                            ListRecursosLibres.Items.Add(((ServiciosCD40.Recursos)d[i]).IdRecurso);
+                        else
+                            continue;
                     }
                     else
                     {
                         //Si el tipo de recurso es TIPO_DESTINO_AUDIO_HF_TX=3  no se carga en la lista, independientemente de que esté o no definida la tool RadioHF
                         // Mostrar Tipo recurso radio Audio HF-Tx sólo para NDjamena (Versión=2)
-                        //if (((ServiciosCD40.Recursos)d[i]).Tipo == 3) /* Audio-HF-Tx */  //&& UlisesToolsVersion.Tools["RadioHF"] == null)
-                        //    continue;
-                        strTipoValue = rec.Tipo.ToString();
+                        if (((ServiciosCD40.Recursos)d[i]).Tipo == 3) /* Audio-HF-Tx */  //&& UlisesToolsVersion.Tools["RadioHF"] == null)
+                            continue;
 
-                        if (rec.Tipo >= 4 && rec.Tipo <= 6)
-                            tipoRec = 4;
-                        else if (rec.Tipo == 7)
-                        {
-                            tipoRec = (int)rec.Tipo;
-                            ServiciosCD40.HFParams r = new ServiciosCD40.HFParams();
+                        ListRecursosLibres.Items.Add(((ServiciosCD40.Recursos)d[i]).IdRecurso);
+                    }
 
-                            r.IdSistema = strSistema;
-                            r.IdRecurso = ((ServiciosCD40.Recursos)d[i]).IdRecurso;
-                            ServiciosCD40.Tablas[] h = ServicioCD40.ListSelectSQL(r);
+                    int uintp = (((ServiciosCD40.Recursos)d[i]).Tipo >= 4 && ((ServiciosCD40.Recursos)d[i]).Tipo <= 6) ? 4 : (int)((ServiciosCD40.Recursos)d[i]).Tipo;
 
-                            if (h.Length > 0)
-                            {
-                                ServiciosCD40.HFParams recHfParam = ((ServiciosCD40.HFParams)h[0]);
 
-                                //Si es audio EE, se obtiene el tipo Receptor, transmisor o transceptor
-                                switch (recHfParam.TipoEquipo)
-                                {
-                                    case 0:
-                                        //Audio EE RX
-                                        tipoRec = 7;
-                                        strTipoValue = "7";
-                                        break;
-                                    case 1:
-                                        //Audio EE TX
-                                        tipoRec = 8;
-                                        strTipoValue = "8";
-                                        break;
-                                    case 2:
-                                        //Audio EE TxRx
-                                        tipoRec = 9;
-                                        strTipoValue = "9";
-                                        break;
-                                }
-                            }
-                        }
-                        else
-                            tipoRec = (int)rec.Tipo;
-
-                        var itemTipo= DListTipoRec.Items.FindByValue(tipoRec.ToString());
-                        if (itemTipo != null)
-                        {
-                            strTipo = itemTipo.Text;
-                        }
-
-                        //Se obtiene el emplazamiento al que pertenece el recurso
-                        recRd.IdSistema = strSistema;
+                    if (ListRecursosLibres.Items.Count > 0)
+                    {
+                        recRd.IdSistema = (string)Session["IdSistema"];
+                        //recRd.IdRecurso = ListRecursosLibres.Items[i].Text;
                         recRd.IdRecurso = ((ServiciosCD40.Recursos)d[i]).IdRecurso;
 
                         ServiciosCD40.Tablas[] l2 = ServicioCD40.ListSelectSQL(recRd);
                         if (null != l2 && l2.Length > 0)
                         {
-                            strEmplazamiento = ((ServiciosCD40.RecursosRadio)l2[0]).IdEmplazamiento;
-                            ListEmplazamientosLibres.Items.Add(strEmplazamiento);
+                            ListEmplazamientosLibres.Items.Add(((ServiciosCD40.RecursosRadio)l2[0]).IdEmplazamiento);
                         }
-
-                        if (visualizaRecLibresTipos)
-                        {
-                            //Se visaliza el recurso libre con el tipo
-                            strTexto.AppendFormat(FORMATO_LB_RECURSOS_LIBRES, rec.IdRecurso, strTipo);
-                            lbItem.Attributes.Add("title", strEmplazamiento);
-                        }
-                        else
-                        {
-                            //Se visaliza el recurso libre con el emplazamiento
-                            strTexto.AppendFormat(FORMATO_LB_RECURSOS_LIBRES, rec.IdRecurso, strEmplazamiento);
-                            lbItem.Attributes.Add("title", strTipo);
-                        }
-                        strTexto.Replace(" ", "\u00A0");
-                        lbItem.Text = strTexto.ToString();
-                        lbItem.Value = rec.IdRecurso;
-
-                        lbTipoItem.Text = strTipo;
-                        lbTipoItem.Value = strTipoValue;
-
-                        ListRecursosLibres.Items.Add(lbItem);
-                        ListTiposLibres.Items.Add(lbTipoItem);
+                        ListTiposLibres.Items.Add(DListTipoRec.Items[uintp].Text);  //MAF                     
                     }
                 }
-            }
         }
         catch (Exception e)
         {
@@ -413,15 +323,70 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
         }
     }
 
+
+
+    private void CargarRecursosSinAsignarporEmplazamiento()
+    {
+        try
+        {
+            ListTiposLibres.Items.Clear();
+            ListEmplazamientosLibres.Items.Clear();
+            ListRecursosLibres.Items.Clear();        
+
+            ServiciosCD40.RecursosRadio recRd = new ServiciosCD40.RecursosRadio();
+
+            BtEliminar_ConfirmButtonExtender.ConfirmText = String.Format((string)GetGlobalResourceObject("Espaniol", "EliminarDestino"), ListBox1.SelectedValue);
+
+            if (DListEmplazamiento.SelectedIndex > 0)
+                Label4.Text = (string)GetLocalResourceObject("Label4Resource1.Text") + " " + DListEmplazamiento.SelectedValue;
+            else
+                Label4.Text = (string)GetLocalResourceObject("Label4Resource1.Text");
+
+
+            ServiciosCD40.Tablas[] d = ServicioCD40.RecursosSinAsignarAEnlaces1((string)Session["idsistema"], 0, DListEmplazamiento.Text);
+            
+            for (int i = 0; i < d.Length; i++)
+            {
+                ListRecursosLibres.Items.Add(((ServiciosCD40.Recursos)d[i]).IdRecurso);
+
+                int uintp = ((ServiciosCD40.Recursos)d[i]).Tipo >= 4 && ((ServiciosCD40.Recursos)d[i]).Tipo <= 6 ? 4 : (int)((ServiciosCD40.Recursos)d[i]).Tipo;
+                ListTiposLibres.Items.Add(DListTipoRec.Items[uintp].Text);  //MAF 
+
+                
+                recRd.IdSistema = (string)Session["IdSistema"];
+                recRd.IdRecurso = ListRecursosLibres.Items[i].Text;
+                ServiciosCD40.Tablas[] idRecRd = ServicioCD40.ListSelectSQL(recRd);
+                ListEmplazamientosLibres.Items.Add(((ServiciosCD40.RecursosRadio)idRecRd[0]).IdEmplazamiento);
+            }
+            if (d.Length >= 0)
+                BtEliminar.Visible = false;
+            else
+                BtEliminar.Visible = PermisoSegunPerfil;
+        }
+        catch (Exception e)
+        {
+            logDebugView.Error("(GrupoFD-CargarRecursosSinAsignarporEmplazamiento):", e);
+        }
+    }
+
     protected void DListEmplazamiento_SelectedIndexChanged(object sender, EventArgs e)
     {
         if (DListEmplazamiento.SelectedIndex == 0)
         {
+            //ListRecursos.Items.Clear();
+            //ListEmplazamientos.Items.Clear();
+            //ListTipos.Items.Clear();
+            //CargarRecursos();
             CargarRecursosSinAsignar();
+
         }
         else
         {
-            CargarRecursosSinAsignar(porEmplazamiento:true);
+            //ListRecursos.Items.Clear();
+            //ListEmplazamientos.Items.Clear();
+            //ListTipos.Items.Clear();
+            //CargarRecursos();
+            CargarRecursosSinAsignarporEmplazamiento();
         }
     }
 
@@ -429,14 +394,19 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
     {
         try
         {
+
             ServiciosCD40.RecursosRadio t = new ServiciosCD40.RecursosRadio();
+
+            ServiciosCD40.RecursosRadio emp = new ServiciosCD40.RecursosRadio();//MAF
+
             t.IdSistema = (string)Session["idsistema"];
             t.IdDestino = TxtIdEnlace.Text;
             ServiciosCD40.Tablas[] d = ServicioCD40.ListSelectSQL(t);
             LblErrorMismatchFrequency.Visible = false;
             Frecuencia = string.Empty;
 
-            int tipoRec = 0;
+
+            int uintp = 0;//MAF
             string empDefecto = null;
             string tVueltaDefecto = "0";
 
@@ -444,19 +414,15 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
             {
                 for (int i = 0; i < d.Length; i++)
                 {
-                    ServiciosCD40.RecursosRadio rec = (ServiciosCD40.RecursosRadio)d[i];
-                    ListItem lbItem = new ListItem();
-                    string strTipo = String.Empty;
 
-                    if (rec.Tipo >= 4 && rec.Tipo <= 6)
-                        tipoRec = 4;
-                    else
-                        tipoRec = (int) rec.Tipo;
+                    ListRecursos.Items.Add(((ServiciosCD40.RecursosRadio)d[i]).IdRecurso);
+                    emp.IdSistema = (string)Session["IdSistema"];
+                    emp.IdRecurso = ((ServiciosCD40.RecursosRadio)d[i]).IdRecurso;
+                    ServiciosCD40.Tablas[] idRecRd = ServicioCD40.ListSelectSQL(emp);
+                    ListEmplazamientos.Items.Add(((ServiciosCD40.RecursosRadio)idRecRd[0]).IdEmplazamiento);
 
-                    ListEmplazamientos.Items.Add(rec.IdEmplazamiento);
 
-                    string tipoRecValue = rec.Tipo.ToString();
-                    if (tipoRec == 4 || tipoRec==7) //Tipo M+N ó Audio EE
+                    if (((ServiciosCD40.RecursosRadio)d[i]).Tipo >= 4 && ((ServiciosCD40.RecursosRadio)d[i]).Tipo <= 6) // Tipo M+N
                     {
                         ServiciosCD40.HFParams r = new ServiciosCD40.HFParams();
 
@@ -466,29 +432,6 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
 
                         if (h.Length > 0)
                         {
-                            ServiciosCD40.HFParams recHfParam=((ServiciosCD40.HFParams)h[0]);
-                            if (tipoRec == 7)
-                            {
-                                //Si es audio EE, se obtiene el tipo Receptor, transmisor o transceptor
-                                switch (recHfParam.TipoEquipo)
-                                {
-                                    case 0:
-                                        //Audio EE RX
-                                        tipoRecValue = TIPO_RECURSO_EE_RX;
-                                        break;
-                                    case 1:
-                                        //Audio EE TX
-                                        tipoRecValue = TIPO_RECURSO_EE_TX;
-                                        tipoRec = 8;
-                                        break;
-                                    case 2:
-                                        //Audio EE TxRx
-                                        tipoRecValue = TIPO_RECURSO_EE_RXTX;
-                                        tipoRec = 9;
-                                        break;
-                                }
-                            }
-
                             if (Frecuencia == string.Empty)
                                 Frecuencia = ((ServiciosCD40.HFParams)h[0]).Frecuencia;
                             else if (Frecuencia != ((ServiciosCD40.HFParams)h[0]).Frecuencia)
@@ -496,23 +439,20 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                                 LblErrorMismatchFrequency.Visible = true;
                             }
                         }
-                    }
 
-                    var item = DListTipoRec.Items.FindByValue(tipoRec.ToString());
-                    if (item != null)
+                        uintp = 4;//MAF
+                    }
+                    else
                     {
-                        ListTipos.Items.Add(item.Text);
-                        ListTipos.Items[ListTipos.Items.Count - 1].Value = tipoRecValue;
-                        strTipo = item.Text;
+                        uintp = (int)((ServiciosCD40.RecursosRadio)d[i]).Tipo;
                     }
 
-                    lbItem.Value = rec.IdRecurso;
-                    StringBuilder strTexto = new StringBuilder();
-                    strTexto.AppendFormat(FORMATO_LB_RECURSOS, rec.IdRecurso, strTipo, rec.IdEmplazamiento);
+                    //MAF 
+                    ListTipos.Items.Add(DListTipoRec.Items[uintp].Text);
 
-                    strTexto.Replace(" ", "\u00A0");
-                    lbItem.Text = strTexto.ToString();
-                    ListRecursos.Items.Add(lbItem);
+                    ListTipos.Items[ListTipos.Items.Count - 1].Value = ((ServiciosCD40.RecursosRadio)d[i]).Tipo.ToString();//MAF_MAF
+
+
                 }
 
                 //Si el modo es FD y el modo de transmisión ultima recepción
@@ -620,10 +560,6 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
 
                     TextBoxCLD.Text = ((ServiciosCD40.DestinosRadio)datos[i]).CldSupervisionTime.ToString();
                     DDLMetodosBssOfrecidos.SelectedValue = ((ServiciosCD40.DestinosRadio)datos[i]).MetodosBssOfrecidos.ToString();
-                    
-                    //Se rellena el check 1+1
-                    CheckBoxRedundancia.Checked= (!string.IsNullOrEmpty(((ServiciosCD40.DestinosRadio)datos[i]).ConRedundancia) && 
-                                                  string.Compare(((ServiciosCD40.DestinosRadio)datos[i]).ConRedundancia,"1")==0) ? true : false;
 
                     // El modo destino se recupera de los campos de la BD CnfModoDestino y CnfTipoFrecuencia.
                     //Por compatibilidad con la versión anterior, si estos campos no están informados se obtienen del campo TipoFrec
@@ -694,6 +630,7 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                         AsignaValoresDefectoModoNormal();
                     }
 
+
                     //CheckFrecNoDesasignable.Checked = ((ServiciosCD40.DestinosRadio)datos[i]).ExclusividadTXRX;//CheckFrecNoDesasignable
 
                     if (TblTunedFreq.Visible)
@@ -743,10 +680,11 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
         //TxtIdEnlace.Visible = true;
         //DListTipo.Visible = true;
         ListRecursosLibres.Visible = true;
-        //ListTiposLibres.Visible = true;
+        ListTiposLibres.Visible = true;
         LblFiltroEmplazamiento.Visible = DListEmplazamiento.Visible = DropDownFiltro.Visible = true;
-
+        
         //CheckExclusividad.Visible = true;
+        //DListModo.Visible = true;
     }
 
     private void EsconderMenu()
@@ -756,9 +694,10 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
         //IButAsignar.Visible = false;
         //IButQuitar.Visible = false;
         ListRecursosLibres.Visible = false;
-        //ListTiposLibres.Visible = false;
+        ListTiposLibres.Visible = false;
         //Label4.Visible = false;
         //ListRecursosLibres.Visible = false;
+        //ListTiposLibres.Visible = false;
         //ListEmplazamientosLibres.Visible = false;
         //DListTipoRec.Visible = false;
 
@@ -892,42 +831,20 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
             String strIdDestino = String.Empty;
             String strValorTipoDestino = String.Empty;
             String strTipo = string.Empty;
-            String strSistema = (string)Session["idsistema"];
-            bool destinoConRedundancia = false;
-            String modoDestino = DListModoDestino.SelectedValue;
+
             bool bDestinoFmtFrecuencia = false; //Indica si el identificador del destino debe seguir el formato de las frecuencias
             bool bDestinoFmtFrecuenciaHFMN = false; //Indica si el identificador del destino debe seguir el formato de las frecuencias
-            Dictionary<string, CRecursoRedundancia> mapaRecursosRed = new Dictionary<string, CRecursoRedundancia>();
 
             //Se inicializa al valor configurado en el parámetro del fichero de configuración
             bDestinoFmtFrecuencia = bCnfIdFormatoFrecuencia;
-            
-            //Si el destino se configura con redundancia (1+1)
-            destinoConRedundancia = (CheckBoxRedundancia.Checked == true) ? true : false;
 
             strValorTipoDestino = DListTipo.SelectedValue;
             strIdDestino = TxtIdEnlace.Text;
-
-            //Si se está dando de alta un nuevo destino, se comprueba si el nombre del destino es único
-            if (TxtIdEnlace.Enabled && ListBox1.Items.FindByText(TxtIdEnlace.Text) != null)
-            {
-                cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "Nombredestinoutilizado"), "aceptparam");
-                return false;
-            }
-
-            //En el modo destino FD,el tipo de frecuencia no puede ser HF
-            if (destinoConRedundancia && strValorTipoDestino == DESTINORADIO_TIPOFRECUENCIA_HF)
-            {
-                cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorAsignacionFrecuenciaHFConRedundancia"), "aceptparam");
-                return false;
-            }
 
             if (-1 != DListTipo.SelectedIndex)
             {
                 strTipo = DListTipo.Items[DListTipo.SelectedIndex].Text;
             }
-
-            #region Comprobación del formato del Id del destino
 
             if (false == bCnfIdFormatoFrecuencia)
             {
@@ -939,9 +856,9 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                 {
                     for (int i = 0; i < ListTipos.Items.Count && !bDestinoFmtFrecuencia; i++)
                     {
-                        if ((String.Compare(ListTipos.Items[i].Value, TIPO_RECURSO_M_N_TX) == 0) ||
-                            (String.Compare(ListTipos.Items[i].Value, TIPO_RECURSO_M_N_RX) == 0) ||
-                            (String.Compare(ListTipos.Items[i].Value, TIPO_RECURSO_M_N_RXTX) == 0))
+                        if ((String.Compare(ListTipos.Items[i].Value, TIPO_DESTINO_M_N_TX) == 0) ||
+                            (String.Compare(ListTipos.Items[i].Value, TIPO_DESTINO_M_N_RX) == 0) ||
+                            (String.Compare(ListTipos.Items[i].Value, TIPO_DESTINO_M_N_TXRX) == 0))
                         {
                             bDestinoFmtFrecuenciaHFMN = true;
                         }
@@ -1051,17 +968,17 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                     return false;
                 }
             }
-
-            #endregion
-
+           
             ServiciosCD40.DestinosRadio n = new ServiciosCD40.DestinosRadio();
-            n.IdSistema = strSistema;
+            n.IdSistema = (string)Session["idsistema"];
             if (TxtIdEnlace.Enabled) //Nuevo Enlace 
                 n.IdDestino = TxtIdEnlace.Text;
             else
                 n.IdDestino = ListBox1.SelectedValue;
 
             NewItem = n.IdDestino;
+
+
             n.PrioridadSesionSip = Convert.ToInt32(DListPrioridadSIP.SelectedValue);
 
             //Si el tipo no es FD, el modo de transmisión se almacena con valor null
@@ -1071,8 +988,7 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
             n.SincronizaGrupoClimax = false;
             n.AudioPrimerSqBss = true;
 
-            //switch (DListModoDestino.SelectedValue)
-            switch (modoDestino)
+            switch (DListModoDestino.SelectedValue)
             {
                 case DESTINORADIO_MODO_NORMAL:
                     n.TipoFrec = Convert.ToUInt32(DListTipo.SelectedValue);
@@ -1127,9 +1043,6 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
             //Se almacena en BD el modo y el tipo frecuencia 
             n.CnfModoDestino = DListModoDestino.SelectedValue;
             n.CnfTipoFrecuencia = DListTipo.SelectedValue;
-
-            //MVO: Si el destino es 1+1, está configurado con redundancia
-            n.ConRedundancia = (destinoConRedundancia) ? "1" : "0"; 
             
             //n.ExclusividadTXRX = false; // CheckExclusividad.Checked;
             //n.ExclusividadTXRX = CheckFrecNoDesasignable.Checked;
@@ -1141,6 +1054,8 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
             n.CldSupervisionTime = Convert.ToInt32(TextBoxCLD.Text);
             n.MetodosBssOfrecidos = Convert.ToInt32(DDLMetodosBssOfrecidos.SelectedValue);
 
+
+
             //En el tipo frecuencia HF, la frecuencia sintonizada es obligatoria
             if (DESTINORADIO_TIPOFRECUENCIA_HF == DListTipo.SelectedValue && TblTunedFreq.Visible)
             {
@@ -1148,6 +1063,7 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                 {
                     //Se comprueba si la frecuencia sintonizada en Hz tiene el formato correcto
                     String strAux = String.Empty;
+
                     strAux = TBTunedFrequency.Text.Replace(".", String.Empty);
                     strAux = strAux.Replace(",", String.Empty);
 
@@ -1168,46 +1084,27 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                 }
             }
 
-            //Se verifican las restricciones de los recursos en función del modo del destino
-            // y de si el recurso está configurado como 1+1
-            if (!destinoConRedundancia)
-            {
-                if (RestriccionesRecursosporModoDestino() == false)
-                    return false;
-            }
-            else
-            {
-                if (RestriccionesRecursosporModoDestinoConRedundancia(modoDestino, strValorTipoDestino, ref mapaRecursosRed, ref strMsgAux) == false)
-                {
-                    cMsg.confirm(strMsgAux, "aceptparam");
-                    return false;
-                }
-            }
-
             ServiciosCD40.RecursosRadio r = new ServiciosCD40.RecursosRadio();
-            r.IdSistema = strSistema;
+            r.IdSistema = (string)Session["idsistema"];
             r.TipoDestino = 0;//externo
             r.IdDestino = TxtIdEnlace.Text;
 
-            ServiciosCD40.Tablas[] tabRecRadio = new ServiciosCD40.Tablas[ListRecursos.Items.Count];
+            ServiciosCD40.Tablas[] ltf = new ServiciosCD40.Tablas[ListRecursos.Items.Count];
             for (int i = 0; i < ListRecursos.Items.Count; i++)
             {
                 ServiciosCD40.RecursosRadio r1 = new ServiciosCD40.RecursosRadio();
-                r1.IdSistema = strSistema;
+                r1.IdSistema = (string)Session["idsistema"];
                 r1.TipoDestino = 0;//externo
                 r1.IdDestino = TxtIdEnlace.Text;
-                r1.IdRecurso = ListRecursos.Items[i].Value;
-                if (mapaRecursosRed.ContainsKey(r1.IdRecurso))
-                {
-                    r1.RedundanciaRol = mapaRecursosRed[r1.IdRecurso].Rol;
-                    r1.RedundanciaIdPareja = mapaRecursosRed[r1.IdRecurso].IdPareja;
-                }
-                tabRecRadio[i] = (ServiciosCD40.Tablas)r1;
+                r1.IdRecurso = ListRecursos.Items[i].Text;
+                ltf[i] = (ServiciosCD40.Tablas)r1;
             }
+
+            if (RestriccionesRecursosporModoDestino()==false)
+                return false;
 
             if (TxtIdEnlace.Enabled) //Nuevo Enlace
             {
-                /*
                 for (int i = 0; i < ListBox1.Items.Count; i++)
                 {
                     if (String.Compare(ListBox1.Items[i].Text, TxtIdEnlace.Text) == 0)
@@ -1216,9 +1113,11 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                         return false;
                     }
                 }
-                 */
-
-                destinoAnadido = ServicioCD40.AnadeDestinoRadio(n, r, tabRecRadio);
+                //				ServicioCD40.AsignaEnlaceARecurso(ltf);
+                destinoAnadido = ServicioCD40.AnadeDestinoRadio(n, r, ltf);
+                //				if (ServicioCD40.InsertSQL(n) < 0)
+                //                    logDebugView.Warn("(DestinosRadio-GuardarCambios): No se han podido insertar los datos (InsertSQL).");
+                //                else
                 if (destinoAnadido)
                 {
                     if (ListRecursos.Items.Count > 0)
@@ -1235,8 +1134,8 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                                 string empl = "";
                                 ServiciosCD40.RecursosRadio emp = new ServiciosCD40.RecursosRadio();
 
-                                emp.IdSistema = strSistema;
-                                emp.IdRecurso = idrec.Value;
+                                emp.IdSistema = (string)Session["IdSistema"];
+                                emp.IdRecurso = idrec.Text;
                                 ServiciosCD40.Tablas[] d = ServicioCD40.ListSelectSQL(emp);
                                 empl = ((ServiciosCD40.RecursosRadio)d[0]).IdEmplazamiento;
                                 sincro.AltaFrecuencia(empl, n.IdDestino, 0, idrec.Text);
@@ -1250,11 +1149,17 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
             else
             {
                 IndexListBox1 = ListBox1.SelectedIndex;
-                destinoAnadido = ServicioCD40.ModificaDestinoRadio(n, r, tabRecRadio);
+             
 
+                //if (ServicioCD40.UpdateSQL(n) < 0)
+                //    logDebugView.Warn("(DestinosRadio-GuardarCambios): No se han podido actualizar los datos (UpdateSQL).");
+                destinoAnadido = ServicioCD40.ModificaDestinoRadio(n, r, ltf);
+                //				if (ServicioCD40.InsertSQL(n) < 0)
+                //                    logDebugView.Warn("(DestinosRadio-GuardarCambios): No se han podido insertar los datos (InsertSQL).");
+                //                else
                 if (destinoAnadido)
                 {
-                    ServicioCD40.BeginRegeneraSectorizaciones(strSistema, true, true, true, CallbackCompletado, null); 
+                    ServicioCD40.BeginRegeneraSectorizaciones((string)Session["idsistema"], true, true, true, CallbackCompletado, null); 
                     
                     if (ListRecursos.Items.Count > 0)
                     {
@@ -1270,16 +1175,22 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                                 string empl = "";
                                 ServiciosCD40.RecursosRadio emp = new ServiciosCD40.RecursosRadio();
 
-                                emp.IdSistema = strSistema;
-                                emp.IdRecurso = idrec.Value;
+                                emp.IdSistema = (string)Session["IdSistema"];
+                                emp.IdRecurso = idrec.Text;
                                 ServiciosCD40.Tablas[] d = ServicioCD40.ListSelectSQL(emp);
                                 empl = ((ServiciosCD40.RecursosRadio)d[0]).IdEmplazamiento;
-                                sincro.AltaFrecuencia(empl, n.IdDestino, 0, idrec.Value);
+                                sincro.AltaFrecuencia(empl, n.IdDestino, 0, idrec.Text);
                             }
                         }
                     }
                 }
             }
+
+            //ServiciosCD40.RecursosRadio r = new ServiciosCD40.RecursosRadio();
+            //r.IdSistema = (string)Session["idsistema"];
+            //r.TipoDestino = 0;//externo
+            //r.IdDestino = TxtIdEnlace.Text;
+            //ServicioCD40.LiberaDestinoDeRecurso(r);
         }
         catch (Exception e)
         {
@@ -1289,6 +1200,9 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
         EsconderMenu();
         Panel1.Enabled = false;
         DListEmplazamiento.Enabled = false;
+
+        
+
         ListBox1.Enabled = true;
         BtNuevo.Visible = PermisoSegunPerfil;
         BtEliminar.Visible = false;
@@ -1301,14 +1215,15 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
     protected void BtCancelar_Click(object sender, EventArgs e)
     {
         CancelarCambios();
+        //cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "CancelarCambios"), "cancelparam");
     }
 
     protected void BtAceptar_Click(object sender, EventArgs e)
     {
-        string strSistema = (string)Session["idsistema"];
+        string StrSistema = (string)Session["idsistema"];
 
         //Si se está insertando un nuevo destino radio
-        if (TxtIdEnlace.Enabled && bIdentificadorAsignado(strSistema, TxtIdEnlace.Text))
+        if (TxtIdEnlace.Enabled && bIdentificadorAsignado(StrSistema, TxtIdEnlace.Text))
         {
             //Existe otro destino radio o de telefonia con el mismo identificador
             cMsg.alert((string)GetLocalResourceObject("DestinoExiste.Text"));
@@ -1347,9 +1262,11 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
             LbModoTransmision.Visible = DListModoTransmision.Visible = false;
         }
 
+
         //MVO: el tipo de frecuencia no se puede modificar, porque el formato del identificador depende de la frecuencia y este no se puede cambiar.
         DListTipo.Enabled = false;
-
+               
+        
         Panel1.Enabled = true;
         errores.Visible = true;
        //DListTipo.Enabled = true;   // CheckExclusividad.Enabled = true;
@@ -1361,18 +1278,21 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
         BtCancelar.Visible = true;
         ListRecursosLibres.Visible = true;
 
-        //ListTiposLibres.Visible = (String.Compare("0", DropDownFiltro.SelectedValue) == 0);
-        //ListEmplazamientosLibres.Visible = !ListTiposLibres.Visible;
+        ListTiposLibres.Visible = (String.Compare("0", DropDownFiltro.SelectedValue) == 0);
+        ListEmplazamientosLibres.Visible = !ListTiposLibres.Visible;
       
         //TxtIdEnlace.ReadOnly = false;
         //TxtIdEnlace.Enabled = true;
 
         //DListTipoRec.Visible = true;
         ListRecursos.Enabled = true;
+
         Label4.Visible = true;
 
-        LblFiltroEmplazamiento.Visible = DListEmplazamiento.Visible = DropDownFiltro.Visible = true;
 
+        LblFiltroEmplazamiento.Visible = DListEmplazamiento.Visible = DropDownFiltro.Visible = true;
+        
+        
         CargarRecursosSinAsignar();
         IButQuitar.Visible = true;
         IButAsignar.Visible = true;
@@ -1384,9 +1304,11 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
 
         if (ListBox1.SelectedValue != "")
         {
+            //string texto = String.Format((string)GetGlobalResourceObject("Espaniol", "EliminarDestino"), ListBox1.SelectedValue);
             IndexListBox1 = ListBox1.SelectedIndex;
             Session["elemento"] = ListBox1.SelectedValue;
             EliminarElemento(false);
+            //cMsg.confirm(texto, "eliminaelemento");
         }
     }
 
@@ -1401,11 +1323,14 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
             rD.IdSistema = strIdSistema;
             rD.IdDestino = ListBox1.SelectedValue;
             rD.TipoDestino = 0;
+            //ServicioCD40.LiberaDestinoDeRecurso(rD);
 
             ServiciosCD40.Destinos n = new ServiciosCD40.Destinos();
             n.IdSistema = strIdSistema;
             n.IdDestino = ListBox1.SelectedValue;
             n.TipoDestino = 0;
+
+            //if (ServicioCD40.DeleteSQL(n) > 0)
 
             if (forced || !DestinoAsignadoATft(ListBox1.SelectedValue))
             {
@@ -1436,6 +1361,7 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
 
     protected bool RestriccionesRecursosporModoDestino()
     {
+      
         int numRx = 0;
         int numTx = 0;
         int numTxRx = 0;
@@ -1449,23 +1375,17 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
 
                 for (i = 0; i < ListTipos.Items.Count; i++)
                 {
-                    if (String.Compare(ListTipos.Items[i].Value, TIPO_RECURSO_RX) == 0) 
+                    if (String.Compare(ListTipos.Items[i].Value, TIPO_DESTINO_RX) == 0) 
                     {
                         numRx++;
                         numAudioRx++;
                     }
-                    else if ((String.Compare(ListTipos.Items[i].Value, TIPO_RECURSO_M_N_RX) == 0) ||
-                             (String.Compare(ListTipos.Items[i].Value, TIPO_RECURSO_EE_RX) == 0))
+                    else if (String.Compare(ListTipos.Items[i].Value, TIPO_DESTINO_M_N_RX) == 0)
                     {
                         numRx++;
                     }
-                    else if ((String.Compare(ListTipos.Items[i].Value, TIPO_RECURSO_TX) == 0) || 
-                             (String.Compare(ListTipos.Items[i].Value, TIPO_RECURSO_M_N_TX) == 0) ||
-                             (String.Compare(ListTipos.Items[i].Value, TIPO_RECURSO_EE_TX) == 0))
-                        numTx++;
-                    else if ((String.Compare(ListTipos.Items[i].Value, TIPO_RECURSO_RXTX) == 0) ||
-                             (String.Compare(ListTipos.Items[i].Value, TIPO_RECURSO_M_N_RXTX) == 0) ||
-                             (String.Compare(ListTipos.Items[i].Value, TIPO_RECURSO_EE_RXTX) == 0))
+                    else if ((String.Compare(ListTipos.Items[i].Value, TIPO_DESTINO_TX) == 0) || (String.Compare(ListTipos.Items[i].Value, TIPO_DESTINO_M_N_TX) == 0)) numTx++;
+                    else if ((String.Compare(ListTipos.Items[i].Value, TIPO_DESTINO_TXRX) == 0) || (String.Compare(ListTipos.Items[i].Value, TIPO_DESTINO_M_N_TXRX) == 0))
                     {
                         //numTxRx++;
                         numRx++;
@@ -1497,20 +1417,41 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                             cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorAsignacionRecursosDestinoNormal"), "aceptparam");
                             return false;
                         }
+
+                        /*
+                        if (((numRx + numTx) + numTxRx*2) != 2)
+                        {
+                            cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorAsignacionRecursosDestinoNormal"), "aceptparam");
+                            return false;
+                        }
+                        else if ((numRx != numTx))
+                        {
+                            cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorDiferenetesNumTxyRx"), "aceptparam");
+                            return false;
+                        }
+                         */
+
                         break;
 
                     default:
                         break;
                 }
+
                 break;
             case DESTINORADIO_MODO_1_mas_1:
                 for (i = 0; i < ListTipos.Items.Count; i++)
                 {
-                    if ((String.Compare(ListTipos.Items[i].Value, TIPO_RECURSO_RX) == 0) || (String.Compare(ListTipos.Items[i].Value, TIPO_RECURSO_M_N_RX) == 0)) numRx++;
-                    else if ((String.Compare(ListTipos.Items[i].Value, TIPO_RECURSO_TX) == 0) || (String.Compare(ListTipos.Items[i].Value, TIPO_RECURSO_M_N_TX) == 0)) numTx++;
-                    else if ((String.Compare(ListTipos.Items[i].Value, TIPO_RECURSO_RXTX) == 0) || (String.Compare(ListTipos.Items[i].Value, TIPO_RECURSO_M_N_RXTX) == 0)) numTxRx++;
+                    if ((String.Compare(ListTipos.Items[i].Value, TIPO_DESTINO_RX) == 0) || (String.Compare(ListTipos.Items[i].Value, TIPO_DESTINO_M_N_RX) == 0)) numRx++;
+                    else if ((String.Compare(ListTipos.Items[i].Value, TIPO_DESTINO_TX) == 0) || (String.Compare(ListTipos.Items[i].Value, TIPO_DESTINO_M_N_TX) == 0)) numTx++;
+                    else if ((String.Compare(ListTipos.Items[i].Value, TIPO_DESTINO_TXRX) == 0) || (String.Compare(ListTipos.Items[i].Value, TIPO_DESTINO_M_N_TXRX) == 0)) numTxRx++;
                     else
                         break;
+                    
+                    /*if (String.Compare(ListTipos.Items[i].Text, "Audio RX") == 0)   numRx++;                                                
+                     else if (String.Compare(ListTipos.Items[i].Text, "Audio TX") == 0) numTx++;
+                     else if (String.Compare(ListTipos.Items[i].Text, "Audio RX TX") == 0) numTxRx++;
+                     else
+                                break;*/
                 }
                 
                 if ((numRx != numTx))
@@ -1524,6 +1465,8 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                     cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorAsignacionRecursosDestino1_mas_1"), "aceptparam");
                     return false;
                 }
+
+
                 break;
 
             case DESTINORADIO_MODO_FD:
@@ -1539,10 +1482,10 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                 if (DESTINORADIO_TIPOFRECUENCIA_HF == DListTipo.SelectedValue)
                 {
                     cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorAsignacionFrecuenciaHFDestinoFD"), "aceptparam");
-                    return false;
+                    return false;                    
                 }
 
-                //MVO: Se comprueba que para un mismo emplazamiento no se pueden asignar más de un grupo de recursos (RX, TX), (M_N_TX,M_N_RX), TXRX o M_N_TXRX
+                //MVO: Se comprueba que para un mismo emplazamiento no se pueden asignar más de un grupo de recursos (RX, TX), (M_N_TX,_M_N_RX), TXRX o M_N_TXRX
                 //     Y se obtiene el numTx y numRX de los recursos asignados
                 if (!CheckNumRecursosEmplazamientoFD(ListEmplazamientos.Items, ListTipos.Items, ref numTx, ref numRx))
                 {
@@ -1550,9 +1493,10 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                     return false;
                 }
 
+
                 for (i = 0; i < ListTipos.Items.Count; i++)
                 {
-                    rec.IdRecurso = ListRecursos.Items[i].Value;
+                    rec.IdRecurso = ListRecursos.Items[i].Text;
                     ServiciosCD40.Tablas[] l_Bss = ServicioCD40.ListSelectSQL(rec);
                     
 
@@ -1587,12 +1531,10 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                     {
                         switch (ListTipos.Items[i].Value)
                         {
-                            case TIPO_RECURSO_RX:
-                            case TIPO_RECURSO_M_N_RX:
-                            case TIPO_RECURSO_RXTX:
-                            case TIPO_RECURSO_M_N_RXTX:
-                            case TIPO_RECURSO_EE_RX:
-                            case TIPO_RECURSO_EE_RXTX:
+                            case TIPO_DESTINO_RX:
+                            case TIPO_DESTINO_M_N_RX:
+                            case TIPO_DESTINO_TXRX:
+                            case TIPO_DESTINO_M_N_TXRX:
                                 //Si el recurso no está asignado a una pasarela
                                 if (String.IsNullOrEmpty(((ServiciosCD40.RecursosRadio)l_Bss[0]).idTIFX))
                                 {
@@ -1609,6 +1551,7 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                                     return false;
                                 }
                                 break;
+
                             default:
                                 break;
                         }
@@ -1629,426 +1572,14 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                 }
 
                 break;
-
-            default:
-                cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorAsignacionRecursosDestino1_mas_1"), "aceptparam");
+                    
+            default: 
+                cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorAsignacionRecursosDestino1_mas_1"), "aceptparam");                        
                 return false;
              }
         return true;
+    
     }
-
-    private class CDatosRecurso
-    {
-        public string IdRecurso;
-        public string IdTipo;
-        //public int    Indice;
-    }
-
-    private class CEmplazamiento 
-    {
-        public CEmplazamiento()
-        {
-            ListRecRx = new List<CDatosRecurso>();
-            ListRecTx = new List<CDatosRecurso>();
-            ListRecRxTx = new List<CDatosRecurso>();
-            iNumRx = 0;
-            iNumTx = 0;
-        }
-
-        public List<CDatosRecurso> ListRecRx;
-        public List<CDatosRecurso> ListRecTx;
-        public List<CDatosRecurso> ListRecRxTx;
-        public int iNumRx;
-        public int iNumTx;
-    };
-
-    protected class CRecursoRedundancia
-    {
-        public string IdRecurso;
-        public string Rol;
-        public string IdPareja;
-        public string IdEmplazamiento;
-    }
-
-    private bool ClasificaRecursosPorEmplazamiento(bool bModoFD, ref Dictionary<string, CRecursoRedundancia> dicRecursos,
-                                                   ref int piNumTX, ref int piNumRX, ref String strMsg)
-    {
-        bool bCorrecto = true;
-        Dictionary<string, CEmplazamiento> dicEmplazamientos = null;
-        int i = 0;
-        string strNombreEmp = String.Empty;
-        int iNumEltosListaRecursos = 0;
-        String strTipoRecurso = String.Empty;
-        ListItemCollection objListaEmplazamientos = ListEmplazamientos.Items;
-        ListItemCollection objListaTipos = ListTipos.Items;
-        ListItemCollection listaRecursos = ListRecursos.Items;
-
-        int iNumTxAux = 0;
-        int iNumRxAux = 0;
-
-        //Se clasifican  los recursos asignados por emplazamiento y tipo (receptores, transmisores y transceptores)
-        try
-        {
-            iNumEltosListaRecursos = listaRecursos.Count;
-
-            if (iNumEltosListaRecursos > 0 )
-            {
-                dicEmplazamientos = new Dictionary<string, CEmplazamiento>();
-                if (dicRecursos == null) 
-                    dicRecursos = new Dictionary<string, CRecursoRedundancia>();
-                else
-                    dicRecursos.Clear();
-
-                for (i = 0; i < iNumEltosListaRecursos; i++)
-                {
-                    strNombreEmp = objListaEmplazamientos[i].Text;
-
-                    if (!dicEmplazamientos.ContainsKey(strNombreEmp))
-                    {
-                        CEmplazamiento objEmplazamiento = new CEmplazamiento();
-                        dicEmplazamientos.Add(strNombreEmp, objEmplazamiento);
-                    }
-
-                    var rec = new CDatosRecurso();
-                    rec.IdRecurso = listaRecursos[i].Value;
-                    rec.IdTipo = objListaTipos[i].Value;
-                    //rec.Indice = i;
-
-                    //Obtenemos el número de recursos asignado a cada emplazamiento
-                    strTipoRecurso = objListaTipos[i].Value;
-
-                    switch (strTipoRecurso)
-                    {
-                        case TIPO_RECURSO_RX:
-                        case TIPO_RECURSO_M_N_RX:
-                        case TIPO_RECURSO_EE_RX:
-                            dicEmplazamientos[strNombreEmp].ListRecRx.Add(rec);
-                            break;
-
-                        case TIPO_RECURSO_TX:
-                        case TIPO_RECURSO_M_N_TX:
-                        case TIPO_RECURSO_EE_TX:
-                            dicEmplazamientos[strNombreEmp].ListRecTx.Add(rec);
-                            break;
-                        case TIPO_RECURSO_RXTX:
-                        case TIPO_RECURSO_M_N_RXTX:
-                        case TIPO_RECURSO_EE_RXTX:
-                            dicEmplazamientos[strNombreEmp].ListRecRxTx.Add(rec);
-                            break;
-                        default:
-                            break;
-                    }
-                }
-
-                var listEmp = dicEmplazamientos.Values.ToList();
-                var listEmpRed = listEmp.Where(x=> (x.ListRecRx.Count==2 || x.ListRecTx.Count==2 || x.ListRecRxTx.Count==2));
-
-                if (!listEmpRed.Any())
-                {
-                    listEmpRed = listEmp.Where(x => (x.ListRecRx.Count > 2 || x.ListRecTx.Count > 2 || x.ListRecRxTx.Count > 2));
-
-                    if (!listEmpRed.Any())
-                    {
-                        if (GetGlobalResourceObject("Espaniol", "ErrorConfiguracionDestinoConRedundancia") != null)
-                            strMsg = GetGlobalResourceObject("Espaniol", "ErrorConfiguracionDestinoConRedundancia").ToString();
-                        else
-                            strMsg = "Si el destino se configura como 1+1, al menos se debe configurar un recurso con redundancia dentro del mismo emplazamiento";
-                    }
-                    else
-                    {
-                        if (GetGlobalResourceObject("Espaniol", "ErrorConfiguracionDestinoConRedundanciaEmplazamiento") != null)
-                            strMsg = GetGlobalResourceObject("Espaniol", "ErrorConfiguracionDestinoConRedundanciaEmplazamiento").ToString();
-                        else
-                            strMsg = "Si el destino se configura como 1+1, dentro de un mismo emplazamiento sólo se pueden configurar con redundancia parejas de recursos Rx, Tx o RxTx";
-                    }
-                    
-                    listEmp.Clear();
-                    listEmpRed=null;
-
-                    return false;
-                }
-
-                var listEmpRedOk = listEmpRed.Where(x=> ((x.ListRecRx.Count==2 || x.ListRecTx.Count==2) && x.ListRecRxTx.Count==0) || ((x.ListRecRx.Count==0 && x.ListRecTx.Count==0) && x.ListRecRxTx.Count==2));
-                
-                if (!listEmpRedOk.Any())
-                {
-                    if (GetGlobalResourceObject("Espaniol", "ErrorConfiguracionDestinoConRedundanciaEmplazamiento")!=null)
-                        strMsg = GetGlobalResourceObject("Espaniol", "ErrorConfiguracionDestinoConRedundanciaEmplazamiento").ToString();
-                    else
-                        strMsg = "Si el destino se configura como 1+1, dentro de un mismo emplazamiento sólo se pueden configurar con redundancia parejas de recursos Rx y Tx, o RxTx";
-                    return false;
-                }
-
-                //Se calcula el número de RX, TX y RXTX por emplazamiento 
-                //comprueba que el destino 1+1 está correctamente configurado
-                foreach (var emp in dicEmplazamientos)
-                {
-                    string idEmplazamiento = emp.Key;
-                    CEmplazamiento objEmp = emp.Value;
-
-                    //Calculamos el numero de RX y Tx para cada emplazamiento
-                    int iRx=dicEmplazamientos[idEmplazamiento].ListRecRx.Count;
-                    int iTx=dicEmplazamientos[idEmplazamiento].ListRecTx.Count;
-                    int iRxTx = dicEmplazamientos[idEmplazamiento].ListRecRxTx.Count;
-
-                    dicEmplazamientos[idEmplazamiento].iNumRx = (iRx>1)? iRx-1 : iRx ;
-                    dicEmplazamientos[idEmplazamiento].iNumTx = (iTx>1)? iTx-1 : iTx ;
-                    if (iRxTx>=1)
-                    {
-                        dicEmplazamientos[idEmplazamiento].iNumRx++;
-                        dicEmplazamientos[idEmplazamiento].iNumTx++;
-                    }
-
-                    iNumRxAux +=dicEmplazamientos[idEmplazamiento].iNumRx;
-                    iNumTxAux +=dicEmplazamientos[idEmplazamiento].iNumTx;
-                }
-
-                //Validamos el número de circuitos de transmisión y recepción en función del modo
-                if (bModoFD)
-                {
-                    var listKeyEmpNOk = dicEmplazamientos.Where(x=> (x.Value.iNumRx>1 || x.Value.iNumTx>1));
-
-                    if (listKeyEmpNOk.Any())
-                    {
-                        strMsg = (string)GetGlobalResourceObject("Espaniol", "ErrorEmplazamientoSupNumTxRX_DestinoFD");
-                        return false;
-                    }
-                }
-
-                foreach (var emp in dicEmplazamientos)
-                {
-                    string  idEmplazamiento = emp.Key;
-                    CEmplazamiento objEmp = emp.Value;
-
-                    if (dicEmplazamientos[idEmplazamiento].ListRecRx.Count ==2 )
-                    {
-                        //Componemos la pareja de redundancia
-                        CDatosRecurso datosRecP = objEmp.ListRecRx[0];
-                        CDatosRecurso datosRecR = objEmp.ListRecRx[1];
-
-                        if (!dicRecursos.ContainsKey(datosRecP.IdRecurso))
-                        {
-                            CRecursoRedundancia objRecRed = new CRecursoRedundancia();
-                            objRecRed.IdRecurso = datosRecP.IdRecurso;
-                            objRecRed.Rol = "P";
-                            objRecRed.IdPareja = string.Format("{0}#{1}", datosRecP.IdRecurso, datosRecR.IdRecurso);
-                            objRecRed.IdEmplazamiento = idEmplazamiento;
-                            dicRecursos.Add(datosRecP.IdRecurso, objRecRed);
-                        }
-
-                        if (!dicRecursos.ContainsKey(datosRecR.IdRecurso))
-                        {
-                            CRecursoRedundancia objRecRed = new CRecursoRedundancia();
-                            objRecRed.IdRecurso = datosRecR.IdRecurso;
-                            objRecRed.Rol = "R";
-                            objRecRed.IdPareja = string.Format("{0}#{1}", datosRecP.IdRecurso, datosRecR.IdRecurso);
-                            objRecRed.IdEmplazamiento = idEmplazamiento;
-                            dicRecursos.Add(datosRecR.IdRecurso, objRecRed);
-                        }
-                    }
-
-                    if (dicEmplazamientos[idEmplazamiento].ListRecTx.Count == 2 )
-                    {
-                        //Componemos la pareja de redundancia
-                        CDatosRecurso datosRecP = objEmp.ListRecTx[0];
-                        CDatosRecurso datosRecR = objEmp.ListRecTx[1];
-
-                        if (!dicRecursos.ContainsKey(datosRecP.IdRecurso))
-                        {
-                            CRecursoRedundancia objRecRed = new CRecursoRedundancia();
-                            objRecRed.IdRecurso = datosRecP.IdRecurso;
-                            objRecRed.Rol = "P";
-                            objRecRed.IdPareja = string.Format("{0}#{1}", datosRecP.IdRecurso, datosRecR.IdRecurso);
-                            objRecRed.IdEmplazamiento = idEmplazamiento;
-                            dicRecursos.Add(datosRecP.IdRecurso, objRecRed);
-                        }
-
-                        if (!dicRecursos.ContainsKey(datosRecR.IdRecurso))
-                        {
-                            CRecursoRedundancia objRecRed = new CRecursoRedundancia();
-                            objRecRed.IdRecurso = datosRecR.IdRecurso;
-                            objRecRed.Rol = "R";
-                            objRecRed.IdPareja = string.Format("{0}#{1}", datosRecP.IdRecurso, datosRecR.IdRecurso);
-                            objRecRed.IdEmplazamiento = idEmplazamiento;
-                            dicRecursos.Add(datosRecR.IdRecurso, objRecRed);
-                        }
-                    }
-
-                    if (dicEmplazamientos[idEmplazamiento].ListRecRxTx.Count == 2)
-                    {
-                        //Componemos la pareja de redundancia
-                        CDatosRecurso datosRecP = objEmp.ListRecRxTx[0];
-                        CDatosRecurso datosRecR = objEmp.ListRecRxTx[1];
-
-                        if (!dicRecursos.ContainsKey(datosRecP.IdRecurso))
-                        {
-                            CRecursoRedundancia objRecRed = new CRecursoRedundancia();
-                            objRecRed.IdRecurso = datosRecP.IdRecurso;
-                            objRecRed.Rol = "P";
-                            objRecRed.IdPareja = string.Format("{0}#{1}", datosRecP.IdRecurso, datosRecR.IdRecurso);
-                            objRecRed.IdEmplazamiento = idEmplazamiento;
-                            dicRecursos.Add(datosRecP.IdRecurso, objRecRed);
-                        }
-
-                        if (!dicRecursos.ContainsKey(datosRecR.IdRecurso))
-                        {
-                            CRecursoRedundancia objRecRed = new CRecursoRedundancia();
-                            objRecRed.IdRecurso = datosRecR.IdRecurso;
-                            objRecRed.Rol = "R";
-                            objRecRed.IdPareja = string.Format("{0}#{1}", datosRecP.IdRecurso, datosRecR.IdRecurso);
-                            objRecRed.IdEmplazamiento = idEmplazamiento;
-                            dicRecursos.Add(datosRecR.IdRecurso, objRecRed);
-                        }
-                    }
-                }
-
-                piNumTX = iNumTxAux;
-                piNumRX = iNumRxAux;
-
-                if (!bCorrecto)
-                {
-                    dicRecursos.Clear();
-                }
-
-                dicEmplazamientos.Clear();
-            } //if
-
-        }
-        catch (Exception ex)
-        {
-            bCorrecto = false;
-            logDebugView.Error("(GrupoFD-ClasificaRecursosPorEmplazamiento): se ha producido una excepción.Error: " + ex.ToString());
-        }
-
-        return bCorrecto;
-    }
-
-    protected bool RestriccionesRecursosporModoDestinoConRedundancia(string modoDestino, string tipoFrecuencia,
-                                                                     ref Dictionary<string,CRecursoRedundancia> dicRecursos,  ref String strMsg) 
-    {
-        int numRx = 0;
-        int numTx = 0;
-        int i = 0;
-        strMsg = string.Empty;
-
-        //Si el destino se configura con reduncia, alguno de los recursos del destino se tiene configurar con un recurso redundante
-        // Y dicho recurso debe pertenecer la mismo emplazamiento
-
-        // Se agrupan los recursos por emplazamientos
-        if (!ClasificaRecursosPorEmplazamiento(modoDestino == DESTINORADIO_MODO_FD, ref dicRecursos, ref numTx, ref numRx, ref strMsg))
-        {
-            //Si el modo es FD, para un mismo emplazamiento no se pueden asignar más de un grupo de recursos (RX, TX), (M_N_TX,M_N_RX), TXRX o M_N_TXRX
-            cMsg.confirm(strMsg, "aceptparam");
-            return false;
-        }
-
-        switch (modoDestino)
-        {
-            case DESTINORADIO_MODO_NORMAL:
-
-                //MVO: se realizan las comprobaciones en función del tipo de frecuencia
-                switch (tipoFrecuencia)
-                {
-                    case DESTINORADIO_TIPOFRECUENCIA_HF:
-                        //Si el tipo destino es HF, el destino sólo puede tener asociado un recurso de tipo Audio-RX
-                        if ((numRx != 1) || (numTx > 0))
-                        {
-                            cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorAsignacionRecursosDestinoNormalHF"), "aceptparam");
-                            return false;
-                        }
-                        break;
-
-                    case DESTINORADIO_TIPOFRECUENCIA_VHF:
-                    case DESTINORADIO_TIPOFRECUENCIA_UHF:
-
-                        //El destino puede tener asociado un circuito de recepción RX o un circuito RX y otro TX, o un circuito RX-TX 
-                        if (numRx != 1 || numTx > 1)
-                        {
-                            cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorAsignacionRecursosDestinoNormalConRedundancia"), "aceptparam");
-                            return false;
-                        }
-                        break;
-
-                    default:
-                        break;
-                }
-                break;
-
-            case DESTINORADIO_MODO_FD:
-
-                ServiciosCD40.RecursosRadio rec = new ServiciosCD40.RecursosRadio();
-                rec.IdSistema = (string)Session["IdSistema"];
-                string strMsgAux = string.Empty;
-
-                for (i = 0; i < ListTipos.Items.Count; i++)
-                {
-                    rec.IdRecurso = ListRecursos.Items[i].Value;
-                    ServiciosCD40.Tablas[] l_Bss = ServicioCD40.ListSelectSQL(rec);
-
-                    //MVO Si el recurso Radio es de tipo 0 (Audio RX ) ó 2 (Audio RX TX) y tiene configurada una pasarela se requiere tener configurada la propiedad BSS
-                    if ((((ServiciosCD40.RecursosRadio)l_Bss[0]).Tipo == 0 || ((ServiciosCD40.RecursosRadio)l_Bss[0]).Tipo == 2) && // Rx o RxTx
-                          (!(String.IsNullOrEmpty(((ServiciosCD40.RecursosRadio)l_Bss[0]).idTIFX)) && ((ServiciosCD40.RecursosRadio)l_Bss[0]).BSS == false)
-                        )
-                    {
-                        cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "NopropiedadBSS"), "aceptparam");
-                        return false;
-                    }
-
-                    // Si el destino es FD y tiene asignado algún recurso radio de tipo RX o RXTX
-                    // que no está asignado a una pasarela el metodo BSS preferido no puede ser RSSI+NUCLEO
-                    if (string.Compare(DDLMetodosBssOfrecidos.SelectedValue, METODO_BSS_RSSI_NUCLEO) == 0)
-                    {
-                        switch (ListTipos.Items[i].Value)
-                        {
-                            case TIPO_RECURSO_RX:
-                            case TIPO_RECURSO_M_N_RX:
-                            case TIPO_RECURSO_RXTX:
-                            case TIPO_RECURSO_M_N_RXTX:
-                            case TIPO_RECURSO_EE_RX:
-                            case TIPO_RECURSO_EE_RXTX:
-                                //Si el recurso no está asignado a una pasarela
-                                if (String.IsNullOrEmpty(((ServiciosCD40.RecursosRadio)l_Bss[0]).idTIFX))
-                                {
-                                    if (GetGlobalResourceObject("Espaniol", "MsgDestinoFDConMetodoBSSNoPermitido") != null)
-                                    {
-                                        strMsg = GetGlobalResourceObject("Espaniol", "MsgDestinoFDConMetodoBSSNoPermitido").ToString();
-                                    }
-                                    else
-                                        strMsg = "En el Modo destino 'FD', no se puede seleccionar el método BSS 'RSSI y NUCLEO' si alguno de los recursos asignados es un circuito de recepción que no está asignado a una pasarela.";
-
-                                    cMsg.confirm(strMsg, "aceptparam");
-                                    return false;
-                                }
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                }
-
-                //Para FD, se deben asignar como mínimo más de 2 circuitos, de los cuales uno tiene que ser TX y otro RX. 
-                if ((numRx < 1 || numTx < 1) || ((numRx + numTx) < 3))
-                {
-                    cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "MinimoRecursosDestinoFDRedundancia"), "aceptparam");
-                    return false;
-                }
-                else if (numRx > 5 || numTx > 5)
-                {
-                    //El número máximo de circuitos de transmisión o Recepción es 5
-                    cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "MaximosRecursosDestinoFDRedundancia"), "aceptparam");
-                    return false;
-                }
-
-                break;
-
-            default:
-                cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorAsignacionRecursosDestino1_mas_1"), "aceptparam");
-                return false;
-        }
-
-        return true;
-    }
-
 
     private class CDato: Object { public int iNumRx=0; public int iNumTx=0;};
 
@@ -2097,23 +1628,21 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
 
                     switch (strTipoAudio)
                     {
-                        case TIPO_RECURSO_RX:
-                        case TIPO_RECURSO_M_N_RX:
-                        case TIPO_RECURSO_EE_RX:
+                        case TIPO_DESTINO_RX:
+                        case TIPO_DESTINO_M_N_RX:
                             ((CDato)ListaEmplazamientos[strNombreEmp]).iNumRx++;
                             iNumRxAux++;
+
                             break;
 
-                        case TIPO_RECURSO_TX:
-                        case TIPO_RECURSO_M_N_TX:
-                        case TIPO_RECURSO_EE_TX:
+                        case TIPO_DESTINO_TX:
+                        case TIPO_DESTINO_M_N_TX:
                             ((CDato)ListaEmplazamientos[strNombreEmp]).iNumTx++;
                             iNumTxAux++;
                             break;
 
-                        case TIPO_RECURSO_RXTX:
-                        case TIPO_RECURSO_M_N_RXTX:
-                        case TIPO_RECURSO_EE_RXTX:
+                        case TIPO_DESTINO_TXRX:
+                        case TIPO_DESTINO_M_N_TXRX:
                             ((CDato)ListaEmplazamientos[strNombreEmp]).iNumRx++;
                             ((CDato)ListaEmplazamientos[strNombreEmp]).iNumTx++;
                             iNumTxAux++;
@@ -2123,10 +1652,12 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                         default:
                             break;
                     }
+
                 }
 
                 piNumTX = iNumTxAux;
                 piNumRX = iNumRxAux;
+
 
                 //Recorremos el mapa para verificar si hay más de un RX o TX para el mismo emplazamiento
                 foreach (DictionaryEntry upd in ListaEmplazamientos)
@@ -2182,7 +1713,7 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                 return true;
             }
         }
-
+        
         return false;
     }
 
@@ -2217,7 +1748,6 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
             for (int i = 0; i < ListRecursosLibres.Items.Count; i++)
                 if (ListRecursosLibres.Items[i].Selected)
                 {
-                    #region Sincronizar
                     if ((sincronizar != null) && (Int32.Parse(sincronizar.Value) == 1))
                     {//Comprobar que el recurso seleccionado no tiene el mismo emplazamiento que otro recurso ya asignado
                         List<ServiciosCD40.RecursosRadio> emplAsignados = new List<ServiciosCD40.RecursosRadio>();
@@ -2225,17 +1755,17 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                         {
                             ServiciosCD40.RecursosRadio rec = new ServiciosCD40.RecursosRadio();
                             rec.IdSistema = (string)Session["IdSistema"];
-                            rec.IdRecurso = ListRecursos.Items[h].Value;
+                            rec.IdRecurso = ListRecursos.Items[h].Text;
                             ServiciosCD40.Tablas[] d = ServicioCD40.ListSelectSQL(rec);
                             rec.IdEmplazamiento = ((ServiciosCD40.RecursosRadio)d[0]).IdEmplazamiento;
                             emplAsignados.Add(rec);
 
                         }
                         //Obtener el emplazamiento del recurso seleccionado
-                        string empl = string.Empty;
+                        string empl = "";
 
                         recRd.IdSistema = (string)Session["IdSistema"];
-                        recRd.IdRecurso = ListRecursosLibres.Items[i].Value;
+                        recRd.IdRecurso = ListRecursosLibres.Items[i].Text;
                         ServiciosCD40.Tablas[] l = ServicioCD40.ListSelectSQL(recRd);
                         empl = ((ServiciosCD40.RecursosRadio)l[0]).IdEmplazamiento;
 
@@ -2256,7 +1786,7 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                             // MAF
                             //ServiciosCD40.RecursosRadio emp1 = new ServiciosCD40.RecursosRadio();
                             recRd.IdSistema = (string)Session["IdSistema"];
-                            recRd.IdRecurso = ListRecursosLibres.Items[i].Value;
+                            recRd.IdRecurso = ListRecursosLibres.Items[i].Text;
                             ServiciosCD40.Tablas[] l1 = ServicioCD40.ListSelectSQL(recRd);
                             ListEmplazamientos.Items.Add(((ServiciosCD40.RecursosRadio)l1[0]).IdEmplazamiento);
 
@@ -2271,13 +1801,12 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                             i--;
                         }
                     }
-                    #endregion
                     else
                     {
                         ServiciosCD40.HFParams r = new ServiciosCD40.HFParams();
 
                         r.IdSistema = (string)Session["idsistema"];
-                        r.IdRecurso = ListRecursosLibres.Items[i].Value;
+                        r.IdRecurso = ListRecursosLibres.Items[i].Text;
                         ServiciosCD40.Tablas[] h = ServicioCD40.ListSelectSQL(r);
 
                         if (h.Length > 0)
@@ -2290,8 +1819,11 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                             }
                         }
 
+                        ListRecursos.Items.Add(ListRecursosLibres.Items[i]);
+
+                        // MAF
                         recRd.IdSistema = (string)Session["IdSistema"];
-                        recRd.IdRecurso = ListRecursosLibres.Items[i].Value;
+                        recRd.IdRecurso = ListRecursosLibres.Items[i].Text;
                         ServiciosCD40.Tablas[] idRecRd = ServicioCD40.ListSelectSQL(recRd);
                         ListEmplazamientos.Items.Add(((ServiciosCD40.RecursosRadio)idRecRd[0]).IdEmplazamiento);
 
@@ -2307,22 +1839,13 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                             }
                         }
 
+                        //MAF
                         int uintp = ((ServiciosCD40.RecursosRadio)idRecRd[0]).Tipo > 3 && ((ServiciosCD40.RecursosRadio)idRecRd[0]).Tipo < 7 ? 4 : (int)((ServiciosCD40.RecursosRadio)idRecRd[0]).Tipo;
-                        ListItem lbItem = new ListItem();
-                        StringBuilder strTexto = new StringBuilder();
-                        ListItem itemTipoLibre = ListTiposLibres.Items[i];
-                        ListItem itemEmplazamientoLibre = ListEmplazamientosLibres.Items[i];
+                        ListTipos.Items.Add(DListTipoRec.Items[uintp].Text);
 
-                        lbItem.Value = ListRecursosLibres.Items[i].Value;
+                        ListTipos.Items[ListTipos.Items.Count-1].Value = ((ServiciosCD40.RecursosRadio)idRecRd[0]).Tipo.ToString();//MAF_MAF
 
-                        strTexto.AppendFormat(FORMATO_LB_RECURSOS, recRd.IdRecurso, itemTipoLibre.Text, itemEmplazamientoLibre.Text);
-                        strTexto.Replace(" ", "\u00A0");
-                        lbItem.Text = strTexto.ToString();
-                        ListRecursos.Items.Add(lbItem);
-
-                        ListTipos.Items.Add(itemTipoLibre);
-                        //ListTipos.Items.Add(DListTipoRec.Items[uintp].Text);
-                        //ListTipos.Items[ListTipos.Items.Count-1].Value = ((ServiciosCD40.RecursosRadio)idRecRd[0]).Tipo.ToString();//MAF_MAF
+                        // MAF
 
                         if (ListEmplazamientosLibres.Items.Count>0)
                             ListEmplazamientosLibres.Items[i].Selected = true;
@@ -2339,7 +1862,7 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
 
                         if (ListTiposLibres.Items.Count > 0 && index < ListTiposLibres.Items.Count)
                             ListTiposLibres.Items.RemoveAt(index);
-                        i--;
+                        i--;                     
                     }
                 }
     }
@@ -2358,8 +1881,9 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
 
             if(DListEmplazamiento.SelectedIndex != 0)
                 CargarRecursosSinAsignar();
-
+            
             LiberaRecursos();
+
 
             if (DListModoDestino.SelectedValue == DESTINORADIO_MODO_FD &&
                 DListModoTransmision.SelectedValue == MODO_TRANSMISION_ULTIMA_RECEPCION)
@@ -2399,41 +1923,18 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
             }
 
             LblErrorMismatchFrequency.Visible = false;
+            
         }
     }
 
     private void LiberaRecursos()
     {
         int index;
-        StringBuilder strTexto = new StringBuilder();
-        //Indica si se visualiza la lista de recursos libres con tipos  (true) o con emplazamientos (false)
-        bool visualizaRecLibresTipos = (String.Compare("0", DropDownFiltro.SelectedValue) == 0);
-
         for (int i = 0; i < ListRecursos.Items.Count; i++)
         {
             if (ListRecursos.Items[i].Selected)
             {
-                ListItem lbItem = new ListItem();
-                strTexto.Clear();
-
-                if (visualizaRecLibresTipos)
-                {
-                    //Se visaliza el recurso libre con el tipo
-                    strTexto.AppendFormat(FORMATO_LB_RECURSOS_LIBRES, ListRecursos.Items[i].Value, ListTipos.Items[i].Text);
-                    lbItem.Attributes.Add("title", ListEmplazamientos.Items[i].Text);
-                }
-                else
-                {
-                    //Se visaliza el recurso libre con el emplazamiento
-                    strTexto.AppendFormat(FORMATO_LB_RECURSOS_LIBRES, ListRecursos.Items[i].Value, ListEmplazamientos.Items[i].Text);
-                    lbItem.Attributes.Add("title", ListTipos.Items[i].Text);
-                }
-                strTexto.Replace(" ", "\u00A0");
-                lbItem.Text = strTexto.ToString();
-                lbItem.Value = ListRecursos.Items[i].Value;
-
-                ListRecursosLibres.Items.Add(lbItem);
-
+                ListRecursosLibres.Items.Add(ListRecursos.Items[i]);
                 ListTiposLibres.Items.Add(ListTipos.Items[i]);
                 ListEmplazamientosLibres.Items.Add(ListEmplazamientos.Items[i]);
 
@@ -2492,6 +1993,12 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
         }
     }
 
+    protected void DListModo_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        CargarRecursosSinAsignarporEmplazamiento();
+    }
+
+
     protected void AsignarEmplazamiento(string Emplazamiento)
     {
         for (int j = 0; j < DListEmplazamiento.Items.Count; j++)
@@ -2504,7 +2011,7 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
                 ListEmplazamientos.Items.Clear();
                 ListTipos.Items.Clear();
                 CargarRecursos();
-                CargarRecursosSinAsignar(porEmplazamiento:true);
+                CargarRecursosSinAsignarporEmplazamiento();
             }
         }
     
@@ -2541,6 +2048,8 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
 
     protected void DFiltro_SelectedIndexChanged(object sender, EventArgs e)
     {
+        ListTiposLibres.Visible = (String.Compare("0", DropDownFiltro.SelectedValue) == 0);
+        ListEmplazamientosLibres.Visible = !ListTiposLibres.Visible;
         DListEmplazamiento_SelectedIndexChanged(sender, e);
     }
 
@@ -2639,7 +2148,7 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
         }
     }
 
-    ///VMG 18/02/2019                           
+    ///VMG 18/02/2019
     /// <summary>
     /// Reset del tiempo de vuelta a defecto
     /// </summary>
@@ -2650,7 +2159,6 @@ public partial class GrupoFD : PageBaseCD40.PageCD40    // System.Web.UI.Page
         if (DListEmplazamientoDefecto.SelectedValue == "0")
             TxtTiempoVueltaADefecto.Text = "0";
     }
-
 }
 
  

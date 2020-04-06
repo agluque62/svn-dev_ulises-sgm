@@ -867,9 +867,7 @@ namespace GeneraSectorizacionDll
 		{
 			if (user.RdEndPoints == null)
 				return;
-
-            int iNumRdEndPointsByName = _RdEndPointsByName.Length;
-
+			
 			foreach (RDEndPoint userEP in user.RdEndPoints)
 			{
 				if (userEP == null)
@@ -881,42 +879,31 @@ namespace GeneraSectorizacionDll
 				string epId = userEP.Frecuency;// +userEP.Position;
 				RDEndPoint ep = null;
 
-                if (pagina < iNumRdEndPointsByName)
-                {
-                    if (!_RdEndPointsByName[pagina].TryGetValue(epId, out ep))
+				if (!_RdEndPointsByName[pagina].TryGetValue(epId, out ep))
+				{
+					ep = new RDEndPoint(userEP);
+
+                    ep.Position = GetRdPosition(ep, user.NumFreqPagina);
+
+					if (ep.Position > 0)
+					{
+                        RdEndPoints[ep.Position] = ep;
+						_RdEndPointsByName[pagina][epId] = ep;
+					}
+				}
+				else
+				{
+                    if (ep.Position / NumFreqPagina == pagina)
                     {
-                        ep = new RDEndPoint(userEP);
-
-                        ep.Position = GetRdPosition(ep, user.NumFreqPagina);
-
-                        if (ep.Position > 0)
-                        {
-                            RdEndPoints[ep.Position] = ep;
-                            _RdEndPointsByName[pagina][epId] = ep;
-                        }
+                        ep.Priority = Math.Min(ep.Priority, userEP.Priority);
+                        ep.SupervisionPortadora |= userEP.SupervisionPortadora;
                     }
                     else
                     {
-                        if (ep.Position / NumFreqPagina == pagina)
-                        {
-                            ep.Priority = Math.Min(ep.Priority, userEP.Priority);
-                            ep.SupervisionPortadora |= userEP.SupervisionPortadora;
-                        }
-                        else
-                        {
-                            // Si está en distinta página
-                            ep.SupervisionPortadora |= userEP.SupervisionPortadora;
-                        }
+                        // Si está en distinta página
+                        ep.SupervisionPortadora |= userEP.SupervisionPortadora;
                     }
-                }
-                else
-                {
-                    StringBuilder strMsg = new StringBuilder();
-                    strMsg.AppendFormat("El destino radio {0} del sector {1} se encuentra fuera del rango de páginas. Pagina={2} Num.Total={3}.",
-                                                   epId, user.Sector.Name, pagina, user.NumFreqPagina);
-                    Log(true, "MergeColateralsRd", strMsg.ToString());
-                    strMsg.Clear();
-                }
+				}
 			}
 		}
 

@@ -674,7 +674,7 @@ public partial class ServiciosCD40 : System.Web.Services.WebService
     /// <param name="id_sistema"></param>
     /// <param name="tipoEnlace"></param>
     /// <returns></returns>
-    [WebMethod(Description = "Pasándole el identificador del sistema y el tipo de enlace (Radio , Interno o Instantáneo), retorna una lista de recursos compatibles" +
+    [WebMethod(Description = "Pasándole el identificador del sistema y el tipo de enlace (Radio, Interno o Instantáneo), retorna una lista de recursos compatibles" +
                         " con el tipo del enlace y sin asignar a ningún enlace")]
     public Tablas[] RecursosSinAsignarAEnlaces1(string id_sistema, int tipoEnlace, string site)
     {

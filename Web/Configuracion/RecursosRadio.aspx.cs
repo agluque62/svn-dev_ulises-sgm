@@ -12,7 +12,7 @@ using System.Web.Configuration;
 using log4net;
 using log4net.Config;
 
-public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Page
+public partial class RecursosDeRadio : PageBaseCD40.PageCD40	//	System.Web.UI.Page
 {
     private static ILog _logDebugView;
     public static ILog logDebugView
@@ -74,16 +74,6 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
     const int PUERTO_TXRX_JOTRON = 161;
     const int PUERTO_TX_ROHDE = 161;
     const int PUERTO_RX_ROHDE = 160;
-
-    //Tipos de recursos
-    const string TIPO_REC_RX = "0";
-    const string TIPO_REC_TX = "1";
-    const string TIPO_REC_RXTX = "2";
-    const string TIPO_REC_AUDIO_HF_TX = "3";
-    const string TIPO_REC_M_N_RX = "4";
-    const string TIPO_REC_M_N_TX = "5";
-    const string TIPO_REC_M_N_RXTX = "6";
-    const string TIPO_REC_EQUIPO_EXT = "7";
     
 
     static int[] Tabla_idbss = new int[16];
@@ -152,9 +142,12 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
             CargarListaTablasBss();
 
             CargaDDLTifX();
+            CargaParametrosHF();
             CargaEmplazamientos();
 
             CargaDDLEquiposExternos();
+            //CargarInforme();
+        
             MuestraDatos(DameDatos());
         }
         else
@@ -269,7 +262,7 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
 		BtNuevo.Visible = !edicion && PermisoSegunPerfil;
 		BtModificar.Visible = BtEliminar.Visible = ListBox1.Items.Count > 0 && !edicion && PermisoSegunPerfil;
         //ParamCell.Visible = edicion;
-        Accordion1.Visible = edicion && (UlisesToolsVersion.Tools["RadioHF"] != null && DListTipo.SelectedValue == TIPO_REC_AUDIO_HF_TX); // 3 - AUDIO RX TX HF
+        Accordion1.Visible = edicion && (UlisesToolsVersion.Tools["RadioHF"] != null && DListTipo.SelectedValue == "3"); // AUDIO RX TX HF
 
         ((TextBox)AccordioPane2.FindControl("TbIpGestor")).Enabled = edicion;
         ((TextBox)AccordionPane1.FindControl("TbMin")).Visible = edicion;
@@ -323,7 +316,7 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
         OnButton_Click(IBGenerales, null);
 
         TxtIdRecurso.Text = "";
-        DListTipo.SelectedValue = TIPO_REC_RXTX;    // 2 - Audio Tx-Rx
+        DListTipo.SelectedValue = "2";    // Audio Tx-Rx
 
         //Se inicializa a sin destino asociado. La cadena se lee del fichero de recursos
         TBDestino.Text = GetLocalResourceObject("TBDestinoResource1.Text").ToString();
@@ -389,7 +382,7 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
             TBPriority.Text = "50";
         }
 
-        IBVoip.Enabled = IBAudio.Enabled = IBFuncionalidad.Enabled = true;
+        IBVoip.Enabled = IBAudio.Enabled = IBFuncionalidad.Enabled = true; // AUDIO N+M;
         IBVoip.CssClass = "buttonImage";
         IBAudio.CssClass = "buttonImage";
         IBFuncionalidad.CssClass = "buttonImage";
@@ -435,47 +428,19 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
 
                     TxtIdRecurso.Text = rec.IdRecurso;
                     TxtServidorSIP.Text = rec.ServidorSIP;
-                    DListTipo.SelectedValue = rec.Tipo > 3 && rec.Tipo < 7 ? "4" : rec.Tipo.ToString();
+                    DListTipo.SelectedValue = rec.Tipo > 3 && rec.TipoRecurso < 7 ? "4" : rec.Tipo.ToString();
                     //Se guarda el valor original del tipo de recurso, para saber si se ha modificado
                     iTipoRecursoOriginal = (int)rec.Tipo;
 
                     //                CheckDiffServ.Checked = rec.Diffserv;
 
                     //ParamCell.Visible = DListTipo.SelectedValue == "3";   // Audio HF-TX
-                    Accordion1.Visible = DListTipo.SelectedValue == TIPO_REC_AUDIO_HF_TX;   // 3 - Audio HF-TX
+                    Accordion1.Visible = DListTipo.SelectedValue == "3";   // Audio HF-TX
 
 
-                    if (DListTipo.SelectedValue == "4" || DListTipo.SelectedValue == TIPO_REC_EQUIPO_EXT)
-                    {   // N+M o Equipo externo
+                    if (DListTipo.SelectedValue == "4" || DListTipo.SelectedValue == "5" || DListTipo.SelectedValue == "6")
+                    {   // N+M
                         RequiredFieldValidator2.Enabled = Accordion2.Visible = true;
-
-                        if (DListTipo.SelectedValue == TIPO_REC_EQUIPO_EXT)
-                        {
-                            //Se cambia el texto al acordion
-                            PnlModo.Visible = false;
-                            if (GetLocalResourceObject("StrHeaderAudioEE.Text") != null)
-                                Label29.Text = GetLocalResourceObject("StrHeaderAudioEE.Text").ToString();
-                            else
-                                Label29.Text = "Configuración";
-
-                            if (GetLocalResourceObject("PnlParametrosResource.GroupingText_EE") != null)
-                                PnlPrioridad.GroupingText = GetLocalResourceObject("PnlParametrosResource.GroupingText_EE").ToString();
-                            else
-                                Label29.Text = "Parámetros";
-                        }
-                        else
-                        {
-                            PnlModo.Visible = true;
-                            if (GetLocalResourceObject("StrHeader4.Text") != null)
-                                Label29.Text = GetLocalResourceObject("StrHeader4.Text").ToString();
-                            else
-                                Label29.Text = "Configuración M+N";
-
-                            if (GetLocalResourceObject("PnlParametrosResource.GroupingText") != null)
-                                PnlPrioridad.GroupingText = GetLocalResourceObject("PnlParametrosResource.GroupingText").ToString();
-                            else
-                                Label29.Text = "Parámetros";
-                        }
                     }
                     else
                     {
@@ -525,6 +490,8 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
                 if (String.Compare(r.IdRecurso, ListBox1.SelectedValue) == 0)
                 {
                     TxtTamanioPaquete.Text = r.TamRTP.ToString();
+                    //TxtGananciaRx.Text = (r.GananciaAGCRXdBm.ToString()).Replace('.', ',');
+                    //TxtGananciaTx.Text = (r.GananciaAGCTXdBm.ToString()).Replace('.', ',');
                     TxtGananciaRx.Text = r.GananciaAGCRXdBm.ToString();
                     TxtGananciaTx.Text = r.GananciaAGCTXdBm.ToString();
                     DListEmplazamiento.Text = r.IdEmplazamiento;
@@ -602,7 +569,7 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
                     else
                     {
                         //MVO: si el tipo de recurso es  Rx o RxTx
-                        if (DListTipo.SelectedValue == TIPO_REC_RX || DListTipo.SelectedValue == TIPO_REC_RXTX)
+                        if (DListTipo.SelectedValue == "0" || DListTipo.SelectedValue == "2")
                             CheckBSS.Visible = true;
                         else
                         {
@@ -705,14 +672,13 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
                     }
                     break;
                 }
-
             Label10.Visible = TxtGananciaTx.Visible = RBAGCTx.Checked == false;
             Label3.Visible = TxtGananciaRx.Visible = RBAGCRx.Checked == false;
 
             //if (!IBFuncionalidad.Enabled || (DListTipo.SelectedIndex >= 4 && DListTipo.SelectedIndex <= 6))
-            if (!IBFuncionalidad.Enabled || (DListTipo.SelectedValue == "4" || DListTipo.SelectedValue == TIPO_REC_EQUIPO_EXT))
+            if (!IBFuncionalidad.Enabled || (DListTipo.SelectedValue == "4" || DListTipo.SelectedValue == "5" || DListTipo.SelectedValue == "6"))
             {
-                //Audio M+N o Audio Equipo Externo
+                //Audio M+N
                 OnButton_Click(IBGenerales, null);
                 //MVO1: RBLTipoEquipo.SelectedValue = HW_TIPO_EQUIPO_EXTERNO;
                 MuestraEquipoDelRecurso();
@@ -733,7 +699,7 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
                 }
 
                 //MVO: el campo CheckGrabacionEd137 sólo será visible para los tipo Audio RX (0) y Audio RXTX (2) cuando el recurso esté asignado a una pasarela (value=0)
-                if ((DListTipo.SelectedValue == TIPO_REC_RX || DListTipo.SelectedValue == TIPO_REC_RXTX) && null != DLTifx.SelectedItem && RBLTipoEquipo.SelectedValue == HW_TIPO_PASARELA &&
+                if ((DListTipo.SelectedValue == "0" || DListTipo.SelectedValue == "2") && null != DLTifx.SelectedItem && RBLTipoEquipo.SelectedValue == HW_TIPO_PASARELA &&
                     ((Modificando && RecursoAsignado) || (!Modificando && 0 == DDLEquipoExternos.SelectedIndex))
                    )
                     CheckGrabacionEd137.Visible = true;
@@ -1084,8 +1050,6 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
         RBGananciaTx.Enabled = habilita;
         RBGananciaRx.Enabled = habilita;
         DListTipo.Enabled = habilita && !_TipoDisabled;
-        //No se permite cambiar el tipo de equipo Rx, Tx o RxTx si el recurso está asociado a un destino
-        PnlEquipo.Enabled = habilita && !_TipoDisabled;
         RbConfiguracionBasica.Enabled = habilita;
         RbConfiguracionNM.Enabled = habilita;
 		DLTifx.Enabled = habilita && !RecursoAsignado && DDLEquipoExternos.SelectedIndex == 0;
@@ -1196,12 +1160,7 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
     /// <param name="e"></param>
     protected void FiltroTipoRD_SelectedIndexChanged(object sender, EventArgs e)
     {
-        int iValor = 0;
-        if (FiltroTipoRD.SelectedIndex != -1)
-        {
-           if (int.TryParse(FiltroTipoRD.SelectedValue, out iValor))
-                MuestraDatos(DameDatos(), iValor);
-        }
+        MuestraDatos(DameDatos(), FiltroTipoRD.SelectedIndex);
     }
 
     /// VMG 22/11/2018
@@ -1271,7 +1230,7 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
         {
             if ((((ServiciosCD40.Recursos)nu[i]).Tipo == 3 /* Audio-HF-Tx */ &&
                 UlisesToolsVersion.Tools["RadioHF"] == null) ||
-                ((((ServiciosCD40.Recursos)nu[i]).Tipo == 4 || ((ServiciosCD40.Recursos)nu[i]).Tipo == 5 || ((ServiciosCD40.Recursos)nu[i]).Tipo == 6)/* N+M */ &&
+                ((((ServiciosCD40.Recursos)nu[i]).Tipo == 4 || ((ServiciosCD40.Recursos)nu[i]).Tipo == 5 || ((ServiciosCD40.Recursos)nu[i]).Tipo == 4)/* N+M */ &&
                 UlisesToolsVersion.Tools["N+M"] == null))
                 // El recurso no se muestra
                 continue;
@@ -1374,19 +1333,10 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
 
             NewItem = n.IdRecurso;
 
-            //n.Interface = UInt16.Parse(DListTipo.SelectedValue) < 7 ? 0 : ServiciosCD40.TipoInterface.TI_DATOS;
-            n.Interface = UInt16.Parse(DListTipo.SelectedValue) <= 7 ? 0 : ServiciosCD40.TipoInterface.TI_DATOS;
+            n.Interface = UInt16.Parse(DListTipo.SelectedValue) < 7 ? 0 : ServiciosCD40.TipoInterface.TI_DATOS;
             n.TipoRecurso = 0 ;  // Radio
             if (DListTipo.SelectedValue == "4") // M+N
-            {
-                //n.Tipo = (uint)(RBReceptor.Checked ? (RBTransmisor.Checked ? 6 : 4) : 5);
-                if (RBReceptor.Checked)
-                    n.Tipo = 4;
-                else if (RBTransmisor.Checked)
-                    n.Tipo = 5;
-                else if (RBTransceptor.Checked)
-                    n.Tipo = 6;
-            }
+                n.Tipo = (uint)(RBReceptor.Checked ? (RBTransmisor.Checked ? 6 : 4) : 5);
             else
                 n.Tipo = UInt16.Parse(DListTipo.SelectedValue);
     
@@ -1630,12 +1580,11 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
             prRad.Radio_param_idradio_param = var_id_radio_param;
             prRad.OffSetFrequency = Int32.Parse(DDLOffsetGeneral.SelectedValue);
 
-
-            if (DListTipo.SelectedValue == TIPO_REC_AUDIO_HF_TX ||   // 3 - HF
-                DListTipo.SelectedValue == TIPO_REC_M_N_RX ||        // 4 - M+N RX
-                DListTipo.SelectedValue == TIPO_REC_EQUIPO_EXT )   // 7 - Audio Equipo Externo
-                //DListTipo.SelectedValue == "5" ||   // M+N TX
-                //DListTipo.SelectedValue == "6")     // M+N TXRX
+           
+            if (DListTipo.SelectedValue == "3" ||   // HF
+                DListTipo.SelectedValue == "4" ||   // M+N RX
+                DListTipo.SelectedValue == "5" ||   // M+N TX
+                DListTipo.SelectedValue == "6")     // M+N TXRX
             {
                 hFParam.IdSistema = n.IdSistema;
                 hFParam.IdRecurso = n.IdRecurso;
@@ -1729,7 +1678,7 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
                 else
                 {
                     // Insertar parametros HF
-                    if (n.Tipo == 3 || n.Tipo == 4 || n.Tipo == 5 || n.Tipo == 6 || n.Tipo == 7) // TX-HF || N+M || Audio EE
+                    if (n.Tipo == 3 || n.Tipo == 4 || n.Tipo == 5 || n.Tipo == 6) // TX-HF || N+M
                     {
                         ServicioCD40.InsertSQL(hFParam);
                         InsertaRangosFrecuenciaHF(n);
@@ -1754,16 +1703,15 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
 
                 if (iTipoRecursoOriginal != n.Tipo && 
                     (n.Tipo == 0 || n.Tipo == 1 || n.Tipo == 2) &&
-                    (iTipoRecursoOriginal == 3 || iTipoRecursoOriginal == 4 || iTipoRecursoOriginal == 5 || iTipoRecursoOriginal == 6 ||
-                     iTipoRecursoOriginal == 7))
+                    (iTipoRecursoOriginal == 3 || iTipoRecursoOriginal == 4 || iTipoRecursoOriginal == 5 || iTipoRecursoOriginal == 6))
                 {
-                    //Si se ha cambiado el tipo del recurso a Audio RX(0),Audio TX(1)o Audio RXTX(2) y el original era HF o M+N o Audio EE
+                    //Si se ha cambiado el tipo del recurso a Audio RX(0),Audio TX(1)o Audio RXTX(2) y el original era HF o M+N
                     //Se debe eliminar el registro de la tabla hFParam
                     hFParam.IdSistema = n.IdSistema;
                     hFParam.IdRecurso = n.IdRecurso;
                     ServicioCD40.DeleteSQL(hFParam);    // La FK hace que se borre también en la tabla hfRangoFrecuencias
                 }
-                else if (n.Tipo == 3 || n.Tipo == 4 || n.Tipo == 5 || n.Tipo == 6 || n.Tipo == 7) // TX-HF o N+M o Audio EE
+                else if (n.Tipo == 3 || n.Tipo == 4 || n.Tipo == 5 || n.Tipo == 6) // TX-HF || N+M
                 {
                     ServicioCD40.DeleteSQL(hFParam);    // La FK hace que se borre también en la tabla hfRangoFrecuencias
                     ServicioCD40.InsertSQL(hFParam);
@@ -1822,15 +1770,11 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
             LError.Text = (string)GetGlobalResourceObject("Espaniol", "AvisoRecursoTablaCalificacion");
         else
         {
-            //MVO:Si el recurso es de tipo Audio M+N o Audio EE sólo se puede asignar a un equipo externo
-            if ((DListTipo.SelectedValue == "4" || DListTipo.SelectedValue == TIPO_REC_EQUIPO_EXT) &&
+            //MVO:Si el recurso es de tipo Audio M+N sólo se puede asignar a un equipo externo
+            if ((DListTipo.SelectedValue == "4" || DListTipo.SelectedValue == "5" || DListTipo.SelectedValue == "6") &&
                (HW_TIPO_EQUIPO_EXTERNO != RBLTipoEquipo.SelectedValue || DDLEquipoExternos.SelectedIndex == 0))
             {
-                string strMsg = (string)GetGlobalResourceObject("Espaniol", "AvisoCnfHwRecursoRadioMN_EquipExt");
-                if (!string.IsNullOrEmpty(strMsg))
-                    LError.Text = String.Format(strMsg, DListTipo.SelectedItem.Text);
-                else
-                    LError.Text = string.Format("El recurso radio \"{0}\" se debe asignar a un equipo externo. Por favor, revise la asignación Hw.", DListTipo.SelectedItem.Text);
+                LError.Text = (string)GetGlobalResourceObject("Espaniol", "AvisoCnfHwRecursoRadioMN_EquipExt");
             }
             else
             {
@@ -1939,35 +1883,32 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
 			ServiciosCD40.Recursos n = new ServiciosCD40.Recursos();
 			n.IdSistema = (string)Session["idsistema"];
 			n.IdRecurso = (string)Session["elemento"];
-
-            if (!string.IsNullOrEmpty(n.IdSistema) && !string.IsNullOrEmpty(n.IdRecurso))
+			n.TipoRecurso = 0;  // RD
+			if (ServicioCD40.DeleteSQL(n) < 0)
+				logDebugView.Warn("(RecursosDeRadio-EliminarElemento): No se ha borrado el elemento.");
+            else
             {
-                n.TipoRecurso = 0;  // RD
-                if (ServicioCD40.DeleteSQL(n) < 0)
-                    logDebugView.Warn("(RecursosDeRadio-EliminarElemento): No se ha borrado el elemento.");
-                else
+                Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
+                KeyValueConfigurationElement sincronizar = config.AppSettings.Settings["SincronizaCD30"];
+                if ((sincronizar != null) && (Int32.Parse(sincronizar.Value) == 1))
                 {
-                    Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
-                    KeyValueConfigurationElement sincronizar = config.AppSettings.Settings["SincronizaCD30"];
-                    if ((sincronizar != null) && (Int32.Parse(sincronizar.Value) == 1))
+                    SincronizaCD30.SincronizaCD30 sincro = new SincronizaCD30.SincronizaCD30();
+                    switch (sincro.BajaCanalRadio(n.IdRecurso))
                     {
-                        SincronizaCD30.SincronizaCD30 sincro = new SincronizaCD30.SincronizaCD30();
-                        switch (sincro.BajaCanalRadio(n.IdRecurso))
-                        {
-                            case 127:
-                                cMsg.alert((string)GetGlobalResourceObject("Espaniol", "Cod127"));
-                                break;
-                            case 128:
-                                cMsg.alert((string)GetGlobalResourceObject("Espaniol", "Cod128"));
-                                break;
-                            default:
-                                break;
-                        }
+                        case 127:
+                            cMsg.alert((string)GetGlobalResourceObject("Espaniol", "Cod127"));
+                            break;
+                        case 128:
+                            cMsg.alert((string)GetGlobalResourceObject("Espaniol", "Cod128"));
+                            break;
+                        default:
+                            break;
                     }
-                    else
-                        cMsg.alert((string)GetGlobalResourceObject("Espaniol", "ElementoEliminado"));
                 }
+                else
+                    cMsg.alert((string)GetGlobalResourceObject("Espaniol", "ElementoEliminado"));
             }
+			
 		}
 		catch (Exception ex)
 		{
@@ -2338,9 +2279,9 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
 
 
             // (DListTipo.SelectedIndex >= 4 && DListTipo.SelectedIndex <= 6)
-            if (DListTipo.SelectedValue == "4" || DListTipo.SelectedValue == TIPO_REC_EQUIPO_EXT)   // M+N o Audio EE
+            if (DListTipo.SelectedValue == "4" || DListTipo.SelectedValue == "5" || DListTipo.SelectedValue == "6")     // M+N
             {
-                IBVoip.Enabled = IBAudio.Enabled = IBFuncionalidad.Enabled = false; // AUDIO N+M o Audio EE
+                IBVoip.Enabled = IBAudio.Enabled = IBFuncionalidad.Enabled = false; // AUDIO N+M;
                 IBVoip.CssClass = "buttonImageDisabled";
                 IBAudio.CssClass = "buttonImageDisabled";
                 IBFuncionalidad.CssClass = "buttonImageDisabled";
@@ -2418,7 +2359,7 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
                 IBGenerales.CssClass = "buttonImageSelected";
                 //MVO: Se comprueba con el valor seleccionado y no la posición
                 //if ((DListTipo.SelectedIndex >= 4 && DListTipo.SelectedIndex <= 6) ||   //M+N
-                if ((DListTipo.SelectedValue == "4" || DListTipo.SelectedValue == TIPO_REC_EQUIPO_EXT) ||   //M+N o Audio EE
+                if ((DListTipo.SelectedValue == "4" ||DListTipo.SelectedValue == "5"||DListTipo.SelectedValue == "6") ||   //M+N 
                     RBLTipoEquipo.SelectedValue == HW_TIPO_EQUIPO_EXTERNO)                                   // Equipos externos
                 {
                     IBVoip.Enabled = IBAudio.Enabled = IBFuncionalidad.Enabled = false; // AUDIO N+M;
@@ -2530,8 +2471,8 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
 				break;
 			case "IBAsignacion":
                 IBGenerales.CssClass = "buttonImage";
-                if ((DListTipo.SelectedValue == "4" || DListTipo.SelectedValue == TIPO_REC_EQUIPO_EXT) ||   //Audio M+N o Audio EE 
-                    RBLTipoEquipo.SelectedValue == HW_TIPO_EQUIPO_EXTERNO)                   // Equipos externos
+                if ((DListTipo.SelectedValue == "4" || DListTipo.SelectedValue == "5" || DListTipo.SelectedValue == "6") ||   //M+N y equipo externo
+                    RBLTipoEquipo.SelectedValue == HW_TIPO_EQUIPO_EXTERNO)                                   // Equipos externos
                 {
                     IBVoip.Enabled = IBAudio.Enabled = IBFuncionalidad.Enabled = false; // AUDIO N+M;
                     IBVoip.CssClass = "buttonImageDisabled";
@@ -2609,54 +2550,14 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
                 
         Label24.Visible = DListMetodoBSS.Visible = (CheckBSS.Visible && CheckBSS.Checked);
 
-        if (DListTipo.SelectedValue == "4") //M+N
+        if (DListTipo.SelectedValue == "4" || DListTipo.SelectedValue == "5" || DListTipo.SelectedValue == "6") //M+N
         {
             Accordion2.Visible = true;
-            PnlModo.Visible = true;
-            if (GetLocalResourceObject("StrHeader4.Text") != null)
-                Label29.Text = GetLocalResourceObject("StrHeader4.Text").ToString();
-            else
-                Label29.Text = "Configuración M+N";
-
-            if (GetLocalResourceObject("PnlParametrosResource.GroupingText") != null)
-                PnlPrioridad.GroupingText = GetLocalResourceObject("PnlParametrosResource.GroupingText").ToString();
-            else
-                Label29.Text = "Parámetros";
             
             OnButton_Click(IBGenerales, null);
 
             ConfiguraOpcionesM_N(null, null);
             
-            if (Modificando)
-            {
-                //Se avisa al usuario que revise la configuración HW, por si el recurso estuviera asignado a una pasarela.
-                cMsg.alert((string)GetGlobalResourceObject("Espaniol", "AvisoCnfHwRecursoRadioMN"));
-            }
-        }
-        else if (DListTipo.SelectedValue == TIPO_REC_EQUIPO_EXT)  //Audio EE
-        {
-            Accordion2.Visible = true;
-
-            //Se cambia el texto al acordion
-            //Se oculta el panel de modo (principal o reserva) y la prioridad. Por defecto, se define como Principal
-            PnlModo.Visible = false;
-            RBPrincipal.Checked = true;
-            RBReserva.Checked = false;
-
-            if (GetLocalResourceObject("StrHeaderAudioEE.Text") != null)
-                Label29.Text = GetLocalResourceObject("StrHeaderAudioEE.Text").ToString();
-            else
-                Label29.Text = "Configuración";
-
-            if (GetLocalResourceObject("PnlParametrosResource.GroupingText_EE") != null)
-                PnlPrioridad.GroupingText = GetLocalResourceObject("PnlParametrosResource.GroupingText_EE").ToString();
-            else
-                Label29.Text = "Parámetros";
-
-            OnButton_Click(IBGenerales, null);
-
-            ConfiguraOpcionesM_N(null, null);
-
             if (Modificando)
             {
                 //Se avisa al usuario que revise la configuración HW, por si el recurso estuviera asignado a una pasarela.
@@ -2666,7 +2567,7 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
         else
         {
             Accordion2.Visible = false;
-            IBVoip.Enabled = IBAudio.Enabled = IBFuncionalidad.Enabled = true;
+            IBVoip.Enabled = IBAudio.Enabled = IBFuncionalidad.Enabled = true; 
             IBVoip.CssClass = "buttonImage";
             IBAudio.CssClass = "buttonImage";
             IBFuncionalidad.CssClass = "buttonImage";
@@ -2841,14 +2742,8 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
             //No se visualiza el offset
             DDLOffsetGeneral.Visible = Label42.Visible = true;
 
-            //Se visualiza la canalización y la Modulación
-            // y la prioridad si el tipo no es Audio EE
-            PnlPrioridad.Visible = true;
-            if (DListTipo.SelectedValue == TIPO_REC_EQUIPO_EXT)
-                Label34.Visible = TBPriority.Visible = false;
-            else
-                TBPriority.Visible = Label34.Visible = true;
-
+            //No se visualiza la prioridad, la canalización y la Modulación
+            TBPriority.Visible = Label34.Visible = true;
             TBPriority.Text = "50";
             DDLCanalizacion.Visible = Label37.Visible = true;
             DDLModulacion.Visible = Label38.Visible = true;
@@ -2857,6 +2752,7 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
         else
         {
             //si es un equipo N: 
+
             //No se visualiza el offset
             DDLOffsetGeneral.Visible = Label42.Visible = false;
             DDLOffsetGeneral.SelectedValue = "0";
@@ -2866,7 +2762,6 @@ public partial class RecursosDeRadio : PageBaseCD40.PageCD40 //	System.Web.UI.Pa
             DDLCanalizacion.Visible =  Label37.Visible = false;
             DDLModulacion.Visible =  Label38.Visible = false;
             RangeValidator3.Enabled = false;
-            PnlPrioridad.Visible = false;
         }
     }
 

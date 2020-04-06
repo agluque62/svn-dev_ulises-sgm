@@ -148,9 +148,7 @@ public class ServicioInterfazSacta : System.Web.Services.WebService
 		info["SectData"] = dataSect;
 		try
 		{
-#if !DEBUG
 			sectorizacion = util.GeneraSectorizacion(info, FechaActivacion);
-#endif
 		}
 		catch (Exception x)
 		{

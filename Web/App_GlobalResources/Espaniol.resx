@@ -497,7 +497,7 @@
   </data>
   <data name="ErrorAsignacionRecursosDestinoNormalHF" xml:space="preserve">
     <value>En el Modo destino "Normal" y tipo frecuencia HF, el destino sólo puede tener asociado un recurso Audio Rx.</value>
-  </data>
+  </data>  
   <data name="ErrorAsignacionRecursosDestino1_mas_1" xml:space="preserve">
     <value>En el Modo destino "1+1" debe tener 2 Tx y Rx, bien con recursos RxTx o recursos Tx y recursos Rx o combinación de ambos.</value>
   </data>
@@ -542,7 +542,7 @@
   </data>
   <data name="ErrorAsignacionFrecuenciaHFDestinoFD" xml:space="preserve">
     <value>En el Modo destino "FD", no se puede configurar el tipo de frecuencia HF.</value>
-  </data>
+  </data>  
   <data name="AddNumAgendaRequerido" xml:space="preserve">
     <value>Los campos Nombre, Número y Prefijo deben estar informados para poder añadir un registro a la agenda.</value>
   </data>
@@ -550,7 +550,7 @@
     <value>Por favor, revise la asignación Hw. Si el recurso está asignado a una pasarela, libere el recurso y asígnelo a un equipo externo.</value>
   </data>
   <data name="AvisoCnfHwRecursoRadioMN_EquipExt" xml:space="preserve">
-    <value>El recurso radio "{0}" se debe asignar a un equipo externo. Por favor, revise la asignación Hw.</value>
+    <value>El recurso radio "Audio M+N" se debe asignar a un equipo externo. Por favor, revise la asignación Hw.</value>
   </data>
   <data name="ErrorIdentificadorEltoFisicoExiste" xml:space="preserve">
     <value>El identificador "{0}" está asignado a otro elemento físico en el sistema. Por favor, indique un identificador que sea único.</value>
@@ -573,12 +573,14 @@
   <data name="AvisoConfGrabadorDistintos" xml:space="preserve">
     <value>El grabador 1 y el grabador 2 deben ser distintos.</value>
   </data>
+
   <data name="AvisoConfGrabadorMismaIp" xml:space="preserve">
     <value>En el sistema, ya existe otro grabador con la misma dirección IP {0}.</value>
   </data>
   <data name="AvisoSectorEnSectorizacion" xml:space="preserve">
     <value>El sector {0} se encuentra asignado a una o varias sectorizaciones. Antes de eliminar el sector, debe liberarlo.</value>
   </data>
+
   <data name="AvisoAgrupacionExiste" xml:space="preserve">
     <value>La agrupación "{0}" ya existe en el sistema. Por favor, indique otro nombre que sea único.</value>
   </data>
@@ -603,6 +605,7 @@
   <data name="MaximoNumeroEquiposExtCentralitaInterna" xml:space="preserve">
     <value>En el sistema, sólo se permite configurar una centralita interna de telefonía.</value>
   </data>
+  
   <data name="DestinoLCENAsignadoEnPanelLC" xml:space="preserve">
     <value>El destino de línea caliente externa {0} se encuentra asignado al destino ATS {1} en el panel de línea caliente del sector {2}. Por favor, libere el destino antes de eliminarlo.</value>
   </data>
@@ -707,26 +710,5 @@
   </data>
   <data name="RecursoDestinoLCENAsignadoEnPanelLC" xml:space="preserve">
     <value>No se puede eliminar el recurso {3}. El destino de línea caliente externa {0} está configurado en el destino ATS '{1}' del panel de línea caliente del sector {2}.\nPor favor, libere el destino del sector antes de eliminar el recurso.</value>
-  </data>
-  <data name="LB_VERSION" xml:space="preserve">
-    <value>© Núcleo 2020. v2.6.0. All rights reserved.</value>
-  </data>
-  <data name="ErrorAsignacionFrecuenciaHFConRedundancia" xml:space="preserve">
-    <value>En el Modo destino "Normal" y tipo frecuencia HF no está disponible la opción 1+1</value>
-  </data>
-  <data name="ErrorConfiguracionDestinoConRedundancia" xml:space="preserve">
-    <value>Si el destino se configura como 1+1, se debe configurar con redundancia al menos una pareja de recursos del mismo tipo que estén dentro del mismo emplazamiento.</value>
-  </data>
-  <data name="ErrorConfiguracionDestinoConRedundanciaEmplazamiento" xml:space="preserve">
-    <value>Si el destino se configura como 1+1, dentro de un mismo emplazamiento sólo se pueden configurar con redundancia parejas de recursos Rx, Tx o RxTx</value>
-  </data>
-  <data name="ErrorAsignacionRecursosDestinoNormalConRedundancia" xml:space="preserve">
-    <value>En el Modo destino "Normal" 1+1, se deben asignar 1 circuito de recepción, y  0 ó 1 circuito de transmisión, bien en un recurso RxTx o en un recurso Rx y un recurso Tx con redundancia.</value>
-  </data>
-  <data name="MaximosRecursosDestinoFDRedundancia" xml:space="preserve">
-    <value>En el Modo destino "FD" 1+1, debe tener como máximo 5 circuitos de transmisión y 5 circuitos de recepción asignados, bien en recursos RxTx o recursos Tx y recursos Rx o combinación de ambos. Al menos, un recurso debe configurarse con redundancia.</value>
-  </data>
-  <data name="MinimoRecursosDestinoFDRedundancia" xml:space="preserve">
-    <value>En el Modo destino "FD", como mínimo se deben tener asignados 3 circuitos y al menos un circuito deber ser de transmisión y otro de recepción. Al menos, un recurso debe configurarse con redundancia.</value>
   </data>
 </root>

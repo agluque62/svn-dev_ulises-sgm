@@ -17,8 +17,7 @@ namespace CD40.BD.Entidades
             Audio_NM,
             Datos_RX,
             Datos_TX,
-            Datos_RX_TX,
-            Audio_EE
+            Datos_RX_TX
         };
 
 
@@ -284,9 +283,9 @@ namespace CD40.BD.Entidades
                     strConsulta.AppendFormat("WHERE rs.Tipo={0} ", (int)TipoRecursoRadio.Audio_HF_TX);
                 }
             }
-            else if (_TipoRecurso == (int)TipoRecursoRadio.Audio_NM)
+            else
             {
-                //Recursos M+N
+                //Recursos M+N TipoRecursoRadio.Audio_NM
                 if (IdSistema != null && IdRecurso != null)
                 {
                     strConsulta.Append("SELECT r.*,rr.IdDestino,rr.IdEmplazamiento, ");
@@ -319,55 +318,12 @@ namespace CD40.BD.Entidades
                     strConsulta.Append("LEFT JOIN Tifx P ON  P.IdSistema=rs.IdSistema AND P.idTifx=rs.idTifx ");
                     strConsulta.Append("LEFT JOIN GwActivas GW ON  GW.IdSistema=rs.IdSistema AND GW.idTifx=rs.idTifx ");
                     strConsulta.AppendFormat("WHERE r.IdSistema='{0}' AND (rs.Tipo=4 OR rs.Tipo=5 OR rs.Tipo=6) ", IdSistema);
-                    strConsulta.Append("AND ((r.TipoModo=0 AND rr.IdDestino IS NOT NULL) OR (r.TipoModo<>0)) ORDER BY r.IdRecurso ");
+                    strConsulta.Append("AND (rs.Tipo=4 OR rs.Tipo=5 OR rs.Tipo=6) AND ((r.TipoModo=0 AND rr.IdDestino IS NOT NULL) OR (r.TipoModo<>0)) ORDER BY r.IdRecurso ");
                 }
                 else
                 {
                     strConsulta.Append("SELECT r.*,rr.IdDestino,rr.IdEmplazamiento FROM HFParams r INNER JOIN recursos rs ON rs.IdRecurso=r.IdRecurso ");
                     strConsulta.AppendFormat("INNER JOIN recursosradio rr ON rr.IdRecurso=r.IdRecurso WHERE rs.Tipo={0} ", _TipoRecurso);
-                }
-            }
-            else if (_TipoRecurso == (int)TipoRecursoRadio.Audio_EE)
-            {
-                //Recursos Audio EE
-                if (IdSistema != null && IdRecurso != null)
-                {
-                    strConsulta.Append("SELECT r.*,rr.IdDestino,rr.IdEmplazamiento, ");
-                    strConsulta.Append("CASE WHEN rs.idEquipos IS NOT NULL AND eu.IpRed1 IS NOT NULL AND eu.SipPort  IS NOT NULL THEN CONCAT('<sip:',r.IdRecurso,'@',eu.IpRed1,':',eu.SipPort,'>') ");
-                    strConsulta.Append("WHEN rs.idEquipos IS NOT NULL AND eu.IpRed1 IS NOT NULL AND eu.SipPort  IS NULL THEN  CONCAT('<sip:',r.IdRecurso,'@',eu.IpRed1) ");
-                    strConsulta.Append("WHEN rs.idTifx IS NOT NULL AND GW.IpRed IS NOT NULL AND P.SipPortlocal IS NOT NULL THEN CONCAT('<sip:',r.IdRecurso,'@',GW.IpRed,':',P.SipPortlocal,'>') ");
-                    strConsulta.Append("WHEN rs.idTifx IS NOT NULL AND GW.IpRed IS NOT NULL AND P.SipPortlocal IS NULL THEN CONCAT('<sip:',r.IdRecurso,'@',GW.IpRed,'>') ");
-                    strConsulta.Append("ELSE NULL END as SipUriEquipo ");
-                    strConsulta.Append("FROM HFParams r INNER JOIN recursos rs ON rs.IdRecurso=r.IdRecurso ");
-                    strConsulta.Append("INNER JOIN recursosradio rr ON rr.IdRecurso=r.IdRecurso ");
-                    strConsulta.Append("LEFT JOIN equiposeu eu ON  eu.IdSistema=rs.IdSistema AND eu.idequipos=rs.idequipos ");
-                    strConsulta.Append("LEFT JOIN Tifx P ON  P.IdSistema=rs.IdSistema AND P.idTifx=rs.idTifx ");
-                    strConsulta.Append("LEFT JOIN GwActivas GW ON  GW.IdSistema=rs.IdSistema AND GW.idTifx=rs.idTifx ");
-                    strConsulta.AppendFormat("WHERE r.IdSistema='{0}' AND r.IdRecurso='{1}' AND rs.Tipo=7 ", IdSistema, IdRecurso);
-                }
-                else if (IdSistema != null)
-                {
-                    //Se descartan los recursos Audio EE Principales que no tienen destino asociado
-                    //hfParam.TipoModo==Principal y IdDestino es null
-                    strConsulta.Append("SELECT r.*,rr.IdDestino,rr.IdEmplazamiento, ");
-                    strConsulta.Append("CASE WHEN rs.idEquipos IS NOT NULL AND eu.IpRed1 IS NOT NULL AND eu.SipPort  IS NOT NULL THEN CONCAT('<sip:',r.IdRecurso,'@',eu.IpRed1,':',eu.SipPort,'>') ");
-                    strConsulta.Append("WHEN rs.idEquipos IS NOT NULL AND eu.IpRed1 IS NOT NULL AND eu.SipPort  IS NULL THEN  CONCAT('<sip:',r.IdRecurso,'@',eu.IpRed1) ");
-                    strConsulta.Append("WHEN rs.idTifx IS NOT NULL AND GW.IpRed IS NOT NULL AND P.SipPortlocal IS NOT NULL THEN CONCAT('<sip:',r.IdRecurso,'@',GW.IpRed,':',P.SipPortlocal,'>') ");
-                    strConsulta.Append("WHEN rs.idTifx IS NOT NULL AND GW.IpRed IS NOT NULL AND P.SipPortlocal IS NULL THEN CONCAT('<sip:',r.IdRecurso,'@',GW.IpRed,'>') ");
-                    strConsulta.Append("ELSE NULL END as SipUriEquipo ");
-
-                    strConsulta.Append("FROM HFParams r INNER JOIN recursos rs ON rs.IdRecurso=r.IdRecurso ");
-                    strConsulta.Append("INNER JOIN recursosradio rr ON rr.IdRecurso=r.IdRecurso ");
-                    strConsulta.Append("LEFT JOIN equiposeu eu ON  eu.IdSistema=rs.IdSistema AND eu.idequipos=rs.idequipos ");
-                    strConsulta.Append("LEFT JOIN Tifx P ON  P.IdSistema=rs.IdSistema AND P.idTifx=rs.idTifx ");
-                    strConsulta.Append("LEFT JOIN GwActivas GW ON  GW.IdSistema=rs.IdSistema AND GW.idTifx=rs.idTifx ");
-                    strConsulta.AppendFormat("WHERE r.IdSistema='{0}' AND rs.Tipo=7 ", IdSistema);
-                    strConsulta.Append(" AND ((r.TipoModo=0 AND rr.IdDestino IS NOT NULL) OR (r.TipoModo<>0)) ORDER BY r.IdRecurso ");
-                }
-                else
-                {
-                    strConsulta.Append("SELECT r.*,rr.IdDestino,rr.IdEmplazamiento FROM HFParams r INNER JOIN recursos rs ON rs.IdRecurso=r.IdRecurso ");
-                    strConsulta.Append("INNER JOIN recursosradio rr ON rr.IdRecurso=r.IdRecurso WHERE rs.Tipo=7 ");
                 }
             }
 

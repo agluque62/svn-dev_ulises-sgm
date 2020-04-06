@@ -96,7 +96,7 @@
                 <asp:TableRow ID="row3" runat="server">
                     <asp:TableCell ID="cell32" runat="server">
                     </asp:TableCell>
-                    <asp:TableCell ID="cell31" runat="server" Width="282px" HorizontalAlign="Center">
+                    <asp:TableCell ID="cell31" runat="server" Width="282px" HorizontalAlign="Right">
                         <asp:LinkButton ID="LBWizardConfiguracion" runat="server"
                             Enabled="true" 
                             OnClick="LBWizard_Click"
@@ -116,7 +116,7 @@
     </div>
         <div style="z-index: 301; left: 15px; width: 1260px; position: absolute; top: 875px; height: 37px; text-align:center; color: black; font-family:Arial; font-size:small" >
             <br\ />
-            &#169 Núcleo. 2020. v2.6.0. All rights reserved.
+            &#169 Núcleo. 2020. v2.6.10. All rights reserved.
         </div>
     </form>
 </body>

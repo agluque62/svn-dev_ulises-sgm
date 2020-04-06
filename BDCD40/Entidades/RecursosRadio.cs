@@ -172,10 +172,10 @@ namespace CD40.BD.Entidades
         public override string DataSetSelectSQL()
 		{
             //base.DataSetSelectSQL();
-            StringBuilder strConsulta = new StringBuilder();
 
+            Consulta.Remove(0, Consulta.Length);
             if (IdSistema != null && IdRecurso != null)
-                strConsulta.Append("SELECT r.*,z.Nombre as NameZona,rec.Tipo, pr.*, tb.name, rp.*,mb.name as NameBss,rec.idTIFX rec_idTIFX,destRad.TipoFrec DestRad_tipoFrec FROM RecursosRadio r " +
+                Consulta.Append("SELECT r.*,z.Nombre as NameZona,rec.Tipo, pr.*, tb.name, rp.*,mb.name as NameBss,rec.idTIFX rec_idTIFX,destRad.TipoFrec DestRad_tipoFrec FROM RecursosRadio r " +
                                 "LEFT JOIN zonas z ON z.idZonas=r.zonas_idZonas " +
                                 "LEFT JOIN tabla_bss tb ON tb.idtabla_bss = r.tabla_bss_idtabla_bss " +
                                 "LEFT JOIN radio_param rp ON rp.idradio_param = r.radio_param_idradio_param " +
@@ -185,7 +185,7 @@ namespace CD40.BD.Entidades
                                 "INNER JOIN Recursos rec on rec.IdSistema=r.IdSistema AND rec.IdRecurso=r.IdRecurso AND rec.TipoRecurso=r.TipoRecurso " +
                                     "WHERE r.IdSistema='" + IdSistema + "' AND r.IdRecurso='" + IdRecurso + "'");
             else if (IdSistema != null && IdDestino != null)
-                strConsulta.Append("SELECT r.*,z.Nombre as NameZona,rec.Tipo, pr.*, tb.name, rp.*,mb.name as NameBss,rec.idTIFX rec_idTIFX,destRad.TipoFrec DestRad_tipoFrec FROM RecursosRadio r " +
+                Consulta.Append("SELECT r.*,z.Nombre as NameZona,rec.Tipo, pr.*, tb.name, rp.*,mb.name as NameBss,rec.idTIFX rec_idTIFX,destRad.TipoFrec DestRad_tipoFrec FROM RecursosRadio r " +
                                 "LEFT JOIN zonas z ON z.idZonas=r.zonas_idZonas " +
                                 "LEFT JOIN tabla_bss tb ON tb.idtabla_bss = r.tabla_bss_idtabla_bss " +
                                 "LEFT JOIN radio_param rp ON rp.idradio_param = r.radio_param_idradio_param " +
@@ -193,9 +193,9 @@ namespace CD40.BD.Entidades
                                 "LEFT JOIN destinosradio destrad ON destrad.IdSistema=r.IdSistema AND destrad.IdDestino=r.IdDestino AND destrad.TipoDestino=r.TipoDestino " +
                                 "INNER JOIN ParametrosRecurso pr on pr.IdSistema=r.IdSistema AND pr.IdRecurso=r.IdRecurso AND pr.TipoRecurso=r.TipoRecurso " +
                                 "INNER JOIN Recursos rec on rec.IdSistema=r.IdSistema AND rec.IdRecurso=r.IdRecurso AND rec.TipoRecurso=r.TipoRecurso " +
-                                    "WHERE r.IdSistema='" + IdSistema + "' AND r.IdDestino='" + IdDestino + "' ORDER BY r.RedundanciaIdPareja, r.RedundanciaRol,r.IdRecurso");
+                                    "WHERE r.IdSistema='" + IdSistema + "' AND r.IdDestino='" + IdDestino + "'");
             else if (IdSistema != null && IdEmplazamiento != null)
-                strConsulta.Append("SELECT r.*,z.Nombre as NameZona,rec.Tipo, pr.*, tb.name, rp.*,mb.name as NameBss,rec.idTIFX rec_idTIFX,destRad.TipoFrec DestRad_tipoFrec FROM RecursosRadio r " +
+                Consulta.Append("SELECT r.*,z.Nombre as NameZona,rec.Tipo, pr.*, tb.name, rp.*,mb.name as NameBss,rec.idTIFX rec_idTIFX,destRad.TipoFrec DestRad_tipoFrec FROM RecursosRadio r " +
                                 "LEFT JOIN zonas z ON z.idZonas=r.zonas_idZonas " +
                                 "LEFT JOIN tabla_bss tb ON tb.idtabla_bss = r.tabla_bss_idtabla_bss " +
                                 "LEFT JOIN radio_param rp ON rp.idradio_param = r.radio_param_idradio_param " +
@@ -205,7 +205,7 @@ namespace CD40.BD.Entidades
                                 "INNER JOIN Recursos rec on rec.IdSistema=r.IdSistema AND rec.IdRecurso=r.IdRecurso AND rec.TipoRecurso=r.TipoRecurso " +
                                     "WHERE r.IdSistema='" + IdSistema + "' AND r.IdEmplazamiento='" + IdEmplazamiento + "'");
             else if (IdSistema != null && Zonas_IdZonas != 0)
-                strConsulta.Append("SELECT r.*,z.Nombre as NameZona,rec.Tipo, pr.*, tb.name, rp.*,mb.name as NameBss,rec.idTIFX rec_idTIFX,destRad.TipoFrec DestRad_tipoFrec FROM RecursosRadio r " +
+                Consulta.Append("SELECT r.*,z.Nombre as NameZona,rec.Tipo, pr.*, tb.name, rp.*,mb.name as NameBss,rec.idTIFX rec_idTIFX,destRad.TipoFrec DestRad_tipoFrec FROM RecursosRadio r " +
                                 "LEFT JOIN zonas z ON z.idZonas=r.zonas_idZonas " +
                                 "LEFT JOIN tabla_bss tb ON tb.idtabla_bss = r.tabla_bss_idtabla_bss " +
                                 "LEFT JOIN radio_param rp ON rp.idradio_param = r.radio_param_idradio_param " +
@@ -215,7 +215,7 @@ namespace CD40.BD.Entidades
                                 "INNER JOIN Recursos rec on rec.IdSistema=r.IdSistema AND rec.IdRecurso=r.IdRecurso AND rec.TipoRecurso=r.TipoRecurso " +
                                     "WHERE r.IdSistema='" + IdSistema + "' AND r.zonas_idZonas=" + Zonas_IdZonas);
             else if (IdSistema != null)
-                strConsulta.Append("SELECT r.*,z.Nombre as NameZona,rec.Tipo, pr.*, tb.name, rp.*,mb.name as NameBss,rec.idTIFX rec_idTIFX,destRad.TipoFrec DestRad_tipoFrec FROM RecursosRadio r " +
+                Consulta.Append("SELECT r.*,z.Nombre as NameZona,rec.Tipo, pr.*, tb.name, rp.*,mb.name as NameBss,rec.idTIFX rec_idTIFX,destRad.TipoFrec DestRad_tipoFrec FROM RecursosRadio r " +
                                 "LEFT JOIN zonas z ON z.idZonas=r.zonas_idZonas " +
                                 "LEFT JOIN tabla_bss tb ON tb.idtabla_bss = r.tabla_bss_idtabla_bss " +
                                 "LEFT JOIN radio_param rp ON rp.idradio_param = r.radio_param_idradio_param " +
@@ -225,7 +225,7 @@ namespace CD40.BD.Entidades
                                 "INNER JOIN Recursos rec on rec.IdSistema=r.IdSistema AND rec.IdRecurso=r.IdRecurso AND rec.TipoRecurso=r.TipoRecurso " +
                                 "WHERE r.IdSistema='" + IdSistema + "' ORDER BY r.IdRecurso");
             else
-                strConsulta.Append("SELECT r.*,z.Nombre as NameZona,rec.Tipo, pr.*, tb.name, rp.*,mb.name as NameBss,rec.idTIFX rec_idTIFX,destRad.TipoFrec DestRad_tipoFrec FROM RecursosRadio r " +
+                Consulta.Append("SELECT r.*,z.Nombre as NameZona,rec.Tipo, pr.*, tb.name, rp.*,mb.name as NameBss,rec.idTIFX rec_idTIFX,destRad.TipoFrec DestRad_tipoFrec FROM RecursosRadio r " +
                                 "LEFT JOIN zonas z ON z.idZonas=r.zonas_idZonas " +
                                 "LEFT JOIN tabla_bss tb ON tb.idtabla_bss = r.tabla_bss_idtabla_bss " +
                                 "LEFT JOIN radio_param rp ON rp.idradio_param = r.radio_param_idradio_param " +
@@ -234,7 +234,7 @@ namespace CD40.BD.Entidades
                                 "INNER JOIN ParametrosRecurso pr on pr.IdSistema=r.IdSistema AND pr.IdRecurso=r.IdRecurso AND pr.TipoRecurso=r.TipoRecurso " +
                                 "INNER JOIN Recursos rec on rec.IdSistema=r.IdSistema AND rec.IdRecurso=r.IdRecurso AND rec.TipoRecurso=r.TipoRecurso");
 
-            return strConsulta.ToString();
+            return Consulta.ToString();
         }
 
         public override System.Collections.Generic.List<Tablas> ListSelectSQL(DataSet ds)
@@ -379,11 +379,9 @@ namespace CD40.BD.Entidades
 
         public override string[] InsertSQL()
         {
-            string[] consulta = new string[6];
-            StringBuilder strConsulta = new StringBuilder();
-            StringBuilder strFormatoValues= new StringBuilder();
+			string[] consulta = new string[6];
 
-            Array.Copy(base.InsertSQL(), consulta, 2);
+			Array.Copy(base.InsertSQL(), consulta, 2);
 
             consulta[2] = "INSERT INTO radio_param (GrsDelay,OffSetFrequency,EnableEventPttSq,metodos_bss_idmetodos_bss) VALUES (" +
                 GrsDelay + "," +
@@ -391,62 +389,61 @@ namespace CD40.BD.Entidades
                 EnableEventPttSq + "," +
                 Metodos_bss_idmetodos_bss + ")";
 
-            //<LastInsertedValue>," +   // En GestorBaseDatos.InsertSQL() se reemplaza la cadena <LastInsertedValue> por el InsertId del INSERT INTO radio_param anterior.
-             strConsulta.Append("INSERT INTO RecursosRadio (IdSistema,IdRecurso,TipoRecurso,TipoDestino,zonas_idZonas,radio_param_idradio_param,");
-             strConsulta.Append("IdDestino,IdEmplazamiento,tabla_bss_idtabla_bss,EM,SQ,PTT,FrqTonoE,UmbralTonoE,");
-             strConsulta.Append("FrqTonoM,UmbralTonoM,FrqTonoSQ,UmbralTonoSQ,FrqTonoPTT,UmbralTonoPTT,BSS,NTZ,TipoNTZ,Cifrado," );
-             strConsulta.Append("SupervPortadoraTX,SupervModuladoraTX,ModoConfPTT,RepSQyBSS," );
-             strConsulta.Append("DesactivacionSQ,TimeoutPTT,UmbralVAD,TiempoPTT,NumFlujosAudio,KeepAlivePeriod,KeepAliveMultiplier,RedundanciaRol,RedundanciaIdPareja)");
-             strFormatoValues.Append("VALUES ('{0}','{1}',{2},{3},{4},<LastInsertedValue>,");
-             strFormatoValues.Append("{5},'{6}',{7},{8},'{9}','{10}',{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},");
-             strFormatoValues.Append("{23},{24},{25},{26},{27},{28},{29},{30},{31},{32},{33},{34},{35})");
+            Consulta.Remove(0, Consulta.Length);
+            Consulta.Append("INSERT INTO RecursosRadio (IdSistema,IdRecurso,TipoRecurso,TipoDestino,zonas_idZonas,radio_param_idradio_param,IdDestino,IdEmplazamiento,tabla_bss_idtabla_bss,EM,SQ,PTT,FrqTonoE,UmbralTonoE," +
+                                                        "FrqTonoM,UmbralTonoM,FrqTonoSQ,UmbralTonoSQ,FrqTonoPTT,UmbralTonoPTT,BSS,NTZ,TipoNTZ,Cifrado," +
+                                                        "SupervPortadoraTX,SupervModuladoraTX,ModoConfPTT,RepSQyBSS," +
+														"DesactivacionSQ,TimeoutPTT,UmbralVAD,TiempoPTT,NumFlujosAudio,KeepAlivePeriod,KeepAliveMultiplier)" +
+                            " VALUES ('" + IdSistema + "','" +
+                                         IdRecurso + "'," +
+                                         TipoRecurso + "," +
+                                         TipoDestino + "," +
+                                         Zonas_IdZonas + "," +
+                                         //Radio_param_idradio_param + "," +
+                                         "<LastInsertedValue>," +   // En GestorBaseDatos.InsertSQL() se reemplaza la cadena <LastInsertedValue> por el InsertId del INSERT INTO radio_param anterior.
+                                         ((IdDestino == null) ? "null,'" : ("'" + IdDestino + "','")) +
+                                         IdEmplazamiento + "'," +
+                                         ((IdTablaBss > 0) ? IdTablaBss.ToString() : "null") + "," +
+                                         EM + ",'" +
+                                         SQ + "','" +
+                                         PTT + "'," +
+                                         FrqTonoE + "," +
+                                         UmbralTonoE + "," +
+                                         FrqTonoM + "," +
+                                         UmbralTonoM + "," +
+                                         FrqTonoSQ + "," +
+                                         UmbralTonoSQ + "," +
+                                         FrqTonoPTT + "," +
+                                         UmbralTonoPTT + "," +
+                                         BSS + "," +
+                                         NTZ + "," +
+                                         TipoNTZ + "," +
+                                         Cifrado + "," +
+                                         SupervPortadoraTx + "," +
+                                         SupervModuladoraTx + "," +
+                                         ModoConfPTT + "," +
+                                         RepSQyBSS + "," +
+                                         DesactivacionSQ + "," +
+                                         TimeoutPTT + "," +
+                                         UmbralVAD + "," +
+										 TiempoPTT + "," +
+										 NumFlujosAudio + "," +
+										 KeepAlivePeriod + "," +
+										 KeepAliveMultiplier +
+												")");
 
-             strConsulta.AppendFormat(strFormatoValues.ToString(),IdSistema,IdRecurso,TipoRecurso,TipoDestino,Zonas_IdZonas,
-                                        ((IdDestino == null) ? "null" : ("'" + IdDestino + "'")),
-                                        IdEmplazamiento ,
-                                        ((IdTablaBss > 0) ? IdTablaBss.ToString() : "null"),
-                                        EM ,
-                                        SQ ,
-                                        PTT ,
-                                        FrqTonoE , //11
-                                        UmbralTonoE ,
-                                        FrqTonoM ,
-                                        UmbralTonoM , //14
-                                        FrqTonoSQ ,
-                                        UmbralTonoSQ,
-                                        FrqTonoPTT , //17
-                                        UmbralTonoPTT ,
-                                        BSS ,
-                                        NTZ ,
-                                        TipoNTZ,
-                                        Cifrado , //22
-                                        SupervPortadoraTx,
-                                        SupervModuladoraTx ,
-                                        ModoConfPTT,
-                                        RepSQyBSS ,
-                                        DesactivacionSQ ,
-                                        TimeoutPTT , //28
-                                        UmbralVAD ,
-                                        TiempoPTT,
-                                        NumFlujosAudio,
-                                        KeepAlivePeriod,
-                                        KeepAliveMultiplier, //33
-                                        ((string.IsNullOrEmpty(RedundanciaRol)) ? "null" : ("'" + RedundanciaRol + "'")) ,
-                                        ((string.IsNullOrEmpty(RedundanciaIdPareja)) ? "null" : ("'" + RedundanciaIdPareja + "'")));
-
-            consulta[3] = strConsulta.ToString();
+			consulta[3] = Consulta.ToString();
             consulta[4] = ReplaceSQL(IdSistema, "RecursosRadio");
             consulta[5] = ReplaceSQL(IdSistema, "radio_param");
 
-            return consulta;
-        }
+			return consulta;
+		}
 
         public override string[] UpdateSQL()
         {
-            string[] consulta = new string[6];
-            StringBuilder strConsulta = new StringBuilder();
+			string[] consulta = new string[6];
 
-            Array.Copy(base.UpdateSQL(), consulta, 2);
+			Array.Copy(base.UpdateSQL(), consulta, 2);
 
             consulta[2] = "UPDATE radio_param set GrsDelay=" + GrsDelay + "," +
                                                 "OffSetFrequency=" + OffSetFrequency + "," +
@@ -454,7 +451,8 @@ namespace CD40.BD.Entidades
                                                 "metodos_bss_idmetodos_bss=" + Metodos_bss_idmetodos_bss +
                                                 " WHERE idradio_param=" + Radio_param_idradio_param;
 
-            strConsulta.Append("UPDATE RecursosRadio SET IdRecurso='" + IdRecurso + "'," +
+            Consulta.Remove(0, Consulta.Length);
+            Consulta.Append("UPDATE RecursosRadio SET IdRecurso='" + IdRecurso + "'," +
                                             "IdSistema='" + IdSistema + "'," +
                                             "TipoRecurso=" + TipoRecurso + "," +
                                             "zonas_idZonas=" + Zonas_IdZonas + "," +
@@ -486,67 +484,63 @@ namespace CD40.BD.Entidades
                                             "TimeoutPTT=" + TimeoutPTT + "," +
                                             "UmbralVAD=" + UmbralVAD + "," +
                                             "TiempoPTT=" + TiempoPTT + "," +
-                                            "NumFlujosAudio=" + NumFlujosAudio + "," +
-                                            "KeepAlivePeriod=" + KeepAlivePeriod + "," +
-                                            "KeepAliveMultiplier=" + KeepAliveMultiplier + " " +
-                                            "WHERE IdRecurso='" + IdRecurso + "' AND " + "IdSistema='" + IdSistema + "'"
+											"NumFlujosAudio=" + NumFlujosAudio + "," +
+											"KeepAlivePeriod=" + KeepAlivePeriod + "," +
+											"KeepAliveMultiplier=" + KeepAliveMultiplier + " " +
+											"WHERE IdRecurso='" + IdRecurso + "' AND " + "IdSistema='" + IdSistema + "'"
                                             );
 
-            consulta[3] = strConsulta.ToString();
-            consulta[4] = ReplaceSQL(IdSistema, "RecursosRadio");
+			consulta[3] = Consulta.ToString();
+			consulta[4] = ReplaceSQL(IdSistema, "RecursosRadio");
             consulta[5] = ReplaceSQL(IdSistema, "radio_param");
 
-            return consulta;
-        }
+			return consulta;
+		}
 
         public override string[] UpdateDestinoSQL()
         {
-            string[] consulta = new string[2];
-            StringBuilder strConsulta = new StringBuilder();
+			string[] consulta = new string[2];
+            Consulta.Remove(0, Consulta.Length);
+            Consulta.Append("UPDATE RecursosRadio SET IdDestino='" + IdDestino + "'," +
+                                            "TipoDestino=" + TipoDestino + " " +
+                                            "WHERE IdRecurso='" + IdRecurso + "' AND " + "IdSistema='" + IdSistema + "'"
+                                            );
 
-            strConsulta.AppendFormat("UPDATE RecursosRadio SET IdDestino='{0}',TipoDestino={1},", IdDestino, TipoDestino);
-            strConsulta.AppendFormat("RedundanciaRol={0},RedundanciaIdPareja={1}",
-                                     ((string.IsNullOrEmpty(RedundanciaRol)) ? "null" : ("'" + RedundanciaRol + "'")), 
-                                     ((string.IsNullOrEmpty(RedundanciaIdPareja)) ? "null" : ("'" + RedundanciaIdPareja + "'"))
-                                    );
-
-            strConsulta.AppendFormat(" WHERE IdRecurso='{0}' AND IdSistema='{1}'",IdRecurso ,IdSistema );
-
-            consulta[0] = strConsulta.ToString();
-            consulta[1] = ReplaceSQL(IdSistema, "RecursosRadio");
+			consulta[0] = Consulta.ToString();
+			consulta[1] = ReplaceSQL(IdSistema, "RecursosRadio");
 
             return consulta;
         }
 
         public override string[] LiberaDestinoSQL()
         {
-            string[] consulta = new string[2];
-            StringBuilder strConsulta = new StringBuilder();
+			string[] consulta = new string[2];
+			Consulta.Remove(0, Consulta.Length);
+            Consulta.Append("UPDATE RecursosRadio SET IdDestino=null, TipoDestino=null " +
+                                            "WHERE IdDestino='" + IdDestino + "' AND " + "IdSistema='" + IdSistema + "'"
+                                            );
 
-            strConsulta.Append("UPDATE RecursosRadio SET IdDestino=null, TipoDestino=null,RedundanciaRol=null,RedundanciaIdPareja=null ");
-            strConsulta.AppendFormat("WHERE IdDestino='{0}' AND IdSistema='{1}'",IdDestino,IdSistema);
+			consulta[0] = Consulta.ToString();
+			consulta[1] = ReplaceSQL(IdSistema, "RecursosRadio");
 
-            consulta[0] = strConsulta.ToString();
-            consulta[1] = ReplaceSQL(IdSistema, "RecursosRadio");
-
-            return consulta;
-        }
+			return consulta;
+		}
 
         public override string[] DeleteSQL()
         {
 			string[] consulta = new string[6];
-            StringBuilder strConsulta = new StringBuilder();
 
 			Array.Copy(base.DeleteSQL(), consulta, 2);
-
+			
+            Consulta.Remove(0, Consulta.Length);
             if (IdSistema != null && IdRecurso != null)
-                strConsulta.Append("DELETE FROM RecursosRadio WHERE IdSistema='" + IdSistema + "' AND IdRecurso='" + IdRecurso + "'");
+                Consulta.Append("DELETE FROM RecursosRadio WHERE IdSistema='" + IdSistema + "' AND IdRecurso='" + IdRecurso + "'");
             else if (IdSistema != null)
-                strConsulta.Append("DELETE FROM RecursosRadio WHERE IdSistema='" + IdSistema + "'");
+                Consulta.Append("DELETE FROM RecursosRadio WHERE IdSistema='" + IdSistema + "'");
             else
-                strConsulta.Append("DELETE FROM RecursosRadio");
+                Consulta.Append("DELETE FROM RecursosRadio");
 
-            consulta[2] = strConsulta.ToString();
+			consulta[2] = Consulta.ToString();
 			consulta[3] = ReplaceSQL(IdSistema, "RecursosRadio");
             consulta[4] = "DELETE FROM radio_param WHERE idradio_param=" + Radio_param_idradio_param;
             consulta[5] = ReplaceSQL(IdSistema, "radio_param");

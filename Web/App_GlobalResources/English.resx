@@ -711,17 +711,4 @@
   <data name="ErrorTReleaseBLValue" xml:space="preserve">
     <value>Error: BL Release Time must have a value.</value>
   </data>
-  <data name="RecursoDestinoLCENAsignadoEnPanelLC" xml:space="preserve">
-    <value>The resource {3} can not be deleted. The destination {0} is assigned to the ATS destination '{1}' in the Instantaneous access panel of sector {2}. Please, release the destination before you delete it.</value>
-  </data>
-  <data name="LB_VERSION" xml:space="preserve">
-    <value>© Núcleo 2020. v2.6.0. All rights reserved.</value>
-  </data>
-  <data name="ErrorAsignacionFrecuenciaHFConRedundancia" xml:space="preserve">
-    <value>El destino con frecuencia HF no se puede configurar con la opción 1+1</value>
-  </data>
-  <data name="ErrorConfiguracionDestinoConRedundancia" xml:space="preserve">
-    <value>Si el destino se configura como 1+1 al menos se debe configurar un recurso con redundancia dentro del mismo emplazamiento</value>
-  </data>
-
 </root>

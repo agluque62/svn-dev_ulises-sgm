@@ -14,7 +14,7 @@ CodeFileBaseClass="PageBaseCD40.PageCD40"	Title="Gestión de Recursos Radio" Enab
 		  CssClass="labelPagina" meta:resourcekey="Label7Resource1" ></asp:Label>
 	<asp:ListBox ID="ListBox1" runat="server" 
         OnSelectedIndexChanged="ListBox1_SelectedIndexChanged" AutoPostBack="True"
-        SkinID="MascaraListaElementosWide" Style="z-index: 100; left: 15px; width:235px; height:455px; position: absolute; top: 58px"  meta:resourcekey="ListBox1Resource1">
+        SkinID="MascaraListaElementosWide" Style="z-index: 100; left: 15px; width:255px; height:455px; position: absolute; top: 58px"  meta:resourcekey="ListBox1Resource1">
     </asp:ListBox>
 
     <asp:DropDownList ID="FiltroBusquedaRD" runat="server" AutoPostBack="True" Style="z-index: 100; left: 20px; width:172px; 
@@ -38,7 +38,6 @@ CodeFileBaseClass="PageBaseCD40.PageCD40"	Title="Gestión de Recursos Radio" Enab
                 <asp:ListItem Value="3" meta:resourcekey="ListItemFiltroTipoRDResource3">TX-RX</asp:ListItem>
                 <asp:ListItem Value="4" meta:resourcekey="ListItemFiltroTipoRDResource4">HF-TX</asp:ListItem>
                 <asp:ListItem Value="5" meta:resourcekey="ListItemFiltroTipoRDResource5">Audio M+N</asp:ListItem>
-                <asp:ListItem Value="8" meta:resourcekey="ListItemFiltroTipoRDResource8">Audio EE</asp:ListItem>
     </asp:DropDownList>
     <asp:TextBox ID="FiltroNombreRD" runat="server" visible="false"
         Style="z-index: 100; left: 20px; width:172px; position: absolute; top: 550px" meta:resourcekey="FiltroNombreRDResource">
@@ -80,7 +79,7 @@ CodeFileBaseClass="PageBaseCD40.PageCD40"	Title="Gestión de Recursos Radio" Enab
         Style="z-index: 108; left: 32px; position: absolute; top: 561px" 
 		  meta:resourcekey="ValidationSummary1Resource1" />
 
-    <asp:Panel ID="Panel1" runat="server" Height="450px" Style="z-index: 109; left: 265px; position: absolute; top: 58px"
+    <asp:Panel ID="Panel1" runat="server" Height="450px" Style="z-index: 109; left: 275px; position: absolute; top: 58px"
         Width="700px" BorderStyle="Inset"
         meta:resourcekey="Panel1Resource1">
         <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
@@ -116,7 +115,6 @@ CodeFileBaseClass="PageBaseCD40.PageCD40"	Title="Gestión de Recursos Radio" Enab
                         <asp:ListItem Value="2" meta:resourcekey="ListTipo_Audio_RXTX">Audio RX TX</asp:ListItem>
                         <asp:ListItem Value="3" meta:resourcekey="ListTipo_Audio_HF">Audio HF-TX</asp:ListItem>
                         <asp:ListItem Value="4" meta:resourcekey="ListTipo_Audio_NM">Audio M+N</asp:ListItem>
-                        <asp:ListItem Value="7" meta:resourcekey="ListTipo_Audio_EE">Audio EE</asp:ListItem>
                     </asp:DropDownList>
 					
                         <%-- <asp:ListItem meta:resourcekey="ListItemResource4" Value="7">Datos RX</asp:ListItem>
@@ -948,7 +946,7 @@ CodeFileBaseClass="PageBaseCD40.PageCD40"	Title="Gestión de Recursos Radio" Enab
                         Style="top: 45px; left: 100px; position: absolute;" meta:resourcekey="TxtUmbralVADResource1"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="TxtUmbralVAD"
                         ErrorMessage="El campo Umbral VAD no puede estar vacío, y debe estar comprendido entre -35 y -15 dBm"
-                        Style="left: 150px;top:25px;position: relative"
+                        Style="left: 150px; ;top:25px;position: relative"
                         meta:resourcekey="RequiredFieldValidator13Resource1">*</asp:RequiredFieldValidator>
                     <asp:CompareValidator ID="CompareValidator12" runat="server" ControlToValidate="TxtUmbralVAD"
                         ErrorMessage="El campo Umbral VAD debe ser numérico." Operator="DataTypeCheck"

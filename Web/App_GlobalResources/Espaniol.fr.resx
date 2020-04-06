@@ -550,7 +550,7 @@
     <value>Veuillez vérifier l'assignation Hw. Si la ressource est assignée à une passerelle, libérez la ressource et assignez-la à un équipement externe.</value>
   </data>
   <data name="AvisoCnfHwRecursoRadioMN_EquipExt" xml:space="preserve">
-    <value>La ressource radio "{0}" doit être assignée à un équipement externe. Veuillez vérifier l'assignation Hw.</value>
+    <value>La ressource radio "Audio M+N" doit être assignée à un équipement externe. Veuillez vérifier l'assignation Hw.</value>
   </data>
   <data name="ErrorIdentificadorEltoFisicoExiste" xml:space="preserve">
     <value>L'Identificateur "{0}" existe déjà. Veuillez indiquer un identifiant unique pour les éléments physiques.</value>
@@ -604,7 +604,7 @@
     <value>Dans le système, un seul central téléphonique interne peut être configuré</value>
   </data>
   <data name="DestinoLCENAsignadoEnPanelLC" xml:space="preserve">
-    <value>El destino de línea caliente externa {0} se encuentra asignado al destino ATS {1} en el panel de línea caliente del sector {2}. Por favor, libere el destino antes de eliminarlo.</value>
+   <value>El destino de línea caliente externa {0} se encuentra asignado al destino ATS {1} en el panel de línea caliente del sector {2}. Por favor, libere el destino antes de eliminarlo.</value>
   </data>
   <data name="DestinoRadioSinRecursosMN" xml:space="preserve">
     <value>La radio de destination {0} ne peut pas recevoir de ressources de type M + N, car l'identificateur n'a pas un format OACI correct pour le type de fréquence {1} .</value>
@@ -708,26 +708,4 @@
   <data name="RecursoDestinoLCENAsignadoEnPanelLC" xml:space="preserve">
     <value>No se puede eliminar el recurso {3}. El destino de línea caliente externa {0} está configurado en el destino ATS '{1}' del panel de línea caliente del sector {2}.\nPor favor, libere el destino del sector antes de eliminar el recurso.</value>
   </data>
-  <data name="LB_VERSION" xml:space="preserve">
-    <value>© Núcleo 2020. v2.6.0. All rights reserved.</value>
-  </data>
-  <data name="ErrorAsignacionFrecuenciaHFConRedundancia" xml:space="preserve">
-    <value>En el Modo destino "Normal" y tipo frecuencia HF no está disponible la opción 1+1</value>
-  </data>
-  <data name="ErrorConfiguracionDestinoConRedundancia" xml:space="preserve">
-    <value>Si el destino se configura como 1+1, se debe configurar con redundancia al menos una pareja de recursos del mismo tipo que estén dentro del mismo emplazamiento.</value>
-  </data>
-  <data name="ErrorConfiguracionDestinoConRedundanciaEmplazamiento" xml:space="preserve">
-    <value>Si el destino se configura como 1+1, dentro de un mismo emplazamiento sólo se pueden configurar con redundancia parejas de recursos Rx, Tx o RxTx</value>
-  </data>
-  <data name="ErrorAsignacionRecursosDestinoNormalConRedundancia" xml:space="preserve">
-    <value>En el Modo destino "Normal" 1+1, se deben asignar 1 circuito de recepción, y  0 ó 1 circuito de transmisión, bien en un recurso RxTx o en un recurso Rx y un recurso Tx con redundancia.</value>
-  </data>
-  <data name="MaximosRecursosDestinoFDRedundancia" xml:space="preserve">
-    <value>En el Modo destino "FD" 1+1, debe tener como máximo 5 circuitos de transmisión y 5 circuitos de recepción asignados, bien en recursos RxTx o recursos Tx y recursos Rx o combinación de ambos. Al menos, un recurso debe configurarse con redundancia.</value>
-  </data>
-  <data name="MinimoRecursosDestinoFDRedundancia" xml:space="preserve">
-    <value>En el Modo destino "FD", como mínimo se deben tener asignados 3 circuitos y al menos un circuito deber ser de transmisión y otro de recepción. Al menos, un recurso debe configurarse con redundancia.</value>
-  </data>
-
 </root>

@@ -76,7 +76,7 @@ public partial class InformeEltosLogRadio : System.Web.UI.Page
         if (!IsPostBack)
         {
             StringBuilder strConsulta = new StringBuilder();
-            strIdSistema = string.Empty;
+            string strIdSistema = string.Empty;
 
             strVersion=strNucleo=string.Empty;
             dtst = null;
@@ -129,7 +129,7 @@ public partial class InformeEltosLogRadio : System.Web.UI.Page
             //Subinforme Frecuencias Radio
             //Consulta de obtención de destinos radio
             strConsulta.Append("SELECT DR.IdSistema, DR.TipoDestino,DR.IdDestino,DR.CnfModoDestino,DR.CnfTipoFrecuencia,DR.PrioridadSesionSip,DR.MetodoCalculoClimax,");
-            strConsulta.Append("DR.CldSupervisionTime,DR.VentanaSeleccionBss,DR.ModoTransmision,MB.name as NameBss, DR.EmplazamientoDefecto, DR.TiempoVueltaADefecto, DR.ConRedundancia ");
+            strConsulta.Append("DR.CldSupervisionTime,DR.VentanaSeleccionBss,DR.ModoTransmision,MB.name as NameBss, DR.EmplazamientoDefecto, DR.TiempoVueltaADefecto ");
             strConsulta.Append("FROM DestinosRadio DR LEFT JOIN metodos_bss mb ON mb.idmetodos_bss = DR.MetodosBssOfrecidos ");
             strConsulta.AppendFormat("WHERE DR.IdSistema='{0}' ORDER BY DR.CnfTipoFrecuencia,DR.IdDestino",strIdSistema);
 
@@ -145,7 +145,7 @@ public partial class InformeEltosLogRadio : System.Web.UI.Page
             strConsulta.Append("hfp.IpGestor as hfp_IpGestor, hfp.Oid as hfp_oid, hfp.Frecuencia as hfp_frecuencia, hfp.TipoEquipo as hfp_TipoEquipo, hfp.TipoCanal as hfp_TipoCanal,");
             strConsulta.Append("hfp.TipoFrecuencia as hfp_tipoFrecuencia, hfp.TipoModo as hfp_tipomodo,hfp.PrioridadEquipo as hfp_prioridadEquipo, hfp.Puerto as hfp_puerto, ");
             strConsulta.Append("hfp.Offset as hfp_offset, hfp.Canalizacion as hfp_canalizacion, hfp.Modulacion as hfp_modulacion, hfp.Potencia as hfp_potencia, ");
-            strConsulta.Append("hfp.FormatoFrecuenciaPrincipal as hfp_FormatoFrecuenciaPrincipal, hfp.ModeloEquipo as hfp_ModeloEquipo, r.RedundanciaRol, r.RedundanciaIdPareja ");
+            strConsulta.Append("hfp.FormatoFrecuenciaPrincipal as hfp_FormatoFrecuenciaPrincipal, hfp.ModeloEquipo as hfp_ModeloEquipo ");
             strConsulta.Append("FROM  recursosradio r LEFT OUTER JOIN zonas z ON z.idZonas = r.zonas_idZonas ");
             strConsulta.Append("LEFT OUTER JOIN tabla_bss tb ON tb.idtabla_bss = r.tabla_bss_idtabla_bss ");
             strConsulta.Append("LEFT OUTER JOIN radio_param rp ON rp.idradio_param = r.radio_param_idradio_param ");
@@ -155,7 +155,7 @@ public partial class InformeEltosLogRadio : System.Web.UI.Page
             strConsulta.Append("INNER JOIN recursos rec ON rec.IdSistema = r.IdSistema AND rec.IdRecurso = r.IdRecurso AND rec.TipoRecurso = r.TipoRecurso ");
             strConsulta.Append("LEFT OUTER JOIN hfparams hfp ON hfp.IdSistema = r.IdSistema and hfp.IdRecurso= r.IdRecurso ");
             strConsulta.AppendFormat("WHERE r.IdSistema='{0}' AND r.IdDestino is not null ", strIdSistema);
-            strConsulta.Append("ORDER BY r.IdDestino, r.RedundanciaIdPareja,r.RedundanciaRol, r.IdRecurso ");
+            strConsulta.Append("ORDER BY r.IdDestino, r.IdRecurso ");
 
             dtsRecRadio = Servicio.ObtenerDataSet(strConsulta.ToString());
 
@@ -464,9 +464,8 @@ public partial class InformeEltosLogRadio : System.Web.UI.Page
         { //ThreadException can happen for internale Response implementation
 
         }
-        catch (Exception objEx)
+        catch (Exception)
         {
-            logDebugView.Error(string.Format("VisualizaInformePdf: informe {0} -> Error al generar informe en PDF. Error:{1}", sFicheroReport, objEx.ToString()));
         }
     }
 

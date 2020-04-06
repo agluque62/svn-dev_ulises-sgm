@@ -13,7 +13,7 @@
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        DR.IdDestino, DR.CnfModoDestino, DR.CnfTipoFrecuencia, DR.PrioridadSesionSip, DR.MetodoCalculoClimax, DR.CldSupervisionTime, DR.VentanaSeleccionBss, 
-                         DR.ModoTransmision, mb.name AS NameBss, DR.IdSistema, DR.TipoDestino, DR.EmplazamientoDefecto, DR.TiempoVueltaADefecto,DR.ConRedundancia
+                         DR.ModoTransmision, mb.name AS NameBss, DR.IdSistema, DR.TipoDestino, DR.EmplazamientoDefecto, DR.TiempoVueltaADefecto
 FROM            destinosradio DR LEFT OUTER JOIN
                          metodos_bss mb ON mb.idmetodos_bss = DR.MetodosBssOfrecidos
 ORDER BY DR.CnfTipoFrecuencia, DR.IdDestino</CommandText>
@@ -36,13 +36,12 @@ ORDER BY DR.CnfTipoFrecuencia, DR.IdDestino</CommandText>
               <Mapping SourceColumn="TipoDestino" DataSetColumn="TipoDestino" />
               <Mapping SourceColumn="EmplazamientoDefecto" DataSetColumn="EmplazamientoDefecto" />
               <Mapping SourceColumn="TiempoVueltaADefecto" DataSetColumn="TiempoVueltaADefecto" />
-              <Mapping SourceColumn="ConRedundancia" DataSetColumn="ConRedundancia" />
             </Mappings>
             <Sources />
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RecursosRadioTableAdapter" GeneratorDataComponentClassName="RecursosRadioTableAdapter" Name="RecursosRadio" UserDataComponentName="RecursosRadioTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="new_cd40_transConnectionString (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="false" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData">
+              <DbSource ConnectionRef="new_cd40_transConnectionString (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        r.IdRecurso, r.TipoRecurso, r.IdEmplazamiento, rp.idradio_param, rp.GrsDelay, rp.OffSetFrequency, rp.EnableEventPttSq, rp.metodos_bss_idmetodos_bss, 
@@ -52,7 +51,7 @@ ORDER BY DR.CnfTipoFrecuencia, DR.IdDestino</CommandText>
                          hfp.IpGestor AS hfp_IpGestor, hfp.Oid AS hfp_oid, hfp.Frecuencia AS hfp_frecuencia, hfp.TipoEquipo AS hfp_TipoEquipo, hfp.TipoCanal AS hfp_TipoCanal, 
                          hfp.TipoFrecuencia AS hfp_tipoFrecuencia, hfp.TipoModo AS hfp_tipomodo, hfp.PrioridadEquipo AS hfp_prioridadEquipo, hfp.Puerto AS hfp_puerto, 
                          hfp.Offset AS hfp_offset, hfp.Canalizacion AS hfp_canalizacion, hfp.Modulacion AS hfp_modulacion, hfp.Potencia AS hfp_potencia, 
-                         hfp.FormatoFrecuenciaPrincipal AS hfp_FormatoFrecuenciaPrincipal, hfp.ModeloEquipo AS hfp_ModeloEquipo, r.RedundanciaRol AS RedundanciaRol, r.RedundanciaIdPareja
+                         hfp.FormatoFrecuenciaPrincipal AS hfp_FormatoFrecuenciaPrincipal, hfp.ModeloEquipo AS hfp_ModeloEquipo
 FROM            recursosradio r LEFT OUTER JOIN
                          zonas z ON z.idZonas = r.zonas_idZonas LEFT OUTER JOIN
                          tabla_bss tb ON tb.idtabla_bss = r.tabla_bss_idtabla_bss LEFT OUTER JOIN
@@ -118,8 +117,6 @@ ORDER BY r.IdDestino, r.IdRecurso</CommandText>
               <Mapping SourceColumn="hfp_potencia" DataSetColumn="hfp_potencia" />
               <Mapping SourceColumn="hfp_FormatoFrecuenciaPrincipal" DataSetColumn="hfp_FormatoFrecuenciaPrincipal" />
               <Mapping SourceColumn="hfp_ModeloEquipo" DataSetColumn="hfp_ModeloEquipo" />
-              <Mapping SourceColumn="RedundanciaRol" DataSetColumn="RedundanciaRol" />
-              <Mapping SourceColumn="RedundanciaIdPareja" DataSetColumn="RedundanciaIdPareja" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -260,13 +257,6 @@ FROM            tabla_bss</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="TiempoVueltaADefecto" type="xs:int" minOccurs="0" />
-              <xs:element name="ConRedundancia" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="1" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -407,20 +397,6 @@ FROM            tabla_bss</CommandText>
               <xs:element name="hfp_potencia" msprop:Generator_ColumnVarNameInTable="columnhfp_potencia" msprop:Generator_ColumnPropNameInRow="hfp_potencia" msprop:Generator_ColumnPropNameInTable="hfp_potenciaColumn" msprop:Generator_UserColumnName="hfp_potencia" type="xs:int" minOccurs="0" />
               <xs:element name="hfp_FormatoFrecuenciaPrincipal" msprop:Generator_ColumnVarNameInTable="columnhfp_FormatoFrecuenciaPrincipal" msprop:Generator_ColumnPropNameInRow="hfp_FormatoFrecuenciaPrincipal" msprop:Generator_ColumnPropNameInTable="hfp_FormatoFrecuenciaPrincipalColumn" msprop:Generator_UserColumnName="hfp_FormatoFrecuenciaPrincipal" type="xs:int" minOccurs="0" />
               <xs:element name="hfp_ModeloEquipo" msprop:Generator_ColumnVarNameInTable="columnhfp_ModeloEquipo" msprop:Generator_ColumnPropNameInRow="hfp_ModeloEquipo" msprop:Generator_ColumnPropNameInTable="hfp_ModeloEquipoColumn" msprop:Generator_UserColumnName="hfp_ModeloEquipo" type="xs:int" minOccurs="0" />
-              <xs:element name="RedundanciaRol" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="1" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="RedundanciaIdPareja" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="70" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
