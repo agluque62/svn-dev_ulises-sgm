@@ -499,4 +499,46 @@
   <data name="ListItemEmplDefNinguno.Text" xml:space="preserve">
     <value>Nothing</value>
   </data>
+  <data name="CheckedRedundanciaResource1.Text" xml:space="preserve">
+    <value>1+1</value>
+  </data>
+  <data name="ListTipoRec_Audio_RX.Text" xml:space="preserve">
+    <value>RX Audio</value>
+  </data>
+  <data name="ListTipoRec_Audio_RX.Value" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ListTipoRec_Audio_TX.Text" xml:space="preserve">
+    <value>TX Audio</value>
+  </data>
+  <data name="ListTipoRec_Audio_TX.Value" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ListTipoRec_Audio_RXTX.Text" xml:space="preserve">
+    <value>RX TX Audio</value>
+  </data>
+  <data name="ListTipoRec_Audio_RXTX.Value" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ListTipoRec_Audio_HF.Text" xml:space="preserve">
+    <value>HF-TX Audio</value>
+  </data>
+  <data name="ListTipoRec_Audio_HF.Value" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ListTipoRec_Audio_NM.Text" xml:space="preserve">
+    <value>M+N Audio</value>
+  </data>
+  <data name="ListTipoRec_Audio_NM.Value" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="ListTipoRec_Audio_EE_RX.Text" xml:space="preserve">
+    <value>EE RX Audio </value>
+  </data>
+  <data name="ListTipoRec_Audio_EE_TX.Text" xml:space="preserve">
+    <value>EE TX Audio </value>
+  </data>
+  <data name="ListTipoRec_Audio_EE_RXTX.Text" xml:space="preserve">
+    <value>EE RX TX Audio </value>
+  </data>
 </root>

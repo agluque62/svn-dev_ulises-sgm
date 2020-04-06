@@ -16,8 +16,8 @@
          SkinID="MascaraListaElementos"  Style="z-index: 100; left: 21px; width:172px; height:460px; position: absolute; top: 58px" meta:resourcekey="ListBox1Resource1">
     </asp:ListBox>
 
-        <asp:Panel ID="Panel1" runat="server" BorderStyle="Inset" Height="455px" Style="z-index: 105; left: 210px; position: absolute; top: 60px"
-            Width="730px" Enabled="False"
+        <asp:Panel ID="Panel1" runat="server" BorderStyle="Inset" Height="455px" Style="z-index: 105; left: 200px; position: absolute; top: 60px"
+            Width="800px" Enabled="False"
             meta:resourcekey="Panel1Resource1">
 
             <asp:Label ID="Label5" runat="server" meta:resourcekey="Label5Resource1" Style="z-index: 116; left: 15px; position: absolute; top: 22px; right: 631px;width:165px;" Text="Id. Destino:" Visible="True"></asp:Label>
@@ -38,60 +38,56 @@
                 Visible="False" meta:resourcekey="CheckExclusividadResource1" />--%>
 
             <asp:Label ID="Label6" runat="server" Style="z-index: 111; left: 10px; position: absolute; top: 190px"
-                Text="Emplazamientos" meta:resourcekey="Label6Resource1"></asp:Label>             
-            <asp:ListBox ID="ListEmplazamientos" runat="server" meta:resourcekey="ListRecursosResource1"                
-                Enabled="False" Style="overflow-x:auto; z-index: 120; left: 11px; position: absolute; top: 210px; width: 120px; height: 195px;" class="listbox" EnableViewState="True" SelectionMode="Multiple" Rows="10">
+                Text="Emplazamientos" Visible="false" meta:resourcekey="Label6Resource1"></asp:Label>
+            
+            <asp:ListBox ID="ListEmplazamientos" runat="server" meta:resourcekey="ListRecursosResource1"
+                Enabled="False" Style="overflow-x:auto; z-index: 120; left: 11px; position: absolute; top: 210px; width: 120px; height: 195px;" class="listbox" EnableViewState="true" SelectionMode="Multiple" Rows="10">
             </asp:ListBox>
 
             <asp:Label ID="Label8" runat="server" Style="z-index: 110; left: 140px; position: absolute; top: 190px;  height: 17px;"
-                Text="Tipo:" meta:resourcekey="Label8Resource1"></asp:Label>
+                Text="Tipo:" Visible="false" meta:resourcekey="Label8Resource1"></asp:Label>
             <asp:ListBox ID="ListTipos" runat="server" Enabled="false"
                 meta:resourcekey="LisTipoResource1" Style="overflow-x:auto; z-index: 120; left: 140px; position: absolute; top: 210px;width: 120px; height: 195px;" SelectionMode="Multiple"></asp:ListBox>
 
-            <asp:Label ID="Label3" runat="server" Style="z-index: 110; left: 270px; position: absolute; top: 190px;height: 17px;"
+            <asp:Label ID="Label3" runat="server" Style="z-index: 110; left: 11px; position: absolute; top: 190px;height: 17px;"
                 Text="Rec. Asignados"
                 meta:resourcekey="Label3Resource1"></asp:Label>
+
             <asp:ListBox ID="ListRecursos" runat="server"
-                meta:resourcekey="ListRecursosResource1"  Style="overflow-x:auto; z-index: 120; left: 271px; position: absolute; top: 210px; width: 120px; height: 195px;" Visible="true" SelectionMode="Multiple"></asp:ListBox>
-
-
-
-
-           <asp:Label ID="Label4" runat="server" Style="z-index: 111; left: 460px; position: absolute; top: 195px"
-                Text="Recursos Libres: " Visible="False"
+                meta:resourcekey="ListRecursosResource1"  Style="overflow-x:auto; z-index: 120; left: 11px; position: absolute; top: 210px; width: 400px; height: 195px;font-family: Courier New;font-size:13px;" Visible="true" SelectionMode="Multiple"></asp:ListBox>
+           <asp:Label ID="Label4" runat="server" Style="z-index: 111; left: 480px; position: absolute; top: 190px"
+                Text="Recursos Libres " Visible="False"
                 meta:resourcekey="Label4Resource1"></asp:Label>
-            <asp:ListBox ID="ListRecursosLibres" runat="server" Style="overflow-x:auto; z-index: 121; left: 460px; position: absolute; top: 215px; width: 135px; height: 190px;"
-                Visible="False" SelectionMode="Multiple" meta:resourcekey="ListRecursosLibresResource1"></asp:ListBox>
+            <asp:ListBox ID="ListRecursosLibres" runat="server" Style="overflow-x:auto; z-index: 121; left: 480px; position: absolute; top: 210px; width: 305px; height: 190px; font-family: Courier New;font-size:13px;"
+                Visible="False" SelectionMode="Multiple"  meta:resourcekey="ListRecursosLibresResource1"></asp:ListBox>
 
-          
-           
             <asp:Label ID="LblFiltroEmplazamiento" runat="server" Style="z-index: 111; left: 275px; position: absolute; top: 420px"
                 Text="Filtrar por emplazamiento" Visible="False"
                 meta:resourcekey="FiltrarPorEmplazamientoResource"></asp:Label>
 
-            <asp:DropDownList ID="DListEmplazamiento" runat="server" Enabled="False" Style="z-index: 107; left: 475px; position: absolute; top: 420px; height: 20px; width: 120px;"  class="select" OnSelectedIndexChanged="DListEmplazamiento_SelectedIndexChanged" AutoPostBack="true"
+            <asp:DropDownList ID="DListEmplazamiento" runat="server" Enabled="False" Style="z-index: 107; left: 510px; position: absolute; top: 420px; height: 20px; width: 120px; "  class="select" OnSelectedIndexChanged="DListEmplazamiento_SelectedIndexChanged" AutoPostBack="true"
                         AppendDataBoundItems="True" meta:resourcekey="DListEmplazamientoResource1" Visible="False">
                         <asp:ListItem Value="0" meta:resourcekey="ListEmplazamientoResource" Text="Todos">&lt;Selecciona&gt;</asp:ListItem>
             </asp:DropDownList>
 
-            <asp:DropDownList ID="DropDownFiltro" runat="server" Style="z-index: 107; left: 601px; position: absolute; top:420px; height: 20px; width: 120px;"  class="select" OnSelectedIndexChanged="DFiltro_SelectedIndexChanged" AutoPostBack="true"
+            <asp:DropDownList ID="DropDownFiltro" runat="server" Style="z-index: 107; left: 650px; position: absolute; top:420px; height: 20px; width: 120px;"  class="select" OnSelectedIndexChanged="DFiltro_SelectedIndexChanged" AutoPostBack="true"
                         AppendDataBoundItems="True" Visible="False">
                 <asp:ListItem Value="0" meta:resourcekey="DropDownFiltroItemResource1">Tipo</asp:ListItem>
                 <asp:ListItem Value="1" meta:resourcekey="DropDownFiltroItemResource2">Emplazamiento</asp:ListItem>
             </asp:DropDownList>
             
-             <asp:ListBox ID="ListTiposLibres" runat="server" Style="z-index: 121; left: 600px; position: absolute; top: 215px; width: 120px; height: 190px;"
-                Visible="False" SelectionMode="Multiple" meta:resourcekey="ListTiposLibresResource1"></asp:ListBox>
+             <asp:ListBox ID="ListTiposLibres" runat="server" Style="z-index: 121; left: 650px; position: absolute; top: 210px; width: 120px; height: 190px; font-family: Courier New;font-size:13px;"
+                Visible="False" SelectionMode="Multiple"  meta:resourcekey="ListTiposLibresResource1"></asp:ListBox>
 
-            <asp:ListBox ID="ListEmplazamientosLibres" runat="server" Style="overflow-x:auto; z-index: 121; left: 600px; position: absolute; top: 215px; width: 120px; height: 190px;"
+            <asp:ListBox ID="ListEmplazamientosLibres" runat="server" Style="overflow-x:auto; z-index: 121; left: 650px; position: absolute; top: 210px; width: 120px; height: 190px; font-family: Courier New;font-size:13px;"
                 Visible="False" SelectionMode="Multiple" meta:resourcekey="ListTiposLibresResource1"></asp:ListBox>
   
-            <asp:ImageButton ID="IButAsignar" runat="server" OnClick="IButAsignar_Click" Style="z-index: 102; left: 407px; position: absolute; top: 260px; -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -o-transform: rotate(90deg); transform: rotate(90deg);"
+            <asp:ImageButton ID="IButAsignar" runat="server" OnClick="IButAsignar_Click" Style="z-index: 102; left: 427px; position: absolute; top: 260px; -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -o-transform: rotate(90deg); transform: rotate(90deg);"
                 CausesValidation="False"
                 ImageUrl="~/Configuracion/Images/arrow.png" Visible="True"
                 meta:resourcekey="IButAsignarResource1" />
                     &nbsp;
-            <asp:ImageButton ID="IButQuitar" runat="server" Style="z-index: 103; left: 407px; position: absolute; top: 320px;-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -o-transform: rotate(-90deg); transform: rotate(-90deg); "
+            <asp:ImageButton ID="IButQuitar" runat="server" Style="z-index: 103; left: 427px; position: absolute; top: 320px;-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -o-transform: rotate(-90deg); transform: rotate(-90deg); "
                 CausesValidation="False"
                 ImageUrl="~/Configuracion/Images/arrow.png" OnClick="IButQuitar_Click"
                 Visible="True" meta:resourcekey="IButQuitarResource1" />
@@ -184,9 +180,14 @@
                         <asp:ListItem Value="0" meta:resourcekey="DListPrioridadSIPItemRes2">Emergencia</asp:ListItem>                        
              </asp:DropDownList>
 
-             <asp:Label ID="Label9" runat="server" Style="z-index: 102; left: 563px; position: absolute; top: 22px; height: 18px; width: 155px;"
+            <asp:Label ID="LbRedundancia" runat="server" Style="z-index: 102; left: 543px; position: absolute; top: 22px; height: 18px; width: 155px;"
+             Text="1+1" meta:resourcekey="CheckedRedundanciaResource1"></asp:Label>
+             <asp:CheckBox ID="CheckBoxRedundancia" runat="server" Style="z-index: 103; left: 543px; position: absolute; top: 42px; width: 20px;"
+                    Visible="True"/>
+
+             <asp:Label ID="Label9" runat="server" Style="z-index: 102; left: 598px; position: absolute; top: 22px; height: 18px; width: 155px;"
              Text="Método Climax:" meta:resourcekey="Label10Resource"></asp:Label>
-             <asp:DropDownList ID="DListMetodoClimax" runat="server" Style="z-index: 103; left: 563px; position: absolute; top: 42px; height: 22px; width: 88px;" OnSelectedIndexChanged="DListMetodoClimax_SelectedIndexChanged"
+             <asp:DropDownList ID="DListMetodoClimax" runat="server" Style="z-index: 103; left: 600px; position: absolute; top: 42px; height: 22px; width: 88px;" OnSelectedIndexChanged="DListMetodoClimax_SelectedIndexChanged"
                         meta:resourcekey="DListMetodoClimaxResource1" class="select" ToolTip="Relativo, Absoluto">
                         <asp:ListItem Value="0"  meta:resourcekey="DListMetodoClimaxItemRes1">Relativo</asp:ListItem>
                         <asp:ListItem Value="1"  meta:resourcekey="DListMetodoClimaxItemRes2">Absoluto</asp:ListItem>                        
@@ -229,9 +230,9 @@
 					    MinimumValue="50" Style="z-index: 117; left: 490px; position: absolute; top: 95px"
 					    Type="Double" meta:resourcekey="RVTxtVentanaBSS">*</asp:RangeValidator>
 
-             <asp:Label ID="Label12" runat="server" Style="z-index: 102; left: 563px; position: absolute; top: 75px; width: 180px;"
+             <asp:Label ID="Label12" runat="server" Style="z-index: 102; left: 543px; position: absolute; top: 75px; width: 180px;"
                 Text="Métodos BSS:" meta:resourcekey="Label12Resource"></asp:Label>
-             <asp:DropDownList ID="DDLMetodosBssOfrecidos" runat="server" Style="z-index: 103; left: 563px; position: absolute; top: 95px; width: 145px;" 
+             <asp:DropDownList ID="DDLMetodosBssOfrecidos" runat="server" Style="z-index: 103; left: 543px; position: absolute; top: 95px; width: 145px;" 
                         class="select" meta:resourcekey="DDLMetodosBsssResource1">
                         <asp:ListItem Value="0"  meta:resourcekey="DDLMetodosBssItemRes1">Ninguno</asp:ListItem>
                         <asp:ListItem Value="1"  meta:resourcekey="DDLMetodosBssItemRes2">RSSI</asp:ListItem>
@@ -240,18 +241,15 @@
 
 
             <asp:DropDownList ID="DListTipoRec" runat="server" AutoPostBack="True" class="select" Enabled="False" meta:resourcekey="DListTipoResource1" Style="z-index: 103; left: 232px; position: absolute; top: 386px; height: 19px; width: 99px;" Visible="False">
-                <asp:ListItem Value="0">Audio RX</asp:ListItem>
-                <asp:ListItem Value="1">Audio TX</asp:ListItem>
-                <asp:ListItem Value="2">Audio RX TX</asp:ListItem>
-                <asp:ListItem Value="3">Audio HF-TX</asp:ListItem>
-                <asp:ListItem Value="4">Audio M+N</asp:ListItem>
-                <asp:ListItem Value="7">Datos RX</asp:ListItem>
-                <asp:ListItem Value="8">Datos TX</asp:ListItem>
-                <asp:ListItem Value="9">Datos RX TX</asp:ListItem>
+                <asp:ListItem Value="0" meta:resourcekey="ListTipoRec_Audio_RX">Audio RX</asp:ListItem>
+                <asp:ListItem Value="1" meta:resourcekey="ListTipoRec_Audio_TX">Audio TX</asp:ListItem>
+                <asp:ListItem Value="2" meta:resourcekey="ListTipoRec_Audio_RXTX">Audio RX TX</asp:ListItem>
+                <asp:ListItem Value="3" meta:resourcekey="ListTipoRec_Audio_HF">Audio HF-TX</asp:ListItem>
+                <asp:ListItem Value="4" meta:resourcekey="ListTipoRec_Audio_MN">Audio M+N</asp:ListItem>
+                <asp:ListItem Value="7" meta:resourcekey="ListTipoRec_Audio_EE_RX">Audio EE RX</asp:ListItem>
+                <asp:ListItem Value="8" meta:resourcekey="ListTipoRec_Audio_EE_TX">Audio EE TX</asp:ListItem>
+                <asp:ListItem Value="9" meta:resourcekey="ListTipoRec_Audio_EE_RXTX">Audio EE RX TX</asp:ListItem>
             </asp:DropDownList>
-           
-            
-           
         </asp:Panel>
 
     <asp:Button ID="BtAceptar" runat="server" Style="z-index: 113; left: 366px; position: absolute; top: 533px"

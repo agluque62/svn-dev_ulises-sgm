@@ -106,7 +106,8 @@ public class InterfazSOAPConfiguracion : System.Web.Services.WebService
         Audio_NM,
         Datos_RX,
         Datos_TX,
-        Datos_RX_TX
+        Datos_RX_TX,
+        Audio_EE
     };
 
     private GestorBaseDatos GestorBDCD40;
@@ -541,7 +542,7 @@ public class InterfazSOAPConfiguracion : System.Web.Services.WebService
         return listaRecursos;
     }
 
-	private string GetEstadoDelRecurso(string idSectorizacion, Recursos r, Radio rRadio)
+	private string GetEstadoDelRecurso(string idSectorizacion, string idRecurso, Radio rRadio)
 	{
 		EstadoRecursos eRecurso = new EstadoRecursos();
 		eRecurso.IdSistema = rRadio.IdSistema;
@@ -549,7 +550,7 @@ public class InterfazSOAPConfiguracion : System.Web.Services.WebService
 		eRecurso.IdNucleo = rRadio.IdNucleo;
 		eRecurso.IdSectorizacion = idSectorizacion;
 		eRecurso.IdDestino = rRadio.IdDestino;
-		eRecurso.IdRecurso = r.IdRecurso;
+		eRecurso.IdRecurso = idRecurso;
 
 		List<Tablas> estado = GestorBDCD40.ListSelectSQL(eRecurso, null);
 		if (estado.Count > 0)
@@ -819,13 +820,33 @@ public class InterfazSOAPConfiguracion : System.Web.Services.WebService
                             {
                                 CfgRecursoEnlaceExterno cfgRecurso = new CfgRecursoEnlaceExterno();
                                 cfgRecurso.IdRecurso = ((RecursosRadio)listaRecursosEnlace[j]).IdRecurso;
-                                Recursos r = new Recursos();
-                                r.IdSistema = id_sistema;
-                                r.IdRecurso = cfgRecurso.IdRecurso;
-                                List<Tablas> tRecurso = GestorBDCD40.ListSelectSQL(r, null);
-                                if (tRecurso.Count > 0) 
-                                    // Recurso M+N RX, M+N Tx o M+N RTx
-                                    cfgRecurso.Tipo = (((Recursos)tRecurso[0]).Tipo > 3 && ((Recursos)tRecurso[0]).Tipo < 7 ) ? ((Recursos)tRecurso[0]).Tipo % 4 : ((Recursos)tRecurso[0]).Tipo;
+
+                                uint tipoRec = ((RecursosRadio)listaRecursosEnlace[j]).Tipo;
+
+                                if (tipoRec != 7)
+                                {
+                                    // Si el recurso no es de tipo Audio EE
+                                    // Recurso M+N RX (4), M+N Tx (5) o M+N RTx (6)
+                                    cfgRecurso.Tipo = (tipoRec > 3 && tipoRec < 7) ? tipoRec % 4 : tipoRec;
+                                }
+                                else
+                                {
+                                    //Recurso Audio EE, se obtiene el tipo del tipo de equipo
+                                    HFParams recHfParamAudioEE = new HFParams();
+                                    recHfParamAudioEE.IdSistema = id_sistema;
+                                    recHfParamAudioEE.IdRecurso = cfgRecurso.IdRecurso;
+                                    List<Tablas> h = GestorBDCD40.ListSelectSQL(recHfParamAudioEE, null);
+
+                                    if (h.Count > 0)
+                                    {
+                                        HFParams recHfParam = (HFParams)h[0];
+                                        //Si es audio EE, se obtiene el tipo Receptor, transmisor o transceptor
+                                        //para obtener el tipo del recurso que en este caso coincide con el tipo 
+                                        // del equipo 0 (Rx = Receptor), 1(Tx = Transmisor), 2 (RX-TX = Transceptor)
+                                        cfgRecurso.Tipo = (uint)recHfParam.TipoEquipo;
+                                    }
+                                }
+
                                 cfgRecurso.ModoConfPTT = ((RecursosRadio)listaRecursosEnlace[j]).ModoConfPTT;
                                 cfgRecurso.NumFlujosAudio = ((RecursosRadio)listaRecursosEnlace[j]).NumFlujosAudio;
                                 cfgRecurso.IdEmplazamiento = ((RecursosRadio)listaRecursosEnlace[j]).IdEmplazamiento;
@@ -841,7 +862,7 @@ public class InterfazSOAPConfiguracion : System.Web.Services.WebService
                                 cfgRecurso.EnableEventPttSq = ((RecursosRadio)listaRecursosEnlace[j]).EnableEventPttSq;
                                 cfgRecurso.RedundanciaRol = ((RecursosRadio)listaRecursosEnlace[j]).RedundanciaRol;
                                 cfgRecurso.RedundanciaIdPareja = ((RecursosRadio)listaRecursosEnlace[j]).RedundanciaIdPareja;
-                                cfgRecurso.Estado = GetEstadoDelRecurso(((Sectorizaciones)sectorizacion[0]).IdSectorizacion, r, (Radio)listaEnlacesExternos[i]);// "S"; 
+                                cfgRecurso.Estado = GetEstadoDelRecurso(((Sectorizaciones)sectorizacion[0]).IdSectorizacion, cfgRecurso.IdRecurso, (Radio)listaEnlacesExternos[i]);// "S"; 
 
                                 // Obtener los valores de la tabla de calificación de audio
                                 cfgRecurso.ValuesTablaBss = GetValueTablaBss(cfgRecurso.NameTablaBss);
@@ -1772,69 +1793,88 @@ public class InterfazSOAPConfiguracion : System.Web.Services.WebService
         }
     }
 
-    [WebMethod(Description = "Configuración relativa a los equipos N+M")]
-    public Node[] GetPoolNMElements(string id_sistema)
+    [WebMethod(Description = "Configuración relativa a los equipos N+M (tipo=0) o Audio EE (tipo=1).")]
+    public Node[] GetPoolNMElements(string id_sistema,string tipo)
     {
         lock (Sync)
         {
             int i = 0;
-            HFParams hfFrequencies = new HFParams((int)TipoRecursoRadio.Audio_NM);
-            hfFrequencies.IdSistema = id_sistema;
+            TipoRecursoRadio eTipoRecRadio = TipoRecursoRadio.Audio_NM;
 
-            List<Tablas> listaFrecuenciasHf = GestorBDCD40.ListSelectSQL(hfFrequencies, null);
-
-            if (listaFrecuenciasHf.Count > 0)
+            if ((string.Compare(tipo, "0") == 0) || (string.Compare(tipo,"1")==0))
             {
-                Node[] poolNM = new Node[listaFrecuenciasHf.Count];
+                if (string.Compare(tipo,"0")==0)
+                    eTipoRecRadio = TipoRecursoRadio.Audio_NM;
+                else if (string.Compare(tipo,"1")==0)
+                    eTipoRecRadio = TipoRecursoRadio.Audio_EE;
 
-                foreach (HFParams hfParam in listaFrecuenciasHf)
+                HFParams hfFrequencies = new HFParams((int)eTipoRecRadio);
+                hfFrequencies.IdSistema = id_sistema;
+
+                List<Tablas> listaFrecuenciasHf = GestorBDCD40.ListSelectSQL(hfFrequencies, null);
+
+                if (listaFrecuenciasHf.Count > 0)
                 {
-                    poolNM[i] = new Node();
+                    Node[] poolNM = new Node[listaFrecuenciasHf.Count];
 
-                    poolNM[i].Id = hfParam.IdRecurso;
-                    poolNM[i].SipUri = hfParam.SipUri;
-                    poolNM[i].Oid = hfParam.Oid;
-                    poolNM[i].IpGestor = hfParam.IpGestor;
-                    poolNM[i].EsReceptor = hfParam.TipoEquipo == 0 || hfParam.TipoEquipo == 2;
-                    poolNM[i].EsTransmisor = hfParam.TipoEquipo == 1 || hfParam.TipoEquipo == 2;
-                    poolNM[i].TipoDeFrecuencia = (Tipo_Frecuencia)(hfParam.TipoFrecuencia + 1); // El enum Tipo_Frecuencia contempla el tipo Basica=0 que no tiene caso para la configuración N+M
-                    poolNM[i].TipoDeCanal = (Tipo_Canal)hfParam.TipoCanal;
-                    poolNM[i].FormaDeTrabajo = (Tipo_Formato_Trabajo)hfParam.TipoModo;
-                    poolNM[i].Prioridad = hfParam.PrioridadEquipo;
-                    poolNM[i].FrecuenciaPrincipal = hfParam.Frecuencia;
-                    poolNM[i].Puerto = hfParam.Puerto;
-                    poolNM[i].Offset = (GearCarrierOffStatus)hfParam.Offset;
-	                poolNM[i].Canalizacion = (GearChannelSpacings)hfParam.Canalizacion;
-	                poolNM[i].Modulacion = (GearModulations)hfParam.Modulacion;
-                    poolNM[i].NivelDePotencia = (GearPowerLevels)hfParam.Potencia;
-                    poolNM[i].FormatoFrecuenciaPrincipal = (Tipo_Formato_Frecuencia)hfParam.FormatoFrecuenciaPrincipal;
-                    poolNM[i].ModeloEquipo = hfParam.ModeloEquipo;
-                    poolNM[i].IdEmplazamiento = hfParam.IdEmplazamiento;
-
-                    // Recuperar los rangos de frecuencia
-                    CD40.BD.Entidades.HFRangoFrecuencias rangoFrec = new CD40.BD.Entidades.HFRangoFrecuencias();
-                    rangoFrec.IdSistema = id_sistema;
-                    rangoFrec.IdRecurso = hfParam.IdRecurso;
-
-                    List<Tablas> rangoFrecuencias = GestorBDCD40.ListSelectSQL(rangoFrec, null);
-                    if (rangoFrecuencias.Count > 0)
+                    foreach (HFParams hfParam in listaFrecuenciasHf)
                     {
-                        int r = 0;
-                        poolNM[i].Frecs = new HfRangoFrecuencias[rangoFrecuencias.Count];
-                        foreach (CD40.BD.Entidades.HFRangoFrecuencias rango in rangoFrecuencias)
-                        {
-                            poolNM[i].Frecs[r] = new HfRangoFrecuencias();
+                        poolNM[i] = new Node();
 
-                            poolNM[i].Frecs[r].FMin = rango.Min;
-                            poolNM[i].Frecs[r].FMax = rango.Max;
-                            r++;
+                        poolNM[i].Id = hfParam.IdRecurso;
+                        poolNM[i].SipUri = hfParam.SipUri;
+                        poolNM[i].Oid = hfParam.Oid;
+                        poolNM[i].IpGestor = hfParam.IpGestor;
+                        poolNM[i].EsReceptor = hfParam.TipoEquipo == 0 || hfParam.TipoEquipo == 2;
+                        poolNM[i].EsTransmisor = hfParam.TipoEquipo == 1 || hfParam.TipoEquipo == 2;
+                        poolNM[i].TipoDeFrecuencia = (Tipo_Frecuencia)(hfParam.TipoFrecuencia + 1); // El enum Tipo_Frecuencia contempla el tipo Basica=0 que no tiene caso para la configuración N+M
+                        poolNM[i].TipoDeCanal = (Tipo_Canal)hfParam.TipoCanal;
+
+                        if (eTipoRecRadio == TipoRecursoRadio.Audio_NM)
+                        {
+                            poolNM[i].FormaDeTrabajo = (Tipo_Formato_Trabajo)hfParam.TipoModo;
+                            poolNM[i].Prioridad = hfParam.PrioridadEquipo;
                         }
+                        else
+                        {
+                            poolNM[i].FormaDeTrabajo = null;
+                            poolNM[i].Prioridad = null;
+                        }
+
+                        poolNM[i].FrecuenciaPrincipal = hfParam.Frecuencia;
+                        poolNM[i].Puerto = hfParam.Puerto;
+                        poolNM[i].Offset = (GearCarrierOffStatus)hfParam.Offset;
+                        poolNM[i].Canalizacion = (GearChannelSpacings)hfParam.Canalizacion;
+                        poolNM[i].Modulacion = (GearModulations)hfParam.Modulacion;
+                        poolNM[i].NivelDePotencia = (GearPowerLevels)hfParam.Potencia;
+                        poolNM[i].FormatoFrecuenciaPrincipal = (Tipo_Formato_Frecuencia)hfParam.FormatoFrecuenciaPrincipal;
+                        poolNM[i].ModeloEquipo = hfParam.ModeloEquipo;
+                        poolNM[i].IdEmplazamiento = hfParam.IdEmplazamiento;
+
+                        // Recuperar los rangos de frecuencia
+                        CD40.BD.Entidades.HFRangoFrecuencias rangoFrec = new CD40.BD.Entidades.HFRangoFrecuencias();
+                        rangoFrec.IdSistema = id_sistema;
+                        rangoFrec.IdRecurso = hfParam.IdRecurso;
+
+                        List<Tablas> rangoFrecuencias = GestorBDCD40.ListSelectSQL(rangoFrec, null);
+                        if (rangoFrecuencias.Count > 0)
+                        {
+                            int r = 0;
+                            poolNM[i].Frecs = new HfRangoFrecuencias[rangoFrecuencias.Count];
+                            foreach (CD40.BD.Entidades.HFRangoFrecuencias rango in rangoFrecuencias)
+                            {
+                                poolNM[i].Frecs[r] = new HfRangoFrecuencias();
+
+                                poolNM[i].Frecs[r].FMin = rango.Min;
+                                poolNM[i].Frecs[r].FMax = rango.Max;
+                                r++;
+                            }
+                        }
+                        i++;
                     }
 
-                    i++;
+                    return poolNM;
                 }
-
-                return poolNM;
             }
             return null;
         }

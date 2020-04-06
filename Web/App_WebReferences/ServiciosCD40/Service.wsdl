@@ -918,6 +918,8 @@
               <s:element minOccurs="1" maxOccurs="1" name="OffSetFrequency" type="s:int" />
               <s:element minOccurs="1" maxOccurs="1" name="EnableEventPttSq" type="s:boolean" />
               <s:element minOccurs="1" maxOccurs="1" name="Metodos_bss_idmetodos_bss" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="RedundanciaRol" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="RedundanciaIdPareja" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="idTIFX" type="s:string" />
               <s:element minOccurs="1" maxOccurs="1" name="DestRad_tipoFrec" type="s:unsignedInt" />
             </s:sequence>
@@ -1230,6 +1232,7 @@
               <s:element minOccurs="0" maxOccurs="1" name="ModoTransmision" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="EmplazamientoDefecto" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="TiempoVueltaADefecto" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ConRedundancia" type="s:string" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -4096,7 +4099,7 @@
       <wsdl:output message="tns:RecursosSinAsignarAEnlacesSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="RecursosSinAsignarAEnlaces1">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Pasándole el identificador del sistema y el tipo de enlace (Radio, Interno o Instantáneo), retorna una lista de recursos compatibles con el tipo del enlace y sin asignar a ningún enlace</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Pasándole el identificador del sistema y el tipo de enlace (Radio , Interno o Instantáneo), retorna una lista de recursos compatibles con el tipo del enlace y sin asignar a ningún enlace</wsdl:documentation>
       <wsdl:input message="tns:RecursosSinAsignarAEnlaces1SoapIn" />
       <wsdl:output message="tns:RecursosSinAsignarAEnlaces1SoapOut" />
     </wsdl:operation>

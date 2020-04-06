@@ -1725,4 +1725,76 @@
   <data name="DDLEquipoExternosItem1" xml:space="preserve">
     <value>&lt; None &gt;</value>
   </data>
+  <data name="ListTipo_Audio_EE.Text" xml:space="preserve">
+    <value>EE Audio</value>
+  </data>
+  <data name="ListTipo_Audio_EE.Value" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource0.Text" xml:space="preserve">
+    <value>Interface Type:</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource0.Value" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource1.Text" xml:space="preserve">
+    <value>RX</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource1.Value" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource2.Text" xml:space="preserve">
+    <value>TX</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource2.Value" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource3.Text" xml:space="preserve">
+    <value>TX-RX</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource3.Value" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource4.Text" xml:space="preserve">
+    <value>HF-TX</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource4.Value" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource5.Text" xml:space="preserve">
+    <value>M+N Audio</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource5.Value" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource8.Text" xml:space="preserve">
+    <value>EE Audio</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource8.Value" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="ListItemFiltroBusquedaRDResource0.Text" xml:space="preserve">
+    <value>Select Filter:</value>
+  </data>
+  <data name="ListItemFiltroBusquedaRDResource1.Text" xml:space="preserve">
+    <value>Show all</value>
+  </data>
+  <data name="ListItemFiltroBusquedaRDResource2.Text" xml:space="preserve">
+    <value>Search by Name</value>
+  </data>
+  <data name="ListItemFiltroBusquedaRDResource3.Text" xml:space="preserve">
+    <value>Search by Type</value>
+  </data>
+  <data name="ListItemFiltroBusquedaRDResource4.Text" xml:space="preserve">
+    <value>Alphabetical order (A-Z)</value>
+  </data>
+  <data name="ListItemFiltroBusquedaRDResource5.Text" xml:space="preserve">
+    <value>Alphabetical order (Z-A)</value>
+  </data>
+  <data name="StrHeaderAudioEE.Text" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="PnlParametrosResource.GroupingText_EE" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
 </root>

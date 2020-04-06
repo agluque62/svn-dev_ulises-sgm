@@ -415,7 +415,7 @@
     <value>Please, review the HW assignment. If the resource is assigned to a gateway, release it and assign it to an external equipment.</value>
   </data>
   <data name="AvisoCnfHwRecursoRadioMN_EquipExt" xml:space="preserve">
-    <value>The "Audio M+N" radio resource must be assigned to an external equipment. Please check the Hw assignment.</value>
+    <value>The "{0}" radio resource must be assigned to an external equipment. Please check the Hw assignment.</value>
   </data>
   <data name="ErrorIdentificadorEltoFisicoExiste" xml:space="preserve">
     <value>The identifier "{0}" is assigned to another physical element in the system. Please, enter a name that is unique.</value>
@@ -618,7 +618,7 @@
   <data name="ToptSpvColl" xml:space="preserve">
     <value>El rango para el Tiempo entre Options en Superv. Colateral debe de estar comprendido entre 1 y 19 segundos.</value>
   </data>
-    <data name="MsgDestinoFDConMetodoBSSNoPermitido" xml:space="preserve">
+  <data name="MsgDestinoFDConMetodoBSSNoPermitido" xml:space="preserve">
     <value>In "OC" destination mode , the BSS method "RSSI and NUCLEO" can not be selected if any of the allocated resources is a reception circuit that is not assigned to a gateway.</value>
   </data>
   <data name="ErrorTMSupLANNaN" xml:space="preserve">
@@ -704,5 +704,26 @@
   </data>
   <data name="RecursoDestinoLCENAsignadoEnPanelLC" xml:space="preserve">
     <value>The resource {3} can not be deleted. The destination {0} is assigned to the ATS destination '{1}' in the Instantaneous access panel of sector {2}. Please, release the destination before you delete it.</value>
+  </data>
+  <data name="LB_VERSION" xml:space="preserve">
+    <value>© Núcleo 2020. v2.6.0. All rights reserved.</value>
+  </data>
+  <data name="ErrorAsignacionFrecuenciaHFConRedundancia" xml:space="preserve">
+    <value>Under the "Normal" destination mode and frequency type "HF" the option 1+1 is not available.</value>
+  </data>
+  <data name="ErrorConfiguracionDestinoConRedundancia" xml:space="preserve">
+    <value>If the destination is configured as 1 + 1, at least one pair of resources of the same type that are within the same location must be configured with redundancy.</value>
+  </data>
+  <data name="ErrorConfiguracionDestinoConRedundanciaEmplazamiento" xml:space="preserve">
+    <value>Si el destino se configura como 1+1, dentro de un mismo emplazamiento sólo se pueden configurar con redundancia parejas de recursos Rx, Tx o RxTx.</value>
+  </data>
+  <data name="ErrorAsignacionRecursosDestinoNormalConRedundancia" xml:space="preserve">
+    <value>Under "Normal" destination mode with 1+1 option, 1 receiving circuit and 0 or 1 transmitting circuit must be assigned, either in an RxTx resource or in a Tx resource and an Rx resource.</value>
+  </data>
+  <data name="MaximosRecursosDestinoFDRedundancia" xml:space="preserve">
+    <value>In "OC" destination mode with 1+1 option, there must be a maximum of 5 transmission circuits and 5 reception circuits, either in RxTx resources or Tx resources and Rx resources or combination of both.</value>
+  </data>
+  <data name="MinimoRecursosDestinoFDRedundancia" xml:space="preserve">
+    <value>The "OC" Destination Mode with 1+1 option, must have a minimum of 3 circuits assigned and at least one circuit must be a reception circuit and another one a transmission circuit.</value>
   </data>
 </root>

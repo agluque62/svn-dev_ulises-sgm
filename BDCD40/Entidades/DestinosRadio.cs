@@ -182,6 +182,16 @@ namespace CD40.BD.Entidades
             get { return _TiempoVueltaADefecto; }
             set { _TiempoVueltaADefecto = value; }
         }
+
+        //Indica si el destino es de tipo 1+1, es decir, 
+        //si alguno de los recursos asignados al destino se configuran con redundancia
+        private string _ConRedundancia;
+        public string ConRedundancia
+        {
+            get { return _ConRedundancia; }
+            set { _ConRedundancia = value; }
+        }
+        
         #endregion
 
         public DestinosRadio()
@@ -284,6 +294,9 @@ namespace CD40.BD.Entidades
                     if (null != dr["TiempoVueltaADefecto"] && dr["TiempoVueltaADefecto"] != System.DBNull.Value)
                         r.TiempoVueltaADefecto = (dr["TiempoVueltaADefecto"]).ToString();
 
+                    if (null != dr["ConRedundancia"] && dr["ConRedundancia"] != System.DBNull.Value)
+                        r.ConRedundancia = (string)dr["ConRedundancia"];
+
                     ListaResultado.Add(r);
                 }
             }
@@ -297,16 +310,19 @@ namespace CD40.BD.Entidades
             StringBuilder strConsulta = new StringBuilder();
 
             strConsulta.Append("INSERT INTO DestinosRadio (IdSistema,IdDestino,TipoDestino,TipoFrec,ExclusividadTXRX,Frecuencia,MetodoCalculoClimax,VentanaSeleccionBss,SincronizaGrupoClimax,AudioPrimerSqBss,");
-            strConsulta.Append("FrecuenciaNoDesasignable,VentanaReposoZonaTxDefecto,PrioridadSesionSip,MetodosBssOfrecidos,CldSupervisionTime,CnfModoDestino,CnfTipoFrecuencia,ModoTransmision,EmplazamientoDefecto,TiempoVueltaADefecto) ");
+            strConsulta.Append("FrecuenciaNoDesasignable,VentanaReposoZonaTxDefecto,PrioridadSesionSip,MetodosBssOfrecidos,CldSupervisionTime,CnfModoDestino,CnfTipoFrecuencia,ModoTransmision,");
+            strConsulta.Append("EmplazamientoDefecto,TiempoVueltaADefecto,ConRedundancia) ");
             strConsulta.AppendFormat(" VALUES ('{0}','{1}',{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},'{15}','{16}',{17},", IdSistema, IdDestino, TipoDestino, TipoFrec, ExclusividadTXRX,
                 Frecuencia, MetodoCalculoClimax, VentanaSeleccionBss, SincronizaGrupoClimax, AudioPrimerSqBss,
                 FrecuenciaNoDesasignable, VentanaReposoZonaTxDefecto, PrioridadSesionSip, MetodosBssOfrecidos, CldSupervisionTime,
                 CnfModoDestino, CnfTipoFrecuencia,((ModoTransmision == null) ? "null" : ("'" + ModoTransmision + "'")));
 
             if (!string.IsNullOrEmpty(EmplazamientoDefecto) && string.Compare(EmplazamientoDefecto, "0") != 0)
-                strConsulta.AppendFormat("'{0}',{1})", EmplazamientoDefecto, (TiempoVueltaADefecto!=null) ? Convert.ToInt16(TiempoVueltaADefecto): 0);
+                strConsulta.AppendFormat("'{0}',{1}", EmplazamientoDefecto, (TiempoVueltaADefecto!=null) ? Convert.ToInt16(TiempoVueltaADefecto): 0);
             else
-                strConsulta.AppendFormat("NULL,NULL)");
+                strConsulta.Append("NULL,NULL");
+
+            strConsulta.AppendFormat(",'{0}')", ConRedundancia);
             
             consulta[0] = strConsulta.ToString();
             consulta[1] = ReplaceSQL(IdSistema, "DestinosRadio");
@@ -342,11 +358,11 @@ namespace CD40.BD.Entidades
 
             if (!string.IsNullOrEmpty(EmplazamientoDefecto) && string.Compare(EmplazamientoDefecto,"0")!=0)
                 strConsulta.AppendFormat("EmplazamientoDefecto='{0}', TiempoVueltaADefecto={1} ", EmplazamientoDefecto, Convert.ToInt16(TiempoVueltaADefecto));
-
             else
-                strConsulta.AppendFormat("EmplazamientoDefecto=NULL, TiempoVueltaADefecto=NULL ");
-            
-            strConsulta.AppendFormat("WHERE IdDestino='{0}' AND IdSistema='{1}'", IdDestino, IdSistema);
+                strConsulta.Append("EmplazamientoDefecto=NULL, TiempoVueltaADefecto=NULL ");
+
+            strConsulta.AppendFormat(",ConRedundancia='{0}'", ConRedundancia);
+            strConsulta.AppendFormat(" WHERE IdDestino='{0}' AND IdSistema='{1}'", IdDestino, IdSistema);
 
             consulta[0] = strConsulta.ToString();
             consulta[1] = ReplaceSQL(IdSistema, "DestinosRadio");
