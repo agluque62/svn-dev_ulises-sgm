@@ -290,7 +290,13 @@ public partial class TFTTelefonia :	PageBaseCD40.PageCD40	// System.Web.UI.Page
                     tCell.Visible = true;
                     if (++visibleCount <= NumPosicionesPag)
                         tCell.Enabled = true;
-                    else tCell.Enabled = false;
+                    else
+                    {
+                        tCell.Enabled = false;
+                        // JOI: #4487
+                        tCell.Visible = false;
+                    }
+                        
                 }
                 else
                     tCell.Visible = false;
@@ -732,10 +738,12 @@ public partial class TFTTelefonia :	PageBaseCD40.PageCD40	// System.Web.UI.Page
 
 		if (posicionPulsada <= 0)
 			return;
+        //20201007 #4576
+        TBoxLiteral.Enabled = false;
 
 		if (!PermisoSegunPerfil)
 		{
-			BtAceptar.Enabled = TBoxLiteral.Enabled = DListPrioridadSIP.Enabled = DListPrioridadTecla.Enabled = false;
+			BtAceptar.Enabled = DListPrioridadSIP.Enabled = DListPrioridadTecla.Enabled = false;
 		}
 
 		if (prefijosPosiciones[posicionPulsada] > 2)//telefonia externa

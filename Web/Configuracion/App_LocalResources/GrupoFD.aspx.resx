@@ -187,13 +187,13 @@
     <value />
   </data>
   <data name="Label3Resource1.Text" xml:space="preserve">
-    <value>Rec. Asignados</value>
+    <value>Recursos Asignados</value>
   </data>
   <data name="Label3Resource1.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="Label4Resource1.Text" xml:space="preserve">
-    <value>Rec. Libres</value>
+    <value>Recursos Libres</value>
   </data>
   <data name="Label4Resource1.ToolTip" xml:space="preserve">
     <value />
@@ -349,10 +349,10 @@
     <value>0</value>
   </data>
   <data name="RequiredFieldValidator4Resource1.ErrorMessage" xml:space="preserve">
-    <value>La ventana de selección BSS debe estar comprendida entre 50 y 2000 ms.</value>
+    <value>La ventana de selección BSS debe estar comprendida entre 200 y 2000 ms.</value>
   </data>
   <data name="RVTxtVentanaBSS.ErrorMessage" xml:space="preserve">
-    <value>La ventana de selección BSS debe estar comprendida entre 50 y 2000 ms.</value>
+    <value>La ventana de selección BSS debe estar comprendida entre 200 y 2000 ms.</value>
   </data>
   <data name="RVTxtVentanaBSS.Text" xml:space="preserve">
     <value>*</value>
@@ -498,5 +498,47 @@
   </data>
   <data name="ListItemEmplDefNinguno.Text" xml:space="preserve">
     <value>Ninguno</value>
+  </data>
+  <data name="CheckedRedundanciaResource1.Text" xml:space="preserve">
+    <value>1+1</value>
+  </data>
+  <data name="ListTipoRec_Audio_RX.Text" xml:space="preserve">
+    <value>Audio RX</value>
+  </data>
+  <data name="ListTipoRec_Audio_RX.Value" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ListTipoRec_Audio_TX.Text" xml:space="preserve">
+    <value>Audio TX</value>
+  </data>
+  <data name="ListTipoRec_Audio_TX.Value" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ListTipoRec_Audio_RXTX.Text" xml:space="preserve">
+    <value>Audio RX TX</value>
+  </data>
+  <data name="ListTipoRec_Audio_RXTX.Value" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ListTipoRec_Audio_HF.Text" xml:space="preserve">
+    <value>Audio HF-TX</value>
+  </data>
+  <data name="ListTipoRec_Audio_HF.Value" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ListTipoRec_Audio_NM.Text" xml:space="preserve">
+    <value>Audio M+N</value>
+  </data>
+  <data name="ListTipoRec_Audio_NM.Value" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="ListTipoRec_Audio_EE_RX.Text" xml:space="preserve">
+    <value>Audio EE RX</value>
+  </data>
+  <data name="ListTipoRec_Audio_EE_TX.Text" xml:space="preserve">
+    <value>Audio EE TX</value>
+  </data>
+  <data name="ListTipoRec_Audio_EE_RXTX.Text" xml:space="preserve">
+    <value>Audio EE RX TX</value>
   </data>
 </root>

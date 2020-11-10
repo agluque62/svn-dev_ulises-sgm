@@ -401,6 +401,13 @@ public partial class TablasCalidad : PageBaseCD40.PageCD40		//System.Web.UI.Page
         //MVO:  El nombre de la tabla debe ser único, tanto si se modifica con como si es una tabla nueva
         if (!NombreTablaCalidadRepetida())
         {
+            //20200610 JOI #4432
+            if (!TablaCalidadOK())
+            {
+                cObjMsg.alert(String.Format((string)GetGlobalResourceObject("Espaniol", "ErrorTablaCalidadErronea"), TextBox1.Text));
+                return;
+            }
+
             GuardarCambiosRecursos();
             GuardarCambioTablaCalidad();
 
@@ -519,6 +526,7 @@ public partial class TablasCalidad : PageBaseCD40.PageCD40		//System.Web.UI.Page
 
     }
 
+
     private bool NombreTablaCalidadRepetida()
     {
         //Si se está dando de alta un nuevo recurso o se está modificando hay que comprobar que no existe 
@@ -550,7 +558,21 @@ public partial class TablasCalidad : PageBaseCD40.PageCD40		//System.Web.UI.Page
         }
         return false;
     }
-    
+
+    //20200610 JOI #4432
+    private bool TablaCalidadOK()
+    {
+        if ((Convert.ToInt32(DropDownListVQTRow6_2.SelectedValue) < Convert.ToInt32(DropDownListVQTRow5_2.SelectedValue)) ||
+            (Convert.ToInt32(DropDownListVQTRow5_2.SelectedValue) < Convert.ToInt32(DropDownListVQTRow4_2.SelectedValue)) ||
+            (Convert.ToInt32(DropDownListVQTRow4_2.SelectedValue) < Convert.ToInt32(DropDownListVQTRow3_2.SelectedValue)) ||
+            (Convert.ToInt32(DropDownListVQTRow3_2.SelectedValue) < Convert.ToInt32(DropDownListVQTRow2_2.SelectedValue)) ||
+            (Convert.ToInt32(DropDownListVQTRow2_2.SelectedValue) < Convert.ToInt32(DropDownListVQTRow1_2.SelectedValue)))
+        {
+            return false;
+        }
+        return true;
+    }
+
     protected void TextBox1_TextChanged(object sender, EventArgs e)
     {
 

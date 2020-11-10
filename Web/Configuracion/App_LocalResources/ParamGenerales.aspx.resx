@@ -1156,7 +1156,7 @@
     <value />
   </data>
   <data name="Label28Resource1.Text" xml:space="preserve">
-    <value>Número de Enlaces Internos por Página:</value>
+    <value>Número de Enlaces Internos por Página  (sin tecla +1):</value>
   </data>
   <data name="Label28Resource1.ToolTip" xml:space="preserve">
     <value />
@@ -1369,6 +1369,33 @@
     <value>El campo puerto Multicast no puede estar vacío.</value>
   </data>
   <data name="RFVTxtPortMultiResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RangeValidator5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RangeValidator6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RangeValidator7Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RangeValidator5Resource1.ErrorMessage" xml:space="preserve">
+    <value>El campo número de páginas de frecuencias debe estar comprendido entre 1 y 9.</value>
+  </data>
+  <data name="RangeValidator5Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RangeValidator6Resource1.ErrorMessage1" xml:space="preserve">
+    <value>El campo número de páginas de telefonía debe estar comprendido entre 3 y 9.</value>
+  </data>
+  <data name="RangeValidator6Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RangeValidator7Resource1.ErrorMessage" xml:space="preserve">
+    <value>El campo número enlaces acceso instantáneo debe estar comprendido entre 9 y 18.</value>
+  </data>
+  <data name="RangeValidator7Resource1.Text" xml:space="preserve">
     <value>*</value>
   </data>
   <data name="WarnResource.Text" xml:space="preserve">

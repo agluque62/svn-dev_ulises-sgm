@@ -271,7 +271,7 @@ public partial class RecursosDeTelefonia : PageBaseCD40.PageCD40	// System.Web.U
         RBCodecA.Checked = true;
         RBCodecMu.Checked = false;
         CheckGrabacionEd137.Checked = true;
-        RBGanaciaTx.Checked = true;
+        RBGananciaTx.Checked = true;
         RBAGCTx.Checked = false;
         RBGananciaRx.Checked = true;
         RBAGCRx.Checked = false;
@@ -765,7 +765,7 @@ public partial class RecursosDeTelefonia : PageBaseCD40.PageCD40	// System.Web.U
             //                    TxtLongRafagas.Text = r.LongRafagas.ToString();
 
             //VMG 20/02/2019
-            DDLSupervisionOptions.SelectedValue = recTf.isuperv_options == 0 ? "0" : "1";            
+            DDLSupervisionOptions.SelectedValue = recTf.isuperv_options == 0 ? "0" : "1";
             TxtTmSupervisionOptions.Text = (recTf.itm_superv_options.ToString());
 
             LBTmSupervisionOptions.Visible = TxtTmSupervisionOptions.Visible = DDLSupervisionOptions.SelectedIndex == 0 ? true : false;
@@ -851,23 +851,25 @@ public partial class RecursosDeTelefonia : PageBaseCD40.PageCD40	// System.Web.U
             //    RBAGCRx.Enabled = true;
             //}
 
-            RBGanaciaTx.Checked = recTf.GananciaAGCTX == 0;
+            RBGananciaTx.Checked = recTf.GananciaAGCTX == 0;
             RBAGCTx.Checked = recTf.GananciaAGCTX != 0;
 
             //if (recTf.GananciaAGCTX == 0)
             //{
-            //    RBGanaciaTx.Checked = true;
-            //    RBGanaciaTx.Enabled = true;
+            //    RBGananciaTx.Checked = true;
+            //    RBGananciaTx.Enabled = true;
             //    RBAGCTx.Checked = false;
             //    RBAGCTx.Enabled = false;
             //}
             //else
             //{
-            //    RBGanaciaTx.Checked = false;
-            //    RBGanaciaTx.Enabled = false;
+            //    RBGananciaTx.Checked = false;
+            //    RBGananciaTx.Enabled = false;
             //    RBAGCTx.Checked = true;
             //    RBAGCTx.Enabled = true;
             //}
+            Label3.Visible = TBGananciaTx.Visible = RBAGCTx.Checked == false;
+            Label10.Visible = TBGananciaRx.Visible = RBAGCRx.Checked == false;
         }
     }
 
@@ -894,14 +896,57 @@ public partial class RecursosDeTelefonia : PageBaseCD40.PageCD40	// System.Web.U
             if (lista.Length > 0)
             {
                 // Parametros generales
-                RBAGCRx.Checked = ((ServiciosCD40.RecursosTF)lista[0]).GananciaAGCRX != 0;
-                RBGananciaRx.Checked = ((ServiciosCD40.RecursosTF)lista[0]).GananciaAGCRX == 0;
+                //20200623 JOI #3973
+                //RBAGCRx.Checked = ((ServiciosCD40.RecursosTF)lista[0]).GananciaAGCRX != 0;
+                //RBGananciaRx.Checked = ((ServiciosCD40.RecursosTF)lista[0]).GananciaAGCRX == 0;
 
-                RBAGCTx.Checked = ((ServiciosCD40.RecursosTF)lista[0]).GananciaAGCTX != 0;
-                RBGanaciaTx.Checked = ((ServiciosCD40.RecursosTF)lista[0]).GananciaAGCTX == 0;
+                //RBAGCTx.Checked = ((ServiciosCD40.RecursosTF)lista[0]).GananciaAGCTX != 0;
+                //RBGananciaTx.Checked = ((ServiciosCD40.RecursosTF)lista[0]).GananciaAGCTX == 0;
+                //20200623 JOI #3973 fin
 
                 TBGananciaRx.Text = (((ServiciosCD40.RecursosTF)lista[0]).GananciaAGCRXdBm.ToString());
                 TBGananciaTx.Text = (((ServiciosCD40.RecursosTF)lista[0]).GananciaAGCTXdBm.ToString());
+//20200623 JOI #3973
+                if (((ServiciosCD40.RecursosTF)lista[0]).GananciaAGCRX == 0)
+                {
+                    RBGananciaRx.Checked = true;
+                    RBGananciaRx.Enabled = true;
+                    RBAGCRx.Checked = false;
+                    RBAGCRx.Enabled = false;
+                    TBGananciaRx.Enabled = true;
+                }
+                else
+                {
+                    RBGananciaRx.Checked = false;
+                    RBGananciaRx.Enabled = false;
+                    RBAGCRx.Checked = true;
+                    RBAGCRx.Enabled = true;
+                    TBGananciaRx.Enabled = false;
+                }
+                if (((ServiciosCD40.RecursosTF)lista[0]).GananciaAGCTX == 0)
+                {
+                    RBGananciaTx.Checked = true;
+                    RBGananciaTx.Enabled = true;
+                    RBAGCTx.Checked = false;
+                    RBAGCTx.Enabled = false;
+                    TBGananciaTx.Enabled = true;
+                }
+                else
+                {
+                    RBGananciaTx.Checked = false;
+                    RBGananciaTx.Enabled = false;
+                    RBAGCTx.Checked = true;
+                    RBAGCTx.Enabled = true;
+                    TBGananciaTx.Enabled = false;
+                }
+                Label3.Visible = TBGananciaTx.Visible = RBAGCTx.Checked == false;
+                Label10.Visible  = TBGananciaRx.Visible = RBAGCRx.Checked == false;
+//20200623 JOI #3973 Fin
+
+
+
+
+
 
                 //TBGananciaRx.Text = (((ServiciosCD40.RecursosTF)lista[0]).GananciaAGCRXdBm.ToString()).Replace('.', ',');
                 //TBGananciaTx.Text = (((ServiciosCD40.RecursosTF)lista[0]).GananciaAGCTXdBm.ToString()).Replace('.', ',');
@@ -1038,7 +1083,7 @@ public partial class RecursosDeTelefonia : PageBaseCD40.PageCD40	// System.Web.U
 
     private void HabilitaElementos(bool habilita)
     {
-        RBLTipoEquipo.Enabled = habilita && !RecursoAsignado && DListEquipoExternos.SelectedIndex == 0;
+        RBLTipoEquipo.Enabled = habilita && !RecursoAsignado; //20200623 JOI #3973 && DListEquipoExternos.SelectedIndex == 0;
         DListEquipoExternos.Enabled = habilita;
 
         /* DListInterface.Enabled = */
@@ -1079,6 +1124,11 @@ public partial class RecursosDeTelefonia : PageBaseCD40.PageCD40	// System.Web.U
             TxtTmDeteccionCallerId.ReadOnly = false;
         else
             TxtTmDeteccionCallerId.ReadOnly = true;
+       //20200623 JOI #3973
+        RBAGCRx.Enabled = habilita;
+        RBAGCTx.Enabled = habilita;
+        RBGananciaTx.Enabled = habilita;
+        RBGananciaRx.Enabled = habilita;
 
         /* MVO.20170707: los valores nominales de protocolo y los valores máximos de temporización o supervisión no son modificables
 		TxtT1.Enabled = habilita;
@@ -1678,7 +1728,7 @@ public partial class RecursosDeTelefonia : PageBaseCD40.PageCD40	// System.Web.U
             prTel.IdSistema = n.IdSistema;
             prTel.IdRecurso = n.IdRecurso;
             // TipoRecurso viene implícito en la clase a TipoRecurso_TR_TELEFONIA
-            prTel.GananciaAGCTX = (uint)(RBGanaciaTx.Checked ? 0 : 1);
+            prTel.GananciaAGCTX = (uint)(RBGananciaTx.Checked ? 0 : 1);
             prTel.GananciaAGCTXdBm = Convert.ToSingle(TBGananciaTx.Text);
             prTel.GananciaAGCRX = (uint)(RBGananciaRx.Checked ? 0 : 1);
             prTel.GananciaAGCRXdBm = Convert.ToSingle(TBGananciaRx.Text);
@@ -1771,7 +1821,7 @@ public partial class RecursosDeTelefonia : PageBaseCD40.PageCD40	// System.Web.U
             prTfn.IdSistema = n.IdSistema;
             prTfn.IdRecurso = n.IdRecurso;
             // TipoRecurso viene implícito en la clase a TipoRecurso_TR_TELEFONIA
-            prTfn.GananciaAGCTX = (uint)(RBGanaciaTx.Checked ? 0 : 1);
+            prTfn.GananciaAGCTX = (uint)(RBGananciaTx.Checked ? 0 : 1);
             prTfn.GananciaAGCTXdBm = Convert.ToSingle(TBGananciaTx.Text);
             prTfn.GananciaAGCRX = (uint)(RBGananciaRx.Checked ? 0 : 1);
             prTfn.GananciaAGCRXdBm = Convert.ToSingle(TBGananciaRx.Text);
@@ -2241,6 +2291,8 @@ public partial class RecursosDeTelefonia : PageBaseCD40.PageCD40	// System.Web.U
                         case ServiciosCD40.TipoInterface.TI_ATS_N5:
                             tipoLinea = 6;
                             tipoLinTroncal = 6;
+                            // 20200623 JOI #3973
+                            elTroncal = DDLTroncal.SelectedValue;
                             break;
                         case ServiciosCD40.TipoInterface.TI_ATS_QSIG:
                             tipoLinea = 12;
@@ -2740,7 +2792,7 @@ public partial class RecursosDeTelefonia : PageBaseCD40.PageCD40	// System.Web.U
 
     protected void DDLEquipoExternos_SelectedIndexChanged(object sender, EventArgs e)
     {
-        RBLTipoEquipo.Enabled = DListEquipoExternos.SelectedIndex == 0;
+        // 20200623 JOI error #3973 RBLTipoEquipo.Enabled = DListEquipoExternos.SelectedIndex == 0;
     }
 
     protected void OnIBRecursosLCEN_Click(object sender, ImageClickEventArgs e)
@@ -3090,6 +3142,15 @@ public partial class RecursosDeTelefonia : PageBaseCD40.PageCD40	// System.Web.U
         IBFuncionalidad.CssClass = "buttonImage";
 
         //IBAsignacion.CssClass = "buttonImageSelected";
+    }
+    //20200623 JOI #3973
+    protected void TxParamAudio_Changed(object sender, EventArgs e)
+    {
+        Label3.Visible = TBGananciaTx.Visible = RBAGCTx.Checked == false;
+    }
+    protected void RxParamAudio_Changed(object sender, EventArgs e)
+    {
+        Label10.Visible = TBGananciaRx.Visible = RBAGCRx.Checked == false;
     }
 }
 

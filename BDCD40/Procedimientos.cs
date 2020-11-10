@@ -4817,6 +4817,55 @@ namespace CD40.BD
 
             return iResultado;
         }
+
+        public static void GestionaFS(MySqlConnection mySqlConnectionToCd40, MySqlTransaction tran, string id_sistema, string id_nucleo, string id_sector, bool SeleccionadoFS)
+        {
+            if (null != mySqlConnectionToCd40)
+            {
+                MySqlCommand myCommand = new MySqlCommand("GestionaFS", mySqlConnectionToCd40);
+                myCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                MySqlParameter p1 = new MySqlParameter("id_sistema", MySqlDbType.Text);
+                MySqlParameter p2 = new MySqlParameter("id_nucleo", MySqlDbType.Text);
+                MySqlParameter p3 = new MySqlParameter("id_sector", MySqlDbType.Text);
+                MySqlParameter p4 = new MySqlParameter("SeleccionadoFS", MySqlDbType.Int16);
+                p1.Direction = System.Data.ParameterDirection.Input;
+                p2.Direction = System.Data.ParameterDirection.Input;
+                p3.Direction = System.Data.ParameterDirection.Input;
+                p4.Direction = System.Data.ParameterDirection.Input;
+                p1.Value = id_sistema;
+                p2.Value = id_nucleo;
+                p3.Value = id_sector;
+                p4.Value = SeleccionadoFS;
+                myCommand.Parameters.Add(p1);
+                myCommand.Parameters.Add(p2);
+                myCommand.Parameters.Add(p3);
+                myCommand.Parameters.Add(p4);
+
+                try
+                {
+                    if (tran != null)
+                    {
+                        myCommand.Transaction = tran;
+                        myCommand.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        myCommand.Connection.Open();
+                        myCommand.ExecuteNonQuery();
+                        myCommand.Connection.Close();
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    StringBuilder strMsg = new StringBuilder();
+                    strMsg.AppendFormat("Error en Procedimientos.GestionaFS: id_sistema={0},id_nucleo={1},id_sector={2},SeleccionadoFs={3}. Error:{4}", id_sistema, id_nucleo, id_sector, SeleccionadoFS, ex.Message.ToString());
+                    CD40.BD.GestorBaseDatos.logFile.Error(strMsg.ToString());
+                    strMsg.Clear();
+
+                    myCommand.Connection.Close();
+                }
+            }
+        }
     }
 
 

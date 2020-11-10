@@ -12,7 +12,8 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" Title="Parámetros Generales" EnableEve
 <script runat="server">
     protected void WarnChange(object sender, System.EventArgs e)
     {
-        WarnText.Text = "* ¡Antes de cambiar el número de frecuencias o accesos telefónicos por página debe borrar las asignaciones en todos los sectores!";
+        //20200610 JOI #4460 comentado.
+        //WarnText.Text = "* ¡Antes de cambiar el número de frecuencias o accesos telefónicos por página debe borrar las asignaciones en todos los sectores!";
     }
     
 </script>
@@ -173,6 +174,7 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" Title="Parámetros Generales" EnableEve
 				<asp:Label ID="LblKAP" runat="server" Style="z-index: 199; left: 22px; position: absolute;
 					top: 26px" Text="Keep Alive Period (ms):" Width="180px" 
 					meta:resourcekey="LblKAPResource1"></asp:Label>
+ <%--
 				<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="TxtKAP"
 					ErrorMessage="Es necesario introducir un valor entre 20 y 1000." Style="z-index: 203;
 					left: 80px; position: absolute; top: 50px" 
@@ -180,7 +182,7 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" Title="Parámetros Generales" EnableEve
 				<asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="El valor debe estar comprendido entre 20 y 1000"
 					Height="20px" MaximumValue="1000" MinimumValue="20" Style="z-index: 204; left: 220px;
 					position: absolute; top: 28px" Width="12px" ControlToValidate="TxtKAP" Type="Integer" 
-					meta:resourcekey="RangeValidator1Resource1">*</asp:RangeValidator>
+					meta:resourcekey="RangeValidator1Resource1">*</asp:RangeValidator>   --%>
 
 				<asp:Label ID="LblKAM" runat="server" Height="21px" Style="z-index: 200; left: 400px;
 					position: absolute; top: 26px" Text="Keep Alive Multiplier:" Width="170px" 
@@ -188,6 +190,8 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" Title="Parámetros Generales" EnableEve
 				<asp:TextBox ID="TxtKAM" runat="server" Style="z-index: 202;
 					left: 400px; position: absolute; top: 46px" Width="33px" ReadOnly="True" 
 					meta:resourcekey="TxtKAMResource1">10</asp:TextBox>
+
+                         <%--
 				<asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="TxtKAM"
 					ErrorMessage="Es necesario introducir un valor entre 2 y 50." Style="z-index: 205;
 					left: 475px; position: absolute; top: 50px" Width="4px" 
@@ -195,14 +199,15 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" Title="Parámetros Generales" EnableEve
 				<asp:RangeValidator ID="RangeValidator2" runat="server" ControlToValidate="TxtKAM"
 					ErrorMessage="El valor debe estar comprendido entre 2 y 50" MaximumValue="50"
 					MinimumValue="2" Style="z-index: 207; left: 475px; position: absolute; top: 50px"
-					Type="Integer" meta:resourcekey="RangeValidator2Resource1">*</asp:RangeValidator>
-				 
+					Type="Integer" meta:resourcekey="RangeValidator2Resource1">*</asp:RangeValidator> --%>
+				
 				 <asp:Label ID="Label21" runat="server" Style="z-index: 169; left: 22px; position: absolute;
 					  top: 70px" Text="Número llamadas entrantes en cola IDA:" 
 					meta:resourcekey="Label13Resource1"></asp:Label>
 				 <asp:TextBox ID="TxtLlamEntIDA" runat="server" Style="z-index: 170; left: 22px; position: absolute;
 					  top: 90px" Width="39px" ReadOnly="True"  meta:resourcekey="TxtLlamEntIDAResource1">3</asp:TextBox>
-				 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="TxtLlamEntIDA"
+
+				   <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="TxtLlamEntIDA"
 					  ErrorMessage="El campo número de llamadas entrantes en cola IDA no puede estar vacio."
 					  Style="z-index: 147; left: 80px; position: absolute; top: 95px" 
 					meta:resourcekey="RequiredFieldValidator6Resource1">*</asp:RequiredFieldValidator>
@@ -214,13 +219,14 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" Title="Parámetros Generales" EnableEve
                         ControlToValidate="TxtLlamEntIDA"
                         ErrorMessage="El campo número de llamadas entrantes en cola IDA debe estar comprendido entre 1 y 4." 
                         Style="z-index: 189; left: 80px; position: absolute;top: 95px"
-					meta:resourcekey="RangeValidatorTxtLlamEntIDAResource1">*</asp:RangeValidator>
-					  
+					meta:resourcekey="RangeValidatorTxtLlamEntIDAResource1">*</asp:RangeValidator> --%>
+
 				 <asp:Label ID="Label25" runat="server" Style="z-index: 171; left: 400px; position: absolute;
 					  top: 70px" Text="Número llamadas IDA:" meta:resourcekey="Label2Resource1"></asp:Label>
 				 <asp:TextBox ID="TxtLlamIDA" runat="server" Style="z-index: 172; left: 400px; position: absolute;
 					  top: 90px" Width="39px" ReadOnly="True" meta:resourcekey="TxtLlamIDAResource1">4</asp:TextBox>
-				 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="TxtLlamIDA"
+
+				  <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="TxtLlamIDA"
 					  ErrorMessage="El campo número de llamadas IDA no puede estar vacio." Style="z-index: 150;
 					  left: 450px; position: absolute; top: 95px" 
 					meta:resourcekey="RequiredFieldValidator9Resource1">*</asp:RequiredFieldValidator>
@@ -232,7 +238,7 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" Title="Parámetros Generales" EnableEve
                         ControlToValidate="TxtLlamIDA"
                         ErrorMessage="El campo número de llamadas IDA debe estar comprendido entre 1 y 4." 
                         Style="z-index: 189; left: 450px; position: absolute;top: 95px"
-					meta:resourcekey="RangeValidatorTxtLlamIDAResource1">*</asp:RangeValidator>
+					meta:resourcekey="RangeValidatorTxtLlamIDAResource1">*</asp:RangeValidator>--%>
 
 				 <asp:Label ID="Label26" runat="server" Style="z-index: 173; left: 22px; position: absolute;
 					  top: 114px" Text="Número de frecuencias por página:" 
@@ -240,7 +246,8 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" Title="Parámetros Generales" EnableEve
 				 <asp:TextBox ID="TxtFrecPag" runat="server" Style="z-index: 175; left: 22px; position: absolute;
 					  top: 134px" Width="39px" ReadOnly="True" OnLoad="WarnChange"  AutoPostBack="true" 
                       meta:resourcekey="TxtFrecPagResource1">15</asp:TextBox>
-				 <asp:label ID="WarnText" runat="server" Style="z-index: 173; left: 50px; position: absolute; 
+
+				  <%-- <asp:label ID="WarnText" runat="server" Style="z-index: 173; left: 50px; position: absolute; 
                       top: 325px" ReadOnly="True" Visible="true" color="#f00000" meta:resourcekey="WarnResource">
 					  </asp:label>
 				 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="TxtFrecPag"
@@ -255,13 +262,15 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" Title="Parámetros Generales" EnableEve
 					MaximumValue="20" Type="Integer" ControlToValidate="TxtFrecPag"
 											ErrorMessage="El campo número de frecuencias por página debe estar comprendido entre 4 y 20." 
 											Style="z-index: 148; left: 369px; position: absolute; top: 116px" 
-					meta:resourcekey="RangeValidator3Resource1">*</asp:RangeValidator>
+					meta:resourcekey="RangeValidator3Resource1">*</asp:RangeValidator>--%>
+
 				 <asp:Label ID="Label27" runat="server" Style="z-index: 174; left: 400px; position: absolute;
 					  top: 114px" Text="Número de páginas de frecuencias:"  
 					meta:resourcekey="Label11Resource1"></asp:Label>
 				 <asp:TextBox ID="TxtPagFrec" runat="server" Style="z-index: 176; left: 400px; position: absolute;
 					  top: 134px" Width="22px" ReadOnly="True" meta:resourcekey="TxtPagFrecResource1">9</asp:TextBox>
-				 <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="TxtPagFrec"
+
+				  <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="TxtPagFrec"
 					  ErrorMessage="El campo número de páginas de frecuencias no puede estar vacio."
 					  Style="z-index: 151; left: 450px; position: absolute; top: 140px" 
 					meta:resourcekey="RequiredFieldValidator10Resource1">*</asp:RequiredFieldValidator>
@@ -269,16 +278,22 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" Title="Parámetros Generales" EnableEve
 					  ErrorMessage="El campo número de páginas de frecuencias debe ser numérico." Operator="DataTypeCheck"
 					  Style="z-index: 193; left: 450px; position: absolute; top: 140px" Type="Integer" 
 					meta:resourcekey="CompareValidator5Resource1">*</asp:CompareValidator>
+				<asp:RangeValidator ID="RangeValidator5" runat="server" MinimumValue="1" 
+					MaximumValue="9" Type="Integer" ControlToValidate="TxtPagFrec"
+											ErrorMessage="El campo número de páginas de frecuencias debe estar comprendido entre 1 y 9." 
+											Style="z-index: 149; left: 80px; position: absolute; top: 180px" 
+					meta:resourcekey="RangeValidator5Resource1" Text="5"></asp:RangeValidator>--%>
 
 				 <asp:Label ID="Label28" runat="server" Style="z-index: 177; left: 22px; position: absolute;
-					  top: 158px" Text="Número de enlaces telefónicos por página:" 
+					  top: 158px" Text="Número de enlaces telefónicos por página (sin tecla +1):" 
 					meta:resourcekey="Label4Resource1"></asp:Label>
 				 <asp:TextBox ID="TxtEnlIntPag" runat="server" Style="z-index: 179; left: 22px; position: absolute;
 					  top: 178px" Width="39px" ReadOnly="True" meta:resourcekey="TxtEnlIntPagResource1">15</asp:TextBox>
-				 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="TxtEnlIntPag"
+
+				   <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="TxtEnlIntPag"
 					  ErrorMessage="El campo número de enlaces telefónicos por página no puede estar vacio."
 					  Style="z-index: 149; left: 80px; position: absolute; top: 180px" 
-					meta:resourcekey="RequiredFieldValidator8Resource1">*</asp:RequiredFieldValidator>
+					meta:resourcekey="RequiredFieldValidator8Resource1" Text="8"></asp:RequiredFieldValidator>
 				 <asp:CompareValidator ID="CompareValidator6" runat="server" ControlToValidate="TxtEnlIntPag"
 					  ErrorMessage="El campo número de enlaces telefónicos por página debe ser numérico."
 					  Operator="DataTypeCheck" Style="z-index: 191; left: 80px; position: absolute;
@@ -287,14 +302,15 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" Title="Parámetros Generales" EnableEve
 					MaximumValue="24" Type="Integer" ControlToValidate="TxtEnlIntPag"
 											ErrorMessage="El campo número de enlaces telefónicos por página debe estar comprendido entre 8 y 24." 
 											Style="z-index: 149; left: 80px; position: absolute; top: 180px" 
-					meta:resourcekey="RangeValidator4Resource1">*</asp:RangeValidator>
+					meta:resourcekey="RangeValidator4Resource1" Text="4"></asp:RangeValidator> --%>
 
 				 <asp:Label ID="Label29" runat="server" Style="z-index: 178; left: 400px; position: absolute;
 					  top: 158px" Text="Número páginas enlaces telefónicos:" 
 					meta:resourcekey="Label3Resource1"></asp:Label>
 				 <asp:TextBox ID="TxtPagEnlInt" runat="server" Style="z-index: 180; left: 400px; position: absolute;
-					  top: 178px" Width="22px" ReadOnly="True" meta:resourcekey="TxtPagEnlIntResource1">3</asp:TextBox>        
-				 <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="TxtPagEnlInt"
+					  top: 178px" Width="22px" ReadOnly="True" meta:resourcekey="TxtPagEnlIntResource1">3</asp:TextBox>
+
+				  <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="TxtPagEnlInt"
 					  ErrorMessage="El campo número de páginas de enlaces telefónicos no puede estar vacio."
 					  Style="z-index: 152; left: 450px; position: absolute; top: 180px" 
 					meta:resourcekey="RequiredFieldValidator11Resource1">*</asp:RequiredFieldValidator>
@@ -302,12 +318,23 @@ CodeFileBaseClass="PageBaseCD40.PageCD40" Title="Parámetros Generales" EnableEve
 					  ErrorMessage="El campo número de páginas de enlaces telefónicos debe ser numérico."
 					  Operator="DataTypeCheck" Style="z-index: 194; left: 450px; position: absolute;
 					  top: 180px" Type="Integer" meta:resourcekey="CompareValidator6Resource1">*</asp:CompareValidator>
+				<asp:RangeValidator ID="RangeValidator6" runat="server" MinimumValue="3" 
+					MaximumValue="9" Type="Integer" ControlToValidate="TxtPagEnlInt"
+											ErrorMessage="El campo número de páginas de telefonía debe estar comprendido entre 3 y 9." 
+											Style="z-index: 149; left: 450px; position: absolute; top: 180px" 
+					meta:resourcekey="RangeValidator6Resource1" Text="6"></asp:RangeValidator>--%>
 
 				 <asp:Label ID="Label30" runat="server" Style="z-index: 178; left: 22px; position: absolute;
 					  top: 203px" Text="Número enlaces acceso instantáneo:" 
 					meta:resourcekey="Label30Resource1"></asp:Label>
 				 <asp:TextBox ID="TxtNumAI" runat="server" Style="z-index: 180; left: 22px; position: absolute;
 					  top: 223px" Width="22px" ReadOnly="True" meta:resourcekey="TxtNumAIResource1">18</asp:TextBox>
+
+				  <%--<asp:RangeValidator ID="RangeValidator7" runat="server" MinimumValue="9" 
+					MaximumValue="18" Type="Integer" ControlToValidate="TxtNumAI"
+											ErrorMessage="El campo número enlaces acceso instantáneo debe estar comprendido entre 9 y 18." 
+											Style="z-index: 149; left: 85px; position: absolute; top: 189px" 
+					meta:resourcekey="RangeValidator7Resource1" Text="7"></asp:RangeValidator>--%>
 
 				<asp:Label ID="Label31" runat="server" Style="z-index: 135; left: 22px; position: absolute;
 					top: 248px" Text="Puerto Multicast:" meta:resourcekey="Label31Resource1"></asp:Label>

@@ -423,4 +423,22 @@
   <data name="GRUPO_CONTINUA" xml:space="preserve">
     <value>(Continuation)</value>
   </data>
+  <data name="RECURSO_TIPO_EE" xml:space="preserve">
+    <value>Audio EE</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_EE" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_CONRED" xml:space="preserve">
+    <value>1+1:</value>
+  </data>
+  <data name="RECURSO_TIPO_EE_RX" xml:space="preserve">
+    <value>Audio EE RX</value>
+  </data>
+  <data name="RECURSO_TIPO_EE_TX" xml:space="preserve">
+    <value>Audio EE TX</value>
+  </data>
+  <data name="RECURSO_TIPO_EE_RXTX" xml:space="preserve">
+    <value>Audio EE RX TX</value>
+  </data>
 </root>

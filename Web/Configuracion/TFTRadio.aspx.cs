@@ -300,7 +300,12 @@ public partial class TFTRadio :	PageBaseCD40.PageCD40	// System.Web.UI.Page
                     tCell.Visible = true;
                     if (++visibleCount <= NumPosicionesPag)
                         tCell.Enabled = true;
-                    else tCell.Enabled = false;
+                    else
+                    {
+                        tCell.Enabled = false;
+                        // JOI: #4487
+                        tCell.Visible = false;
+                    }
                 }
                 else
                     tCell.Visible = false;

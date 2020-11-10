@@ -450,4 +450,7 @@
   <data name="BtnTabCalidadResource1.Text" xml:space="preserve">
     <value>RSSI Conversion</value>
   </data>
+  <data name="BtnCancelarModoResource1.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
 </root>

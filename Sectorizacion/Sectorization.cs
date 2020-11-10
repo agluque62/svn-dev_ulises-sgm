@@ -867,7 +867,9 @@ namespace GeneraSectorizacionDll
 		{
 			if (user.RdEndPoints == null)
 				return;
-			
+
+            int iNumRdEndPointsByName = _RdEndPointsByName.Length;
+
 			foreach (RDEndPoint userEP in user.RdEndPoints)
 			{
 				if (userEP == null)
@@ -879,31 +881,42 @@ namespace GeneraSectorizacionDll
 				string epId = userEP.Frecuency;// +userEP.Position;
 				RDEndPoint ep = null;
 
-				if (!_RdEndPointsByName[pagina].TryGetValue(epId, out ep))
-				{
-					ep = new RDEndPoint(userEP);
-
-                    ep.Position = GetRdPosition(ep, user.NumFreqPagina);
-
-					if (ep.Position > 0)
-					{
-                        RdEndPoints[ep.Position] = ep;
-						_RdEndPointsByName[pagina][epId] = ep;
-					}
-				}
-				else
-				{
-                    if (ep.Position / NumFreqPagina == pagina)
+                if (pagina < iNumRdEndPointsByName)
+                {
+                    if (!_RdEndPointsByName[pagina].TryGetValue(epId, out ep))
                     {
-                        ep.Priority = Math.Min(ep.Priority, userEP.Priority);
-                        ep.SupervisionPortadora |= userEP.SupervisionPortadora;
+                        ep = new RDEndPoint(userEP);
+
+                        ep.Position = GetRdPosition(ep, user.NumFreqPagina);
+
+                        if (ep.Position > 0)
+                        {
+                            RdEndPoints[ep.Position] = ep;
+                            _RdEndPointsByName[pagina][epId] = ep;
+                        }
                     }
                     else
                     {
-                        // Si está en distinta página
-                        ep.SupervisionPortadora |= userEP.SupervisionPortadora;
+                        if (ep.Position / NumFreqPagina == pagina)
+                        {
+                            ep.Priority = Math.Min(ep.Priority, userEP.Priority);
+                            ep.SupervisionPortadora |= userEP.SupervisionPortadora;
+                        }
+                        else
+                        {
+                            // Si está en distinta página
+                            ep.SupervisionPortadora |= userEP.SupervisionPortadora;
+                        }
                     }
-				}
+                }
+                else
+                {
+                    StringBuilder strMsg = new StringBuilder();
+                    strMsg.AppendFormat("El destino radio {0} del sector {1} se encuentra fuera del rango de páginas. Pagina={2} Num.Total={3}.",
+                                                   epId, user.Sector.Name, pagina, user.NumFreqPagina);
+                    Log(true, "MergeColateralsRd", strMsg.ToString());
+                    strMsg.Clear();
+                }
 			}
 		}
 
@@ -3380,133 +3393,174 @@ namespace GeneraSectorizacionDll
             int iNumRdFS = 0;
             System.Collections.Hashtable tlistaDestinosFS = new System.Collections.Hashtable();
             System.Collections.Hashtable tlistaUsuariosDestinosFS = new System.Collections.Hashtable();
+            StringBuilder strMsg = new StringBuilder();
+            //20200911 JOI #4591
+            string sIdSector = string.Empty;
+            string sIdNucleo = string.Empty;
 
-            // Destinos de Radio
-			cmd.CommandText = "SELECT a.* FROM DestinosRadioSector a, Sectores s " +
-								"WHERE s.IdSistema='" + IdSistema + "' AND s.SectorSimple AND " +
-										"s.NumSacta IN (" + StringSectores.ToString() + ") AND " +
-										"a.IdSistema=s.IdSistema AND a.IdSector=s.IdSector AND " +
-										"a.IdNucleo=s.IdNucleo ORDER BY a.IdNucleo,a.IdSector,-a.PosHMI";
-
-
-			using (DbDataReader dr = cmd.ExecuteReader())
-			{
-				while (dr.Read())
-				{
-					UserInfo user = null;
-
-					if (ListOfUsersByName.TryGetValue((string)dr["IdSector"], out user))
-					{
-						RDEndPoint ep = new RDEndPoint();
-
-						ep.Position = (int)((uint)dr["PosHMI"]);
-						ep.Frecuency = (string)dr["IdDestino"];
-						ep.Literal = (string)dr["Literal"];
-						ep.Priority = (int)((uint)dr["Prioridad"]);
-						ep.PrioridadSIP=(int)((uint)dr["PrioridadSIP"]);
-						ep.EstadoAsignacion = (string)dr["ModoOperacion"];
-                        ep.SupervisionPortadora = dr["SupervisionPortadora"] != System.DBNull.Value ? (bool)dr["SupervisionPortadora"] : false;
-						if (ep.Position >= user.RdEndPoints.Length)
-						{
-							Array.Resize(ref user.RdEndPoints, (int)(ep.Position + 1));
-						}
-
-						user.RdEndPoints[ep.Position] = ep;
-
-                        
-                        if (hayUsuarioFS)
-                        {
-                            //Si no existe el destino radio en la sectorización FS, lo añadimos
-                            if (!tlistaDestinosFS.ContainsKey(ep.Frecuency))
-                            {
-                                RDEndPoint epFS = new RDEndPoint();
-
-                                iNumRdFS++;
-                                epFS.Position = iNumRdFS;
-                                epFS.Frecuency=ep.Frecuency;
-                                epFS.Literal=ep.Literal;
-                                epFS.Priority=ep.Priority;
-                                epFS.PrioridadSIP=ep.PrioridadSIP;
-                                epFS.EstadoAsignacion=ep.EstadoAsignacion;
-                                epFS.SupervisionPortadora=ep.SupervisionPortadora;
-
-                                if (iNumRdFS >= userFS.RdEndPoints.Length)
-                                {
-                                    Array.Resize(ref userFS.RdEndPoints, (int)(iNumRdFS + 1));
-                                }
-
-                                userFS.RdEndPoints[iNumRdFS] = epFS;
-                                tlistaDestinosFS.Add(ep.Frecuency, iNumRdFS);
-                                tlistaUsuariosDestinosFS.Add(ep.Frecuency, user.IdUsuario);
-                            }
-                        }
-					}
-				}
-			}
-
-
-			// Obtener el estado de los altavoces de cada posición.
-			foreach (UserInfo user in ListOfUsersByName.Values)
-			{
-                if (user.IdUsuario != STR_SECTOR_FS && user.RdEndPoints.Length > 0)
+            bool haySeleccionadoFS = false;
+            try
+            {
+                cmd.CommandText = "SELECT COUNT(*) FROM Sectores WHERE SeleccionadoFS = TRUE";
+                object objCountslf = cmd.ExecuteScalar();
+                if ((objCountslf != null) && (Int32.Parse(objCountslf.ToString()) > 0))
                 {
-                    foreach (RDEndPoint rdPosicion in user.RdEndPoints)
-                    {
-                        if (rdPosicion != null)
-                        {
-                            rdPosicion.EstadoAltavoces = GetEstadoAltavoces(IdSistema, user.IdNucleo, rdPosicion.Frecuency, user.IdUsuario, (uint)rdPosicion.Position, cmd);
-                            rdPosicion.EstadoRecursos = GetEstadoRecursos(IdSistema, user.IdNucleo, user.IdUsuario, (uint)rdPosicion.Position, cmd);
-                            
-                            if (hayUsuarioFS)
-                            {
-                                if (tlistaDestinosFS.ContainsKey(rdPosicion.Frecuency) && tlistaUsuariosDestinosFS.ContainsKey(rdPosicion.Frecuency))
-                                {
-                                    if (null != tlistaDestinosFS[rdPosicion.Frecuency])
-                                    {
-                                        int iPos = (int) tlistaDestinosFS[rdPosicion.Frecuency];
-                                        string idUsuarioFS = (string)tlistaUsuariosDestinosFS[rdPosicion.Frecuency];
+                   
+                    //Si hay sector seleccionado, pero no tiene asignaciones radio se deja la opción **FS** origen
+                    cmd.CommandText = "SELECT a.* FROM DestinosRadioSector a, Sectores s " +
+                    "WHERE s.IdSistema='" + IdSistema + "' AND s.SectorSimple AND " +
+                            "s.SeleccionadoFS = TRUE AND " +
+                            "a.IdSistema=s.IdSistema AND a.IdSector=s.IdSector AND " +
+                            "a.IdNucleo=s.IdNucleo ORDER BY a.IdNucleo,a.IdSector,-a.PosHMI";
+				    using (DbDataReader drsfs = cmd.ExecuteReader())
+				    {
+                        haySeleccionadoFS = drsfs.HasRows;
+                        drsfs.Close();
+                        drsfs.Dispose();
+				    }  
+                }              
+                //20200911 JOI #4591 FIN
+                // Destinos de Radio
+                cmd.CommandText = "SELECT a.* FROM DestinosRadioSector a, Sectores s " +
+                                    "WHERE s.IdSistema='" + IdSistema + "' AND s.SectorSimple AND " +
+                                            "s.NumSacta IN (" + StringSectores.ToString() + ") AND " +
+                                            "a.IdSistema=s.IdSistema AND a.IdSector=s.IdSector AND " +
+                                            "a.IdNucleo=s.IdNucleo ORDER BY a.IdNucleo,a.IdSector,-a.PosHMI";
 
-                                        if (null != userFS.RdEndPoints[iPos] && user.IdUsuario == idUsuarioFS)
+			    using (DbDataReader dr = cmd.ExecuteReader())
+			    {
+				    while (dr.Read())
+				    {
+					    UserInfo user = null;
+
+					    if (ListOfUsersByName.TryGetValue((string)dr["IdSector"], out user))
+					    {
+						    RDEndPoint ep = new RDEndPoint();
+
+						    ep.Position = (int)((uint)dr["PosHMI"]);
+						    ep.Frecuency = (string)dr["IdDestino"];
+						    ep.Literal = (string)dr["Literal"];
+						    ep.Priority = (int)((uint)dr["Prioridad"]);
+						    ep.PrioridadSIP=(int)((uint)dr["PrioridadSIP"]);
+						    ep.EstadoAsignacion = (string)dr["ModoOperacion"];
+                            ep.SupervisionPortadora = dr["SupervisionPortadora"] != System.DBNull.Value ? (bool)dr["SupervisionPortadora"] : false;
+						    if (ep.Position >= user.RdEndPoints.Length)
+						    {
+							    Array.Resize(ref user.RdEndPoints, (int)(ep.Position + 1));
+						    }
+						    user.RdEndPoints[ep.Position] = ep;
+
+                            if (hayUsuarioFS && !haySeleccionadoFS)
+                            {
+                                //Si no existe el destino radio en la sectorización FS, lo añadimos
+                                if (!tlistaDestinosFS.ContainsKey(ep.Frecuency))
+                                {
+                                    RDEndPoint epFS = new RDEndPoint();
+                                        iNumRdFS++;
+                                        epFS.Position = iNumRdFS;
+                                        epFS.Frecuency=ep.Frecuency;
+                                        epFS.Literal=ep.Literal;
+                                        epFS.Priority=ep.Priority;
+                                        epFS.PrioridadSIP=ep.PrioridadSIP;
+                                        epFS.EstadoAsignacion=ep.EstadoAsignacion;
+                                        epFS.SupervisionPortadora=ep.SupervisionPortadora;
+                                    if (iNumRdFS >= userFS.RdEndPoints.Length)
+                                    {
+                                        Array.Resize(ref userFS.RdEndPoints, (int)(iNumRdFS + 1));
+                                    }
+                                    userFS.RdEndPoints[iNumRdFS] = epFS;
+                                    tlistaDestinosFS.Add(ep.Frecuency, iNumRdFS);
+                                    tlistaUsuariosDestinosFS.Add(ep.Frecuency, user.IdUsuario);
+                                }
+                            }
+					    }
+				    }
+			    }
+                //20200911 JOI #4591
+                if (hayUsuarioFS && haySeleccionadoFS)
+                {
+                    // Destinos de Radio de sector seleccionados por defecto para Fuera de Sectorizacion
+                    cmd.CommandText = "SELECT a.* FROM DestinosRadioSector a, Sectores s " +
+                                        "WHERE s.IdSistema='" + IdSistema + "' AND s.SectorSimple AND " +
+                                                "s.SeleccionadoFS = TRUE AND " +
+                                                "a.IdSistema=s.IdSistema AND a.IdSector=s.IdSector AND " +
+                                                "a.IdNucleo=s.IdNucleo ORDER BY a.IdNucleo,a.IdSector,-a.PosHMI";
+                    using (DbDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            RDEndPoint epFS = new RDEndPoint();
+                            epFS.Position = (int)((uint)dr["PosHMI"]);
+                            epFS.Frecuency = (string)dr["IdDestino"];
+                            epFS.Literal = (string)dr["Literal"];
+                            epFS.Priority = (int)((uint)dr["Prioridad"]);
+                            epFS.PrioridadSIP = (int)((uint)dr["PrioridadSIP"]);
+                            epFS.EstadoAsignacion = (string)dr["ModoOperacion"];
+                            epFS.SupervisionPortadora = dr["SupervisionPortadora"] != System.DBNull.Value ? (bool)dr["SupervisionPortadora"] : false;
+                            if (epFS.Position >= userFS.RdEndPoints.Length)
+                            {
+                                Array.Resize(ref userFS.RdEndPoints, (int)(epFS.Position + 1));
+                            }
+                            userFS.RdEndPoints[epFS.Position] = epFS;
+                            sIdNucleo = (string)dr["IdNucleo"];
+                            sIdSector = (string)dr["IdSector"];
+                        }
+                    }
+                    // Obtener el estado de los altavoces de cada posición.
+                    foreach (RDEndPoint RDepFS in userFS.RdEndPoints)
+                    {
+                        if (RDepFS != null)
+                        {
+                            RDepFS.EstadoAltavoces = GetEstadoAltavoces(IdSistema, sIdNucleo, RDepFS.Frecuency, sIdSector, (uint)RDepFS.Position, cmd);
+                            RDepFS.EstadoRecursos = GetEstadoRecursos(IdSistema, sIdNucleo, sIdSector, (uint)RDepFS.Position, cmd);
+                        }
+                    }
+                }
+                //20200911 JOI #4591 FIN
+
+			    // Obtener el estado de los altavoces de cada posición.
+			    foreach (UserInfo user in ListOfUsersByName.Values)
+			    {
+                    if (user.IdUsuario != STR_SECTOR_FS && user.RdEndPoints.Length > 0)
+                    {
+                        foreach (RDEndPoint rdPosicion in user.RdEndPoints)
+                        {
+                            if (rdPosicion != null)
+                            {
+                                rdPosicion.EstadoAltavoces = GetEstadoAltavoces(IdSistema, user.IdNucleo, rdPosicion.Frecuency, user.IdUsuario, (uint)rdPosicion.Position, cmd);
+                                rdPosicion.EstadoRecursos = GetEstadoRecursos(IdSistema, user.IdNucleo, user.IdUsuario, (uint)rdPosicion.Position, cmd);
+
+                                if (hayUsuarioFS && !haySeleccionadoFS)  //20200911 JOI #4591 FIN
+                                {
+                                    if (tlistaDestinosFS.ContainsKey(rdPosicion.Frecuency) && tlistaUsuariosDestinosFS.ContainsKey(rdPosicion.Frecuency))
+                                    {
+                                        if (null != tlistaDestinosFS[rdPosicion.Frecuency])
                                         {
-                                            userFS.RdEndPoints[iPos].EstadoAltavoces = rdPosicion.EstadoAltavoces;
-                                            userFS.RdEndPoints[iPos].EstadoRecursos = rdPosicion.EstadoRecursos;
+                                            int iPos = (int) tlistaDestinosFS[rdPosicion.Frecuency];
+                                            string idUsuarioFS = (string)tlistaUsuariosDestinosFS[rdPosicion.Frecuency];
+                                            if (null != userFS.RdEndPoints[iPos] && user.IdUsuario == idUsuarioFS)
+                                            {
+                                                userFS.RdEndPoints[iPos].EstadoAltavoces = rdPosicion.EstadoAltavoces;
+                                                userFS.RdEndPoints[iPos].EstadoRecursos = rdPosicion.EstadoRecursos;
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
                     }
-                }
-			}
+			    }
 
+                if (tlistaDestinosFS.Count > 0)
+                    tlistaDestinosFS.Clear();
 
-            if (tlistaDestinosFS.Count > 0)
-                tlistaDestinosFS.Clear();
-
-            if (tlistaUsuariosDestinosFS.Count > 0)
-                tlistaUsuariosDestinosFS.Clear();
-
-			//foreach (string userNum /* OJO, esto ha de ser un string */ in ListOfUsersByName.Keys)
-			//{
-			//    cmd.CommandText = "SELECT Posicion, Frecuencia, Emplazamiento, Prioritario FROM ColateralRd " +
-			//        "WHERE IdConfig != 'ACTIVA' AND IdPanel = 7 AND NumUsuario = " + userNum + " ORDER BY Posicion";
-			//    break;
-			//}
-
-			//using (DbDataReader dr = cmd.ExecuteReader())
-			//{
-			//    while (dr.Read())
-			//    {
-			//        RDEndPoint ep = new RDEndPoint();
-
-			//        ep.Position = dr.GetInt32(0);
-			//        ep.Frecuency = dr.GetString(1);
-			//        ep.Place = dr.GetString(2);
-			//        ep.Priority = dr.GetInt32(3);
-
-			//        RdEndPoints.Add(ep);
-			//    }
-			//}
+                if (tlistaUsuariosDestinosFS.Count > 0)
+                    tlistaUsuariosDestinosFS.Clear();
+            }
+            catch(Exception ex)
+            {
+                Log(true, "GetUsersRdColaterals", "Error generico:" + ex.Message.ToString());
+            }
 		}
 
 		private Dictionary<string, string> GetEstadoRecursos(string idSistema, string idNucleo, string idSector, uint posHmi, DbCommand cmd)

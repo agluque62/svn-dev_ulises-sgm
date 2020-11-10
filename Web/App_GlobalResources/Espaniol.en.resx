@@ -369,7 +369,7 @@
   <data name="ErrorAsignacionEmplazamientosRecursosDestinoFD" xml:space="preserve">
     <value>In "OC" destination mode, each site must have at least one Tx and Rx OC the same type. Please, review resource configuration "{0}" at site "{1}"</value>
   </data>
-  <data name="ErrorDiferenetesNumTxyRx" xml:space="preserve">
+  <data name="ErrorDiferentesNumTxyRx" xml:space="preserve">
     <value>Must have the same number of TX and RX resources</value>
   </data>
   <data name="MaximosRecursosDestinoFD" xml:space="preserve">
@@ -415,7 +415,7 @@
     <value>Please, review the HW assignment. If the resource is assigned to a gateway, release it and assign it to an external equipment.</value>
   </data>
   <data name="AvisoCnfHwRecursoRadioMN_EquipExt" xml:space="preserve">
-    <value>The "Audio M+N" radio resource must be assigned to an external equipment. Please check the Hw assignment.</value>
+    <value>The "{0}" radio resource must be assigned to an external equipment. Please check the Hw assignment.</value>
   </data>
   <data name="ErrorIdentificadorEltoFisicoExiste" xml:space="preserve">
     <value>The identifier "{0}" is assigned to another physical element in the system. Please, enter a name that is unique.</value>
@@ -618,7 +618,7 @@
   <data name="ToptSpvColl" xml:space="preserve">
     <value>El rango para el Tiempo entre Options en Superv. Colateral debe de estar comprendido entre 1 y 19 segundos.</value>
   </data>
-    <data name="MsgDestinoFDConMetodoBSSNoPermitido" xml:space="preserve">
+  <data name="MsgDestinoFDConMetodoBSSNoPermitido" xml:space="preserve">
     <value>In "OC" destination mode , the BSS method "RSSI and NUCLEO" can not be selected if any of the allocated resources is a reception circuit that is not assigned to a gateway.</value>
   </data>
   <data name="ErrorTMSupLANNaN" xml:space="preserve">
@@ -705,4 +705,97 @@
   <data name="RecursoDestinoLCENAsignadoEnPanelLC" xml:space="preserve">
     <value>The resource {3} can not be deleted. The destination {0} is assigned to the ATS destination '{1}' in the Instantaneous access panel of sector {2}. Please, release the destination before you delete it.</value>
   </data>
+  <data name="LB_VERSION" xml:space="preserve">
+    <value>© Núcleo 2020. v2.6.0. All rights reserved.</value>
+  </data>
+  <data name="ErrorAsignacionFrecuenciaHFConRedundancia" xml:space="preserve">
+    <value>Under the "Normal" destination mode and frequency type "HF" the option 1+1 is not available.</value>
+  </data>
+  <data name="ErrorConfiguracionDestinoConRedundancia" xml:space="preserve">
+    <value>If the destination is configured as 1 + 1, at least one pair of resources of the same type that are within the same location must be configured with redundancy.</value>
+  </data>
+  <data name="ErrorConfiguracionDestinoConRedundanciaEmplazamiento" xml:space="preserve">
+    <value>If the destination is configured as 1 + 1, within the same site, only pairs of Rx and Tx resources, or RxTx, can be configured with redundancy.</value>
+  </data>
+  <data name="ErrorConfiguracionFSEmplazamientos" xml:space="preserve">
+    <value>If the destination is configured as Simple Frequency, equipment from different sites cannot be assigned</value>
+  </data>
+  <data name="ErrorAsignacionRecursosDestinoNormalConRedundancia" xml:space="preserve">
+    <value>Under "Normal" destination mode with 1+1 option, 1 receiving circuit and 0 or 1 transmitting circuit must be assigned, either in an RxTx resource or in a Tx resource and an Rx resource.</value>
+  </data>
+  <data name="MaximosRecursosDestinoFDRedundancia" xml:space="preserve">
+    <value>In "OC" destination mode with 1+1 option, there must be a maximum of 5 transmission circuits and 5 reception circuits, either in RxTx resources or Tx resources and Rx resources or combination of both.</value>
+  </data>
+  <data name="MinimoRecursosDestinoFDRedundancia" xml:space="preserve">
+    <value>The "OC" Destination Mode with 1+1 option, must have a minimum of 3 circuits assigned and at least one circuit must be a reception circuit and another one a transmission circuit.</value>
+  </data>
+  <data name="AvisoRecursoRadioCon_DestinoUnoMasUno" xml:space="preserve">
+    <value>The resource cannot be deleted because it is associated with a Radio Destination in the "1+1" mode. The Radio Destination resource must be deleted before the resource can be deleted.</value>
+  </data>
+  <data name="ErrorTablaCalidadErronea" xml:space="preserve">
+    <value>The RSSI value cannot be decreasing with respect to the previous one.</value>
+  </data>
+  <data name="ErrorConfiguracionDestinoEmplazamientoEquipo" xml:space="preserve">
+    <value>Equipment allocation error, incompatible configuration.</value>
+  </data>
+  <data name="ErrorConfiguracion1_mas_1_BSS" xml:space="preserve">
+    <value>In radio destinations (1 + 1), the BSS method option “None” is not allowed</value>
+  </data>
+  <data name="ErrorCampoVacio" xml:space="preserve">
+    <value>The field cannot be empty.</value>
+  </data>
+  <data name="ErrorKeepAliveMultiplier" xml:space="preserve">
+    <value>The value must be between 2 and 50.</value>
+  </data>
+  <data name="ErrorKeepAlivePeriod" xml:space="preserve">
+    <value>The value must be between 20 and 1000.</value>
+  </data>
+  <data name="ErrorNumDestinosInternosPag" xml:space="preserve">
+    <value>The number of telephone links per page field must be between 8 and 24.</value>
+  </data>
+  <data name="ErrorNumEnlacesAI" xml:space="preserve">
+    <value>The instant access links number field must be between 9 and 18.</value>
+  </data>
+  <data name="ErrorNumFrecPagina" xml:space="preserve">
+    <value>The number of frequencies per page field must be between 4 and 20.</value>
+  </data>
+  <data name="ErrorNumLlamadasEnIda" xml:space="preserve">
+    <value>The IDA calls number field must be between 1 and 4.</value>
+  </data>
+  <data name="ErrorNumLlamadasEntrantesIda" xml:space="preserve">
+    <value>The number of incoming calls queued IDA field must be between 1 and 4.</value>
+  </data>
+  <data name="ErrorNumPagDestinosInt" xml:space="preserve">
+    <value>The number of telephony pages field must be between 3 and 9.</value>
+  </data>
+  <data name="ErrorNumPagFrec" xml:space="preserve">
+    <value>The number of frequency pages field must be between 1 and 9.</value>
+  </data>
+  <data name="ErrorFormatoCampo" xml:space="preserve">
+    <value>The field must be numeric.</value>
+  </data>
+  <data name="ErrorLimiteExcedido" xml:space="preserve">
+    <value>Limit exceeded.</value>
+  </data>
+  <data name="NopropiedadBSSFS1_1" xml:space="preserve">
+    <value>BSS selected, all resources must have the BSS property activated.</value>
+  </data>
+  <data name="AvisoCnfRecursoRadioConDestinoBSS" xml:space="preserve">
+    <value>The radio resource is assigned to the destination {0} with active BSS. Please check the settings.</value>
+  </data>
+  <data name="ErrorFrecuenciaRecursoMN_Destino" xml:space="preserve">
+    <value>Frequency "{0}" of the selected M + N equipment is not equal to Destination Identifier "{1}". Review the resource settings.</value>
+  </data>
+  <data name="PanelLcErrorParamCNF" xml:space="preserve">
+    <value>Error. Review System Parameters Direct Access Panel</value>
+  </data>
+  <data name="AvisoRecursoRadioCon_Destino" xml:space="preserve">
+    <value>The resource cannot be deleted because it is associated with a Radio Destination. To delete the resource, you must first delete the resource from Destination Radio</value>
+  </data>
+  <data name="ErrorDestinoRadioEmplazamientoSoloTx" xml:space="preserve">
+    <value>Error. Site consisting of only TX not allowed.</value>
+  </data>
+  <data name="ErrorEmplazamientoUnoMasUnoMmasN" xml:space="preserve">
+    <value>Error. Installation with equipment in 1 + 1 and M + N not allowed.</value>
+  </data>  
 </root>

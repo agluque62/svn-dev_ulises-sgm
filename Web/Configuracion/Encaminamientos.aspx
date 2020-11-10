@@ -19,7 +19,6 @@
 			return false
 
 		}
-
 	</script>
     <asp:Label ID="Label2" runat="server" Text="GESTIÓN DE ENCAMINAMIENTOS" 
 		 CssClass="labelPagina" meta:resourcekey="Label2Resource1" ></asp:Label>        
@@ -134,7 +133,7 @@
                   <td>
                       <asp:TextBox ID="TbSrvPresIp3" runat="server" Enabled="false"  Width="150px" meta:resourcekey="TbSrvPresIp3Resource"/>
                   </td>
-              </tr>                    
+              </tr>
             </table>
 				<asp:Label ID="LblRutas" runat="server" Height="92px" Style="z-index: 105; left: 354px;
 					position: absolute; top: 18px" Text="Rutas" Width="85px" 

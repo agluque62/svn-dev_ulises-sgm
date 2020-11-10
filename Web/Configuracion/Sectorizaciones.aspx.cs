@@ -33,7 +33,7 @@ public partial class Sectorizaciones : PageBaseCD40.PageCD40//, System.Web.UI.IC
             return _logDebugView;
         }
     }
-    private static int NumUCSs = 42;
+    private static int NumUCSs = 100;
     private static DataSet datos;
 	private static int NumTopSeleccionada;
 	private static int TopIntercambio;
@@ -49,7 +49,7 @@ public partial class Sectorizaciones : PageBaseCD40.PageCD40//, System.Web.UI.IC
 	private static ServiciosCD40.Tablas[] DatosRadio;
 	private static ServiciosCD40.ParametrosSector ParametrosSector = new ServiciosCD40.ParametrosSector();
 //	private static ServiciosCD40.Sistema ParametrosSistema = new ServiciosCD40.Sistema();
-	private static List<string>[] ListaUsuariosEnTop = new List<string>[49];
+	private static List<string>[] ListaUsuariosEnTop = new List<string>[100];
 	private static bool VisualizandoActiva = false;
 	static bool PermisoSegunPerfil;
 	static string IdSectorizacionActiva;
@@ -248,7 +248,7 @@ public partial class Sectorizaciones : PageBaseCD40.PageCD40//, System.Web.UI.IC
 		//int numRow = 1;
 		//foreach (TableRow tr in TUCS.Rows)
 		//{
-		//    if (tr.ID == "TableRow" + numRow)
+		//    if (tr.ID == "UserTRow" + numRow)
 		//    {
 		//        foreach (TableCell tc in tr.Cells)
 		//        {
@@ -458,7 +458,7 @@ public partial class Sectorizaciones : PageBaseCD40.PageCD40//, System.Web.UI.IC
 
                                 tbox.ToolTip = tbox.Text = (string)ds["IdSector"];
                                 ibut.ImageUrl = "~/Configuracion/Images/UCSAs.jpg";
-                                TableCell celda = (TableCell)TUCS.FindControl("TableCell" + index.ToString());
+                                TableCell celda = (TableCell)TUCS.FindControl("UserCell" + index.ToString());
                                 celda.ToolTip = ListaUsuarios((string)ds["IdNucleo"], (string)ds["IdSector"], index - 1);
                                 ListBox lBoxUsuarios = (ListBox)TUCS.FindControl("BUsuarios" + index);
                                 TableCell tc = (TableCell)TUCS.FindControl("CellUsuarios" + index);
@@ -488,7 +488,7 @@ public partial class Sectorizaciones : PageBaseCD40.PageCD40//, System.Web.UI.IC
                                 ImageButton ibut = (ImageButton)TUCS.FindControl("ImageButton" + index);
                                 Button tbox = (Button)TUCS.FindControl("TextBox" + index);
                                 tbox.ToolTip = tbox.Text = "";
-                                TableCell celda = (TableCell)TUCS.FindControl("TableCell" + index.ToString());
+                                TableCell celda = (TableCell)TUCS.FindControl("UserCell" + index.ToString());
                                 celda.ToolTip = "";
                                 ListBox lBoxUsuarios = (ListBox)TUCS.FindControl("BUsuarios" + index);
                                 ibut.ImageUrl = "~/Configuracion/Images/UCS.jpg";
@@ -500,7 +500,7 @@ public partial class Sectorizaciones : PageBaseCD40.PageCD40//, System.Web.UI.IC
                             }
                             TableCell cellidtop = (TableCell)TUCS.FindControl("Cell" + index.ToString());
                             cellidtop.Visible = true;
-                            TableCell cellucs = (TableCell)TUCS.FindControl("Tablecell" + index.ToString());
+                            TableCell cellucs = (TableCell)TUCS.FindControl("Usercell" + index.ToString());
                             cellucs.Visible = true;
                             index++;
                         }
@@ -510,7 +510,7 @@ public partial class Sectorizaciones : PageBaseCD40.PageCD40//, System.Web.UI.IC
                     {
                         TableCell cellidtop = (TableCell)TUCS.FindControl("Cell" + j.ToString());
                         cellidtop.Visible = false;
-                        TableCell cellucs = (TableCell)TUCS.FindControl("Tablecell" + j.ToString());
+                        TableCell cellucs = (TableCell)TUCS.FindControl("Usercell" + j.ToString());
                         cellucs.Visible = false;
                     }
 
@@ -858,8 +858,6 @@ public partial class Sectorizaciones : PageBaseCD40.PageCD40//, System.Web.UI.IC
                 logDebugView.Debug("Sectorizaciones-BActivar_Click: serviceServiciosCD40.ComunicaSectorizacionActiva devuelve false");
 				cMsg.alert((string)GetGlobalResourceObject("Espaniol", "NoTodosSectoresReales"));
 			}
-
-
 			//ResetTransaction();
         }
         catch (Exception ex)
@@ -1180,7 +1178,7 @@ public partial class Sectorizaciones : PageBaseCD40.PageCD40//, System.Web.UI.IC
             string strSectorizacion = string.Empty;
             bool bNointercambiarTop = true;
 
-            NumTopSeleccionada = Convert.ToInt32(((TableCell)((Control)sender).Parent).ID.Replace("TableCell", ""));
+            NumTopSeleccionada = Convert.ToInt32(((TableCell)((Control)sender).Parent).ID.Replace("UserCell", ""));
 
             strNombreSector = ((Button)TUCS.FindControl("TextBox" + NumTopSeleccionada)).Text;
             ListBox lBoxUsuariosAux = (ListBox)TUCS.FindControl("BUsuarios" + NumTopSeleccionada);

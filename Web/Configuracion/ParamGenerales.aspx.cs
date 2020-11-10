@@ -439,17 +439,179 @@ public partial class ParamGenerales : PageBaseCD40.PageCD40	// System.Web.UI.Pag
     /// </summary>
     private void GuardarCambios()
     {
+        //20200731 #4460
+        //Validación datos info KeepAlivePeriod
+        const uint MaxKeepAlivePeriod = 1000;
+        const uint MinKeepAlivePeriod = 20;
+        //Validación datos info KeepAliveMultiplier
+        const uint MaxKeepAliveMultiplier = 50;
+        const uint MinKeepAliveMultiplier = 2;
+        //Validación datos info NumDestinosInternosPag
+        const uint MaxNumDestinosInternosPag = 24;
+        const uint MinNumDestinosInternosPag = 8;
+        //Validación datos info NumFrecPagina
+        const uint MaxNumFrecPagina = 20;
+        const uint MinNumFrecPagina = 4;
+        //Validación datos info NumLlamadasEnIda
+        const uint MaxNumLlamadasEnIda = 4;
+        const uint MinNumLlamadasEnIda = 1;
+        //Validación datos info NumLlamadasEntrantesIda
+        const uint MaxNumLlamadasEntrantesIda = 4;
+        const uint MinNumLlamadasEntrantesIda = 1;
+        //Validación datos info NumPagDestinosInt
+        const uint MaxNumPagDestinosInt = 9;
+        const uint MinNumPagDestinosInt = 3;
+        //Validación datos info NumPagFrec
+        const uint MaxNumPagFrec = 9;
+        const uint MinNumPagFrec = 1;
+        //Validación datos info NumEnlacesAI
+        const uint MaxNumEnlacesAI = 18;
+        const uint MinNumEnlacesAI = 9;
+        bool bvacio = false;
+
         try
         {
+
+            //20200730 JOI #4460
+            if (TxtKAP.Text.Length > 0)
+            {
+                info.KeepAlivePeriod = Convert.ToUInt32(TxtKAP.Text);
+                if (info.KeepAlivePeriod < MinKeepAlivePeriod || info.KeepAlivePeriod > MaxKeepAlivePeriod)
+                {
+                    cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorKeepAlivePeriod"), "aceptparam");
+                    return;
+                }
+            }
+            else
+            {
+                bvacio = true;
+            }
+
+            if (TxtKAM.Text.Length > 0)
+            {
+                info.KeepAliveMultiplier = Convert.ToUInt32(TxtKAM.Text);
+                if (info.KeepAliveMultiplier < MinKeepAliveMultiplier || info.KeepAliveMultiplier > MaxKeepAliveMultiplier)
+                {
+                    cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorKeepAliveMultiplier"), "aceptparam");
+                    return;
+                }
+            }
+            else
+            {
+                bvacio = true;
+            }
+
+            if (TxtEnlIntPag.Text.Length > 0)
+            {
+                info.NumDestinosInternosPag = UInt16.Parse(TxtEnlIntPag.Text);
+                if (info.NumDestinosInternosPag < MinNumDestinosInternosPag || info.NumDestinosInternosPag > MaxNumDestinosInternosPag)
+                {
+                    cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorNumDestinosInternosPag"), "aceptparam");
+                    return;
+                }
+            }
+            else
+            {
+                bvacio = true;
+            }
+
+            if (TxtFrecPag.Text.Length > 0)
+            {
+                info.NumFrecPagina = UInt16.Parse(TxtFrecPag.Text);
+                if (info.NumFrecPagina < MinNumFrecPagina || info.NumFrecPagina > MaxNumFrecPagina)
+                {
+                    cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorNumFrecPagina"), "aceptparam");
+                    return;
+                }
+            }
+            else
+            {
+                bvacio = true;
+            }
+
+            if (TxtLlamIDA.Text.Length > 0)
+            {
+                info.NumLlamadasEnIda = UInt16.Parse(TxtLlamIDA.Text);
+                if (info.NumLlamadasEnIda < MinNumLlamadasEnIda || info.NumLlamadasEnIda > MaxNumLlamadasEnIda)
+                {
+                    cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorNumLlamadasEnIda"), "aceptparam");
+                    return;
+                }
+            }
+            else
+            {
+                bvacio = true;
+            }
+
+            if (TxtLlamEntIDA.Text.Length > 0)
+            {
+                info.NumLlamadasEntrantesIda = UInt16.Parse(TxtLlamEntIDA.Text);
+                if (info.NumLlamadasEntrantesIda < MinNumLlamadasEntrantesIda || info.NumLlamadasEntrantesIda > MaxNumLlamadasEntrantesIda)
+                {
+                    cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorNumLlamadasEntrantesIda"), "aceptparam");
+                    return;
+                }
+
+            }
+            else
+            {
+                bvacio = true;
+            }
+
+            if (TxtPagEnlInt.Text.Length > 0)
+            {
+                info.NumPagDestinosInt = UInt16.Parse(TxtPagEnlInt.Text);
+                if (info.NumPagDestinosInt < MinNumPagDestinosInt || info.NumPagDestinosInt > MaxNumPagDestinosInt)
+                {
+                    cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorNumPagDestinosInt"), "aceptparam");
+                    return;
+                }
+            }
+            else
+            {
+                bvacio = true;
+            }
+
+            if (TxtPagFrec.Text.Length > 0)
+            {
+                info.NumPagFrec = UInt16.Parse(TxtPagFrec.Text);
+                if (info.NumPagFrec < MinNumPagFrec || info.NumPagFrec > MaxNumPagFrec)
+                {
+                    cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorNumPagFrec"), "aceptparam");
+                    return;
+                }
+            }
+
+            if (TxtNumAI.Text.Length > 0)
+            {
+                info.NumEnlacesAI = UInt16.Parse(TxtNumAI.Text);
+                if (info.NumEnlacesAI < MinNumEnlacesAI || info.NumEnlacesAI > MaxNumEnlacesAI)
+                {
+                    cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorNumEnlacesAI"), "aceptparam");
+                    return;
+                }
+            }
+            else
+            {
+                bvacio = true;
+            }
+
+            if (bvacio)
+            {
+                cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorCampoVacio"), "aceptparam");
+                return;
+            }
+            //20200730 JOI #4460 FIN
+
             bool nuevo = false;
             if (info == null)
             {
                 info = new ServiciosCD40.Sistema();
                 nuevo = true;
-	            Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
-		        KeyValueConfigurationElement s = config.AppSettings.Settings["Sistema"];
-			    info.IdSistema = s.Value;
-				Session["idsistema"] = info.IdSistema;
+                Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
+                KeyValueConfigurationElement s = config.AppSettings.Settings["Sistema"];
+                info.IdSistema = s.Value;
+                Session["idsistema"] = info.IdSistema;
             }
             //info.TiempoPtt = UInt16.Parse(TxtPTT.Text);
             //info.TiempoSinJack1 = UInt16.Parse(TxtSinJack1.Text);
@@ -462,40 +624,35 @@ public partial class ParamGenerales : PageBaseCD40.PageCD40	// System.Web.UI.Pag
             info.GrupoMulticastConfiguracion = TxtGrupoMulti.Text;
             info.PuertoMulticastConfiguracion = UInt16.Parse(TxtPortMulti.Text);
             //info.VersionIP = UInt16.Parse(DListVersionIP.SelectedValue);
-            if (TxtKAP.Text.Length > 0)
-                info.KeepAlivePeriod = Convert.ToUInt32(TxtKAP.Text);
-            if (TxtKAM.Text.Length > 0)
-                info.KeepAliveMultiplier = Convert.ToUInt32(TxtKAM.Text);
-            if (TxtEnlIntPag.Text.Length > 0)
-                info.NumDestinosInternosPag = UInt16.Parse(TxtEnlIntPag.Text);
-            if (TxtFrecPag.Text.Length > 0)
-                info.NumFrecPagina = UInt16.Parse(TxtFrecPag.Text);
-            if (TxtLlamIDA.Text.Length > 0)
-                info.NumLlamadasEnIda = UInt16.Parse(TxtLlamIDA.Text);
-            if (TxtLlamEntIDA.Text.Length > 0)
-                info.NumLlamadasEntrantesIda = UInt16.Parse(TxtLlamEntIDA.Text);
-            if (TxtPagEnlInt.Text.Length > 0)
-                info.NumPagDestinosInt = UInt16.Parse(TxtPagEnlInt.Text);
-            if (TxtPagFrec.Text.Length > 0)
-                info.NumPagFrec = UInt16.Parse(TxtPagFrec.Text);
-            if (TxtNumAI.Text.Length > 0)
-                info.NumEnlacesAI = UInt16.Parse(TxtNumAI.Text);
-
             if (nuevo)
             {
-				if (ServicioCD40.InsertSQL(info) < 0)
+                if (ServicioCD40.InsertSQL(info) < 0)
                     logDebugView.Warn("(ParametrosGenerales-GuardarCambios): No se ha realizado el insert");
-			}
+            }
             else
-				if (ServicioCD40.UpdateSQL(info) < 0)
+                if (ServicioCD40.UpdateSQL(info) < 0)
                     logDebugView.Warn("(ParametrosGenerales-GuardarCambios): No se ha realizado el update");
 
-			ActualizaWebPadre(true);
-			MuestraDatos(DameDatos());
-		}
+            ActualizaWebPadre(true);
+            MuestraDatos(DameDatos());
+        }
+        //20200730 JOI #4460
+        catch (System.FormatException)
+        {
+            cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorFormatoCampo"), "aceptparam");
+            return;
+        }
+        catch (System.OverflowException)
+        {
+            cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "ErrorLimiteExcedido"), "aceptparam");
+            return;
+        }
+
+        //20200730 JOI #4460 FIN
+
         catch (Exception e)
         {
-            logDebugView.Error("(ParametrosGenerales-GuardarCambios): ",e);
+            logDebugView.Error("(ParametrosGenerales-GuardarCambios): ", e);
         }
 
 		EstadoNormal();

@@ -1203,4 +1203,10 @@
   <data name="LkBOcultarRangosResource1.Text" xml:space="preserve">
     <value>Ocultar Rangos</value>
   </data>
+  <data name="CheckSeleccionadoFSResource1.Text" xml:space="preserve">
+    <value>Panel Radio **FS**</value>
+  </data>
+  <data name="CheckSeleccionadoFSResource1.ToolTip" xml:space="preserve">
+    <value>Configuración de Panel Radio seleccionada para terminales en Fuera de Sectorización</value>
+  </data>
 </root>

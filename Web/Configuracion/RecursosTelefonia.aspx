@@ -431,10 +431,10 @@
                     Style="z-index:auto; left: 3px; position: absolute; top: 9px; height:168px;" Width="257px" Enabled="False"
                     ForeColor="RoyalBlue" meta:resourcekey="PanelParametrosTxResource1">
                     <asp:RadioButton ID="RBAGCTx" runat="server" GroupName="GananciaTx" Text="AGC"
-                        ForeColor="Black" meta:resourcekey="RBAGCTxResource1" /><br />
-                    <asp:RadioButton ID="RBGanaciaTx" runat="server" GroupName="GananciaTx"
+                        ForeColor="Black" meta:resourcekey="RBAGCTxResource1"  OnCheckedChanged="TxParamAudio_Changed" AutoPostBack="True"  /><br />
+                    <asp:RadioButton ID="RBGananciaTx" runat="server" GroupName="GananciaTx"
                         Text="Ganancia" Checked="True" ForeColor="Black"
-                        meta:resourcekey="RBGanaciaTxResource1" />
+                        meta:resourcekey="RBGananciaTxResource1"  OnCheckedChanged="TxParamAudio_Changed" AutoPostBack="True" />
                     <br /><br /><br /><br /><br />
                     <asp:Label ID="Label3" runat="server" Text="Nivel de salida (dBm):" Style="z-index:auto; left: 20px; position: absolute; top: 95px" Width="277px"
                         ForeColor="Black" meta:resourcekey="Label3Resource1" ></asp:Label>
@@ -457,10 +457,10 @@
                     Height="68px" Style="left: 261px; position: absolute; top: 9px" Width="257px"
                     Enabled="False" meta:resourcekey="PanelParametrosRxResource1">
                     <asp:RadioButton ID="RBAGCRx" runat="server" GroupName="GananciaRx" Text="AGC"
-                        ForeColor="Black" meta:resourcekey="RBAGCRxResource1" /><br />
+                        ForeColor="Black" meta:resourcekey="RBAGCRxResource1" OnCheckedChanged="RxParamAudio_Changed" AutoPostBack="True"  /><br />
                     <asp:RadioButton ID="RBGananciaRx" runat="server" GroupName="GananciaRx"
                         Text="Ganancia" Checked="True" ForeColor="Black"
-                        meta:resourcekey="RBGananciaRxResource1" />
+                        meta:resourcekey="RBGananciaRxResource1" OnCheckedChanged="RxParamAudio_Changed" AutoPostBack="True"  />
                     <br /> <br /> <br /> <br /> <br />
                     <asp:Label ID="Label10" runat="server" Text="Nivel de salida (dBm):" Style="left: 20px; position: absolute; top: 95px"
                         ForeColor="Black" meta:resourcekey="Label10Resource1"></asp:Label>

@@ -27,7 +27,7 @@ public partial class Sector :	PageBaseCD40.PageCD40	//	System.Web.UI.Page
     private AsyncCallback CallbackCompletado;
     private Ulises5000Configuration.ToolsUlises5000Section UlisesToolsVersion;
     private static string _NumAbonadoToDelete = string.Empty;
-
+    private static bool OldSeleccionadoFS = false;
     /// <summary>
     /// 
     /// </summary>
@@ -97,15 +97,18 @@ public partial class Sector :	PageBaseCD40.PageCD40	//	System.Web.UI.Page
                 {
                     case 0:
                         PanelAsecna.Visible = PanelComunes.Visible = PanelNoImplementadas.Visible = PanelTwr.Visible = true;
+                        CheckSeleccionadoFS.Visible = true;//20200911 JOI #4591
                         break;
                     case 1:
                     case 2:
                         PanelComunes.Visible = PanelAsecna.Visible = true;
                         PanelTwr.Visible = PanelNoImplementadas.Visible = false;
+                        CheckSeleccionadoFS.Visible = false;//20200911 JOI #4591
                         break;
                     case 3:
                         PanelComunes.Visible = PanelTwr.Visible = true;
                         PanelAsecna.Visible = PanelNoImplementadas.Visible = false;
+                        CheckSeleccionadoFS.Visible = true;//20200911 JOI #4591
                         break;
                 }
 
@@ -358,6 +361,9 @@ public partial class Sector :	PageBaseCD40.PageCD40	//	System.Web.UI.Page
                 //if (NumPaginaActiva == 3)   // Página de permisos redes
                     ObtenerPermisosRedes(((ServiciosCD40.Sectores)datos[i]).IdSistema,
                                         ((ServiciosCD40.Sectores)datos[i]).IdSector);
+                //20200911 JOI #4591
+                    CheckSeleccionadoFS.Checked = OldSeleccionadoFS = ((ServiciosCD40.Sectores)datos[i]).SeleccionadoFS;
+                    CheckSeleccionadoFS.Enabled = false;
             }
         }
     }
@@ -456,7 +462,9 @@ public partial class Sector :	PageBaseCD40.PageCD40	//	System.Web.UI.Page
         Panel2.Enabled = habilita;
         //CheckIntruido.Enabled = habilita;
         CheckRecording.Enabled = habilita;
-
+        //20200911 JOI #4591
+        CheckSeleccionadoFS.Enabled = habilita;
+        //20200911 JOI #4591 FIN
         DListTipoPosicion.Enabled = habilita;
         DListTipoSector.Enabled = habilita;
         DListNucleo.Enabled = habilita;
@@ -552,6 +560,8 @@ public partial class Sector :	PageBaseCD40.PageCD40	//	System.Web.UI.Page
         CheckIntruido.Checked = false;
         CheckGrabacion.Checked = false;
         CheckRecording.Checked = false;
+        //20200911 JOI #4591
+        CheckSeleccionadoFS.Checked = false;
     }
 
     /// <summary>
@@ -810,6 +820,9 @@ public partial class Sector :	PageBaseCD40.PageCD40	//	System.Web.UI.Page
         /**
          * AGL 2012.06.18 ID.130
          * */
+        //VMG 04/03/2019
+        Page.ClientScript.RegisterStartupScript(this.GetType(), "displaySloader", "displaySloader();", true);
+        bool bSeleccionadoFS = false;//20200911 JOI #4591
         try
         {
             ServiciosCD40.Sectores n = new ServiciosCD40.Sectores();
@@ -837,7 +850,7 @@ public partial class Sector :	PageBaseCD40.PageCD40	//	System.Web.UI.Page
                             TxtIdSector.Text = ((ServiciosCD40.Sectores)datos[i]).IdSector;
                             DDLPrioridadR2.SelectedValue = (((ServiciosCD40.Sectores)datos[i]).PrioridadR2).ToString();
                             if (((ServiciosCD40.Sectores)datos[i]).Tipo == "M")
-                                n.NumSacta = ((ServiciosCD40.Sectores)datos[i]).NumSacta;                            
+                                n.NumSacta = ((ServiciosCD40.Sectores)datos[i]).NumSacta;
                         }
             }
 
@@ -846,6 +859,8 @@ public partial class Sector :	PageBaseCD40.PageCD40	//	System.Web.UI.Page
             //n.TipoPosicion = DListTipoPosicion.SelectedValue;
             n.TipoPosicion = "C";
             n.IdNucleo = DListNucleo.SelectedValue;
+            n.SeleccionadoFS = CheckSeleccionadoFS.Checked;//20200911 JOI #4591
+
             ServiciosCD40.Niveles niv = new ServiciosCD40.Niveles();
             niv.IdSistema = n.IdSistema;
             niv.IdSector = n.IdSector;
@@ -916,8 +931,17 @@ public partial class Sector :	PageBaseCD40.PageCD40	//	System.Web.UI.Page
                 parsec.NumEnlacesAI = ((ServiciosCD40.Sistema)d[0]).NumEnlacesAI;
             }
 
-			ServicioCD40.ActualizaSector(Modificando, n, niv, tec, parsec, DSNumerosAbonados, DSAgenda);
-            if (!Modificando) //Sector nuevo
+            //20200911 JOI #4591
+            if ((Modificando && !OldSeleccionadoFS && n.SeleccionadoFS) ||
+                (Modificando &&  OldSeleccionadoFS && !n.SeleccionadoFS) ||
+                (!Modificando && n.SeleccionadoFS))
+            {
+               // Quita selección de ** FS ** si la hubiese
+                bSeleccionadoFS = true;
+            }
+
+            ServicioCD40.ActualizaSector(Modificando, n, niv, tec, parsec, DSNumerosAbonados, DSAgenda, bSeleccionadoFS); //20200911 JOI #4591
+            if (!Modificando || bSeleccionadoFS) //Sector nuevo
     			ActualizaWebPadre(true);
 
             ActualizaPermisosRedes(n.IdSector);
@@ -978,6 +1002,7 @@ public partial class Sector :	PageBaseCD40.PageCD40	//	System.Web.UI.Page
                     }
                 }
             }
+
         }
         catch (Exception ex)
         {

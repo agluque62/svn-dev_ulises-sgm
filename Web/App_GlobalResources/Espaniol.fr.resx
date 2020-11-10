@@ -504,7 +504,7 @@
   <data name="ErrorAsignacionEmplazamientosRecursosDestinoFD" xml:space="preserve">
     <value>En Mode destination "FD", chaque site doit posséder au moins un Tx et Rx du même type.  Vérifiez la configuration de la ressource "{0}" du site "{1}".</value>
   </data>
-  <data name="ErrorDiferenetesNumTxyRx" xml:space="preserve">
+  <data name="ErrorDiferentesNumTxyRx" xml:space="preserve">
     <value>Il doit posséder le même nombre de ressources Tx et Rx.</value>
   </data>
   <data name="MaximosRecursosDestinoFD" xml:space="preserve">
@@ -550,7 +550,7 @@
     <value>Veuillez vérifier l'assignation Hw. Si la ressource est assignée à une passerelle, libérez la ressource et assignez-la à un équipement externe.</value>
   </data>
   <data name="AvisoCnfHwRecursoRadioMN_EquipExt" xml:space="preserve">
-    <value>La ressource radio "Audio M+N" doit être assignée à un équipement externe. Veuillez vérifier l'assignation Hw.</value>
+    <value>La ressource radio "{0}" doit être assignée à un équipement externe. Veuillez vérifier l'assignation Hw.</value>
   </data>
   <data name="ErrorIdentificadorEltoFisicoExiste" xml:space="preserve">
     <value>L'Identificateur "{0}" existe déjà. Veuillez indiquer un identifiant unique pour les éléments physiques.</value>
@@ -604,7 +604,7 @@
     <value>Dans le système, un seul central téléphonique interne peut être configuré</value>
   </data>
   <data name="DestinoLCENAsignadoEnPanelLC" xml:space="preserve">
-   <value>El destino de línea caliente externa {0} se encuentra asignado al destino ATS {1} en el panel de línea caliente del sector {2}. Por favor, libere el destino antes de eliminarlo.</value>
+    <value>El destino de línea caliente externa {0} se encuentra asignado al destino ATS {1} en el panel de línea caliente del sector {2}. Por favor, libere el destino antes de eliminarlo.</value>
   </data>
   <data name="DestinoRadioSinRecursosMN" xml:space="preserve">
     <value>La radio de destination {0} ne peut pas recevoir de ressources de type M + N, car l'identificateur n'a pas un format OACI correct pour le type de fréquence {1} .</value>
@@ -707,5 +707,98 @@
   </data>
   <data name="RecursoDestinoLCENAsignadoEnPanelLC" xml:space="preserve">
     <value>No se puede eliminar el recurso {3}. El destino de línea caliente externa {0} está configurado en el destino ATS '{1}' del panel de línea caliente del sector {2}.\nPor favor, libere el destino del sector antes de eliminar el recurso.</value>
+  </data>
+  <data name="LB_VERSION" xml:space="preserve">
+    <value>© Núcleo 2020. v2.6.0. All rights reserved.</value>
+  </data>
+  <data name="ErrorAsignacionFrecuenciaHFConRedundancia" xml:space="preserve">
+    <value>En mode de destination "Normal" et en type de fréquence HF, l'option 1 + 1 n'est pas disponible</value>
+  </data>
+  <data name="ErrorConfiguracionDestinoConRedundancia" xml:space="preserve">
+    <value>Si la destination est configurée sur 1 + 1, au moins une paire de ressources du même type qui se trouve dans le même site doit être configurée de manière redondante.</value>
+  </data>
+  <data name="ErrorConfiguracionFSEmplazamientos" xml:space="preserve">
+    <value>Si la destination est configurée comme fréquence simple, les équipements de différents sites ne peuvent pas être affectés</value>
+  </data>
+  <data name="ErrorConfiguracionDestinoConRedundanciaEmplazamiento" xml:space="preserve">
+    <value>Si la destination est configurée en 1 + 1, au même emplacement, seuls Rx et Tx ou RxTx, les paires de ressources peuvent être configurées avec redondance.</value>
+  </data>
+  <data name="ErrorAsignacionRecursosDestinoNormalConRedundancia" xml:space="preserve">
+    <value>En el Modo destino "Normal" 1+1, se deben asignar 1 circuito de recepción, y  0 ó 1 circuito de transmisión, bien en un recurso RxTx o en un recurso Rx y un recurso Tx con redundancia.</value>
+  </data>
+  <data name="MaximosRecursosDestinoFDRedundancia" xml:space="preserve">
+    <value>En el Modo destino "FD" 1+1, debe tener como máximo 5 circuitos de transmisión y 5 circuitos de recepción asignados, bien en recursos RxTx o recursos Tx y recursos Rx o combinación de ambos. Al menos, un recurso debe configurarse con redundancia.</value>
+  </data>
+  <data name="MinimoRecursosDestinoFDRedundancia" xml:space="preserve">
+    <value>En el Modo destino "FD", como mínimo se deben tener asignados 3 circuitos y al menos un circuito deber ser de transmisión y otro de recepción. Al menos, un recurso debe configurarse con redundancia.</value>
+  </data>
+  <data name="AvisoRecursoRadioCon_DestinoUnoMasUno" xml:space="preserve">
+    <value>Impossible de supprimer la ressource car elle est associée à une Destination Radio en mode "1+1". Pour supprimer la ressource, vous devez d'abord supprimer la ressource de la Destination Radio.</value>
+  </data>
+  <data name="ErrorTablaCalidadErronea" xml:space="preserve">
+    <value>La valeur RSSI ne peut pas être décroissante par rapport à la précédente.</value>
+  </data>
+  <data name="ErrorConfiguracionDestinoEmplazamientoEquipo" xml:space="preserve">
+    <value>Erreur d'allocation d'équipement, configuration incompatible.</value>
+  </data>
+  <data name="ErrorConfiguracion1_mas_1_BSS" xml:space="preserve">
+    <value>En destinos radio (1+1), no se permite la opción de método BSS  “Ninguno”</value>
+  </data>
+  <data name="ErrorCampoVacio" xml:space="preserve">
+    <value>Le champ ne peut pas être vide.</value>
+  </data>
+  <data name="ErrorKeepAliveMultiplier" xml:space="preserve">
+    <value>La valeur doit être comprise entre 2 et 50</value>
+  </data>
+  <data name="ErrorKeepAlivePeriod" xml:space="preserve">
+    <value>La valeur doit être comprise entre 20 et 1000</value>
+  </data>
+  <data name="ErrorNumDestinosInternosPag" xml:space="preserve">
+    <value>Le nombre de liens téléphoniques par champ de page doit être compris entre 8 et 24.</value>
+  </data>
+  <data name="ErrorNumEnlacesAI" xml:space="preserve">
+    <value>Le champ du numéro de lien d'accès instantané doit être compris entre 9 et 18.</value>
+  </data>
+  <data name="ErrorNumFrecPagina" xml:space="preserve">
+    <value>Le nombre de fréquences par champ de page doit être compris entre 4 et 20.</value>
+  </data>
+  <data name="ErrorNumLlamadasEnIda" xml:space="preserve">
+    <value>Le champ du numéro d'appel IDA doit être compris entre 1 et 4.</value>
+  </data>
+  <data name="ErrorNumLlamadasEntrantesIda" xml:space="preserve">
+    <value>Le champ IDA du nombre d'appels entrants mis en file d'attente doit être compris entre 1 et 4.</value>
+  </data>
+  <data name="ErrorNumPagDestinosInt" xml:space="preserve">
+    <value>Le champ du nombre de pages de téléphonie doit être compris entre 3 et 9.</value>
+  </data>
+  <data name="ErrorNumPagFrec" xml:space="preserve">
+    <value>Le champ du nombre de pages de fréquences doit être compris entre 1 et 9.</value>
+  </data>
+  <data name="ErrorFormatoCampo" xml:space="preserve">
+    <value>Le champ doit être numérique.</value>
+  </data>
+  <data name="ErrorLimiteExcedido" xml:space="preserve">
+    <value>Limite dépassée.</value>
+  </data>
+  <data name="NopropiedadBSSFS1_1" xml:space="preserve">
+    <value>Sélectionné BSS, toutes les ressources doivent avoir la propriété BSS activée.</value>
+  </data>
+  <data name="AvisoCnfRecursoRadioConDestinoBSS" xml:space="preserve">
+    <value>La ressource radio est affectée à la destination {0} avec BSS actif. Veuillez vérifier les paramètres</value>
+  </data>
+  <data name="ErrorFrecuenciaRecursoMN_Destino" xml:space="preserve">
+    <value>La fréquence "{0}" de l'équipement M + N sélectionné n'est pas égale à l'identificateur de destination "{1}". Vérifiez les paramètres des ressources.</value>
+  </data>
+  <data name="PanelLcErrorParamCNF" xml:space="preserve">
+    <value>Erreur. Consulter le panneau d'accès direct des Paramètres Système.</value>
+  </data>
+  <data name="AvisoRecursoRadioCon_Destino" xml:space="preserve">
+    <value>La ressource ne peut pas être supprimée car elle est associée à une destination radio. Pour supprimer la ressource, vous devez d'abord supprimer la ressource de la radio de destination</value>
+  </data>
+  <data name="ErrorDestinoRadioEmplazamientoSoloTx" xml:space="preserve">
+    <value>Erreur. Site compos´uniquement de TX non autorisé.</value>
+  </data>
+  <data name="ErrorEmplazamientoUnoMasUnoMmasN" xml:space="preserve">
+    <value>Erreur. Installation avec équipement en 1 + 1 et M + N non autorisée.</value>
   </data>
 </root>

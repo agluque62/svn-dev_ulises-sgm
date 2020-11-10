@@ -6,6 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
+    <link rel="shortcut icon" href="~/favicon.ico">
     <title></title>
     </head>
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">--%>
@@ -101,7 +102,7 @@
 			<asp:TableRow ID="TableRow21" runat="server">
 				<asp:TableCell ID="TableCell97" runat="server" RowSpan="2" Width="265px">
 					 <asp:Image ID="Image1" runat="server" Width="188px" Height="50px"
-						 ImageUrl="~/Images/LogoNucleo290x77_transp.gif" />
+						 ImageUrl="~/Images/LogoNucleo20x190.png" />
 				</asp:TableCell>
 				<asp:TableCell ID="TableCell98" runat="server" VerticalAlign="Top" HorizontalAlign="Left" Width="160px">
     				 <asp:Label ID="Label1" runat="server" BorderStyle="Inset" Font-Bold="True" 

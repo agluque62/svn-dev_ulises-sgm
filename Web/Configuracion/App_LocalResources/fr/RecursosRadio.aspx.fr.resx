@@ -1628,7 +1628,7 @@
   </data>
   <data name="RVTxtGananciaTxResource1.MinimumValue" xml:space="preserve">
     <value>-13,4</value>
-  </data>  
+  </data>
   <data name="ListItemResource34.Text" xml:space="preserve">
     <value>&lt; Sélectionnez &gt;</value>
   </data>
@@ -1643,7 +1643,7 @@
   </data>
   <data name="RangeValidatorHFFrequencyResource.Text" xml:space="preserve">
     <value>*</value>
-  </data>  
+  </data>
   <data name="RangeValidatorUHFFrequencyResource.ErrorMessage" xml:space="preserve">
     <value>Pour la fréquence UHF, la valeur doit être comprise entre 225.000 et 400.000 kHz.</value>
   </data>
@@ -1655,7 +1655,7 @@
   </data>
   <data name="RangeValidatorVHFFrequencyResource.Text" xml:space="preserve">
     <value>*</value>
-  </data>  
+  </data>
   <data name="Label34Resource1.Text" xml:space="preserve">
     <value>GRS Delay (ms) :</value>
   </data>
@@ -1673,8 +1673,8 @@
   </data>
   <data name="RangeValidatorDecimalsResource.Text" xml:space="preserve">
     <value>*</value>
-  </data> 
-   <data name="RegularExpressionTBTunedFrequencyRes.ErrorMessage" xml:space="preserve">
+  </data>
+  <data name="RegularExpressionTBTunedFrequencyRes.ErrorMessage" xml:space="preserve">
     <value>Caractère invalide dans la fréquence principale</value>
   </data>
   <data name="RegularExpressionTBTunedFrequencyRes.Text" xml:space="preserve">
@@ -1715,5 +1715,77 @@
   </data>
   <data name="RVTxtUmbralVADResource1.ToolTip" xml:space="preserve">
     <value />
+  </data>
+  <data name="ListTipo_Audio_EE.Text" xml:space="preserve">
+    <value>Audio EE</value>
+  </data>
+  <data name="ListTipo_Audio_EE.Value" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource0.Text" xml:space="preserve">
+    <value>Type d'interface:</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource0.Value" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource1.Text" xml:space="preserve">
+    <value>RX</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource1.Value" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource2.Text" xml:space="preserve">
+    <value>TX</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource2.Value" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource3.Text" xml:space="preserve">
+    <value>TX-RX</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource3.Value" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource4.Text" xml:space="preserve">
+    <value>HF-TX</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource4.Value" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource5.Text" xml:space="preserve">
+    <value>Audio M+N</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource5.Value" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource8.Text" xml:space="preserve">
+    <value>Audio EE</value>
+  </data>
+  <data name="ListItemFiltroTipoRDResource8.Value" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="ListItemFiltroBusquedaRDResource0.Text" xml:space="preserve">
+    <value>Sélectionnez le filtre:</value>
+  </data>
+  <data name="ListItemFiltroBusquedaRDResource1.Text" xml:space="preserve">
+    <value>Tout afficher</value>
+  </data>
+  <data name="ListItemFiltroBusquedaRDResource2.Text" xml:space="preserve">
+    <value>Recherche par nom</value>
+  </data>
+  <data name="ListItemFiltroBusquedaRDResource3.Text" xml:space="preserve">
+    <value>Recherche par type</value>
+  </data>
+  <data name="ListItemFiltroBusquedaRDResource4.Text" xml:space="preserve">
+    <value>Ordre alphabétique (A-Z)</value>
+  </data>
+  <data name="ListItemFiltroBusquedaRDResource5.Text" xml:space="preserve">
+    <value>Ordre alphabétique (Z-A)</value>
+  </data>
+  <data name="StrHeaderAudioEE.Text" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="PnlParametrosResource.GroupingText_EE" xml:space="preserve">
+    <value>Paramètres</value>
   </data>
 </root>

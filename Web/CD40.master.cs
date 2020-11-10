@@ -315,15 +315,16 @@ public partial class CD40 : System.Web.UI.MasterPage
 		return true;
 	}
 
+    protected void OnBtnCancelarModoContinuar(object sender, EventArgs e)
+    {
+        Panel1.Visible = false;
+    }
+
 	protected void LinkButton1_Click(object sender, EventArgs e)
 	{
 		GestionarUltimasModificaciones();
 	}
 
-    protected void OnBtnCancelarModoContinuar(object sender, EventArgs e)
-    {
-        Panel1.Visible = false;
-    }
 	protected void OnBtnAceptarModoContinuar(object sender, EventArgs e)
 	{
 		if (RBContinuarActiva.Checked)

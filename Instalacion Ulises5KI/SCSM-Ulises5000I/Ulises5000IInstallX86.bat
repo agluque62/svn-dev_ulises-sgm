@@ -56,7 +56,7 @@ echo **************************************************************
 %windir%\System32\inetsrv\appcmd set app "Default Web Site/NucleoDF/U5kCfg/Servicios" /serviceAutoStartEnabled:true
 
 cls
-echo  ¿Desea hacer backup de los ficheros de configuración web.config?
+echo ¿Desea conservar la configuración WEB existente?
 choice /C SN /M "Pulse (S), (N)" 
 SET backup=%errorlevel%
 
@@ -143,7 +143,12 @@ cls
 echo **** Iniciando servicio IIS ******
 iisreset /START
 
-
+echo **************************************************************
+echo **** Recuerde asignar permiso Control Total sobre la carpeta
+echo **** C:\inetpub\wwwroot\NucleoDF a los grupos de Usuarios y 
+echo **** Administradores.  
+echo **************************************************************
+echo *****
 echo **** Fin de la Instalación Servicios Web Ulises 5000-I
 echo Pulse una tecla para finalizar
 pause

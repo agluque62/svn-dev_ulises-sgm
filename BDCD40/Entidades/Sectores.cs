@@ -64,7 +64,14 @@ namespace CD40.BD.Entidades
             get { return _NumSacta; }
             set { _NumSacta = value; }
         }
-
+        //20200911 JOI #4591
+        private bool _SeleccionadoFS;
+        public bool SeleccionadoFS
+        {
+            get { return _SeleccionadoFS; }
+            set { _SeleccionadoFS = value; }
+        }
+        //20200911 JOI #4591
         #endregion
 
 		//static AccesoABaseDeDatos ServiceAccesoABaseDeDatos;
@@ -81,6 +88,7 @@ namespace CD40.BD.Entidades
             TipoHMI = (uint)Tipos.Tipo_HMI.TH_ACC;
             IdSistemaParejaUCS = IdNucleoParejaUCS = IdParejaUCS = null;
             NumSacta = 0;
+            SeleccionadoFS = false; //20200911 JOI #4591
         }
 
         public override string DataSetSelectSQL()
@@ -138,7 +146,10 @@ namespace CD40.BD.Entidades
                         s.TipoHMI = (uint)dr["TipoHMI"];
                     if (dr["NumSacta"] != System.DBNull.Value)
                         s.NumSacta = (uint)dr["NumSacta"];
-
+                    //20200911 JOI #4591
+                    if (dr["SeleccionadoFS"] != System.DBNull.Value)
+                        s.SeleccionadoFS = (bool)dr["SeleccionadoFS"];
+                    //20200911 JOI #4591 FIN
                     ListaResultado.Add(s);
                 }
             }
@@ -152,7 +163,7 @@ namespace CD40.BD.Entidades
 
             Consulta.Remove(0, Consulta.Length);
             Consulta.Append("INSERT INTO Sectores (IdSistema,IdNucleo,IdSector,IdSistemaParejaUCS,IdNucleoParejaUCS,IdParejaUCS,SectorSimple,Tipo,TipoPosicion,PrioridadR2," +
-                                                    "TipoHMI,NumSacta)" +
+                                                    "TipoHMI,NumSacta, SeleccionadoFS)" +
                             " VALUES ('" + IdSistema + "','" +
                                          IdNucleo + "','" +
                                          IdSector + "'," +
@@ -163,7 +174,9 @@ namespace CD40.BD.Entidades
                                          Tipo + "','" +
                                          TipoPosicion + "'," +
                                          PrioridadR2 + "," +
-                                         TipoHMI + "," + NumSacta.ToString() + ")");
+                                         TipoHMI + "," +
+                                         NumSacta.ToString() + "," +
+                                         SeleccionadoFS + ")"); //20200911 JOI #4591
 
 			consulta[0] = Consulta.ToString();
 			consulta[1] = ReplaceSQL(IdSistema, "Sectores");
@@ -185,7 +198,8 @@ namespace CD40.BD.Entidades
                                             "Tipo='" + Tipo + "'," +
                                             "TipoPosicion='" + TipoPosicion + "'," +
                                             "PrioridadR2=" + PrioridadR2 + "," +
-                                            "TipoHMI=" + TipoHMI + ", NumSacta=" + NumSacta.ToString() + " " +
+                                            "TipoHMI=" + TipoHMI + ", NumSacta=" + NumSacta.ToString() + "," +
+                                            "SeleccionadoFS=" + SeleccionadoFS + " " + //20200911 JOI #4591
                                             "WHERE IdSector='" + IdSector + "' AND " + "IdSistema='" + IdSistema + "' AND IdNucleo='" + IdNucleo + "'"
                                             );
 

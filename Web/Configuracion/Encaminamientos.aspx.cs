@@ -140,6 +140,10 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
 
     private static bool bCentralConDestinoATS_LC = false;
 
+    //202006 JOI Error #4066
+//    private static bool bModificacionAsignaciónTroncales = false;
+//    private static List<string> LTroncalesIniciales = new List<string>();
+    
     /// <summary>
     /// 
     /// </summary>
@@ -162,6 +166,12 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
 
     private static bool bUpdateRango = false;
 
+    //20200928 JOI #4599
+    private static bool bSBCEnaire = false;
+    private static string sSCV_DEP = "";
+    private static string sSCV_DEP_P = "";
+
+    private static Ulises5000Configuration.ToolsUlises5000Section UlisesToolsVersion;
 
     /// <summary>
     /// 
@@ -186,7 +196,11 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
 			}
 			PermisoSegunPerfil = perfil != "1";
 		}
-		
+        //20200928 JOI #4599
+        Ulises5000Configuration.ToolsUlises5000Section ulisesVersion = Ulises5000Configuration.ToolsUlises5000Section.Instance;
+        UlisesToolsVersion = ulisesVersion;
+        bSBCEnaire = UlisesToolsVersion.Version == 3 ? true : false;
+
 		if (!IsPostBack || RecargarDatosEnPagina)
         {
             IBCentralATS.CssClass = "buttonImageSelected";
@@ -224,6 +238,11 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
             }
 
             bUpdateRango = false;
+            //202006 JOI Error #4066
+//            bModificacionAsignaciónTroncales = false;
+//            LTroncalesIniciales.Clear();
+            //202006 JOI Error #4066 FIN
+
 		
 		}
         else
@@ -268,9 +287,10 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
 
                 //    GuardarCambios();
                 //}
+
 			}
 		}
-	
+
 		ActualizaWebPadre(HayCentralPropia);
 	}
 
@@ -540,13 +560,22 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
         //Se limpian los campos y se recuperan los valores
         TbIp1.Text = TbIp2.Text = TbIp3.Text=string.Empty;
         TbSrvPresIp1.Text = TbSrvPresIp2.Text = TbSrvPresIp3.Text = string.Empty;
-
         ServiciosCD40.Tablas[] d = ServicioCD40.ListSelectSQL(e);
         if (d != null && d.Length > 0)
         {
-            TbIp1.Text = ((ServiciosCD40.EquiposEU)d[0]).IpRed1;
-            TbSrvPresIp1.Text = ((ServiciosCD40.EquiposEU)d[0]).SrvPresenciaIpRed1;
-            
+            //20200928 JOI #4599
+            sSCV_DEP = sSCV_DEP_P = string.Empty; ;
+            // Se mueven los valores de Red1 a Red3 para su gestión en pagina, al guardarse se volveran a llevar a Red1.
+            if (bCentralPropia && bSBCEnaire)
+            {
+                TbIp3.Text = ((ServiciosCD40.EquiposEU)d[0]).IpRed1;
+                TbSrvPresIp3.Text = ((ServiciosCD40.EquiposEU)d[0]).SrvPresenciaIpRed1;
+            }
+            else
+            {
+                TbIp1.Text = ((ServiciosCD40.EquiposEU)d[0]).IpRed1;
+                TbSrvPresIp1.Text = ((ServiciosCD40.EquiposEU)d[0]).SrvPresenciaIpRed1;
+            }
             //Para la Central propia sólo se permite configurar el servidor proxy y de presencia principal
             //Si no es un SCV IP no propio, se pueden configurar también los servidores proxy y de presencia alternativos
             if (!bCentralPropia)
@@ -763,10 +792,22 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
                     {
                         string strMsgError = string.Empty;
                         //Se comprueban si las direcciones IP de los servidores Proxy y de presencia son correctas
-                        if (!bDireccionesCentralIPValidas(strSistema, strNombreCentral, ref strMsgError))
+                        //20200928 JOI #4599
+                        if (!bSBCEnaire)
                         {
-                            LError.Text = strMsgError;
-                            return;
+                            if (!bDireccionesCentralIPValidas(strSistema, strNombreCentral, ref strMsgError))
+                            {
+                                LError.Text = strMsgError;
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            if (!bDireccionesCentralIPValidasSBC(strSistema, strNombreCentral, ref strMsgError, CentralPropia.Checked))
+                            {
+                                LError.Text = strMsgError;
+                                return;
+                            }
                         }
                     }
                     else
@@ -860,7 +901,6 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
 			}
 			else
 			{
-
                 if (bCentralConDestinoATS_LC && CBCentralIp.Checked != bEsCentralIP)
                 {
                     //Si existen destinos ATS en el rango de la central IP y registra un evento informando de la situación
@@ -950,51 +990,69 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
             ServiciosCD40.EquiposEU eq = new ServiciosCD40.EquiposEU();
             eq.IdSistema = (string)Session["idsistema"];
             eq.IdEquipos = centralId;
+  
+            //Comprobamos si existe el equipo externo, si existe lo actualizamos
 
-            //Como mínimo se debe configurar la dirección IP del Proxy 1
-            if (TbIp1.Text != string.Empty)
-            {
-                //Comprobamos si existe el equipo externo, si existe lo actualizamos
-
-                ServiciosCD40.Tablas[] d= ServicioCD40.ListSelectSQL(eq);
+            ServiciosCD40.Tablas[] d= ServicioCD40.ListSelectSQL(eq);
                 
-                bool bExiste = false;
+            bool bExiste = false;
 
-                if (d != null && d.Length > 0)
-                {
-                    //Si existe se actualiza el registro 
-                    bExiste = true;
-                }
-                else
-                {
-                    // Si no existe se inserta
-                    bExiste = false;
-                }
+            if (d != null && d.Length > 0)
+            {
+                //Si existe se actualiza el registro 
+                bExiste = true;
+            }
+            else
+            {
+                // Si no existe se inserta
+                bExiste = false;
+            }
 
-                eq.Interno = CentralPropia.Checked;
-                eq.TipoEquipo = 3;  // Telefonia
+            eq.Interno = CentralPropia.Checked;
+            eq.TipoEquipo = 3;  // Telefonia
+            // #4599
+            if (!bSBCEnaire || !CentralPropia.Checked)
+            {
                 eq.IpRed1 = TbIp1.Text;
                 eq.IpRed2 = TbIp2.Text;
                 eq.IpRed3 = TbIp3.Text;
-                // Para distinguir estos equipos de los realmente configurados como equipos externos
-                // se crean con los valores de Min y Max a -1 y no mostrarse en la página de equipos externos.
-                eq.Max = eq.Min = -1;
+            }
+            else
+            {
+                // Si es central propia y SBC se copia la IPRed3 a IpRed1
+                eq.IpRed1 = TbIp3.Text;
+                eq.IpRed2 = TbIp2.Text;
+                eq.IpRed3 = TbIp1.Text;
+            }
+            // Para distinguir estos equipos de los realmente configurados como equipos externos
+            // se crean con los valores de Min y Max a -1 y no mostrarse en la página de equipos externos.
+            eq.Max = eq.Min = -1;
 
-                //El puerto Sip ya no se configura
-                //eq.SipPort = 5060;
+            //El puerto Sip ya no se configura
+            //eq.SipPort = 5060;
 
-                //En los campos IpRed1, IpRed2, IpRed3,SrvPresenciaIpRed1,SrvPresenciaIpRed2, SrvPresenciaIpRed3
-                // se guarda la dirección IP y el puerto en formato XXX.XXX.XXX.XXX:YYYY
+            //En los campos IpRed1, IpRed2, IpRed3,SrvPresenciaIpRed1,SrvPresenciaIpRed2, SrvPresenciaIpRed3
+            // se guarda la dirección IP y el puerto en formato XXX.XXX.XXX.XXX:YYYY
+            // #4599
+                
+            if (!bSBCEnaire || !CentralPropia.Checked)
+            {
                 eq.SrvPresenciaIpRed1 = TbSrvPresIp1.Text;
                 eq.SrvPresenciaIpRed2 = TbSrvPresIp2.Text;
                 eq.SrvPresenciaIpRed3 = TbSrvPresIp3.Text;
-
-                if (!bExiste)
-                    ServicioCD40.InsertSQL(eq);
-                else
-                    ServicioCD40.UpdateSQL(eq);
-
             }
+            else
+            {
+                // Si es central propia y SBC se copia la IPRed3 a IpRed1
+                eq.SrvPresenciaIpRed1 = TbSrvPresIp3.Text;
+                eq.SrvPresenciaIpRed2 = TbSrvPresIp2.Text;
+                eq.SrvPresenciaIpRed3 = TbSrvPresIp1.Text;
+            }
+
+            if (!bExiste)
+                ServicioCD40.InsertSQL(eq);
+            else
+                ServicioCD40.UpdateSQL(eq);
         }
     }
 
@@ -1253,7 +1311,14 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
             Panel1.Width = 560;
         }
 
-        //Se ocutla el panel de rutas por si está visible y se pulsa cancelar
+        //202006 JOI Error #4066
+//        if (bModificacionAsignaciónTroncales)
+//        {
+//            bModificacionAsignaciónTroncales = false;
+//            CancelarTroncales();
+//        }
+
+        //Se oculta el panel de rutas por si está visible y se pulsa cancelar
         PanelRutas.Visible = false;
         TreeView1.Visible = true;
 
@@ -1327,7 +1392,6 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
 		ListTroncales.Items.Clear();
         ListTroncalesLibres.Items.Clear();
         TblCentralIp.Visible = CBCentralIp.Checked;
-
         IndexListBox1 = ListBox1.SelectedIndex;
 
         //CargarTroncalesSinAsignar();
@@ -1728,6 +1792,12 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
                 ListTroncales.DataTextField = "IdTroncal";
                 ListTroncales.DataBind();
             }
+            //202006 JOI Errores #4066
+//            LTroncalesIniciales.Clear();
+//            for (int i = 0; i < ListTroncales.Items.Count; i++)
+//            {
+//                LTroncalesIniciales.Add(ListTroncales.Items[i].Text);
+//            }
 		}
 		catch (Exception ex)
 		{
@@ -1983,10 +2053,11 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
 					if (ListTroncalesLibres.Items[i].Selected)
 					{
 						AsignaTroncal(ListTroncalesLibres.Items[i].Text);
-
 						ListTroncales.Items.Add(ListTroncalesLibres.Items[i]);
 						ListTroncalesLibres.Items.Remove(ListTroncalesLibres.Items[i]);
 						i--;
+                        //202006 JOI Error #4066
+//                        bModificacionAsignaciónTroncales = true;
 					}
 			}
 	}
@@ -2014,6 +2085,28 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
     /// <summary>
     /// 
     /// </summary>
+    //202006 JOI Error #4066
+//    private void CancelarTroncales()
+//    {
+//        // Limpia lista troncales con modificaciones.
+//        for (int i = 0; i < ListTroncales.Items.Count; i++)
+//        {
+//            DesasignaTroncal(ListTroncales.Items[i].Text);
+//            ListTroncalesLibres.Items.Add(ListTroncales.Items[i]);
+//            ListTroncales.Items.Remove(ListTroncales.Items[i]);
+//            i--;
+//        }
+//
+//        //Recupera estado inicial de troncales asignados
+//        for (int b = 0; b < LTroncalesIniciales.Count; b++)
+//        {
+//            AsignaTroncal(LTroncalesIniciales[b]);
+//        }
+//    }
+
+    /// <summary>
+    /// 
+    /// </summary>
     /// <param name="idTroncal"></param>
 	private void DesasignaTroncal(string idTroncal)
 	{
@@ -2035,6 +2128,8 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
                 InfoRuta r = InfoEnc.rutas.Find(delegate(InfoRuta i) { return i.idRuta == tr.IdRuta; });
                 r.troncales.Remove(idTroncal);
             }
+            //202006 JOI Error #4066
+//            bModificacionAsignaciónTroncales = true;
         }
 
 		ActualizaArbol();
@@ -2064,6 +2159,8 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
                 InfoRuta r = InfoEnc.rutas.Find(delegate(InfoRuta i) { return i.idRuta == tr.IdRuta; });
                 r.troncales.Add(idTroncal);
             }
+            //202006 JOI Error #4066
+//            bModificacionAsignaciónTroncales = true;
         }
 	
 		ActualizaArbol();
@@ -2171,7 +2268,6 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
 
         bHabilitaControlesCentralIP(CBCentralIp.Checked, CentralPropia.Checked);
         TblCentralIp.Visible = CBCentralIp.Checked;
-
         if (Modificando || EncaminamientoDadoDeAlta)
         {
             //Si la central era Central IP y es utilizada por Destinos ATS configurados en el panel de LC, se informa al usuario que los destinos dejarán de funcionar si se quita el check.
@@ -2276,25 +2372,49 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
         {
             //Si se configura como SCV IP se habilitan los controles que permiten introducir las direcciones 
             //de los servidores de Proxy y de presencia
-            TbIp1.Enabled = true;
-            TbSrvPresIp1.Enabled = true;
-
-            if (bEsCentralpropia)
+            if (!bSBCEnaire)
             {
-                //Para la Central propia sólo se permite configurar el servidor proxy y de presencia principal
-                TbIp2.Enabled = TbIp3.Enabled = false;
-                TbSrvPresIp2.Enabled = TbSrvPresIp3.Enabled = false;
+                //Si se configura como SCV IP se habilitan los controles que permiten introducir las direcciones 
+                //de los servidores de Proxy y de presencia
+                TbIp1.Enabled = true;
+                TbSrvPresIp1.Enabled = true;
+
+                if (bEsCentralpropia)
+                {
+                    //Para la Central propia sólo se permite configurar el servidor proxy y de presencia principal
+                    TbIp2.Enabled = TbIp3.Enabled = false;
+                    TbSrvPresIp2.Enabled = TbSrvPresIp3.Enabled = false;
+                }
+                else
+                {
+                    //Si no es un SCV IP no propio, se pueden configurar también los servidores proxy y de presencia alternativos
+                    TbIp2.Enabled = TbIp3.Enabled = true;
+                    TbSrvPresIp2.Enabled = TbSrvPresIp3.Enabled = true;
+                }
+
+
+                //Se debe informar como minimo el Proxy 1
+                RFV_TbIp1.Enabled = true;
             }
             else
             {
-                //Si no es un SCV IP no propio, se pueden configurar también los servidores proxy y de presencia alternativos
-                TbIp2.Enabled = TbIp3.Enabled = true;
-                TbSrvPresIp2.Enabled = TbSrvPresIp3.Enabled = true;
+                if (bEsCentralpropia)
+                {
+                    //Para la Central propia en SBC solo se permite la IP del DEP y la de presencia propia 
+                    TbIp3.Enabled = true;
+                    TbSrvPresIp3.Enabled = true;
+                    TbIp1.Enabled = TbIp2.Enabled = false;
+                    TbSrvPresIp1.Enabled = TbSrvPresIp2.Enabled = false;
+                }
+                else
+                {
+                    //Si no es un SCV IP propio, se deben configurar también los servidores SBC Principal, SBC Alternativo SCV y SCV DEP
+                    TbIp1.Enabled = TbIp2.Enabled = TbIp3.Enabled = true;
+                    TbSrvPresIp1.Enabled = TbSrvPresIp2.Enabled = TbSrvPresIp3.Enabled = true;
+                }
+                //Se debe informar como minimo el Proxy 1
+                RFV_TbIp1.Enabled = false;
             }
-
-
-            //Se debe informar como minimo el Proxy 1
-            RFV_TbIp1.Enabled = true;
         }
         else
         {
@@ -2396,7 +2516,7 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
                         {
                             bCorrecto = false;
                             if (GetLocalResourceObject("REV_TbProxyIpFormatoAlternativo") != null)
-                                strMsg = string.Format(GetLocalResourceObject("REV_TbProxyIpFormatoAlternativo").ToString(), i);
+                                strMsg = string.Format(GetLocalResourceObject("REV_TbProxyIpFormatoAlternativo").ToString());
                             else
                                 strMsg = string.Format("Formato incorrecto de la dirección IP del Proxy alternativo {0}", i);
                         }
@@ -2629,6 +2749,286 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
         return bCorrecto;
     }
 
+    private bool bDireccionesCentralIPValidasSBC(string strSistema, string strNombreCentral, ref string strMsg, bool bCentralPropia)
+    {
+        //Se comprueba si las direcciones IP configuradas cuando se configura un SCV IP son válidas
+        //Como minimo se debe configurar la dirección Ip del SBC principal o SBC Alternativo o la dirección del SCV Dependencia 
+        //Las dirección ip del servidor proxy i puede ser igual a la dirección IP del servidor de presencia i de la misma central.
+        //Las direcciones SBC Principal pueden repetirse al igual que las de SBC Alternativo.
+        //Las direcciones SCV Departamento no pueden estar duplicadas ni estar en SBC´s
+        //En el resto de casos, la IP no se puede repetir.
+        // Se debe invocar si CBCentralIp.Checked=true
+        bool bCorrecto = true;
+        string strIP = string.Empty;
+
+        int i = 0;
+
+        const int iNumSrvProxy = 3;
+        const int iNumMaxSrv = iNumSrvProxy * 2;
+
+        string[] arrIpConPuerto = new string[iNumSrvProxy];
+        string strAuxIpConPuerto = string.Empty;
+
+        Dictionary<string, string> listaSCVIP = new Dictionary<string, string>(); //Contiene la lista de IP donde se almacena por cada IP:puerto la ip original
+        if (string.IsNullOrEmpty(TbIp1.Text) && string.IsNullOrEmpty(TbIp2.Text) && string.IsNullOrEmpty(TbIp3.Text))
+        {
+            bCorrecto = false;
+            if (GetLocalResourceObject("REV_TbIpsRequeridasSBC") != null)
+                strMsg = GetLocalResourceObject("REV_TbIpsRequeridasSBC").ToString();
+            else
+                strMsg = "Debe introducir al menos una dirección IP de servidor proxy.";
+        }
+        else
+        {
+            for (i = 0; (i < iNumMaxSrv) && bCorrecto; i++)
+            {
+                switch (i)
+                {
+                    case 0: //Servidor SBC Principal
+                        strIP = TbIp1.Text;
+                        if (!string.IsNullOrEmpty(strIP))
+                        {
+                            strAuxIpConPuerto = string.Empty;
+                            if (!bEsDirIPvalida(strIP, ref strAuxIpConPuerto))
+                            {
+                                bCorrecto = false;
+                                if (GetLocalResourceObject("REV_TbProxyIpFormatoPrincipalSBC") != null)
+                                    strMsg = GetLocalResourceObject("REV_TbProxyIpFormatoPrincipalSBC").ToString();
+                                else
+                                    strMsg = "Formato incorrecto de la dirección IP del Proxy SBC PPAL.";
+                            }
+                            else
+                            {
+                                arrIpConPuerto[i] = strAuxIpConPuerto;
+                                listaSCVIP.Add(strAuxIpConPuerto, strIP);
+                            }
+                        }
+                        break;
+                    case 1: //Servidor SBC Alternativo
+                        strIP = TbIp2.Text;
+                        if (!string.IsNullOrEmpty(strIP))
+                        {
+                            strAuxIpConPuerto = string.Empty;
+                            if (!bEsDirIPvalida(strIP, ref strAuxIpConPuerto))
+                            {
+                                bCorrecto = false;
+                                if (GetLocalResourceObject("REV_TbProxyIpFormatoAlternativoSBC") != null)
+                                    strMsg = string.Format(GetLocalResourceObject("REV_TbProxyIpFormatoAlternativoSBC").ToString(), i);
+                                else
+                                    strMsg = string.Format("Formato incorrecto de la dirección IP del Proxy SBC ALTER.");
+                            }
+                            else
+                            {
+                                arrIpConPuerto[i] = strAuxIpConPuerto;
+
+                                if (!listaSCVIP.ContainsKey(strAuxIpConPuerto))
+                                {
+                                    listaSCVIP.Add(strAuxIpConPuerto, strIP);
+                                }
+                                else
+                                {
+                                    bCorrecto = false;
+                                    if (GetLocalResourceObject("REV_IpSBCALTnOtroServidor") != null)
+                                        strMsg = string.Format(GetLocalResourceObject("REV_IpSBCALTnOtroServidor").ToString());
+                                    else
+                                        strMsg = string.Format("La dirección IP del servidor SBC ALTER. ya está configurada en otro servidor. Revise la configuración.");
+                                }
+                            }
+
+                        }
+                        break;
+                    case 2: //Servidor SCV Dependencia
+                        strIP = TbIp3.Text;
+                        strAuxIpConPuerto = string.Empty;
+                        if (!string.IsNullOrEmpty(strIP))
+                        {
+                            if (!bEsDirIPvalida(strIP, ref strAuxIpConPuerto))
+                            {
+                                bCorrecto = false;
+                                if (GetLocalResourceObject("REV_TbIpFormatoSCVDep") != null)
+                                    strMsg = string.Format(GetLocalResourceObject("REV_TbIpFormatoSCVDep").ToString());
+                                else
+                                    strMsg = string.Format("Formato incorrecto de la dirección IP del SCV DEP.");
+                            }
+                            else
+                            {
+                                arrIpConPuerto[i] = strAuxIpConPuerto;
+                                sSCV_DEP = strAuxIpConPuerto;
+                                if (!listaSCVIP.ContainsKey(strAuxIpConPuerto))
+                                {
+                                    listaSCVIP.Add(strAuxIpConPuerto, strIP);
+                                }
+                                else
+                                {
+                                    bCorrecto = false;
+                                    if (GetLocalResourceObject("REV_IpSCVDepEnOtroServidor") != null)
+                                        strMsg = string.Format(GetLocalResourceObject("REV_IpSCVDepEnOtroServidor").ToString());
+                                    else
+                                        strMsg = string.Format("La dirección IP del servidor SCV DEP ya está configurada en otro servidor. Revise la configuración.");
+                                }
+                            }
+                        }
+                        break;
+                    case 3: //Dir Servidor de presencia SBC principal
+                        strIP = TbSrvPresIp1.Text;
+                        if (!string.IsNullOrEmpty(strIP))
+                        {
+                            if (string.IsNullOrEmpty(TbIp1.Text))
+                            {
+                                bCorrecto = false;
+                                //Si se configura el servidor SBC alternativo de presencia  y no se configura el Proxy SBC alternativo correspondiente se informa del error
+                                if (GetLocalResourceObject("REV_TbSrvPresIpSBCPrincipal") != null)
+                                    strIP = GetLocalResourceObject("REV_TbSrvPresIpSBCPrincipal").ToString();
+                                else
+                                    strIP = "El servidor de presencia SBC principal, solo se puede configurar si configura el SBC PPAL.";
+
+                                strMsg = strIP;
+                            }
+                            else
+                            if (!bEsDirIPvalida(strIP, ref strAuxIpConPuerto))
+                            {
+                                bCorrecto = false;
+                                if (GetLocalResourceObject("REV_TbSrvPresIpFormatoSBCPrincipal") != null)
+                                    strMsg = GetLocalResourceObject("REV_TbSrvPresIpFormatoSBCPrincipal").ToString();
+                                else
+                                    strMsg = "Formato incorrecto de la dirección IP del Servidor de Presencia SBC PPAL.";
+                            }
+                            else
+                            {
+                                //Si la IP del proxy y el servidor de presencia principal son distintas la añadimos a la lista
+                                //Hay que tener si la IP tiene o no puerto configurada y si es el puerto por defecto
+                                if (string.Compare(arrIpConPuerto[i % iNumSrvProxy], strAuxIpConPuerto) != 0)
+                                {
+                                    if (!listaSCVIP.ContainsKey(strAuxIpConPuerto))
+                                        listaSCVIP.Add(strAuxIpConPuerto, strIP);
+                                    else
+                                    {
+                                        bCorrecto = false;
+                                        //La dirección IP del servidor de presencia principal ya está configurado
+                                        if (GetLocalResourceObject("REV_IpSrvPresenciaSBCPrincipalEnOtraCentral") != null)
+                                            strMsg = GetLocalResourceObject("REV_IpSrvPresenciaSBCPrincipalEnOtraCentral").ToString();
+                                        else
+                                            strMsg = "La dirección IP del servidor de Presencia SBC PPAL. ya está configurada.";
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    case 4: //Dir Servidor de presencia SBC alternativo
+                        strIP = TbSrvPresIp2.Text;
+                        if (!string.IsNullOrEmpty(strIP))
+                        {
+                            if (string.IsNullOrEmpty(TbIp2.Text))
+                            {
+                                bCorrecto = false;
+                                //Si se configura el servidor SBC alternativo de presencia  y no se configura el Proxy SBC alternativo correspondiente se informa del error
+                                if (GetLocalResourceObject("REV_TbSrvPresIpSBCAlternativo") != null)
+                                    strIP = GetLocalResourceObject("REV_TbSrvPresIpSBCAlternativo").ToString();
+                                else
+                                    strIP = "El servidor de presencia SBC ALTER., solo se puede configurar si configura el SBC ALTER.";
+
+                                strMsg = strIP;
+                            }
+                            else if (!bEsDirIPvalida(strIP, ref strAuxIpConPuerto))
+                            {
+                                bCorrecto = false;
+                                if (GetLocalResourceObject("REV_TbIpFormatoSBCAlternativo") != null)
+                                    strMsg = string.Format(GetLocalResourceObject("REV_TbIpFormatoSBCAlternativo").ToString(), 1);
+                                else
+                                    strMsg = string.Format("Formato incorrecto de la dirección IP del Servidor de Presencia SBC ALTER.");
+                            }
+                            else
+                            {
+                                //Si la IP del proxy y el servidor de presencia principal son distintas la añadimos a la lista
+                                //Hay que tener si la IP tiene o no puerto configurada y si es el puerto por defecto
+
+                                if (string.Compare(arrIpConPuerto[i % iNumSrvProxy], strAuxIpConPuerto) != 0)
+                                {
+                                    if (!listaSCVIP.ContainsKey(strAuxIpConPuerto))
+                                        listaSCVIP.Add(strAuxIpConPuerto, strIP);
+                                    else
+                                    {
+                                        bCorrecto = false;
+                                        //La dirección IP del servidor de presencia SBC Alternativo ya está asignada a otro servidor.
+                                        if (GetLocalResourceObject("REV_IpSrvPresenciaSBCAltEnOtraCentral") != null)
+                                            strMsg = string.Format(GetLocalResourceObject("REV_IpSrvPresenciaSBCAltEnOtraCentral").ToString(), 1);
+                                        else
+                                            strMsg = string.Format("La dirección IP del servidor de Presencia SBC ALTER. ya está configurada.");
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    case 5: //Dir Servidor de presencia SCV DEP
+                        strIP = TbSrvPresIp3.Text;
+                        if (!string.IsNullOrEmpty(strIP))
+                        {
+                            
+                            if (string.IsNullOrEmpty(TbIp3.Text))
+                            {
+                                bCorrecto = false;
+                                //Si se configura el servidor SCV DEP de presencia  y no se configura el SCV DEP correspondiente
+                                // Se informa del error
+                                if (GetLocalResourceObject("REV_TbSrvPresSCVDEPSinSCVDEP") != null)
+                                    strIP = GetLocalResourceObject("REV_TbSrvPresSCVDEPSinSCVDEP").ToString();
+                                else
+                                    strIP = "El sevidor de presencia SCV DEP, solo se puede configurar si configura el SCV DEP";
+
+                                strMsg = strIP;
+                            }
+                            else
+                            {
+                                if (!bEsDirIPvalida(strIP, ref strAuxIpConPuerto))
+                                {
+                                    bCorrecto = false;
+                                    if (GetLocalResourceObject("REV_TbIPFormatoSCVDEP") != null)
+                                        strMsg = string.Format(GetLocalResourceObject("REV_TbIPFormatoSCVDEP").ToString(), 2);
+                                    else
+                                        strMsg = string.Format("Formato incorrecto de la dirección IP del servidor de presencia del SCV DEP");
+                                }
+                                else
+                                {
+                                    //Si la IP del proxy y el servidor SVC DEP de presencia  son distintas la añadimos a la lista
+                                    sSCV_DEP_P = strAuxIpConPuerto;
+                                    if (string.Compare(arrIpConPuerto[i % iNumSrvProxy], strAuxIpConPuerto) != 0)
+                                    {
+                                        if (!listaSCVIP.ContainsKey(strAuxIpConPuerto))
+                                        {
+                                            listaSCVIP.Add(strAuxIpConPuerto, strIP);
+                                        }
+                                        else
+                                        {
+                                            bCorrecto = false;
+                                            //La dirección IP del servidor de presencia SCV DEP  ya está asignada a otro servidor. Revise la configuración
+                                            if (GetLocalResourceObject("REV_IpSrvPresenciaSCVDEPEnOtraCentral") != null)
+                                                strMsg = string.Format(GetLocalResourceObject("REV_IpSrvPresenciaSCVDEPEnOtraCentral").ToString(), 2);
+                                            else
+                                                strMsg = string.Format("La dirección IP del servidor de Presencia SCV DEP ya está configurada en otro servidor. Revise la configuración.");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            } //for
+         }
+
+        //Se comprueba si existe alguna central ATS con alguna de las direcciones IP configuradas
+        if (bCorrecto && !DireccionesSCVIP_Libres(strSistema, strNombreCentral, ref listaSCVIP, ref strMsg))
+        {
+            bCorrecto = false;
+        }
+
+        listaSCVIP.Clear();
+
+        return bCorrecto;
+    }
+
+
+
 	//private void GetCentrales(TreeNode treeNode)
 	//{
 	//    ServiciosCD40.Encaminamientos e = new ServiciosCD40.Encaminamientos();
@@ -2711,7 +3111,10 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
             ServiciosCD40.Tablas[] objListaEquiposCentralIP = ServicioCD40.ListSelectSQL(eq);
             if (objListaEquiposCentralIP != null && objListaEquiposCentralIP.Length > 0)
             {
+
                 Dictionary<string, string> listaSrv = new Dictionary<string, string>();
+
+                Dictionary<string, string> listaSrvSBC = new Dictionary<string, string>();
 
                 for (int i=0; i<objListaEquiposCentralIP.Length; i++)
                 {
@@ -2721,56 +3124,87 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
                     //Si no se trata de la central que estamos configurando
                     if (string.Compare(objEquipo.IdEquipos,strIdCentral)!=0)
                     {
-                        if (!string.IsNullOrEmpty(objEquipo.IpRed1))
+                        if (bSBCEnaire && objEquipo.Interno)
                         {
-                            if (bEsDirIPvalida(objEquipo.IpRed1, ref strAuxIpConPuerto))
+                            if (!string.IsNullOrEmpty(objEquipo.IpRed1))
                             {
-                                if (!listaSrv.ContainsKey(strAuxIpConPuerto))
-                                    listaSrv.Add(strAuxIpConPuerto, objEquipo.IdEquipos);
-                            }
+                                if (bEsDirIPvalida(objEquipo.IpRed1, ref strAuxIpConPuerto))
+                                {
+                                    if (!listaSrvSBC.ContainsKey(strAuxIpConPuerto))
+                                        listaSrvSBC.Add(strAuxIpConPuerto, objEquipo.IdEquipos);
+                                }
 
-                            if (string.Compare(objEquipo.IpRed1,objEquipo.SrvPresenciaIpRed1)!=0)
+                                if (string.Compare(objEquipo.IpRed1, objEquipo.SrvPresenciaIpRed1) != 0)
+                                {
+                                    if (bEsDirIPvalida(objEquipo.SrvPresenciaIpRed1, ref strAuxIpConPuerto))
+                                    {
+                                        if (!listaSrvSBC.ContainsKey(strAuxIpConPuerto))
+                                            listaSrvSBC.Add(strAuxIpConPuerto, objEquipo.IdEquipos);
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (!string.IsNullOrEmpty(objEquipo.IpRed1))
                             {
-                                if (bEsDirIPvalida(objEquipo.SrvPresenciaIpRed1, ref strAuxIpConPuerto))
+                                if (bEsDirIPvalida(objEquipo.IpRed1, ref strAuxIpConPuerto))
                                 {
                                     if (!listaSrv.ContainsKey(strAuxIpConPuerto))
                                         listaSrv.Add(strAuxIpConPuerto, objEquipo.IdEquipos);
                                 }
+                                if (string.Compare(objEquipo.IpRed1,objEquipo.SrvPresenciaIpRed1)!=0)
+                                {
+                                    if (bEsDirIPvalida(objEquipo.SrvPresenciaIpRed1, ref strAuxIpConPuerto))
+                                    {
+                                        if (!listaSrv.ContainsKey(strAuxIpConPuerto))
+                                            listaSrv.Add(strAuxIpConPuerto, objEquipo.IdEquipos);
+                                    }
+                                }
                             }
-                        }
 
-                        if (!string.IsNullOrEmpty(objEquipo.IpRed2))
-                        {
-                            if (bEsDirIPvalida(objEquipo.IpRed2, ref strAuxIpConPuerto))
+                            if (!string.IsNullOrEmpty(objEquipo.IpRed2))
                             {
-                                if (!listaSrv.ContainsKey(strAuxIpConPuerto))
-                                    listaSrv.Add(strAuxIpConPuerto, (objEquipo.IdEquipos));
-                            }
-
-                            if (string.Compare(objEquipo.IpRed2,objEquipo.SrvPresenciaIpRed2)!=0)
-                            {
-                                if (bEsDirIPvalida(objEquipo.SrvPresenciaIpRed2, ref strAuxIpConPuerto))
+                                if (bEsDirIPvalida(objEquipo.IpRed2, ref strAuxIpConPuerto))
                                 {
                                     if (!listaSrv.ContainsKey(strAuxIpConPuerto))
                                         listaSrv.Add(strAuxIpConPuerto, objEquipo.IdEquipos);
                                 }
-                            }
-                        }
 
-                        if (!string.IsNullOrEmpty(objEquipo.IpRed3))
-                        {
-                            if (bEsDirIPvalida(objEquipo.IpRed3, ref strAuxIpConPuerto))
-                            {
-                                if (!listaSrv.ContainsKey(strAuxIpConPuerto))
-                                    listaSrv.Add(strAuxIpConPuerto, objEquipo.IdEquipos);
+                                if (string.Compare(objEquipo.IpRed2,objEquipo.SrvPresenciaIpRed2)!=0)
+                                {
+                                    if (bEsDirIPvalida(objEquipo.SrvPresenciaIpRed2, ref strAuxIpConPuerto))
+                                    {
+                                        if (!listaSrv.ContainsKey(strAuxIpConPuerto))
+                                            listaSrv.Add(strAuxIpConPuerto, objEquipo.IdEquipos);
+                                    }
+                                }
                             }
 
-                            if (string.Compare(objEquipo.IpRed3,objEquipo.SrvPresenciaIpRed3)!=0)
+                            if (!string.IsNullOrEmpty(objEquipo.IpRed3))
                             {
-                                if (bEsDirIPvalida(objEquipo.SrvPresenciaIpRed3, ref strAuxIpConPuerto))
+                                if (bEsDirIPvalida(objEquipo.IpRed3, ref strAuxIpConPuerto))
                                 {
                                     if (!listaSrv.ContainsKey(strAuxIpConPuerto))
                                         listaSrv.Add(strAuxIpConPuerto, objEquipo.IdEquipos);
+                                    if (bSBCEnaire)
+                                    {
+                                        if (!listaSrvSBC.ContainsKey(strAuxIpConPuerto))
+                                            listaSrvSBC.Add(strAuxIpConPuerto, objEquipo.IdEquipos);
+                                    }
+                                }
+                                if (string.Compare(objEquipo.IpRed3, objEquipo.SrvPresenciaIpRed3) != 0)
+                                {
+                                    if (bEsDirIPvalida(objEquipo.SrvPresenciaIpRed3, ref strAuxIpConPuerto))
+                                    {
+                                        if (!listaSrv.ContainsKey(strAuxIpConPuerto))
+                                            listaSrv.Add(strAuxIpConPuerto, objEquipo.IdEquipos);
+                                        if (bSBCEnaire)
+                                        {
+                                            if (!listaSrvSBC.ContainsKey(strAuxIpConPuerto))
+                                                listaSrvSBC.Add(strAuxIpConPuerto, objEquipo.IdEquipos);
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -2786,19 +3220,101 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
                  for (int i=0; i<arrListaIP.Length && bOk;i++)
                  {
                      strAux = arrListaIP[i];
-                     if (listaSrv.ContainsKey(strAux))
+                     //20200928 #4599
+                     if (bSBCEnaire)
                      {
-                        bOk=false;
-                        if (GetLocalResourceObject("REV_ipSrvExistenteEnOtraCentral") != null)
-                            strMsg = string.Format(GetLocalResourceObject("REV_ipSrvExistenteEnOtraCentral").ToString(), plistaIPCentral[strAux], listaSrv[strAux]);
-                        else
-                            strMsg = string.Format("La dirección IP {0} ya se encuentra configurada en otra Central.", plistaIPCentral[strAux], listaSrv[strAux]);
+                         if (!string.IsNullOrEmpty(sSCV_DEP) || !string.IsNullOrEmpty(sSCV_DEP_P))
+                         {
+                             if (!string.IsNullOrEmpty(sSCV_DEP))
+                             {
+                                 if (strAux == sSCV_DEP && bExisteSCVEnSBC(strAux, ref listaSrv, ref strMsg))
+                                 {
+                                     bOk = false;
+                                     ErrorSCVExiste(plistaIPCentral[strAux], listaSrv[strAux], ref strMsg);
+                                     continue;
+                                 }
+                                 if (strAux == sSCV_DEP && bExisteSCVEnSCV(strAux, ref listaSrvSBC, ref strMsg))
+                                 {
+                                     bOk = false;
+                                     ErrorSCVExiste(plistaIPCentral[strAux], listaSrvSBC[strAux], ref strMsg);
+                                     continue;
+                                 }
+                             }
+                             if (!string.IsNullOrEmpty(sSCV_DEP_P))
+                             {
+                                 if ((strAux == sSCV_DEP_P) && bExisteSCVEnSBC(strAux, ref listaSrv, ref strMsg))
+                                 {
+                                     bOk = false;
+                                     ErrorSCVExiste(plistaIPCentral[strAux], listaSrv[strAux], ref strMsg);
+                                     continue;
+                                 }
+                                 if (strAux == sSCV_DEP && bExisteSCVEnSCV(strAux, ref listaSrvSBC, ref strMsg))
+                                 {
+                                     bOk = false;
+                                     ErrorSCVExiste(plistaIPCentral[strAux], listaSrvSBC[strAux], ref strMsg);
+                                     continue;
+                                 }
+                             }
+                         }
+                     }
+
+                    //20200928 #4599
+                    if (bSBCEnaire)
+                    {
+                        if (listaSrvSBC.ContainsKey(strAux)) 
+                        {
+                            bOk = false;
+                            ErrorSCVExiste(plistaIPCentral[strAux], listaSrvSBC[strAux], ref strMsg);
+                        }
+                    }
+                    else if (listaSrv.ContainsKey(strAux))
+                    {
+                            bOk = false;
+                            ErrorSCVExiste(plistaIPCentral[strAux], listaSrv[strAux], ref strMsg);
+                    }
+                 }
+                 //20200928 #4599
+                 if (bSBCEnaire && bOk)
+                 {
+                     if ((!string.IsNullOrEmpty(sSCV_DEP) && (listaSrv.ContainsKey(sSCV_DEP))) || (!string.IsNullOrEmpty(sSCV_DEP_P) && (listaSrv.ContainsKey(sSCV_DEP_P))))
+                     {
+                         bOk=false;
+                         ErrorSCVExiste(plistaIPCentral[strAux], listaSrv[strAux], ref strMsg);
                      }
                  }
                  listaSrv.Clear();
+                 listaSrvSBC.Clear();
             }
         }
         return bOk;
+    }
+    //20200928 #4599
+    bool bExisteSCVEnSBC(string Ip_SCV, ref Dictionary<string, string> listaSrv, ref string strMsg)
+    {
+        bool retorno = false;
+        if (listaSrv.ContainsKey(Ip_SCV))
+        {
+            retorno = true;
+        }
+        return retorno;
+    }
+
+    bool bExisteSCVEnSCV(string Ip_SCV, ref Dictionary<string, string> listaSrvSBC, ref string strMsg)
+    {
+        bool retorno = false;
+        if (listaSrvSBC.ContainsKey(Ip_SCV))
+        {
+            retorno = true;
+        }
+        return retorno;
+    }
+    //20200928 #4599
+    void ErrorSCVExiste(string sIp, string sSCV, ref string strMsg)
+    {
+        if (GetLocalResourceObject("REV_ipSrvExistenteEnOtraCentral") != null)
+            strMsg = string.Format(GetLocalResourceObject("REV_ipSrvExistenteEnOtraCentral").ToString(), sIp, sSCV);
+        else
+            strMsg = string.Format("La dirección IP {0} ya se encuentra configurada en el SCV IP {1}.", sIp, sSCV);
     }
 
     bool bExisteCentralConMismoNombre(string strIdSistema, string strIdCentral)
@@ -2820,7 +3336,6 @@ public partial class Encaminamientos : PageBaseCD40.PageCD40//, System.Web.UI.Pa
 
         return bExiste;
     }
-
 
     bool ExisteRango(string strSistema, string strCentral,int iSelectedRangoIndex, ref string strMsg)
     {

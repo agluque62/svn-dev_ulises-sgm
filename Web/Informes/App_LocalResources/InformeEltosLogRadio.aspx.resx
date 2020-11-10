@@ -277,7 +277,7 @@
     <value>Método BSS:</value>
   </data>
   <data name="SUBINF_FREC_RADIO_MN" xml:space="preserve">
-    <value>Configuración M+N</value>
+    <value>Parámetros M+N</value>
   </data>
   <data name="SUBINF_FREC_RADIO_MN_CANALIZACION" xml:space="preserve">
     <value>Canalización:</value>
@@ -313,7 +313,7 @@
     <value>Emplazamiento por Defecto:</value>
   </data>
   <data name="SUBINF_FREC_RADIO_TBACK_DEFECTO" xml:space="preserve">
-    <value>T. Vuelta a Emp. Defecto:</value>
+    <value>T.Vuelta a Emp.Defecto:</value>
   </data>
   <data name="SUBINF_FREC_RADIO_POSICION" xml:space="preserve">
     <value>POSICIÓN</value>
@@ -422,5 +422,23 @@
   </data>
   <data name="GRUPO_CONTINUA" xml:space="preserve">
     <value>(Continuación)</value>
+  </data>
+  <data name="RECURSO_TIPO_EE" xml:space="preserve">
+    <value>Audio EE</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_EE" xml:space="preserve">
+    <value>Parámetros</value>
+  </data>
+  <data name="SUBINF_FREC_RADIO_CONRED" xml:space="preserve">
+    <value>1+1</value>
+  </data>
+  <data name="RECURSO_TIPO_EE_RX" xml:space="preserve">
+    <value>Audio EE RX</value>
+  </data>
+  <data name="RECURSO_TIPO_EE_TX" xml:space="preserve">
+    <value>Audio EE TX</value>
+  </data>
+  <data name="RECURSO_TIPO_EE_RXTX" xml:space="preserve">
+    <value>Audio EE RX TX</value>
   </data>
 </root>

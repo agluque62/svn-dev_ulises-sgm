@@ -481,8 +481,8 @@ namespace ConfiguracionElementosHw
         public Tipo_Frecuencia TipoDeFrecuencia;
         public string FrecuenciaPrincipal;
         public Tipo_Canal TipoDeCanal;
-        public Tipo_Formato_Trabajo FormaDeTrabajo;
-        public int Prioridad;
+        public Tipo_Formato_Trabajo? FormaDeTrabajo;
+        public int? Prioridad;
         public uint Puerto;
         public GearCarrierOffStatus Offset;
         public GearChannelSpacings Canalizacion;

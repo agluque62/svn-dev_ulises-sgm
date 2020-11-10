@@ -105,6 +105,7 @@
 					 meta:resourcekey="DListNucleoResource1">
 				 </asp:DropDownList>
 
+
                 <asp:Panel ID="Panel2" runat="server" BorderStyle="Inset" Height="100px" Style="z-index: 115; left: 335px; position: absolute; top: 240px"
                     Width="412px" Enabled="False">
                     <asp:Label ID="LblPanelCaracteristicas" runat="server" Style="z-index: 110; left: 22px; position: absolute;
@@ -118,6 +119,9 @@
                     <asp:CheckBox ID="CheckGrabacion" runat="server" Checked="True" Style="z-index: 105; left: 152px; position: absolute; top: 40px"
                         Text="   Grabación ED-137"
                         meta:resourcekey="CheckGrabacionResource1" />
+                <% //20200911 JOI #4591 %>
+                 <asp:CheckBox ID="CheckSeleccionadoFS" runat="server" Checked="False" Style="z-index: 106; left: 152px; position: absolute; top: 70px" 
+                     Text="Panel Radio **FS**"  meta:resourcekey="CheckSeleccionadoFSResource1"/>
                 </asp:Panel>
 
                 <asp:Panel ID="PanelAbonado" runat="server" BorderStyle="Inset" Height="222px" Style="z-index: 115;
@@ -189,73 +193,73 @@
 			<asp:View ID="ViewUtilidades" runat="server">
                 <asp:Panel ID="PanelComunes" runat="server" Style="position:absolute; left:15px">
 				     <asp:CheckBox ID="CheckEscucha" runat="server" Style="z-index: 129; position: absolute;
-					      top: 44px" Text="Escucha"  Enabled="False"  Width="300px" meta:resourcekey="CheckEscuchaResource1"/>
+					      top: 44px" Text="Escucha"  Enabled="False"  Width="180px" meta:resourcekey="CheckEscuchaResource1"/>
 				     <asp:CheckBox ID="CheckRetener" runat="server" Style="z-index: 130; position: absolute;
-					      top: 74px" Checked="True" Text="Retener"  Enabled="False"  Width="300px"
+					      top: 74px" Checked="True" Text="Retener"  Enabled="False"  Width="180px"
 					     meta:resourcekey="CheckRetenerResource1"/>
 				     <asp:CheckBox ID="CheckTransDirect" runat="server" Style="z-index: 153; position: absolute;
-					      top: 104px" Text="Transferencia Directa" Width="300px"  Enabled="False" 
+					      top: 104px" Text="Transferencia Directa" Width="180px"  Enabled="False" 
 					     meta:resourcekey="CheckTransDirectResource1" />
-				     <asp:CheckBox ID="CheckTeclaPrio" runat="server" Checked="True" Style="z-index: 135; position: absolute; top: 134px" 
-                         Text="Tecla de prioridad"  Enabled="False"  Width="300px"
+				     <asp:CheckBox ID="CheckTeclaPrio" runat="server" Checked="True" Style="z-index: 135; position: absolute; 
+                         top: 134px" Text="Tecla de prioridad"  Enabled="False"  Width="180px"
 					     Visible="false" meta:resourcekey="CheckTeclaPrioResource1"/>
                 </asp:Panel>
                 <asp:Panel ID="PanelTwr" runat="server" Style="position:absolute; left:185px">
-				     <asp:CheckBox ID="CheckLTT" runat="server" Checked="True" Style="z-index: 155; position: absolute; top: 44px" 
-                         Text="LTT" Width="300px"  Enabled="False" Visible="false"
+				     <asp:CheckBox ID="CheckLTT" runat="server" Checked="True" Style="z-index: 155; position: absolute; 
+                         top: 104px" Text="LTT" Width="150px"  Enabled="False" Visible="false"
 					     meta:resourcekey="CheckLTTResource1"/>
-                    <asp:CheckBox ID="CheckCaptura" runat="server" Style="z-index: 131; position: absolute; left: 190px; 
-					      top: 44px" Text="Captura"  Enabled="False"  Width="300px"
+				     <asp:CheckBox ID="CheckCaptura" runat="server" Style="z-index: 131; position: absolute;
+					      top: 44px" Text="Captura"  Enabled="False"  Width="190px"
 					     meta:resourcekey="CheckCapturaResource1"/>
+				     <asp:CheckBox ID="CheckRedireccion" runat="server" Style="z-index: 132; position: absolute;
+					      top: 74px" Text="Redirección"  Enabled="False"  Width="190px"
+					     meta:resourcekey="CheckRedireccionResource1"/>
                 </asp:Panel>
-                <asp:Panel ID="PanelAsecna" runat="server" Style="position:absolute; left:185px">
+                <asp:Panel ID="PanelAsecna" runat="server" Style="position:absolute; left:375px">
 				     <asp:CheckBox ID="CheckConferencia" runat="server" Style="z-index: 128;
-					      position: absolute; top: 44px" Text="Conferencia"  Enabled="False" Width="300px"
+					      position: absolute; top: 44px" Text="Conferencia"  Enabled="False" Width="150px"
 					     meta:resourcekey="CheckConferenciaResource1"/>
 				     <asp:CheckBox ID="CheckRecording" runat="server" Checked="True" Style="z-index: 158;
 					      position: absolute; top: 74px" Text="Grabación Local en Puesto" 
-					     Width="300px"  Enabled="False" meta:resourcekey="CheckRecordingResource1"/>
+					     Width="190px"  Enabled="False" meta:resourcekey="CheckRecordingResource1"/>
                 </asp:Panel>
                 <asp:Panel ID="PanelNoImplementadas" runat="server" Style="position:absolute; left:375px">
-				     <asp:CheckBox ID="CheckRedireccion" runat="server" Style="z-index: 132; position: absolute;
-					      top: 74px" Text="Redirección"  Enabled="False"  Width="300px"
-					     meta:resourcekey="CheckRedireccionResource1"/>
 				     <asp:CheckBox ID="CheckRepUltLlamada" runat="server" Checked="True" Style="z-index: 133; 
-					      position: absolute; top: 104px" Text="Repetición de la última llamada"   Width="300px"
+					      position: absolute; top: 104px" Text="Repetición de la última llamada"   Width="200px"
 					     Enabled="False" meta:resourcekey="CheckRepUltLlamadaResource1"/>
 				     <asp:CheckBox ID="CheckReAutomatica" runat="server" Style="z-index: 134; position: absolute;
-					      top: 134px" Text="Rellamada automática"  Enabled="False"  Width="300px"
+					      top: 134px" Text="Rellamada automática"  Enabled="False"  Width="200px"
 					     meta:resourcekey="CheckReAutomaticaResource1"/>
 				     <asp:CheckBox ID="CheckTecla55" runat="server" Style="z-index: 136; position: absolute;
-					      top: 164px" Text="Tecla 55+1"  Enabled="False"  Width="300px"
+					      top: 164px" Text="Tecla 55+1"  Enabled="False"  Width="190px"
 					     meta:resourcekey="CheckTecla55Resource1"/>
 				     <asp:CheckBox ID="CheckMonitoring" runat="server" Checked="True" Style="z-index: 137; 
-					      position: absolute; top: 194px" Text="Monitoring" Enabled="False"  Width="300px"
+					      position: absolute; top: 194px" Text="Monitoring" Enabled="False"  Width="200px"
 					     meta:resourcekey="CheckMonitoringResource1"/>
 				     <asp:CheckBox ID="CheckCoordTF" runat="server" Style="z-index: 138; position: absolute;
-					      top: 224px" Text="Coordinador Telefonía"  Enabled="False"  Width="300px"
+					      top: 224px" Text="Coordinador Telefonía"  Enabled="False"  Width="200px"
 					     meta:resourcekey="CheckCoordTFResource1"/>
 				     <asp:CheckBox ID="CheckLlamadaSelect" runat="server" Style="z-index: 139; position: absolute; left:200px;
-					      top: 44px" Text="Llamada Selectiva"  Enabled="False"  Width="300px"
+					      top: 44px" Text="Llamada Selectiva"  Enabled="False"  Width="200px"
 					     meta:resourcekey="CheckLlamadaSelectResource1"/>
 				     <asp:CheckBox ID="CheckIntRDTF" runat="server" Style="z-index: 140;position: absolute;left:200px;
-					      top: 74px" Text="Integración de Radio y Telefonía"  Enabled="False"  Width="300px"
+					      top: 74px" Text="Integración de Radio y Telefonía"  Enabled="False"  Width="200px"
 					     meta:resourcekey="CheckIntRDTFResource1"/>
 				     <asp:CheckBox ID="CheckCoorRD" runat="server" Style="z-index: 141;position: absolute;left:200px;
-					      top: 104px" Text="Coordinador Radio"  Enabled="False"  Width="300px"
+					      top: 104px" Text="Coordinador Radio"  Enabled="False"  Width="200px"
 					     meta:resourcekey="CheckCoorRDResource1"/>
 				     <asp:CheckBox ID="CheckBSS" runat="server" Checked="True" Style="z-index: 154;left:200px;
-					      position: absolute; top: 134px" Text="Grupo BSS" Width="300px"  Enabled="False" 
+					      position: absolute; top: 134px" Text="Grupo BSS" Width="200px"  Enabled="False" 
 					     meta:resourcekey="CheckBSSResource1"/>
 				     <asp:CheckBox ID="CheckRediCA" runat="server" Style="z-index: 156; left: 405px; position: absolute;left:200px;
-					      top: 164px" Text="   Inhabilitación Redirección C/A" Width="300px"  Enabled="False" 
+					      top: 164px" Text="   Inhabilitación Redirección C/A" Width="200px"  Enabled="False" 
 					     meta:resourcekey="CheckRediCAResource1"/>
 				     <asp:CheckBox ID="CheckSayAgain" runat="server" Checked="True" Style="z-index: 157;left:200px;
-					      position: absolute; top: 194px" Text="Say Again" Width="300px"  Enabled="False" 
+					      position: absolute; top: 194px" Text="Say Again" Width="200px"  Enabled="False" 
 					     meta:resourcekey="CheckSayAgainResource1"/>
 				     <asp:CheckBox ID="CheckTransPre" runat="server" Checked="True" Style="z-index: 158;left:200px;
 					      position: absolute; top: 224px" Text="Transferencia con consulta previa habilitada" 
-					     Width="300px"  Enabled="False" meta:resourcekey="CheckTransPreResource1"/>
+					     Width="200px"  Enabled="False" meta:resourcekey="CheckTransPreResource1"/>
                  </asp:Panel>
 			</asp:View>
 <%--			<asp:View ID="ViewParametros" runat="server">
@@ -500,6 +504,8 @@
 					</asp:DropDownList>
 			</asp:View>
 		
+           
+		
         </asp:MultiView>
 	</asp:Panel>
     <asp:LinkButton ID="BtNuevo" runat="server" OnClick="BtNuevo_Click" 
@@ -546,5 +552,35 @@
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Resumen de errores:"
         Style="z-index: 182; left: 294px; position: absolute; top: 474px" 
 		 meta:resourcekey="ValidationSummary1Resource1" />
+
+
+  <script type="text/javascript">
+
+      var waitafewseconds;
+      function waitafewseconds() {
+          waitafewseconds = setInterval("OnTimer()", 5000);
+      }
+
+      function OnTimer() {
+          hideSloader();
+      }
+
+    function displaySloader() {
+        document.getElementById("initSloader").style.display = "block";
+        waitafewseconds();
+    }
+
+    function hideSloader() {
+        document.getElementById("initSloader").style.display = "none";
+    }
+  </script>
+
+
+     <div   id="initSloader"  style="position:absolute;margin-top:2px;background-color:white;z-index:1000; display:none" >
+         <div id="Desactivador"  style="position: absolute;margin-top: 0px;background-color:transparent;width:900px; height:650px" > </div>
+         <div id="loader" style="display:block;position:absolute;top:50%;left:50%;width:150px;height:150px;margin:500px 0 0 470px;background-image: url('../Cluster/Images/progress.gif');background-repeat: no-repeat;background-size: 100% 100%">
+        </div>  
+     </div>
+    
 </asp:Content>
 

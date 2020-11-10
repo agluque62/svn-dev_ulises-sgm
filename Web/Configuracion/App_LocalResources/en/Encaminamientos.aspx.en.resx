@@ -685,37 +685,46 @@
     <value>ATS Network Ranges</value>
   </data>
   <data name="LblIp1Resource.Text" xml:space="preserve">
-    <value>Main</value>
+    <value>SBC MAIN</value>
   </data>
   <data name="LblIp2Resource.Text" xml:space="preserve">
-    <value>Alternative 1</value>
+    <value>SBC ALTER.</value>
   </data>
   <data name="LblIp3Resource.Text" xml:space="preserve">
-    <value>Alternative 2</value>
+    <value>SCV SITE</value>
   </data>
   <data name="TbIp1Resource.Tooltip" xml:space="preserve">
-    <value>Netword IP address of the Principal Proxy server</value>
+    <value>Netword IP address of the SBC PPAL.</value>
   </data>
   <data name="TbIp2Resource.Tooltip" xml:space="preserve">
-    <value>Netword IP address of the Alternative Proxy server 1</value>
+    <value>Netword IP address of the SBC ALTER.</value>
   </data>
   <data name="TbIp3Resource.Tooltip" xml:space="preserve">
-    <value>Netword IP address of the Alternative Proxy server 2</value>
+    <value>Netword IP address of the SCV DEP.</value>
   </data>
   <data name="TbSrvPresIp1Resource.Tooltip" xml:space="preserve">
-    <value>Netword IP address of the Main Presence server</value>
+    <value>Netword IP address of the SBC PPAL. Presence server.</value>
   </data>
   <data name="TbSrvPresIp2Resource.Tooltip" xml:space="preserve">
-    <value>Netword IP address of the Alternative Presence server 1</value>
+    <value>Netword IP address of the SBC ALTER. Presence server.</value>
   </data>
   <data name="TbSrvPresIp3Resource.Tooltip" xml:space="preserve">
-    <value>Netword IP address of the Alternative Presence server 2</value>
+    <value>Netword IP address of the SCV DEP. Presence server.</value>
   </data>
   <data name="LbProxyResource.Text" xml:space="preserve">
     <value>Proxy Servers</value>
   </data>
   <data name="LbSrvPresenciaResource.Text" xml:space="preserve">
     <value>Presence Server</value>
+  </data>
+  <data name="LabelSBCResource.Text" xml:space="preserve">
+    <value>SBC PPAL.</value>
+  </data>
+  <data name="LabelSBCAResource.Text" xml:space="preserve">
+    <value>SBC ALTER.</value>
+  </data>
+  <data name="LabelDepResource.Text" xml:space="preserve">
+    <value>SCV DEP.</value>
   </data>
   <data name="REV_TbProxyIpFormatoPrincipal" xml:space="preserve">
     <value>Netword IP address of the Principal Proxy server is not correct</value>
@@ -782,5 +791,53 @@
   </data>
   <data name="REV_RangoIncluido" xml:space="preserve">
     <value>The range {0} - {1} has subscriber numbers that are defined within the range {2} - {3} of the {4} VCS. Please, configure a range that is valid.</value>
+  </data>
+  <data name="REV_TbIp1RequeridoSBC" xml:space="preserve">
+    <value>Netword IP address of the Principal SBC server cannot be empty.</value>
+  </data>
+  <data name="REV_TbProxyIpFormatoPrincipalSBC" xml:space="preserve">
+    <value>Netword IP address of the Principal SBC server is not correct</value>
+  </data>
+  <data name="REV_TbProxyIpFormatoAlternativoSBC" xml:space="preserve">
+    <value>Netword IP address of the Alternative Proxy SBC is not correct.</value>
+  </data>
+  <data name="REV_IpSrvProxyAltEnOtraCentral" xml:space="preserve">
+    <value>The IP address of the Alternative Proxy server {0} is already configured.</value>
+  </data>
+  <data name="REV_TbIpFormatoSCVDep" xml:space="preserve">
+    <value>Netword IP address of the SCV Dep. is not correct.</value>
+  </data>
+  <data name="REV_IpSCVDepEnOtroServidor" xml:space="preserve">
+    <value>The SCV DEP server IP address is already configured on another server. Check configuration</value>
+  </data>
+  <data name="REV_IpSrvPresenciaSCVDEPEnOtraCentral" xml:space="preserve">
+    <value>The SCV DEP Presence server IP address is already configured on another server. Check the configuration.</value>
+  </data>
+  <data name="REV_TbSrvPresSCVDEPSinSCVDEP" xml:space="preserve">
+    <value>The SCV DEP presence server can only be configured if you configure the SCV DEP.</value>
+  </data>
+  <data name="REV_IpSrvPresenciaSBCAltEnOtraCentral" xml:space="preserve">
+    <value>The IP address of the SBC ALTER Presence server. it is already configured.</value>
+  </data>
+  <data name="REV_TbIpFormatoSBCAlternativo" xml:space="preserve">
+    <value>Incorrect format of the SBC ALTER Presence Server IP address.</value>
+  </data>
+  <data name="REV_TbSrvPresIpSBCPrincipal" xml:space="preserve">
+    <value>The SBC PPAL. Presence server can only be configured if you configure the SBC PPAL.</value>
+  </data>
+  <data name="REV_TbSrvPresIpSBCAlternativo" xml:space="preserve">
+    <value>The SBC ALTER. Presence server can only be configured if you configure the SBC ALTER.</value>
+  </data>  
+  <data name="REV_IpSrvPresenciaSBCPrincipalEnOtraCentral" xml:space="preserve">
+    <value>The IP address of the SBC PPAL Presence server. is already configured</value>
+  </data>
+  <data name="REV_TbSrvPresIpFormatoSBCPrincipal" xml:space="preserve">
+    <value>Incorrect format of the IP address of the SBC PPAL Presence Server.</value>
+  </data>
+  <data name="REV_TbIpsRequeridasSBC" xml:space="preserve">
+    <value>You must enter at least one proxy server IP address.</value>
+  </data>
+  <data name="REV_IpSBCALTnOtroServidor" xml:space="preserve">
+    <value>The IP address of the SBC ALTER. server. it is already configured on another server. Check the configuration.</value>
   </data>
 </root>

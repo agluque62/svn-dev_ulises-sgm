@@ -439,7 +439,7 @@
     <value />
   </data>
   <data name="Label4Resource1.Text" xml:space="preserve">
-    <value>Nombre de destinations téléphoniques par page :</value>
+    <value>Nombre de destinations téléphoniques par page (pas de clé +1) :</value>
   </data>
   <data name="Label4Resource1.ToolTip" xml:space="preserve">
     <value />
@@ -1018,7 +1018,7 @@
     <value />
   </data>
   <data name="Label29Resource1.Text" xml:space="preserve">
-    <value>Nombre de pages de liaisons internes :</value>
+    <value>Nombre de pages de liaisons internes:</value>
   </data>
   <data name="Label30Resource1.Text" xml:space="preserve">
     <value>Nombre de destinations d'accès instantanné :</value>
@@ -1178,5 +1178,32 @@
   </data>
   <data name="WarnResource.Text" xml:space="preserve">
     <value>Avant changer le nombre de resources par page, on doit eraser tous les liasons sur les secteurs</value>
+  </data>
+  <data name="RangeValidato5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RangeValidato6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RangeValidato7Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RangeValidator5Resource1.ErrorMessage" xml:space="preserve">
+    <value>Le nombre de pages de fréquences doit être compris entre 1 et 9.</value>
+  </data>
+  <data name="RangeValidator5Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RangeValidator6Resource1.ErrorMessage1" xml:space="preserve">
+    <value>Le nombre de champs de liens d'accès instantané doit être compris entre 9 et 18.</value>
+  </data>
+  <data name="RangeValidator6Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RangeValidator7Resource1.ErrorMessage" xml:space="preserve">
+    <value>Le nombre de champs de liens d'accès instantané doit être compris entre 9 et 18.</value>
+  </data>
+  <data name="RangeValidator7Resource1.Text" xml:space="preserve">
+    <value>*</value>
   </data>
 </root>

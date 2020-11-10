@@ -104,15 +104,19 @@ public partial class TIFX_Cfg : PageBaseCD40.PageCD40	// System.Web.UI.Page
 			MuestraDatos(DameDatos());
 
             IBPropiedadesGenerales.CssClass = "buttonImageSelected";
-            IBProtocoloSIP.CssClass = "buttonImage";
+            // #4579 IBProtocoloSIP.CssClass = "buttonImage";
             IBProtocoloSNMP.CssClass = "buttonImage";
             IBRecursos.CssClass = "buttonImage";
 
              //Mostrar grabación ED137 sólo para Nouakchott (Version==1)
-            if (UlisesToolsVersion.Tools["GrabacionRecursoRadio"] == null)
-                TblRecorders.Visible = false;
-
-            CargaDDLGrabadores();
+            //20201007 #4579
+            //if (UlisesToolsVersion.Tools["GrabacionRecursoRadio"] == null)
+            //{
+            //    TblRecorders.Visible = false;
+            //    TblRecorders.Disabled = true;
+            //}
+            //CargaDDLGrabadores();
+            //20201007 #4579
 
             BtAceptar_ConfirmButtonExtender.ConfirmText = (string)GetGlobalResourceObject("Espaniol", "AceptarCambios");
             BtCancelar_ConfirmButtonExtender.ConfirmText = (string)GetGlobalResourceObject("Espaniol", "CancelarCambios");
@@ -161,8 +165,9 @@ public partial class TIFX_Cfg : PageBaseCD40.PageCD40	// System.Web.UI.Page
 		//DListModoSincro.Enabled = edicion;
         //TxtPortSIPLocal.ReadOnly = !edicion;
 		BtAceptar.Visible = BtCancelar.Visible = edicion;
-        DDLRecorder2.Enabled = edicion;
-        DDLRecorder1.Enabled = edicion;
+        //20201007 #4579
+        //DDLRecorder2.Enabled = edicion;
+        //DDLRecorder1.Enabled = edicion;
 
         BtNuevo.Visible = !edicion && PermisoSegunPerfil;
 		BtModificar.Visible = BtEliminar.Visible = ListBox1.Items.Count > 0 && !edicion && PermisoSegunPerfil;
@@ -240,17 +245,18 @@ public partial class TIFX_Cfg : PageBaseCD40.PageCD40	// System.Web.UI.Page
                         LBTmMaxSupervLanGW.Visible = TxtTmMaxSupervLanGW.Visible = TxtTmMaxSupervLanGW.ReadOnly = true;
                     else
                         LBTmMaxSupervLanGW.Visible = TxtTmMaxSupervLanGW.Visible = false;
+                    //20201007 #4579
+                    //if (((ServiciosCD40.TifX)datos[i]).Grabador1 == null || ((ServiciosCD40.TifX)datos[i]).Grabador1 == string.Empty)
+                    //    DDLRecorder1.SelectedIndex = 0;
+                    //else
+                    //    DDLRecorder1.SelectedValue = ((ServiciosCD40.TifX)datos[i]).Grabador1;
 
-                    if (((ServiciosCD40.TifX)datos[i]).Grabador1 == null || ((ServiciosCD40.TifX)datos[i]).Grabador1 == string.Empty)
-                        DDLRecorder1.SelectedIndex = 0;
-                    else
-                        DDLRecorder1.SelectedValue = ((ServiciosCD40.TifX)datos[i]).Grabador1;
-
-                    if (((ServiciosCD40.TifX)datos[i]).Grabador2 == null || ((ServiciosCD40.TifX)datos[i]).Grabador2 == string.Empty)
-                        DDLRecorder2.SelectedIndex = 0;
-                    else
-                        DDLRecorder2.SelectedValue = ((ServiciosCD40.TifX)datos[i]).Grabador2;
-
+                    //if (((ServiciosCD40.TifX)datos[i]).Grabador2 == null || ((ServiciosCD40.TifX)datos[i]).Grabador2 == string.Empty)
+                    //    DDLRecorder2.SelectedIndex = 0;
+                    //else
+                    //    DDLRecorder2.SelectedValue = ((ServiciosCD40.TifX)datos[i]).Grabador2;
+                    //20201007 #4579 FIN
+                    
                     CargarIpVirtual(TxtIdTIFX.Text);
 
                     DListArranque.Text = ((ServiciosCD40.TifX)datos[i]).ModoArranque;
@@ -288,7 +294,10 @@ public partial class TIFX_Cfg : PageBaseCD40.PageCD40	// System.Web.UI.Page
         TxtTimeSupervision.Text = "90";
         TxtPortSIPLocal.Text = "5060";
         TxtMaster.Text = "";
-        DDLRecorder1.SelectedIndex = DDLRecorder2.SelectedIndex = 0;
+
+        //20201007 #4579
+        //DDLRecorder1.SelectedIndex = DDLRecorder2.SelectedIndex = 0;
+
         DDLSupervisionLanGW.SelectedIndex = 1;
         TxtTmMaxSupervLanGW.Text = "1";
         //MVO. 20170707: El modo de sincronización debe aparecer deshabilitado y con el valor NTP seleccionado 
@@ -451,9 +460,13 @@ public partial class TIFX_Cfg : PageBaseCD40.PageCD40	// System.Web.UI.Page
 
             }
             n.SIPPortLocal = UInt16.Parse(TxtPortSIPLocal.Text);
-
-            n.Grabador1 = DDLRecorder1.SelectedIndex != 0 ? DDLRecorder1.SelectedValue : null;
-            n.Grabador2 = DDLRecorder2.SelectedIndex != 0 ? DDLRecorder2.SelectedValue : null;
+            //20201007 #4579
+            //n.Grabador1 = DDLRecorder1.SelectedIndex != 0 ? DDLRecorder1.SelectedValue : null;
+            //n.Grabador2 = DDLRecorder2.SelectedIndex != 0 ? DDLRecorder2.SelectedValue : null;
+            //20201007 #4579
+            n.Grabador1 = null;
+            n.Grabador2 = null;
+            //20201007 #4579
 
             n.IpRed1 = TxtIP1.Text;
             n.IpRed2 = TxtIP2.Text;
@@ -555,16 +568,18 @@ public partial class TIFX_Cfg : PageBaseCD40.PageCD40	// System.Web.UI.Page
                 cMsg.alert(String.Format((string)GetGlobalResourceObject("Espaniol", "ErrorIdentificadorEltoFisicoExiste"), TxtIdTIFX.Text.ToUpper()));
 
             }
-            else if ((0 != DDLRecorder2.SelectedIndex) && (0 == DDLRecorder1.SelectedIndex))
-            {
-                //No se permite configurar el grabador 2, si previamente no se ha configurado el grabador1
-                cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "AvisoConfGrabadorEnTop"), "aceptparam");
-            }
-            else if ((0 != DDLRecorder1.SelectedIndex) && (0 != DDLRecorder2.SelectedIndex) && (DDLRecorder1.SelectedValue == DDLRecorder2.SelectedValue))
-            {
-                //Si se configuran los dos grabadores tienen que ser distintos
-                cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "AvisoConfGrabadorDistintos"), "aceptparam");
-            }
+                //20201007 #4579
+                    //else if ((0 != DDLRecorder2.SelectedIndex) && (0 == DDLRecorder1.SelectedIndex))
+                    //{
+                        //No se permite configurar el grabador 2, si previamente no se ha configurado el grabador1
+                    //    cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "AvisoConfGrabadorEnTop"), "aceptparam");
+                    //}
+                    //else if ((0 != DDLRecorder1.SelectedIndex) && (0 != DDLRecorder2.SelectedIndex) && (DDLRecorder1.SelectedValue == DDLRecorder2.SelectedValue))
+                    //{
+                        //Si se configuran los dos grabadores tienen que ser distintos
+                        //cMsg.confirm((string)GetGlobalResourceObject("Espaniol", "AvisoConfGrabadorDistintos"), "aceptparam");
+                    //}
+                //20201007 #4579 FIN
             else
                 GuardarCambios(StrSistema);
         }
@@ -672,7 +687,7 @@ public partial class TIFX_Cfg : PageBaseCD40.PageCD40	// System.Web.UI.Page
         RequiredFieldIdTIFX.Visible = false;
 //        RequiredFieldMaster.Visible = false;
         RequiredFieldPortLocalSNMP.Visible = false;
-        RequiredFieldSIP.Visible = false;
+        //20201007 #4579        RequiredFieldSIP.Visible = false;
         RequiredFieldSNMPRemoto.Visible = false;
         RequiredFieldTimeSupervision.Visible = false;
         RequiredFieldTraps.Visible = false;
@@ -725,13 +740,14 @@ public partial class TIFX_Cfg : PageBaseCD40.PageCD40	// System.Web.UI.Page
 		{
 			case "IBPropiedadesGenerales":
                 IBPropiedadesGenerales.CssClass = "buttonImageSelected";
-                IBProtocoloSIP.CssClass = "buttonImage";
+                // #4579 IBProtocoloSIP.CssClass = "buttonImage";
                 IBProtocoloSNMP.CssClass = "buttonImage";
                 IBRecursos.CssClass = "buttonImage";
 				MultiView1.ActiveViewIndex = NumPaginaActiva = 0;
 				Panel2.Height = 390;
                 Panel2.Width = 460;
 				break;
+                /*
 			case "IBProtocoloSIP":
                 IBPropiedadesGenerales.CssClass = "buttonImage";
                 IBProtocoloSIP.CssClass = "buttonImageSelected";
@@ -740,22 +756,22 @@ public partial class TIFX_Cfg : PageBaseCD40.PageCD40	// System.Web.UI.Page
 				MultiView1.ActiveViewIndex = NumPaginaActiva = 1;
 				Panel2.Height = 260;
                 Panel2.Width = 460;
-				break;
+				break; */
 			case "IBProtocoloSNMP":
                 IBPropiedadesGenerales.CssClass = "buttonImage";
-                IBProtocoloSIP.CssClass = "buttonImage";
+                // #4579IBProtocoloSIP.CssClass = "buttonImage";
                 IBProtocoloSNMP.CssClass = "buttonImageSelected";
                 IBRecursos.CssClass = "buttonImage";
-				MultiView1.ActiveViewIndex = NumPaginaActiva = 2;
+				MultiView1.ActiveViewIndex = NumPaginaActiva = 1;// #4579 ANTES 2
 				Panel2.Height = 180;
                 Panel2.Width = 460;
 				break;
 			case "IBRecursos":
                 IBPropiedadesGenerales.CssClass = "buttonImage";
-                IBProtocoloSIP.CssClass = "buttonImage";
+                // #4579IBProtocoloSIP.CssClass = "buttonImage";
                 IBProtocoloSNMP.CssClass = "buttonImage";
                 IBRecursos.CssClass = "buttonImageSelected";
-				MultiView1.ActiveViewIndex = NumPaginaActiva = 3;
+				MultiView1.ActiveViewIndex = NumPaginaActiva = 2;// #4579 ANTES 3
 				Panel2.Height = 185;
                 Panel2.Width = 565;
 				break;
@@ -854,6 +870,8 @@ public partial class TIFX_Cfg : PageBaseCD40.PageCD40	// System.Web.UI.Page
 		}
 	}
 
+    //20201007 #4579
+    /*
     private void CargaDDLGrabadores()
     {
         Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
@@ -884,6 +902,8 @@ public partial class TIFX_Cfg : PageBaseCD40.PageCD40	// System.Web.UI.Page
         DDLRecorder2.DataValueField = "IdEquipos";
         DDLRecorder2.DataBind();
     }
+    */
+    //20201007 #4579 FIN
 
     //Devuelve True si ya existe algun elmento físico en el sistema con el mismo identificador. En caso contrario, false.
     private bool bIdentificadorAsignado(string strIdSistema,string strIdentificador)

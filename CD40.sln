@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29709.97
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDCD40", "BDCD40\BDCD40.csproj", "{7308C25D-A729-4E56-88DC-3E9F60B2C9C1}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Servicios", "Servicios\", "{1294FDA7-ACAC-4DAE-9D62-E73D3BFE1F4F}"
@@ -24,7 +22,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Servicios", "Servicios\", "
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "63024"
-		SlnRelativePath = "Servicios\"
 	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Web", "Web\", "{F5725393-2DFD-4000-B473-915E68EA51BB}"
@@ -45,9 +42,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Web", "Web\", "{F5725393-2D
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "53119"
+		VWDPort = "50637"
 		VWDVirtualPath = "/Web"
-		SlnRelativePath = "Web\"
 	EndProjectSection
 	ProjectSection(ProjectDependencies) = postProject
 		{7FFF3919-973C-43B4-B05F-FE7589902DAD} = {7FFF3919-973C-43B4-B05F-FE7589902DAD}
@@ -82,7 +78,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "InterfazSacta", "InterfazSa
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "51277"
-		SlnRelativePath = "InterfazSacta\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
@@ -112,7 +107,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SincronizaCD30", "Sincroniz
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "51281"
-		SlnRelativePath = "SincronizaCD30\"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicioBackups", "ServicioBackups\ServicioBackups\ServicioBackups.csproj", "{967FC0B7-C8CB-4F23-8870-BFDB258BDEA8}"
@@ -135,8 +129,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "InterfazSOAPConfiguracion",
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "53155"
-		SlnRelativePath = "InterfazSOAPConfiguracion\"
+		VWDPort = "53011"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilitiesCD40", "Utilities\UtilitiesCD40.csproj", "{D9D5B865-733E-4FC9-9A1D-8319E1380ADE}"
@@ -146,9 +139,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Cluster C#\Utilities\Utilities.csproj", "{822F500D-ADB8-4BB1-8A1C-E9FEAFF369B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClusterLib", "Cluster C#\SoftCluster\ClusterLib\ClusterLib.csproj", "{F4A852F5-4DA4-4B99-A1D3-C881D12E8488}"
-	ProjectSection(ProjectDependencies) = postProject
-		{D9D5B865-733E-4FC9-9A1D-8319E1380ADE} = {D9D5B865-733E-4FC9-9A1D-8319E1380ADE}
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Control Sacta", "Control Sacta", "{2019F0F3-9EFD-4F70-B443-1C3121A2EF2F}"
 EndProject
@@ -406,9 +396,9 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FA8E0DE8-6EA5-4C83-A5C5-63A413A3BFD4} = {2019F0F3-9EFD-4F70-B443-1C3121A2EF2F}
+		{66E1165B-77A6-4A49-8270-EA43C816D1C9} = {2019F0F3-9EFD-4F70-B443-1C3121A2EF2F}
 		{822F500D-ADB8-4BB1-8A1C-E9FEAFF369B0} = {871623CD-6DBF-43C2-8B6F-7E8915A10536}
 		{F4A852F5-4DA4-4B99-A1D3-C881D12E8488} = {871623CD-6DBF-43C2-8B6F-7E8915A10536}
-		{66E1165B-77A6-4A49-8270-EA43C816D1C9} = {2019F0F3-9EFD-4F70-B443-1C3121A2EF2F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DD26E8E8-A39D-454B-B633-DCD30B3FAEB6}

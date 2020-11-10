@@ -510,7 +510,7 @@
   <data name="ErrorAsignacionEmplazamientosRecursosDestinoFD" xml:space="preserve">
     <value>En el Modo destino "FD", cada emplazamiento debe tener configurado al menos un Tx y Rx del mismo tipo. Revise la configuración del recurso "{0}" en el emplazamiento "{1}".</value>
   </data>
-  <data name="ErrorDiferenetesNumTxyRx" xml:space="preserve">
+  <data name="ErrorDiferentesNumTxyRx" xml:space="preserve">
     <value>Debe tener el mismo número de recursos Tx que de Rx.</value>
   </data>
   <data name="MaximosRecursosDestinoFD" xml:space="preserve">
@@ -625,7 +625,7 @@
     <value>El número de abonado ATS no es correcto.</value>
   </data>
   <data name="LB_VERSION" xml:space="preserve">
-    <value>© Núcleo CC. 2018. v2.5.10. All rights reserved.</value>
+    <value>© Núcleo 2020. v2.6.0. All rights reserved.</value>
   </data>
   <data name="MsgDestinoFDConMetodoBSSNoPermitido" xml:space="preserve">
     <value>En el Modo destino "FD", no se puede seleccionar el método BSS "RSSI y NUCLEO" si alguno de los recursos asignados es un circuito de recepción que no está asignado a una pasarela.</value>
@@ -710,5 +710,47 @@
   </data>
   <data name="ErrorTReleaseBLValue" xml:space="preserve">
     <value>Error: BL Release Time must have a value.</value>
+  </data>
+  <data name="RecursoDestinoLCENAsignadoEnPanelLC" xml:space="preserve">
+    <value>The resource {3} can not be deleted. The destination {0} is assigned to the ATS destination '{1}' in the Instantaneous access panel of sector {2}. Please, release the destination before you delete it.</value>
+  </data>
+  <data name="ErrorAsignacionFrecuenciaHFConRedundancia" xml:space="preserve">
+    <value>Under the "Normal" destination mode and frequency type "HF" the option 1+1 is not available.</value>
+  </data>
+  <data name="ErrorConfiguracionDestinoConRedundancia" xml:space="preserve">
+    <value>If the destination is configured as 1 + 1, at least one redundant resource must be configured within the same site</value>
+  </data>
+  <data name="ErrorConfiguracionFSEmplazamientos" xml:space="preserve">
+    <value>If the destination is configured as Simple Frequency, equipment from different sites cannot be assigned</value>
+  </data>
+  <data name="AvisoRecursoRadioCon_DestinoUnoMasUno" xml:space="preserve">
+    <value>The resource cannot be deleted because it is associated with a Radio Destination in the "1+1" mode. The Radio Destination resource must be deleted before the resource can be deleted.</value>
+  </data>
+  <data name="ErrorTablaCalidadErronea" xml:space="preserve">
+    <value>The  RSSI value cannot be decreasing with respect to the previous one.</value>
+  </data>
+  <data name="ErrorConfiguracionDestinoEmplazamientoEquipo" xml:space="preserve">
+    <value>Equipment allocation error, incompatible configuration.</value>
+  </data>
+  <data name="NopropiedadBSSFS1_1" xml:space="preserve">
+    <value>BSS selected, all resources must have the BSS property activated.</value>
+  </data>
+  <data name="AvisoCnfRecursoRadioConDestinoBSS" xml:space="preserve">
+    <value>The radio resource is assigned to the destination {0} with active BSS. Please check the settings </value>
+  </data>
+  <data name="ErrorFrecuenciaRecursoMN_Destino" xml:space="preserve">
+    <value>Frequency "{0}" of the selected M + N equipment is not equal to Destination Identifier "{1}". Review the resource settings.</value>
+  </data>
+  <data name="PanelLcErrorParamCNF" xml:space="preserve">
+    <value>Error. Review System Parameters Direct Access Panel</value>
+  </data>
+  <data name="AvisoRecursoRadioCon_Destino" xml:space="preserve">
+    <value>The resource cannot be deleted because it is associated with a Radio Destination. To delete the resource, you must first delete the resource from Destination Radio</value>
+  </data>
+  <data name="ErrorDestinoRadioEmplazamientoSoloTx" xml:space="preserve">
+    <value>Error. Site consisting of only TX not allowed.</value>
+  </data>
+  <data name="ErrorEmplazamientoUnoMasUnoMmasN" xml:space="preserve">
+    <value>Error. Installation with equipment in 1 + 1 and M + N not allowed.</value>
   </data>
 </root>

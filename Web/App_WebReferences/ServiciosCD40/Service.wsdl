@@ -62,18 +62,6 @@
           <s:element minOccurs="1" maxOccurs="1" name="InsertedId" type="s:long" />
         </s:sequence>
       </s:complexType>
-      <s:complexType name="SectoresAgrupacion">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:Tablas">
-            <s:sequence>
-              <s:element minOccurs="0" maxOccurs="1" name="IdAgrupacion" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="IdSistema" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="IdSector" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="IdNucleo" type="s:string" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
       <s:complexType name="Alarmas">
         <s:complexContent mixed="false">
           <s:extension base="tns:Tablas">
@@ -91,6 +79,18 @@
             <s:sequence>
               <s:element minOccurs="0" maxOccurs="1" name="IdAgrupacion" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="IdSistema" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ValoresTabla">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Tablas">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IdValores_Tabla" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Tabla_bss_idtabla_bss" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Valor_Prop" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Valor_rssi" type="s:int" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -153,55 +153,6 @@
               <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
               <s:element minOccurs="1" maxOccurs="1" name="GeneraError" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="Oid" type="s:string" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="ParametrosSectorSCV">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:Tablas">
-            <s:sequence>
-              <s:element minOccurs="1" maxOccurs="1" name="NumLlamadasEntrantesIda" type="s:unsignedInt" />
-              <s:element minOccurs="1" maxOccurs="1" name="NumLlamadasEnIda" type="s:unsignedInt" />
-              <s:element minOccurs="1" maxOccurs="1" name="NumFrecPagina" type="s:unsignedInt" />
-              <s:element minOccurs="1" maxOccurs="1" name="NumPagFrec" type="s:unsignedInt" />
-              <s:element minOccurs="1" maxOccurs="1" name="NumEnlacesInternosPag" type="s:unsignedInt" />
-              <s:element minOccurs="1" maxOccurs="1" name="NumPagEnlacesInt" type="s:unsignedInt" />
-              <s:element minOccurs="1" maxOccurs="1" name="NumEnlacesAI" type="s:unsignedInt" />
-              <s:element minOccurs="1" maxOccurs="1" name="Intrusion" type="s:boolean" />
-              <s:element minOccurs="1" maxOccurs="1" name="Intruido" type="s:boolean" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="ParametrosSectorSCVKeepAlive">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:ParametrosSectorSCV">
-            <s:sequence>
-              <s:element minOccurs="1" maxOccurs="1" name="KeepAlivePeriod" type="s:unsignedInt" />
-              <s:element minOccurs="1" maxOccurs="1" name="KeepAliveMultiplier" type="s:unsignedInt" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="ParametrosSectorRecording">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:ParametrosSectorSCVKeepAlive">
-            <s:sequence>
-              <s:element minOccurs="1" maxOccurs="1" name="GrabacionEd137" type="s:boolean" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="ParametrosSector">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:ParametrosSectorRecording">
-            <s:sequence>
-              <s:element minOccurs="0" maxOccurs="1" name="IdSector" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="IdNucleo" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="IdSistema" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="NumDestinosInternosPag" type="s:unsignedInt" />
-              <s:element minOccurs="1" maxOccurs="1" name="NumPagDestinosInt" type="s:unsignedInt" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -325,14 +276,25 @@
           </s:extension>
         </s:complexContent>
       </s:complexType>
-      <s:complexType name="ValoresTabla">
+      <s:complexType name="SectoresAgrupacion">
         <s:complexContent mixed="false">
           <s:extension base="tns:Tablas">
             <s:sequence>
-              <s:element minOccurs="1" maxOccurs="1" name="IdValores_Tabla" type="s:int" />
-              <s:element minOccurs="1" maxOccurs="1" name="Tabla_bss_idtabla_bss" type="s:int" />
-              <s:element minOccurs="1" maxOccurs="1" name="Valor_Prop" type="s:int" />
-              <s:element minOccurs="1" maxOccurs="1" name="Valor_rssi" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="IdAgrupacion" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="IdSistema" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="IdSector" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="IdNucleo" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Zonas">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Tablas">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IdZonas" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="IdSistema" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -398,16 +360,6 @@
               <s:element minOccurs="0" maxOccurs="1" name="IdSistema" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="IdSectorOriginal" type="s:string" />
               <s:element minOccurs="1" maxOccurs="1" name="EsDominante" type="s:boolean" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="GruposTelefonia">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:Tablas">
-            <s:sequence>
-              <s:element minOccurs="0" maxOccurs="1" name="IdSistema" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="IdGrupo" type="s:string" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -918,6 +870,8 @@
               <s:element minOccurs="1" maxOccurs="1" name="OffSetFrequency" type="s:int" />
               <s:element minOccurs="1" maxOccurs="1" name="EnableEventPttSq" type="s:boolean" />
               <s:element minOccurs="1" maxOccurs="1" name="Metodos_bss_idmetodos_bss" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="RedundanciaRol" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="RedundanciaIdPareja" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="idTIFX" type="s:string" />
               <s:element minOccurs="1" maxOccurs="1" name="DestRad_tipoFrec" type="s:unsignedInt" />
             </s:sequence>
@@ -984,6 +938,7 @@
               <s:element minOccurs="1" maxOccurs="1" name="SectorSimple" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
               <s:element minOccurs="1" maxOccurs="1" name="NumSacta" type="s:unsignedInt" />
+              <s:element minOccurs="1" maxOccurs="1" name="SeleccionadoFS" type="s:boolean" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -1194,13 +1149,61 @@
           </s:extension>
         </s:complexContent>
       </s:complexType>
-      <s:complexType name="Zonas">
+      <s:complexType name="GruposTelefonia">
         <s:complexContent mixed="false">
           <s:extension base="tns:Tablas">
             <s:sequence>
-              <s:element minOccurs="1" maxOccurs="1" name="IdZonas" type="s:int" />
               <s:element minOccurs="0" maxOccurs="1" name="IdSistema" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="IdGrupo" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ParametrosSectorSCV">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Tablas">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="NumLlamadasEntrantesIda" type="s:unsignedInt" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumLlamadasEnIda" type="s:unsignedInt" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumFrecPagina" type="s:unsignedInt" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumPagFrec" type="s:unsignedInt" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumEnlacesInternosPag" type="s:unsignedInt" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumPagEnlacesInt" type="s:unsignedInt" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumEnlacesAI" type="s:unsignedInt" />
+              <s:element minOccurs="1" maxOccurs="1" name="Intrusion" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="Intruido" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ParametrosSectorSCVKeepAlive">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ParametrosSectorSCV">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="KeepAlivePeriod" type="s:unsignedInt" />
+              <s:element minOccurs="1" maxOccurs="1" name="KeepAliveMultiplier" type="s:unsignedInt" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ParametrosSectorRecording">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ParametrosSectorSCVKeepAlive">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="GrabacionEd137" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ParametrosSector">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ParametrosSectorRecording">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="IdSector" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="IdNucleo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="IdSistema" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumDestinosInternosPag" type="s:unsignedInt" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumPagDestinosInt" type="s:unsignedInt" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -1230,6 +1233,7 @@
               <s:element minOccurs="0" maxOccurs="1" name="ModoTransmision" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="EmplazamientoDefecto" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="TiempoVueltaADefecto" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ConRedundancia" type="s:string" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -1370,6 +1374,7 @@
                 </s:sequence>
               </s:complexType>
             </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="SeleccionadoFS" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -4096,7 +4101,7 @@
       <wsdl:output message="tns:RecursosSinAsignarAEnlacesSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="RecursosSinAsignarAEnlaces1">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Pasándole el identificador del sistema y el tipo de enlace (Radio, Interno o Instantáneo), retorna una lista de recursos compatibles con el tipo del enlace y sin asignar a ningún enlace</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Pasándole el identificador del sistema y el tipo de enlace (Radio , Interno o Instantáneo), retorna una lista de recursos compatibles con el tipo del enlace y sin asignar a ningún enlace</wsdl:documentation>
       <wsdl:input message="tns:RecursosSinAsignarAEnlaces1SoapIn" />
       <wsdl:output message="tns:RecursosSinAsignarAEnlaces1SoapOut" />
     </wsdl:operation>

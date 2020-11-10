@@ -265,13 +265,13 @@
     <value>Accès SIP / IP</value>
   </data>
 	<data name="INF_ACCESO_IP_ALTERNATIVO1" xml:space="preserve">
-    <value>Alternative 1</value>
+    <value>SBC ALTER.</value>
   </data>
 	<data name="INF_ACCESO_IP_ALTERNATIVO2" xml:space="preserve">
-    <value>Alternative 2</value>
+    <value>SCV SITE</value>
   </data>
 	<data name="INF_ACCESO_IP_PPAL" xml:space="preserve">
-    <value>Principal</value>
+    <value>SBC PPAL.</value>
   </data>
 	<data name="INF_ACCESO_IP_SERV_PRESENCIA" xml:space="preserve">
     <value>Servidores de Presencia</value>

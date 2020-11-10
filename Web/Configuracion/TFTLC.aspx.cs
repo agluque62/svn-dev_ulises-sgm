@@ -182,7 +182,12 @@ public partial class TFTLC : PageBaseCD40.PageCD40	// System.Web.UI.Page
                 for (int i = 0; i < datosLCint.Length; i++)
                 {
                     uint pos = ((ServiciosCD40.DestinosInternosSector)datosLCint[i]).PosHMI;
-
+                    //20201019
+                    if (pos >= prefijosPosiciones.Length)
+                    {
+                        cMsg.alert((string)GetGlobalResourceObject("Espaniol", "PanelLcErrorParamCNF"));
+                        continue;
+                    }
                     TableCell tCell = (TableCell)TEnlacesLC.FindControl("TableCell" + pos.ToString());
                     if (tCell != null)
                     {
@@ -206,7 +211,12 @@ public partial class TFTLC : PageBaseCD40.PageCD40	// System.Web.UI.Page
                 for (int i = 0; i < datosLCext.Length; i++)
                 {
                     uint pos = ((ServiciosCD40.DestinosExternosSector)datosLCext[i]).PosHMI;
-
+                    //20201019
+                    if (pos >= prefijosPosiciones.Length)
+                    {
+                        cMsg.alert((string)GetGlobalResourceObject("Espaniol", "PanelLcErrorParamCNF"));
+                        continue;
+                    }
                     TableCell tCell = (TableCell)TEnlacesLC.FindControl("TableCell" + pos.ToString());
                     if (tCell != null)
                     {

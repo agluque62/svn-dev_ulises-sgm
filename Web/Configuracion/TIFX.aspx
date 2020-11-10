@@ -187,7 +187,25 @@
                         ErrorMessage="El tiempo de supervision de las sesiones SIP deber ser numérico y debe tomar un valor en el intervalo [90,1800] segundos."
                         MinimumValue="90" MaximumValue="1800" Style="z-index: 131; left: 350px; position: absolute;
                         top: 260px" Type="Integer" meta:resourcekey="RV_TxtTimeSupervisionResource1">*</asp:RangeValidator>
+
+                    <asp:RangeValidator ID="RangeValidatorSIPLocal" runat="server" ControlToValidate="TxtPortSIPLocal"
+						ErrorMessage="El campo puerto local SIP deber ser numérico y mayor de 1024."
+						MaximumValue="65535" MinimumValue="1025" Style="z-index: 131; left: 264px; position: absolute;
+						top: 181px" Type="Integer" meta:resourcekey="RangeValidatorSIPLocalResource1">*</asp:RangeValidator>
+					<asp:RequiredFieldValidator ID="RequiredFieldSIP" runat="server" ControlToValidate="TxtPortSIPLocal"
+						ErrorMessage="El puerto local para SIP no puede estar vacio." Style="z-index: 143;
+						left: 253px; position: absolute; top: 45px" 
+						meta:resourcekey="RequiredFieldSIPResource1">*</asp:RequiredFieldValidator>
+					<asp:RangeValidator ID="RangeValidatorTimeSupervision" runat="server" ControlToValidate="TxtTimeSupervision"
+						ErrorMessage="El campo Tiempo Supervisión deber ser numérico." MinimumValue="0"
+						Style="z-index: 135; left: 80px; position: absolute; top: 32px" Type="Integer" 
+						MaximumValue="100000" meta:resourcekey="RangeValidatorTimeSupervisionResource1">*</asp:RangeValidator>
+					<asp:RequiredFieldValidator ID="RequiredFieldTimeSupervision" runat="server" ControlToValidate="TxtTimeSupervision"
+						ErrorMessage="El campo Tiempo Supervisión no puede estar vacio." Style="z-index: 136;
+						left: 80px; position: absolute; top: 32px" 
+						meta:resourcekey="RequiredFieldTimeSupervisionResource1">*</asp:RequiredFieldValidator>
 				</asp:View>
+                <%--
 				<asp:View ID="ViewSIP" runat="server">
                     <table runat="server" id="TblRecorders" style="position: absolute; top: 50px; left: 17px" visible="True">
                         <tr>
@@ -224,7 +242,7 @@
                             </td>
                         </tr>
                     </table>
-
+                     <%--
                     <asp:RangeValidator ID="RangeValidatorSIPLocal" runat="server" ControlToValidate="TxtPortSIPLocal"
 						ErrorMessage="El campo puerto local SIP deber ser numérico y mayor de 1024."
 						MaximumValue="65535" MinimumValue="1025" Style="z-index: 131; left: 264px; position: absolute;
@@ -241,8 +259,8 @@
 						ErrorMessage="El campo Tiempo Supervisión no puede estar vacio." Style="z-index: 136;
 						left: 80px; position: absolute; top: 32px" 
 						meta:resourcekey="RequiredFieldTimeSupervisionResource1">*</asp:RequiredFieldValidator>
-
 				</asp:View>
+                 --%>
 				<asp:View ID="ViewSNMP" runat="server">
 					 <asp:Label ID="Label11" runat="server" Style="z-index: 119; left: 14px; position: absolute;
 						  top: 12px; " Text="Puerto Local SNMP:" meta:resourcekey="Label11Resource1"></asp:Label>
@@ -443,16 +461,24 @@
 		  ImageUrl="~/Configuracion/Images/MenuTifxPropGeneralesSelected.JPG" 
 		  OnClick="OnButton_Click" 
 		  meta:resourcekey="IBPropiedadesGeneralesResource1" />
+    <asp:Button ID="IBProtocoloSNMP" runat="server" ImageUrl="~/Configuracion/Images/MenuTifxProtocoloSNMPUnSelected.JPG"
+		Style="z-index: 147; left: 338px; position: absolute; top: 58px"  SkinID="ButtonTab"
+		  OnClick="OnButton_Click" meta:resourcekey="IBProtocoloSNMPResource1" />
+	<asp:Button ID="IBRecursos" runat="server" ImageUrl="~/Configuracion/Images/MenuTifxRecursosUnSelected.JPG"
+		Style="z-index: 148; left: 446px; position: absolute; top: 58px"  SkinID="ButtonTab"
+		  OnClick="OnButton_Click" meta:resourcekey="IBRecursosResource1" />
+    <%--// #4579
 	<asp:Button ID="IBProtocoloSIP" runat="server" ImageUrl="~/Configuracion/Images/MenuTifxProtocoloSIPUnSelected.JPG"
 		Style="z-index: 147; left: 338px; position: absolute; top: 58px"  SkinID="ButtonTab"
-		  OnClick="OnButton_Click" meta:resourcekey="IBProtocoloSIPResource1" />
+		  OnClick="OnButton_Click" meta:resourcekey="IBProtocoloSIPResource1" /> --%>
+    <%--// #4579
 	<asp:Button ID="IBProtocoloSNMP" runat="server" ImageUrl="~/Configuracion/Images/MenuTifxProtocoloSNMPUnSelected.JPG"
 		Style="z-index: 148; left: 446px; position: absolute; top: 58px"  SkinID="ButtonTab"
 		  OnClick="OnButton_Click" meta:resourcekey="IBProtocoloSNMPResource1" />
 	<asp:Button ID="IBRecursos" runat="server" ImageUrl="~/Configuracion/Images/MenuTifxRecursosUnSelected.JPG"
 		Style="z-index: 149; left: 556px; position: absolute; top: 58px"  SkinID="ButtonTab"
 		  OnClick="OnButton_Click" meta:resourcekey="IBRecursosResource1" />
-
+    --%>
 </asp:Content>
 
 

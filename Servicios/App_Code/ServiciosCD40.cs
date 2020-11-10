@@ -674,7 +674,7 @@ public partial class ServiciosCD40 : System.Web.Services.WebService
     /// <param name="id_sistema"></param>
     /// <param name="tipoEnlace"></param>
     /// <returns></returns>
-    [WebMethod(Description = "Pasándole el identificador del sistema y el tipo de enlace (Radio, Interno o Instantáneo), retorna una lista de recursos compatibles" +
+    [WebMethod(Description = "Pasándole el identificador del sistema y el tipo de enlace (Radio , Interno o Instantáneo), retorna una lista de recursos compatibles" +
                         " con el tipo del enlace y sin asignar a ningún enlace")]
     public Tablas[] RecursosSinAsignarAEnlaces1(string id_sistema, int tipoEnlace, string site)
     {
@@ -1288,7 +1288,6 @@ public partial class ServiciosCD40 : System.Web.Services.WebService
 			//Utilidades.GeneraFicheroCnfParaProxy(GestorBDCD40.ConexionMySql, id_sistema);
 			
             CD40.BD.GestorBaseDatos.logFile.Debug("ServiciosCD40.ComunicaSectorizacionActiva: Fin ejecución. Valor de retorno=" + retorno);
-
             return retorno;
         }
         else if (toSincro == "1")
@@ -1301,6 +1300,7 @@ public partial class ServiciosCD40 : System.Web.Services.WebService
 
         CD40.BD.GestorBaseDatos.logFile.Debug("ServiciosCD40.ComunicaSectorizacionActiva: Fin ejecución. Valor de retorno=false");
         //CD40.BD.Utilidades.EndSnmp();
+
         return false;
     }
 
@@ -2652,13 +2652,18 @@ public partial class ServiciosCD40 : System.Web.Services.WebService
     /// <param name="dsAgenda"></param>
     [WebMethod]
     public void ActualizaSector(bool modificando, Sectores n, Niveles niv, TeclasSector tec, ParametrosSector parsec,
-                                DataSet dsNumerosAbonado, DataSet dsAgenda)
+                                DataSet dsNumerosAbonado, DataSet dsAgenda, bool SeleccionadoFS)
     {
 
         MySql.Data.MySqlClient.MySqlTransaction tran = GestorBDCD40.StartTransaction(true);
 
         try
         {
+            if (SeleccionadoFS)
+            {
+                //20200911 JOI #4591
+                Procedimientos.GestionaFS(GestorBDCD40.ConexionMySql, tran, n.IdSistema, n.IdNucleo, n.IdSector, SeleccionadoFS);
+            }
             if (!modificando) //Sector nuevo
             {
                 GestorBDCD40.InsertSQL(n, tran);

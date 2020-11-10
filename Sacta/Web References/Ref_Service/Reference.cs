@@ -5945,6 +5945,8 @@ namespace Sacta.Ref_Service {
         private string tipoField;
         
         private uint numSactaField;
+
+        private bool seleccionadoFSField;
         
         /// <comentarios/>
         public string IdSistema {
@@ -6023,6 +6025,18 @@ namespace Sacta.Ref_Service {
             }
             set {
                 this.numSactaField = value;
+            }
+        }
+        /// <comentarios/>
+        public bool SeleccionadoFS
+        {
+            get
+            {
+                return this.seleccionadoFSField;
+            }
+            set
+            {
+                this.seleccionadoFSField = value;
             }
         }
     }

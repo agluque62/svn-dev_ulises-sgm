@@ -460,7 +460,7 @@
     <value />
   </data>
   <data name="Label4Resource1.Text" xml:space="preserve">
-    <value>Number of phone links by page:</value>
+    <value>Number of phone links by page  (no key +1):</value>
   </data>
   <data name="Label4Resource1.ToolTip" xml:space="preserve">
     <value />
@@ -1156,7 +1156,7 @@
     <value />
   </data>
   <data name="Label28Resource1.Text" xml:space="preserve">
-    <value>Number of internal links per page:</value>
+    <value>Number of internal links per page  (no key+1):</value>
   </data>
   <data name="Label28Resource1.ToolTip1" xml:space="preserve">
     <value />
@@ -1334,5 +1334,32 @@
   </data>
   <data name="WarnResource.Text" xml:space="preserve">
     <value>Before changing number of frequencies or links per page, you should remove their asignations in sectors</value>
+  </data>
+  <data name="RangeValidator5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RangeValidator6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RangeValidator7Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RangeValidator5Resource1.ErrorMessage" xml:space="preserve">
+    <value>Number of pages of frequencies must be between 1 and 9.</value>
+  </data>
+  <data name="RangeValidator5Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RangeValidator6Resource1.ErrorMessage1" xml:space="preserve">
+    <value>Number of phone links by page field must be between 3 and 15.</value>
+  </data>
+  <data name="RangeValidator6Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="RangeValidator7Resource1.ErrorMessage" xml:space="preserve">
+    <value>The number of internal links per pagei must be between 9 and 18.</value>
+  </data>
+  <data name="RangeValidator7Resource1.Text" xml:space="preserve">
+    <value>*</value>
   </data>
 </root>
